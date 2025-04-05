@@ -8,6 +8,7 @@ use Livewire\Component;
 class Orders extends Component
 {
     public $orders;
+    protected $listeners = ['cancelOrder'];
     public function mount()
     {
         $this->orders = Order::where('user_id', auth()->user()->id)->get();
@@ -19,12 +20,14 @@ class Orders extends Component
     public function cancelOrder($id)
     {
         $order = Order::find($id);
-        if ($order->status == 'pending') {
+        // dd($order);
+        if ($order && $order->status == 'pending') {
             $order->status = 'canceled';
+            $this->dispatch('orderCancelled'); // Gửi sự kiện đến frontend
             $order->save();
-
         }
     }
+
     public function render()
     {
         return view('livewire.orders');

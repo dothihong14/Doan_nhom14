@@ -18,12 +18,14 @@ class ReservationResource extends Resource
 {
     protected static ?string $model = Reservation::class;
     protected static ?string $navigationGroup = 'Quản lý Nhà Hàng';
+    protected static ?string $navigationLabel = 'Lịch đặt bàn';
     public static function getPluralModelLabel(): string
     {
-        return 'Danh sách đặt bàn';
+        return 'Danh sách Lịch đặt bàn';
     }
     protected static ?string $navigationIcon = 'heroicon-o-calendar';
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 1;
+
 
     public static function form(Form $form): Form
     {
@@ -47,9 +49,9 @@ class ReservationResource extends Resource
                         Forms\Components\TextInput::make('user_id')
                             ->numeric()
                             ->label('ID người dùng'),
-                        Forms\Components\TextInput::make('restaurant_id')
-                            ->numeric()
-                            ->label('ID nhà hàng'),
+                        Forms\Components\Select::make('restaurant_id')
+                            ->options(Restaurant::all()->pluck('name', 'id'))
+                            ->label('Nhà hàng'),
                         Forms\Components\TextInput::make('number_of_people')
                             ->required()
                             ->numeric()
@@ -76,6 +78,7 @@ class ReservationResource extends Resource
                             ->options([
                                 'pending' => 'Chờ xác nhận',
                                 'confirmed' => 'Đã xác nhận',
+                                'completed' => 'Đã hoàn thành',
                                 'cancelled' => 'Đã hủy',
                             ])
                             ->label('Trạng thái'),
@@ -89,7 +92,7 @@ class ReservationResource extends Resource
                 Tables\Columns\TextColumn::make('reservation_code')
                     ->searchable()
                     ->label('Mã đặt bàn'),
-                Tables\Columns\TextColumn::make('user.name')
+                Tables\Columns\TextColumn::make('name')
                     ->numeric()
                     ->searchable()
                     ->label('Tên người đặt')
@@ -122,8 +125,13 @@ class ReservationResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->label('Ngày đặt'),
-                Tables\Columns\TextColumn::make('status')
-                    ->badge()
+                Tables\Columns\SelectColumn::make('status')
+                    ->options([
+                        'pending' => 'Chờ xác nhận',
+                        'confirmed' => 'Đã xác nhận',
+                        'completed' => 'Đã hoàn thành',
+                        'cancelled' => 'Đã hủy',
+                    ])
                     ->label('Trạng thái'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

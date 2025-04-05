@@ -1,7 +1,7 @@
 <div>
 
     <head>
-        <title>Checkout</title>
+        <title>Đặt hàng</title>
         <link rel="dns-prefetch" href="//fonts.googleapis.com">
         <link rel="dns-prefetch" href="//s.w.org">
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
@@ -989,18 +989,6 @@
         <script src='/delicioz/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
         <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/jarallax.js?ver=6.0.2'
             id='jarallax-js'></script>
-        <link rel="https://api.w.org/" href="/delicioz/wp-json/" />
-        <link rel="alternate" type="application/json" href="/delicioz/wp-json/wp/v2/pages/11" />
-        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/delicioz/xmlrpc.php?rsd" />
-        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/delicioz/wp-includes/wlwmanifest.xml" />
-        <meta name="generator" content="WordPress 6.0.2" />
-        <meta name="generator" content="WooCommerce 6.8.2" />
-        <link rel="canonical" href="/delicioz/checkout/" />
-        <link rel='shortlink' href='/delicioz/?p=11' />
-        <link rel="alternate" type="application/json+oembed"
-            href="/delicioz/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo2.themelexus.com%2Fdelicioz%2Fcheckout%2F" />
-        <link rel="alternate" type="text/xml+oembed"
-            href="/delicioz/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo2.themelexus.com%2Fdelicioz%2Fcheckout%2F&#038;format=xml" />
         <noscript>
             <style>
                 .woocommerce-product-gallery {
@@ -1202,9 +1190,9 @@
                                         data-id="901b06e" data-element_type="widget"
                                         data-widget_type="woocommerce-breadcrumb.default">
                                         <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">Checkout</div>
-                                            <nav class="woocommerce-breadcrumb"><a href="/">Home Page</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i>Checkout</nav>
+                                            <div class="delicioz-woocommerce-title">Thanh toán</div>
+                                            <nav class="woocommerce-breadcrumb"><a href="/">Trang chủ</a><i
+                                                    class="delicioz-icon-arrow-right-s-line"></i>Thanh toán</nav>
                                         </div>
                                     </div>
                                 </div>
@@ -1251,7 +1239,7 @@
                                                 <div class="col-1">
                                                     <div class="woocommerce-billing-fields">
 
-                                                        <h3>Billing details</h3>
+                                                        <h3>Thông tin người nhận</h3>
 
 
 
@@ -1260,7 +1248,7 @@
                                                             <p class="form-row form-row-wide" id="billing_company_field"
                                                                 data-priority="30"><label for="billing_company"
                                                                     class="">Tên người nhận&nbsp;<span
-                                                                        class="optional">(optional)</span></label><span
+                                                                        class="optional">(tùy chọn)</span></label><span
                                                                     class="woocommerce-input-wrapper"><input type="text"
                                                                         class="input-text " wire:model="name"
                                                                         id="billing_company" placeholder="" value=""
@@ -1268,7 +1256,7 @@
                                                             <p class="form-row form-row-wide" id="billing_company_field"
                                                                 data-priority="30"><label for="billing_company"
                                                                     class="">Số điện thoại&nbsp;<span
-                                                                        class="optional">(optional)</span></label><span
+                                                                        class="optional">(tùy chọn)</span></label><span
                                                                     class="woocommerce-input-wrapper"><input type="text"
                                                                         class="input-text " wire:model="phone"
                                                                         id="billing_company" placeholder="" value=""
@@ -1276,23 +1264,52 @@
                                                             <p class="form-row form-row-wide" id="billing_company_field"
                                                                 data-priority="30"><label for="billing_company"
                                                                     class="">Email&nbsp;<span
-                                                                        class="optional">(optional)</span></label><span
-                                                                    class="woocommerce-input-wrapper"><input type="text"
+                                                                        class="optional">(tùy chọn)</span></label><span
+                                                                    class="woocommerce-input-wrapper" style="
+                                                                    display: flex;
+                                                                "><input type="text"
                                                                         class="input-text " wire:model="email"
                                                                         id="billing_company" placeholder="" value=""
-                                                                        autocomplete="organization" /></span></p>
+                                                                        autocomplete="organization" />
+                                                                        @if (!auth()->check())
+                                                                        <button type="button" wire:click="sendVerificationCode">Gửi mã xác thực</button></span>
+                                                                        @endif
+                                                                     </p>
+                                                                     @if (!auth()->check())
+                                                                        <p class="form-row">
+                                                                            <label for="verification_code">Nhập mã xác thực:</label>
+                                                                            <div style="display: flex;">
+                                                                                <input style="width: 100%;" type="text" wire:model="enteredCode">
+                                                                                <button type="button" wire:click="verifyCode">Xác thực</button>
+                                                                            </div>
+                                                                        </p>
+                                                                        @endif
                                                             <p class="form-row form-row-wide address-field validate-required"
                                                                 id="billing_address_1_field" data-priority="50"><label
-                                                                    for="billing_address_1" class="">Street
-                                                                    address&nbsp;<abbr class="required"
+                                                                    for="billing_address_1" class="">Địa chỉ&nbsp;<abbr class="required"
                                                                         title="required">*</abbr></label><span
                                                                     class="woocommerce-input-wrapper"><input type="text"
                                                                         class="input-text " wire:model="address"
                                                                         id="billing_address_1"
-                                                                        placeholder="House number and street name"
+                                                                            placeholder="Số nhà và tên đường"
                                                                         value="" autocomplete="address-line1" /></span>
                                                             </p>
+                                                            <p class="form-row form-row-wide address-field validate-required"
+                                                            id="billing_address_1_field" data-priority="50"><label
+                                                                for="billing_address_1" class="">Nhà hàng&nbsp;<abbr
+                                                                    class="required"
+                                                                    title="required">*</abbr></label><span
+                                                                class="woocommerce-input-wrapper"><select
+                                                                    class="input-text " wire:model.live="restaurant_id"
+                                                                    id="billing_address_1"
+                                                                    placeholder="Số nhà và tên đường">
+                                                                    @foreach($restaurants as $restaurant)
+                                                                        <option value="{{ $restaurant->id }}">
+                                                                            {{ $restaurant->name }}</option>
+                                                                    @endforeach
+                                                                </select></span>
 
+                                                        </p>
                                                         </div>
 
                                                     </div>
@@ -1306,18 +1323,18 @@
 
 
 
-                                                        <h3>Additional information</h3>
+                                                        <h3>Thông tin thêm</h3>
 
 
                                                         <div class="woocommerce-additional-fields__field-wrapper">
                                                             <p class="form-row notes" id="order_comments_field"
                                                                 data-priority=""><label for="order_comments"
-                                                                    class="">Order notes&nbsp;<span
-                                                                        class="optional">(optional)</span></label><span
+                                                                    class="">Ghi chú đơn hàng&nbsp;<span
+                                                                        class="optional">(tùy chọn)</span></label><span
                                                                     class="woocommerce-input-wrapper"><textarea
                                                                         name="order_comments" class="input-text "
                                                                         id="order_comments"
-                                                                        placeholder="Notes about your order, e.g. special notes for delivery."
+                                                                        placeholder="Ghi chú đơn hàng, ví dụ: ghi chú giao hàng."
                                                                         rows="2" cols="5"></textarea></span></p>
                                                         </div>
 
@@ -1328,13 +1345,13 @@
 
 
                                             <div id="order_review" class="woocommerce-checkout-review-order">
-                                                <h3 id="order_review_heading">Your order</h3>
+                                                <h3 id="order_review_heading">Đơn hàng của bạn</h3>
                                                 <div class="checkout-review-order-table-wrapper">
                                                     <table class="shop_table woocommerce-checkout-review-order-table">
                                                         <thead>
                                                             <tr>
-                                                                <th class="product-name">Product</th>
-                                                                <th class="product-total">Subtotal</th>
+                                                                <th class="product-name">Sản phẩm</th>
+                                                                <th class="product-total">Tổng tiền</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -1346,7 +1363,7 @@
                                                                     </td>
                                                                     <td class="product-total">
                                                                         <span class="woocommerce-Price-amount amount"><bdi><span
-                                                                                    class="woocommerce-Price-currencySymbol">$</span>{{ number_format($item['unit_amount'], 2) }}</bdi></span>
+                                                                                    class="woocommerce-Price-currencySymbol"></span>{{ number_format($item['unit_amount'], 2) }} VNĐ</bdi></span>
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
@@ -1356,9 +1373,9 @@
                                                         <tfoot>
 
                                                             <tr class="cart-subtotal">
-                                                                <th>Subtotal</th>
+                                                                <th>Tổng tiền</th>
                                                                 <td><span class="woocommerce-Price-amount amount"><bdi><span
-                                                                                class="woocommerce-Price-currencySymbol">$</span>{{ number_format($totalAmount, 2) }}</bdi></span>
+                                                                                class="woocommerce-Price-currencySymbol"></span>{{ number_format($totalAmount, 2) }} VNĐ</bdi></span>
                                                                 </td>
                                                             </tr>
 
@@ -1368,10 +1385,10 @@
 
 
                                                             <tr class="order-total">
-                                                                <th>Total</th>
+                                                                <th>Tổng tiền</th>
                                                                 <td><strong><span
                                                                             class="woocommerce-Price-amount amount"><bdi><span
-                                                                                    class="woocommerce-Price-currencySymbol">$</span>{{ number_format($totalAmount, 2) }}</bdi></span></strong>
+                                                                                    class="woocommerce-Price-currencySymbol"></span>{{ number_format($totalAmount, 2) }} VNĐ</bdi></span></strong>
                                                                 </td>
                                                             </tr>
 
@@ -1382,34 +1399,30 @@
                                                 </div>
                                                 <div id="payment" class="woocommerce-checkout-payment">
                                                     <div>
-                                                        <label>Payment Method:</label><br>
-                                                        <label>
+                                                        <label>Phương thức thanh toán:</label><br>
+                                                        <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
                                                             <input type="radio" wire:model="paymentMethod" value="cod"
                                                                 required="">
-                                                            Cash on Delivery
+                                                            Thanh toán khi nhận hàng
                                                         </label><br>
-                                                        <label>
+                                                        <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
                                                             <input type="radio" wire:model="paymentMethod" value="bank"
                                                                 required="">
-                                                            Bank Transfer
+                                                            Chuyển khoản ngân hàng
                                                         </label>
                                                     </div>
                                                     <div class="form-row place-order">
                                                         <noscript>
-                                                            Since your browser does not support JavaScript, or it is
-                                                            disabled, please ensure you click the <em>Update Totals</em>
-                                                            button before placing your order. You may be charged more
-                                                            than the amount stated above if you fail to do so.
+                                                            Do không hỗ trợ JavaScript, vui lòng bấm nút <em>Cập nhật tổng tiền</em>
+                                                            trước khi đặt hàng. Bạn có thể bị tính thêm phí nếu không làm điều đó.
                                                             <br /><button type="submit" class="button alt"
                                                                 name="woocommerce_checkout_update_totals"
-                                                                value="Update totals">Update totals</button>
+                                                                value="Cập nhật tổng tiền">Cập nhật tổng tiền</button>
                                                         </noscript>
 
                                                         <div class="woocommerce-terms-and-conditions-wrapper">
                                                             <div class="woocommerce-privacy-policy-text">
-                                                                <p>Your personal data will be used to process your
-                                                                    order, support your experience throughout this
-                                                                    website, and for other purposes described in our <a
+                                                                <p>Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng của bạn, hỗ trợ trải nghiệm của bạn trên trang web này, và cho các mục đích khác được mô tả trong <a
                                                                         href="" class="woocommerce-privacy-policy-link"
                                                                         target="_blank">privacy policy</a>.</p>
                                                             </div>
@@ -1418,14 +1431,7 @@
 
                                                         <button type="submit" class="button alt"
                                                             name="woocommerce_checkout_place_order" id="place_order"
-                                                            value="Place order" data-value="Place order">Place
-                                                            order</button>
-
-                                                        <input type="hidden" id="woocommerce-process-checkout-nonce"
-                                                            name="woocommerce-process-checkout-nonce"
-                                                            value="6a23f9862e"><input type="hidden"
-                                                            name="_wp_http_referer"
-                                                            value="/delicioz/?wc-ajax=update_order_review">
+                                                            value="Thanh toán" data-value="Thanh toán">Thanh toán</button>
                                                     </div>
                                                 </div>
 
@@ -1465,77 +1471,8 @@
             window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
             window.RS_MODULES.type = 'compiled';
         </script>
-        <div class="site-search-popup">
-            <div class="site-search-popup-wrap">
-                <a href="#" class="site-search-popup-close"><i class="delicioz-icon-times-circle"></i></a>
-                <div class="site-search ajax-search">
-                    <div class="widget woocommerce widget_product_search">
-                        <div class="ajax-search-result d-none"></div>
-                        <form role="search" method="get" class="woocommerce-product-search" action="/delicioz/">
-                            <label class="screen-reader-text" for="woocommerce-product-search-field-1">Search
-                                for:</label>
-                            <input type="search" id="woocommerce-product-search-field-1" class="search-field"
-                                placeholder="Search products&hellip;" autocomplete="off" value="" name="s" />
-                            <button type="submit" value="Search">Search</button>
-                            <input type="hidden" name="post_type" value="product" />
-                            <div class="search-by-category input-dropdown">
-                                <div class="input-dropdown-inner delicioz-scroll-content">
-                                    <!--                    <input type="hidden" name="product_cat" value="0">-->
-                                    <a href="#" data-val="0"><span>All category</span></a>
-                                    <select name='product_cat' id='product_cat0' class='dropdown_product_cat_ajax'>
-                                        <option value='' selected='selected'>All category</option>
-                                        <option class="level-0" value="accessories">Accessories</option>
-                                        <option class="level-0" value="desserts">Desserts</option>
-                                        <option class="level-0" value="food">Food</option>
-                                        <option class="level-0" value="humburger">Humburger</option>
-                                        <option class="level-0" value="recipes">Recipes</option>
-                                        <option class="level-0" value="uncategorized">Uncategorized</option>
-                                        <option class="level-0" value="whiskey">Whiskey</option>
-                                    </select>
-                                    <div class="list-wrapper delicioz-scroll">
-                                        <ul class="delicioz-scroll-content">
-                                            <li class="d-none">
-                                                <a href="#" data-val="0">All category</a>
-                                            </li>
-                                            <li class="cat-item cat-item-42"><a class="pf-value"
-                                                    href="/delicioz/product-category/accessories/"
-                                                    data-val="accessories" data-title="Accessories">Accessories</a>
-                                            </li>
-                                            <li class="cat-item cat-item-35"><a class="pf-value"
-                                                    href="/delicioz/product-category/desserts/" data-val="desserts"
-                                                    data-title="Desserts">Desserts</a>
-                                            </li>
-                                            <li class="cat-item cat-item-38"><a class="pf-value"
-                                                    href="/delicioz/product-category/food/" data-val="food"
-                                                    data-title="Food">Food</a>
-                                            </li>
-                                            <li class="cat-item cat-item-40"><a class="pf-value"
-                                                    href="/delicioz/product-category/humburger/" data-val="humburger"
-                                                    data-title="Humburger">Humburger</a>
-                                            </li>
-                                            <li class="cat-item cat-item-39"><a class="pf-value"
-                                                    href="/delicioz/product-category/recipes/" data-val="recipes"
-                                                    data-title="Recipes">Recipes</a>
-                                            </li>
-                                            <li class="cat-item cat-item-15"><a class="pf-value"
-                                                    href="/delicioz/product-category/uncategorized/"
-                                                    data-val="uncategorized"
-                                                    data-title="Uncategorized">Uncategorized</a>
-                                            </li>
-                                            <li class="cat-item cat-item-37"><a class="pf-value"
-                                                    href="/delicioz/product-category/whiskey/" data-val="whiskey"
-                                                    data-title="Whiskey">Whiskey</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="site-search-popup-overlay"></div>
+        @livewire('inc.search')
+
         <script>(function () {
                 function maybePrefixUrlField() {
                     if (this.value.trim() !== '' && this.value.indexOf('http') !== 0) {

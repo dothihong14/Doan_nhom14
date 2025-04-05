@@ -9,4 +9,5 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateRestaurant extends CreateRecord
 {
     protected static string $resource = RestaurantResource::class;
+    protected static ?string $title = 'Tạo mới cơ sở';
 }

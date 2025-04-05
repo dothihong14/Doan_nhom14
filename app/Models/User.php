@@ -3,11 +3,15 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\AvatarProviders\UiAvatarsProvider;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Traits\HasRoles;
-class User extends Authenticatable
+use Filament\Models\Contracts\HasAvatar;
+
+class User extends Authenticatable implements HasAvatar
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable,HasRoles;
@@ -25,6 +29,7 @@ class User extends Authenticatable
         'phone',
         'is_locked',
         'loyalty_points',
+        'avatar_url',
     ];
 
     /**
@@ -48,5 +53,17 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function getFilamentAvatarUrl(): ?string
+    {
+
+        if (empty($this->avatar_url))
+            return (new UiAvatarsProvider())->get($this);
+
+        return asset('storage/' . $this->avatar_url);
+    }
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurant::class);
     }
 }

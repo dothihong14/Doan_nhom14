@@ -10,13 +10,10 @@ class Dish extends Model
     use HasFactory;
 
     protected $fillable = [
-        'restaurant_id', 'name', 'description', 'food_category_id', 'price',  'image', 'slug', 'sold_quantity'
+ 'name', 'description', 'food_category_id', 'price',  'image', 'slug', 'sold_quantity', 'status'
     ];
 
-    public function restaurant()
-    {
-        return $this->belongsTo(Restaurant::class);
-    }
+
 
     public function food_category()
     {

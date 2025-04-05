@@ -32,18 +32,23 @@ class TableDishRelationManagerRelationManager extends RelationManager
             Forms\Components\TextInput::make('quantity')
                 ->required()
                 ->numeric()
+                ->default(1)
+                ->minValue(1)
                 ->label('Số lượng'),
 
-            Forms\Components\DateTimePicker::make('served_at')
-                ->label('Thời gian phục vụ')
-                ->nullable()
-                ,
+            // Forms\Components\DateTimePicker::make('served_at')
+            //     ->label('Thời gian phục vụ')
+            //     ->nullable()
+            //     ->default(now())
+            //     ,
             Forms\Components\Select::make('status')
                 ->options([
-                    'pending' => 'Chưa phục vụ',
-                    'served' => 'Đã phục vụ',
+                    'pending' => 'Chưa làm',
+                    'served' => 'Đã làm',
                 ])
                 ->label('Trạng thái')
+                ->default('pending')
+                ->required()
         ]);
     }
 
@@ -54,14 +59,18 @@ class TableDishRelationManagerRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('dish.name')->label('Món ăn'),
                 Tables\Columns\TextColumn::make('quantity')->label('Số lượng'),
-                Tables\Columns\TextColumn::make('served_at')->label('Thời gian phục vụ')->dateTime(),
-                Tables\Columns\TextColumn::make('status')->label('Trạng thái')->badge(),
+                Tables\Columns\TextColumn::make('created_at')->label('Thời gian phục vụ')->dateTime(),
+                Tables\Columns\SelectColumn::make('status')->label('Trạng thái')->options([
+                    'pending' => 'Chưa làm',
+                    'served' => 'Đã làm',
+                ]),
             ])
             ->filters([
                 //
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
+                Tables\Actions\CreateAction::make()
+                ->label('Thêm món ăn'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

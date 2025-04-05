@@ -14,7 +14,7 @@ class RestaurantDetail extends Component
     public function mount($id)
     {
         $this->restaurant = Restaurant::find($id);
-        $this->dishbyrestaurant = Dish::where('restaurant_id', $id)->inRandomOrder()->take(4)->get();
+        $this->dishbyrestaurant = Dish::inRandomOrder()->take(4)->get();
     }
 
     public function render()
