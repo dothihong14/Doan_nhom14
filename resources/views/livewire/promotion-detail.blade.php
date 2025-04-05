@@ -2,20 +2,17 @@
 
     <head>
         <title>{{ $promotion->title }}</title>
-        <meta name='robots' content='max-image-preview:large' />
-        <link rel="dns-prefetch" href="//fonts.googleapis.com">
-        <link rel="dns-prefetch" href="//s.w.org">
-        <link rel="pingback" href="https://demo2.themelexus.com/delicioz/xmlrpc.php">
-        <link rel='dns-prefetch' href='//demo2.themelexus.com' />
-        <link rel='dns-prefetch' href='//fonts.googleapis.com' />
-        <link rel='dns-prefetch' href='//s.w.org' />
-        <link rel="alternate" type="application/rss+xml" title="Delicioz &raquo; Feed"
-            href="https://demo2.themelexus.com/delicioz/feed/" />
-        <link rel="alternate" type="application/rss+xml" title="Delicioz &raquo; Comments Feed"
-            href="https://demo2.themelexus.com/delicioz/comments/feed/" />
-        <link rel="alternate" type="application/rss+xml"
-            title="Delicioz &raquo; 10 Restaurant patio decor ideas for summer Comments Feed"
-            href="https://demo2.themelexus.com/delicioz/10-restaurant-patio-decor-ideas-for-summer/feed/" />
+        <style>
+            div#page {
+                background: white;
+            }
+            .entry-content  strong, .entry-content  p , .entry-content  h2 , .entry-content  h3 , .entry-content  h4 , .entry-content  h5 , .entry-content  h6 {
+                color: black !important;
+            }
+            .entry-content strong {
+                color: black !important;
+            }
+          </style>
         <script>
             window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "https:\/\/demo2.themelexus.com\/delicioz\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.0.2" } };
             /*! This file is auto-generated */
@@ -1235,9 +1232,9 @@
                                 <div class="single-content">
                                     <header class="entry-header">
                                         <div class="posted-on"><a
-                                                href="https://demo2.themelexus.com/delicioz/10-restaurant-patio-decor-ideas-for-summer/"
+
                                                 rel="bookmark">{{ $promotion->created_at->format('d/m/Y') }}</a></div>
-                                        <h1 class="alpha entry-title">{{ $promotion->title }}</h1>
+                                        <h1 class="alpha entry-title" style="color: black;">{{ $promotion->title }}</h1>
 
                                     </header><!-- .entry-header -->
                                     <div class="post-thumbnail"><img width="1000" height="510"
@@ -1245,7 +1242,7 @@
                                             width: 100%;
                                         " class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" />
                                     </div>
-                                    <div class="entry-content"> {!! $promotion->description !!}</div><!-- .entry-content -->
+                                    <div class="entry-content" style="color: black;"> {!! $promotion->description !!}</div><!-- .entry-content -->
                                 </div>
 
                             </article><!-- #post-## -->
@@ -1352,9 +1349,9 @@
                                                             <div class="elementor-image-box-content">
                                                                 <div class="icon"></div>
                                                                 <h3 class="elementor-image-box-title"><a
-                                                                        href="/reservation/">About
+                                                                        href="/reservation/" style="color: black;">About
                                                                         Our Restaurant</a></h3>
-                                                                <p class="elementor-image-box-description">By day,
+                                                                <p class="elementor-image-box-description" style="color: black;">By day,
                                                                     Delicioz provides a hub to meet friends and
                                                                     colleagues with a well-crafted wine list, discreet
                                                                     yet professional service and sophisticated menus all
@@ -1377,14 +1374,14 @@
 
 
                         <div id="recent-posts-2" class="widget widget_recent_entries"> <span
-                                class="gamma widget-title">Latest Post</span>
+                                class="gamma widget-title" style="color: black;">Latest Post</span>
                             <div class="widget-content">
                                 <ul>
                                     @foreach ($promotions as $promotion)
                                     <li>
                                         <div class="recent-posts-thumbnail">
                                             <a
-                                                href="/promotion/{{ $promotion->slug }}">
+                                                href="/promotion/{{ $promotion->slug }}" style="color: black;">
                                                 <img width="150" height="150"
                                                     src="{{ Storage::url($promotion->banner) }}"
                                                     class="attachment-thumbnail size-thumbnail wp-post-image" alt=""
@@ -1392,9 +1389,9 @@
                                                     sizes="(max-width: 150px) 100vw, 150px"> </a>
                                         </div>
                                         <div class="recent-posts-info">
-                                            <span class="post-date">{{ $promotion->created_at->format('d/m/Y') }}</span>
+                                            <span class="post-date" style="color: black;">{{ $promotion->created_at->format('d/m/Y') }}</span>
                                             <h4 class="post-title"><a
-                                                    href="/promotion/{{ $promotion->slug }}">{{ Str::limit($promotion->title, 100) }}</a></h4>
+                                                    href="/promotion/{{ $promotion->slug }}" style="color: black;">{{ Str::limit($promotion->title, 100) }}</a></h4>
                                         </div>
 
                                     </li>
@@ -1424,78 +1421,8 @@
             window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
             window.RS_MODULES.type = 'compiled';
         </script>
-        <div class="site-search-popup">
-            <div class="site-search-popup-wrap">
-                <a href="#" class="site-search-popup-close"><i class="delicioz-icon-times-circle"></i></a>
-                <div class="site-search ajax-search">
-                    <div class="widget woocommerce widget_product_search">
-                        <div class="ajax-search-result d-none"></div>
-                        <form role="search" method="get" class="woocommerce-product-search"
-                            action="https://demo2.themelexus.com/delicioz/">
-                            <label class="screen-reader-text" for="woocommerce-product-search-field-1">Search
-                                for:</label>
-                            <input type="search" id="woocommerce-product-search-field-1" class="search-field"
-                                placeholder="Search products&hellip;" autocomplete="off" value="" name="s" />
-                            <button type="submit" value="Search">Search</button>
-                            <input type="hidden" name="post_type" value="product" />
-                            <div class="search-by-category input-dropdown">
-                                <div class="input-dropdown-inner delicioz-scroll-content">
-                                    <!--                    <input type="hidden" name="product_cat" value="0">-->
-                                    <a href="#" data-val="0"><span>All category</span></a>
-                                    <select name='product_cat' id='product_cat0' class='dropdown_product_cat_ajax'>
-                                        <option value='' selected='selected'>All category</option>
-                                        <option class="level-0" value="accessories">Accessories</option>
-                                        <option class="level-0" value="desserts">Desserts</option>
-                                        <option class="level-0" value="food">Food</option>
-                                        <option class="level-0" value="humburger">Humburger</option>
-                                        <option class="level-0" value="recipes">Recipes</option>
-                                        <option class="level-0" value="uncategorized">Uncategorized</option>
-                                        <option class="level-0" value="whiskey">Whiskey</option>
-                                    </select>
-                                    <div class="list-wrapper delicioz-scroll">
-                                        <ul class="delicioz-scroll-content">
-                                            <li class="d-none">
-                                                <a href="#" data-val="0">All category</a>
-                                            </li>
-                                            <li class="cat-item cat-item-42"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/accessories/"
-                                                    data-val="accessories" data-title="Accessories">Accessories</a>
-                                            </li>
-                                            <li class="cat-item cat-item-35"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/desserts/"
-                                                    data-val="desserts" data-title="Desserts">Desserts</a>
-                                            </li>
-                                            <li class="cat-item cat-item-38"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/food/"
-                                                    data-val="food" data-title="Food">Food</a>
-                                            </li>
-                                            <li class="cat-item cat-item-40"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/humburger/"
-                                                    data-val="humburger" data-title="Humburger">Humburger</a>
-                                            </li>
-                                            <li class="cat-item cat-item-39"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/recipes/"
-                                                    data-val="recipes" data-title="Recipes">Recipes</a>
-                                            </li>
-                                            <li class="cat-item cat-item-15"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/uncategorized/"
-                                                    data-val="uncategorized"
-                                                    data-title="Uncategorized">Uncategorized</a>
-                                            </li>
-                                            <li class="cat-item cat-item-37"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/whiskey/"
-                                                    data-val="whiskey" data-title="Whiskey">Whiskey</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="site-search-popup-overlay"></div>
+        @livewire('inc.search')
+
         <script>(function () {
                 function maybePrefixUrlField() {
                     if (this.value.trim() !== '' && this.value.indexOf('http') !== 0) {

@@ -9,11 +9,10 @@ use Filament\Resources\Pages\EditRecord;
 class EditInvoice extends EditRecord
 {
     protected static string $resource = InvoiceResource::class;
-
+    protected static ?string $title = 'Cập nhật hóa đơn';
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
         ];
     }
 }

@@ -14,7 +14,7 @@ class Contact extends Component
     public function submit()
     {
         if ($this->name == '' || $this->email == '' || $this->message == '') {
-            session()->flash('error', 'Please fill in all fields');
+            session()->flash('error', 'Vui lòng điền đầy đủ các trường');
             return;
         }
 
@@ -29,7 +29,7 @@ class Contact extends Component
         $this->reset();
 
         // Optionally, you can add a success message
-        session()->flash('message', 'Your message has been sent successfully!');
+        session()->flash('message', 'Cảm ơn bạn đã liên hệ với chúng tôi!');
     }
 
     public function render()

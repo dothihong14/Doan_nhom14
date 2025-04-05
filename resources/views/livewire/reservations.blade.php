@@ -1,16 +1,9 @@
 <div>
 
     <head>
-        <title>Reservations</title>
-        <link rel="dns-prefetch" href="//fonts.googleapis.com">
-        <link rel="dns-prefetch" href="//s.w.org">
-        <link rel='dns-prefetch' href='//demo2.themelexus.com' />
-        <link rel='dns-prefetch' href='//fonts.googleapis.com' />
-        <link rel='dns-prefetch' href='//s.w.org' />
-        <link rel="alternate" type="application/rss+xml" title="Delicioz &raquo; Feed"
-            href="https://demo2.themelexus.com/delicioz/feed/" />
-        <link rel="alternate" type="application/rss+xml" title="Delicioz &raquo; Comments Feed"
-            href="https://demo2.themelexus.com/delicioz/comments/feed/" />
+        <title>Danh sách đặt bàn</title>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         <script>
             window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "https:\/\/demo2.themelexus.com\/delicioz\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.0.2" } };
             /*! This file is auto-generated */
@@ -1207,10 +1200,9 @@
                                         data-id="901b06e" data-element_type="widget"
                                         data-widget_type="woocommerce-breadcrumb.default">
                                         <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">My account</div>
-                                            <nav class="woocommerce-breadcrumb"><a
-                                                    href="https://demo2.themelexus.com/delicioz">Home Page</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i>My account</nav>
+                                            <div class="delicioz-woocommerce-title">Danh sách đặt bàn</div>
+                                            <nav class="woocommerce-breadcrumb"><a href="/">Trang chủ</a><i
+                                                    class="delicioz-icon-arrow-right-s-line"></i>Danh sách đặt bàn</nav>
                                         </div>
                                     </div>
                                 </div>
@@ -1238,7 +1230,8 @@
                                                 Hello <strong>{{ Auth::user()->name }}</strong> (not
                                                 <strong>{{ Auth::user()->name }}</strong>? <a
                                                     href="https://demo2.themelexus.com/delicioz/my-account/customer-logout/?_wpnonce=c690371e25">Log
-                                                    out</a>)</p>
+                                                    out</a>)
+                                            </p>
 
                                             <div style="width: 100%; overflow-x: scroll;">
 
@@ -1249,7 +1242,7 @@
                                                             <th class="woocommerce-table__product-name product-name">
                                                                 Mã</th>
                                                             <th class="woocommerce-table__product-name product-name">
-                                                                Nhà hàng</th>
+                                                                Cơ sở</th>
                                                             <th class="woocommerce-table__product-name product-name">
                                                                 Số người</th>
                                                             <th class="woocommerce-table__product-name product-name">
@@ -1268,28 +1261,73 @@
                                                                 <td style="cursor: pointer;"
                                                                     class="woocommerce-table__product-name product-name"
                                                                     wire:click="reservationDetail('{{ $reservation->reservation_code }}')">
-                                                                    {{ $reservation->reservation_code }}</td>
+                                                                    {{ $reservation->reservation_code }}
+                                                                </td>
                                                                 <td class="woocommerce-table__product-name product-name">
-                                                                    {{ $reservation->restaurant->name }}</td>
+                                                                    {{ $reservation->restaurant->name }}
+                                                                </td>
                                                                 <td class="woocommerce-table__product-name product-name">
-                                                                    {{ $reservation->number_of_people }}</td>
+                                                                    {{ $reservation->number_of_people }}
+                                                                </td>
                                                                 <td class="woocommerce-table__product-name product-name">
-                                                                    {{ $reservation->reservation_day }}</td>
+                                                                    {{ $reservation->reservation_day }}
+                                                                </td>
                                                                 <td class="woocommerce-table__product-name product-name">
-                                                                    {{ $reservation->reservation_time }}</td>
+                                                                    {{ $reservation->reservation_time }}
+                                                                </td>
                                                                 <td class="woocommerce-table__product-name product-name">
-                                                                    {{ $reservation->status }}</td>
+                                                                    @switch($reservation->status)
+                                                                        @case('pending')
+                                                                            Chờ xác nhận
+                                                                            @break
+                                                                        @case('confirmed')
+                                                                            Đã xác nhận
+                                                                            @break
+                                                                        @case('cancelled')
+                                                                            Đã hủy
+                                                                            @break
+                                                                        @default
+                                                                            Khác
+                                                                    @endswitch
+                                                                </td>
                                                                 <td>
                                                                     @if ($reservation->status == 'pending')
-                                                                        <form
-                                                                            wire:submit="cancelReservation({{ $reservation->id }})">
-                                                                            <button type="submit"
-                                                                                class="btn btn-danger">Hủy</button>
-                                                                        </form>
+                                                                        <button type="button" class="btn btn-danger"
+                                                                            onclick="confirmCancel({{ $reservation->id }})">Hủy</button>
                                                                     @endif
                                                                 </td>
+
                                                             </tr>
                                                         @endforeach
+                                                        <script>
+                                                            function confirmCancel(reservationId) {
+                                                                Swal.fire({
+                                                                    title: 'Xác nhận hủy?',
+                                                                    text: 'Bạn có chắc chắn muốn hủy đặt chỗ này?',
+                                                                    icon: 'warning',
+                                                                    showCancelButton: true,
+                                                                    confirmButtonColor: '#d33',
+                                                                    cancelButtonColor: '#3085d6',
+                                                                    confirmButtonText: 'Có, hủy!',
+                                                                    cancelButtonText: 'Không'
+                                                                }).then((result) => {
+                                                                    if (result.isConfirmed) {
+                                                                        Livewire.dispatch('cancelReservation', { id: reservationId });
+                                                                    }
+                                                                });
+                                                            }
+                                                            document.addEventListener('livewire:init', () => {
+                                                                window.addEventListener('reservationCancelled', () => {
+                                                                    Swal.fire(
+                                                                        'Đã hủy!',
+                                                                        'Đặt chỗ đã được hủy thành công.',
+                                                                        'success'
+                                                                    );
+                                                                    window.location.reload();
+                                                                });
+                                                            });
+                                                        </script>
+
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -1302,7 +1340,9 @@
                         </main><!-- #main -->
                     </div><!-- #primary -->
                     <style>
-                        tr ,td,th{
+                        tr,
+                        td,
+                        th {
                             white-space: nowrap;
                         }
                     </style>
@@ -1325,78 +1365,8 @@
             window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
             window.RS_MODULES.type = 'compiled';
         </script>
-        <div class="site-search-popup">
-            <div class="site-search-popup-wrap">
-                <a href="#" class="site-search-popup-close"><i class="delicioz-icon-times-circle"></i></a>
-                <div class="site-search ajax-search">
-                    <div class="widget woocommerce widget_product_search">
-                        <div class="ajax-search-result d-none"></div>
-                        <form role="search" method="get" class="woocommerce-product-search"
-                            action="https://demo2.themelexus.com/delicioz/">
-                            <label class="screen-reader-text" for="woocommerce-product-search-field-1">Search
-                                for:</label>
-                            <input type="search" id="woocommerce-product-search-field-1" class="search-field"
-                                placeholder="Search products&hellip;" autocomplete="off" value="" name="s" />
-                            <button type="submit" value="Search">Search</button>
-                            <input type="hidden" name="post_type" value="product" />
-                            <div class="search-by-category input-dropdown">
-                                <div class="input-dropdown-inner delicioz-scroll-content">
-                                    <!--                    <input type="hidden" name="product_cat" value="0">-->
-                                    <a href="#" data-val="0"><span>All category</span></a>
-                                    <select name='product_cat' id='product_cat0' class='dropdown_product_cat_ajax'>
-                                        <option value='' selected='selected'>All category</option>
-                                        <option class="level-0" value="accessories">Accessories</option>
-                                        <option class="level-0" value="desserts">Desserts</option>
-                                        <option class="level-0" value="food">Food</option>
-                                        <option class="level-0" value="humburger">Humburger</option>
-                                        <option class="level-0" value="recipes">Recipes</option>
-                                        <option class="level-0" value="uncategorized">Uncategorized</option>
-                                        <option class="level-0" value="whiskey">Whiskey</option>
-                                    </select>
-                                    <div class="list-wrapper delicioz-scroll">
-                                        <ul class="delicioz-scroll-content">
-                                            <li class="d-none">
-                                                <a href="#" data-val="0">All category</a>
-                                            </li>
-                                            <li class="cat-item cat-item-42"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/accessories/"
-                                                    data-val="accessories" data-title="Accessories">Accessories</a>
-                                            </li>
-                                            <li class="cat-item cat-item-35"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/desserts/"
-                                                    data-val="desserts" data-title="Desserts">Desserts</a>
-                                            </li>
-                                            <li class="cat-item cat-item-38"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/food/"
-                                                    data-val="food" data-title="Food">Food</a>
-                                            </li>
-                                            <li class="cat-item cat-item-40"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/humburger/"
-                                                    data-val="humburger" data-title="Humburger">Humburger</a>
-                                            </li>
-                                            <li class="cat-item cat-item-39"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/recipes/"
-                                                    data-val="recipes" data-title="Recipes">Recipes</a>
-                                            </li>
-                                            <li class="cat-item cat-item-15"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/uncategorized/"
-                                                    data-val="uncategorized"
-                                                    data-title="Uncategorized">Uncategorized</a>
-                                            </li>
-                                            <li class="cat-item cat-item-37"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/whiskey/"
-                                                    data-val="whiskey" data-title="Whiskey">Whiskey</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="site-search-popup-overlay"></div>
+        @livewire('inc.search')
+
         <script>(function () {
                 function maybePrefixUrlField() {
                     if (this.value.trim() !== '' && this.value.indexOf('http') !== 0) {

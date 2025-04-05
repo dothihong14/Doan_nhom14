@@ -25,7 +25,7 @@ class TableDishResource extends Resource
         return 'Danh sách lên món';
     }
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
@@ -36,18 +36,22 @@ class TableDishResource extends Resource
                     ->label('Món ăn')
                     ->required()
                 ,
-                Forms\Components\Select::make('table_id')
-                    ->options(TableModel::all()->pluck('table_number', 'id'))
-                    ->label('Bàn')
-                    ->required()
-                  ,
+                // Forms\Components\Select::make('table_id')
+                //     ->options(TableModel::all()->pluck('table_code', 'id'))
+                //     ->label('Bàn')
+                //     ->required()
+                // ,
                 Forms\Components\TextInput::make('quantity')
                     ->label('Số lượng')
                     ->required()
                     ->numeric(),
-                Forms\Components\DateTimePicker::make('served_at')
-                    ->label('Thời gian phục vụ')
-                    ->nullable(),
+                // Forms\Components\TextInput::make('order_code')
+                //     ->label('Mã đơn hàng')
+                //     ->required()
+                //     ->numeric(),
+                // Forms\Components\DateTimePicker::make('served_at')
+                //     ->label('Thời gian phục vụ')
+                //     ->nullable(),
                 Forms\Components\Select::make('status')
                     ->options([
                         'pending' => 'Chưa phục vụ',
@@ -66,29 +70,37 @@ class TableDishResource extends Resource
                     ->label('Món ăn')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('table.table_number')
-                    ->label('Bàn')
-                    ->searchable()
-                    ->sortable(),
+                // Tables\Columns\TextColumn::make('table.table_code')
+                //     ->label('Bàn')
+                //     ->searchable()
+                //     ->sortable(),
                 Tables\Columns\TextColumn::make('quantity')
                     ->label('Số lượng')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('served_at')
-                    ->label('Thời gian phục vụ')
-                    ->dateTime()
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('status')
+                // Tables\Columns\TextColumn::make('order_code')
+                //     ->label('Mã đơn hàng')
+                //     ->searchable()
+                //     ->sortable(),
+                // Tables\Columns\TextColumn::make('served_at')
+                //     ->label('Thời gian phục vụ')
+                //     ->dateTime()
+                //     ->searchable()
+                //     ->sortable(),
+                    Tables\Columns\SelectColumn::make('status')
                     ->label('Trạng thái')
-                    ->badge()
+                    ->options([
+                        'pending' => 'Chưa phục vụ',
+                        'served' => 'Đã phục vụ',
+                    ])
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                 , // Thêm yêu cầu nếu cần
                 Tables\Columns\TextColumn::make('created_at')
-
+                    ->label('Thời gian đặt')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                 ,
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
@@ -98,9 +110,9 @@ class TableDishResource extends Resource
                 Tables\Filters\SelectFilter::make('dish_id')
                     ->options(Dish::all()->pluck('name', 'id'))
                     ->label('Món ăn'),
-                Tables\Filters\SelectFilter::make('table_id')
-                    ->options(TableModel::all()->pluck('table_number', 'id'))
-                    ->label('Bàn'),
+                // Tables\Filters\SelectFilter::make('table_id')
+                //     ->options(TableModel::all()->pluck('table_code', 'id'))
+                //     ->label('Bàn'),
                 Tables\Filters\SelectFilter::make('status')
                     ->options([
                         'pending' => 'Chưa phục vụ',
@@ -108,16 +120,7 @@ class TableDishResource extends Resource
                     ])
                     ->label('Trạng thái'),
             ])
-            ->actions([
-                Tables\Actions\ActionGroup::make([
-                    Tables\Actions\ViewAction::make()
-                        ->label('Xem'), // Đổi nhãn sang tiếng Việt
-                    Tables\Actions\EditAction::make()
-                        ->label('Chỉnh Sửa'), // Đổi nhãn sang tiếng Việt
-                    Tables\Actions\DeleteAction::make()
-                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
-                ])
-            ])
+
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()

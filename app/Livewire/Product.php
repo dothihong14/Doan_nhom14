@@ -17,15 +17,25 @@ class Product extends Component
         if (!$this->product) {
             abort(404);
         }
-        $this->related_products = Dish::where('food_category_id', $this->product->food_category_id)->get()->random(4);
+        $this->related_products = Dish::where('food_category_id', $this->product->food_category_id)
+        ->inRandomOrder()
+        ->limit(4)
+        ->get();
+
     }
     public function addToCart()
     {
         CartManagement::addItemToCart($this->product->id, $this->quantity);
+        return redirect('/cart');
     }
     public function incrementQuantity()
     {
         $this->quantity++;
+    }
+    public function addToCart_related($id)
+    {
+        CartManagement::addItemToCart($id, 1);
+        return redirect('/cart');
     }
     public function decrementQuantity()
     {

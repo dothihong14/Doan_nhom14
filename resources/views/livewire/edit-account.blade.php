@@ -1,16 +1,12 @@
 <div>
 
     <head>
-        <title>My account &#8211; Delicioz</title>
+        <title>Thông tin tài khoản</title>
         <link rel="dns-prefetch" href="//fonts.googleapis.com">
         <link rel="dns-prefetch" href="//s.w.org">
         <link rel='dns-prefetch' href='//demo2.themelexus.com' />
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
         <link rel='dns-prefetch' href='//s.w.org' />
-        <link rel="alternate" type="application/rss+xml" title="Delicioz &raquo; Feed"
-            href="https://demo2.themelexus.com/delicioz/feed/" />
-        <link rel="alternate" type="application/rss+xml" title="Delicioz &raquo; Comments Feed"
-            href="https://demo2.themelexus.com/delicioz/comments/feed/" />
         <script>
             window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "https:\/\/demo2.themelexus.com\/delicioz\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.0.2" } };
             /*! This file is auto-generated */
@@ -1207,10 +1203,10 @@
                                         data-id="901b06e" data-element_type="widget"
                                         data-widget_type="woocommerce-breadcrumb.default">
                                         <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">My account</div>
+                                            <div class="delicioz-woocommerce-title">Thông tin tài khoản</div>
                                             <nav class="woocommerce-breadcrumb"><a
-                                                    href="https://demo2.themelexus.com/delicioz">Home Page</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i>My account</nav>
+                                                    href="/">Trang chủ</a><i
+                                                    class="delicioz-icon-arrow-right-s-line"></i>Thông tin tài khoản</nav>
                                         </div>
                                     </div>
                                 </div>
@@ -1259,7 +1255,7 @@
 
                                                 <p
                                                     class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                    <label for="account_display_name">Display name&nbsp;<span
+                                                    <label for="account_display_name">Tên hiển thị&nbsp;<span
                                                             class="required">*</span></label>
                                                     <input type="text"
                                                         class="woocommerce-Input woocommerce-Input--text input-text"
@@ -1268,7 +1264,7 @@
                                                 </p>
                                                 <p
                                                     class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                    <label for="account_display_name">Phone&nbsp;<span
+                                                    <label for="account_display_name">Số điện thoại&nbsp;<span
                                                             class="required">*</span></label>
                                                     <input type="text"
                                                         class="woocommerce-Input woocommerce-Input--text input-text"
@@ -1277,7 +1273,7 @@
                                                 </p>
                                                 <p
                                                     class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                    <label for="account_display_name">Address&nbsp;<span
+                                                    <label for="account_display_name">Địa chỉ&nbsp;<span
                                                             class="required">*</span></label>
                                                     <input type="text"
                                                         class="woocommerce-Input woocommerce-Input--text input-text"
@@ -1288,7 +1284,7 @@
 
                                                 <p
                                                     class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                    <label for="account_email">Email address&nbsp;<span
+                                                    <label for="account_email">Email&nbsp;<span
                                                             class="required">*</span></label>
                                                     <input type="email"
                                                         class="woocommerce-Input woocommerce-Input--email input-text"
@@ -1297,12 +1293,12 @@
                                                 </p>
 
                                                 <fieldset>
-                                                    <legend>Password change</legend>
+                                                    <legend>Đổi mật khẩu</legend>
 
                                                     <p
                                                         class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                        <label for="password_current">Current password (leave blank to
-                                                            leave unchanged)</label>
+                                                        <label for="password_current">Mật khẩu hiện tại (bỏ trống để
+                                                            không thay đổi)</label>
                                                         <span class="password-input"><input type="password"
                                                                 class="woocommerce-Input woocommerce-Input--password input-text"
                                                                 name="password_current" id="password_current"
@@ -1311,8 +1307,7 @@
                                                     </p>
                                                     <p
                                                         class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                        <label for="password_1">New password (leave blank to leave
-                                                            unchanged)</label>
+                                                        <label for="password_1">Mật khẩu mới (bỏ trống để không thay đổi)</label>
                                                         <span class="password-input"><input type="password"
                                                                 class="woocommerce-Input woocommerce-Input--password input-text"
                                                                 name="password_1" id="password_1"
@@ -1321,7 +1316,7 @@
                                                     </p>
                                                     <p
                                                         class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                        <label for="password_2">Confirm new password</label>
+                                                        <label for="password_2">Xác nhận mật khẩu mới</label>
                                                         <span class="password-input"><input type="password"
                                                                 class="woocommerce-Input woocommerce-Input--password input-text"
                                                                 name="password_2" id="password_2"
@@ -1335,8 +1330,7 @@
                                                 <p>
                                                     <button
                                                         type="submit" class="woocommerce-Button button"
-                                                        name="save_account_details" value="Save changes">Save
-                                                        changes</button>
+                                                        name="save_account_details" value="Lưu thay đổi">Lưu thay đổi</button>
                                                 </p>
 
                                             </form>
@@ -1368,78 +1362,8 @@
             window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
             window.RS_MODULES.type = 'compiled';
         </script>
-        <div class="site-search-popup">
-            <div class="site-search-popup-wrap">
-                <a href="#" class="site-search-popup-close"><i class="delicioz-icon-times-circle"></i></a>
-                <div class="site-search ajax-search">
-                    <div class="widget woocommerce widget_product_search">
-                        <div class="ajax-search-result d-none"></div>
-                        <form role="search" method="get" class="woocommerce-product-search"
-                            action="https://demo2.themelexus.com/delicioz/">
-                            <label class="screen-reader-text" for="woocommerce-product-search-field-1">Search
-                                for:</label>
-                            <input type="search" id="woocommerce-product-search-field-1" class="search-field"
-                                placeholder="Search products&hellip;" autocomplete="off" value="" name="s" />
-                            <button type="submit" value="Search">Search</button>
-                            <input type="hidden" name="post_type" value="product" />
-                            <div class="search-by-category input-dropdown">
-                                <div class="input-dropdown-inner delicioz-scroll-content">
-                                    <!--                    <input type="hidden" name="product_cat" value="0">-->
-                                    <a href="#" data-val="0"><span>All category</span></a>
-                                    <select name='product_cat' id='product_cat0' class='dropdown_product_cat_ajax'>
-                                        <option value='' selected='selected'>All category</option>
-                                        <option class="level-0" value="accessories">Accessories</option>
-                                        <option class="level-0" value="desserts">Desserts</option>
-                                        <option class="level-0" value="food">Food</option>
-                                        <option class="level-0" value="humburger">Humburger</option>
-                                        <option class="level-0" value="recipes">Recipes</option>
-                                        <option class="level-0" value="uncategorized">Uncategorized</option>
-                                        <option class="level-0" value="whiskey">Whiskey</option>
-                                    </select>
-                                    <div class="list-wrapper delicioz-scroll">
-                                        <ul class="delicioz-scroll-content">
-                                            <li class="d-none">
-                                                <a href="#" data-val="0">All category</a>
-                                            </li>
-                                            <li class="cat-item cat-item-42"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/accessories/"
-                                                    data-val="accessories" data-title="Accessories">Accessories</a>
-                                            </li>
-                                            <li class="cat-item cat-item-35"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/desserts/"
-                                                    data-val="desserts" data-title="Desserts">Desserts</a>
-                                            </li>
-                                            <li class="cat-item cat-item-38"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/food/"
-                                                    data-val="food" data-title="Food">Food</a>
-                                            </li>
-                                            <li class="cat-item cat-item-40"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/humburger/"
-                                                    data-val="humburger" data-title="Humburger">Humburger</a>
-                                            </li>
-                                            <li class="cat-item cat-item-39"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/recipes/"
-                                                    data-val="recipes" data-title="Recipes">Recipes</a>
-                                            </li>
-                                            <li class="cat-item cat-item-15"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/uncategorized/"
-                                                    data-val="uncategorized"
-                                                    data-title="Uncategorized">Uncategorized</a>
-                                            </li>
-                                            <li class="cat-item cat-item-37"><a class="pf-value"
-                                                    href="https://demo2.themelexus.com/delicioz/product-category/whiskey/"
-                                                    data-val="whiskey" data-title="Whiskey">Whiskey</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="site-search-popup-overlay"></div>
+              @livewire('inc.search')
+
         <script>(function () {
                 function maybePrefixUrlField() {
                     if (this.value.trim() !== '' && this.value.indexOf('http') !== 0) {

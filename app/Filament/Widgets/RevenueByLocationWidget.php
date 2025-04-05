@@ -11,6 +11,7 @@ class RevenueByLocationWidget extends ChartWidget
 {
     protected static ?string $heading = 'Doanh Thu Theo Cơ Sở (30 Ngày)';
 
+
     protected function getData(): array
     {
         // Kiểm tra xem người dùng đã đăng nhập chưa

@@ -10,7 +10,7 @@ class TableDish extends Model
     use HasFactory;
 
     protected $fillable = [
-        'dish_id', 'table_id', 'quantity', 'served_at', 'status'
+        'dish_id', 'table_id', 'quantity', 'status', 'order_code'
     ];
 
     public function dish()
@@ -21,5 +21,10 @@ class TableDish extends Model
     public function table()
     {
         return $this->belongsTo(Table::class);
+    }
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'order_code', 'order_code');
     }
 }

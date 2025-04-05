@@ -17,11 +17,11 @@
             <ul class="account-dashboard">
                 <li>
                     <a href="/my-account"
-                        title="Account Details">My Account</a>
+                        title="Account Details">Tài khoản</a>
                 </li>
                 <li>
                     <a wire:click="logout"
-                        title="Account Details">Logout</a>
+                        title="Account Details">Đăng xuất</a>
                 </li>
             </ul>
             @endif
@@ -33,7 +33,7 @@
             <div class="mobile-nav-tabs">
                 <ul>
                     <li class="mobile-tab-title mobile-pages-title active" data-menu="pages">
-                        <span>Main menu</span>
+                        <span>Menu chính</span>
                     </li>
                 </ul>
             </div>

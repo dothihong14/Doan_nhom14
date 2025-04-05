@@ -15,10 +15,11 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class IngredientResource extends Resource
 {
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 97;
+
 
     protected static ?string $model = Ingredient::class;
-    protected static ?string $navigationGroup = 'Quản lý Món Ăn';
+    protected static ?string $navigationGroup = 'Quản lý Nguyên Liệu';
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách nguyên liệu';
@@ -45,6 +46,7 @@ class IngredientResource extends Resource
                         Forms\Components\TextInput::make('quantity_in_stock')
                             ->label('Số lượng trong kho')
                             ->required()
+                            ->integer()
                             ->numeric(),
 
                         Forms\Components\TextInput::make('minimum_threshold')
@@ -58,6 +60,17 @@ class IngredientResource extends Resource
                         Forms\Components\Select::make('restaurant_id')
                             ->relationship('restaurant', 'name')
                             ->label('Nhà hàng')
+                            ->required(),
+                        Forms\Components\Select::make('status')
+                            ->label('Trạng thái')
+                            ->options([
+                                'in_stock' => 'còn ',
+                                'low_stock' => 'sắp hết',
+                                'out_of_stock' => 'hết hàng',
+                            ])
+                            ->required(),
+                        Forms\Components\DatePicker::make('expiration_date')
+                            ->label('Ngày hạn sử dụng')
                             ->required(),
                     ])
                     ->columns(2) // Chia thành 2 cột trong section
@@ -77,11 +90,21 @@ class IngredientResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->label('Tên nguyên liệu')
                     ->searchable(),
-                    Tables\Columns\TextColumn::make('quantity_in_stock')
-                    ->label('Số lượng trong kho')
-                    ->numeric()
+                Tables\Columns\SelectColumn::make('status')
+                    ->label('Trạng thái')
+                    ->options([
+                        'in_stock' => 'còn ',
+                        'low_stock' => 'sắp hết',
+                        'out_of_stock' => 'hết hàng',
+                    ]),
+                    Tables\Columns\TextInputColumn::make('quantity_in_stock')
+                    ->label('Số lượng thực tế')
                     ->sortable()
-                    ->badge(fn ($record) => $record->quantity_in_stock < $record->minimum_threshold ? 'danger' : 'success'),
+                    ->afterStateUpdated(function ($state, $record) {
+                        // Cập nhật số lượng trong kho khi có thay đổi
+                        $record->quantity_in_stock = $state;
+                        $record->save();
+                    }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Ngày tạo')
                     ->dateTime()
@@ -96,6 +119,14 @@ class IngredientResource extends Resource
                     ->label('Ngưỡng tối thiểu')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('quantity_auto_updated')
+                    ->label('Số lượng tự động cập nhật')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\BadgeColumn::make('expiration_date')
+                    ->label('Ngày hạn sử dụng')
+                    ->color(fn ($record) => $record->expiration_date < now() ? 'danger' : 'success')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('unit')
                     ->label('Đơn vị')
                     ->searchable(),
@@ -105,7 +136,13 @@ class IngredientResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('status')
+                    ->label('Trạng thái')
+                    ->options([
+                        'in_stock' => 'còn ',
+                        'low_stock' => 'sắp hết',
+                        'out_of_stock' => 'hết hàng',
+                    ]),
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
@@ -116,6 +153,7 @@ class IngredientResource extends Resource
                     Tables\Actions\DeleteAction::make()
                         ->label('Xóa'), // Đổi nhãn sang tiếng Việt
                 ])
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

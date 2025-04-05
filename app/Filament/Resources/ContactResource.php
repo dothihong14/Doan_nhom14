@@ -12,16 +12,20 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
     protected static ?string $navigationGroup = 'Quản lý Nhà Hàng';
+    protected static ?string $navigationLabel = 'Liên hệ';
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách liên hệ';
     }
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 1;
+
+
 
     protected static ?string $navigationIcon = 'heroicon-o-envelope';
 
@@ -30,15 +34,25 @@ class ContactResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Tên')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('email')
+                    ->label('Email')
                     ->email()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('message')
+                    ->label('Nội dung')
                     ->required()
                     ->columnSpanFull(),
+                Forms\Components\Select::make('status')
+                    ->label('Trạng thái')
+                    ->options([
+                        'pending' => 'Chưa phản hồi',
+                        'processed' => 'Đã phản hồi',
+                    ])
+                    ->default('pending'),
             ]);
     }
 
@@ -47,13 +61,26 @@ class ContactResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Tên'),
                 Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Email'),
+                Tables\Columns\SelectColumn::make('status')
+                    ->label('Trạng thái')
+                    ->options([
+                        'pending' => 'Chưa phản hồi',
+                        'processed' => 'Đã phản hồi',
+                    ])
+                   ,
+                Tables\Columns\TextColumn::make('message')
+                    ->label('Nội dung')
+                    ->limit(50),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Ngày tạo')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                 ,
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
@@ -63,15 +90,27 @@ class ContactResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make()
+                        ->label('Xem'), // Đổi nhãn sang tiếng Việt
+                    Tables\Actions\EditAction::make()
+                        ->label('Chỉnh Sửa'), // Đổi nhãn sang tiếng Việt
+                    Tables\Actions\DeleteAction::make()
+                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                        ExportBulkAction::make()
                 ]),
             ]);
     }
-
+     public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
     public static function getRelations(): array
     {
         return [
@@ -84,7 +123,6 @@ class ContactResource extends Resource
         return [
             'index' => Pages\ListContacts::route('/'),
             'create' => Pages\CreateContact::route('/create'),
-            'edit' => Pages\EditContact::route('/{record}/edit'),
         ];
     }
 }

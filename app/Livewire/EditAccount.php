@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Customer;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,10 +17,10 @@ class EditAccount extends Component
 
     public function mount()
     {
-        $user = Auth::user();
-        $this->name = $user->name;
-        $this->address = $user->address;
-        $this->phone = $user->phone;
+        $customer = Customer::where('email', Auth::user()->email)->first();
+        $this->name = $customer->name;
+        $this->address = $customer->address;
+        $this->phone = $customer->phone;
     }
 
     public function updateAccount()
@@ -41,10 +42,12 @@ class EditAccount extends Component
         session()->flash('error', 'Mật khẩu và xác nhận mật khẩu không khớp.');
         return;
        }
-        $user = Auth::user();
-        $user->name = $this->name;
-        $user->address = $this->address;
-        $user->phone = $this->phone;
+       $user = Auth::user();
+       $customer = Customer::where('email', Auth::user()->email)->first();
+
+        $customer->name = $this->name;
+        $customer->address = $this->address;
+        $customer->phone = $this->phone;
 
         if ($this->current_password) {
             if (!\Hash::check($this->current_password, $user->password)) {
@@ -54,7 +57,7 @@ class EditAccount extends Component
             $user->password = bcrypt($this->new_password);
         }
 
-        $user->save();
+        $customer->save();
         session()->flash('message', 'Cập nhật tài khoản thành công!');
     }
 
