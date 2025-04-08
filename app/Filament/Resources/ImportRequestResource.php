@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ImportRequestResource\Pages;
 use App\Filament\Resources\ImportRequestResource\RelationManagers;
 use App\Models\ImportRequest;
+use App\Models\Restaurant;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -21,53 +22,95 @@ class ImportRequestResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = 'Quản lý Nguyên Liệu';
     protected static ?string $title = 'Phiếu yêu cầu nhập hàng';
+    protected static ?string $modelLabel = 'Phiếu yêu cầu nhập hàng';
     protected static ?string $pluralModelLabel = 'Phiếu yêu cầu nhập hàng';
     protected static ?int $navigationSort = 99;
+
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Forms\Components\Tabs::make('tabs')
-                ->tabs([
-                    Forms\Components\Tabs\Tab::make('General')
-                        ->label('Thông tin')
-                        ->schema([
-                            Forms\Components\DateTimePicker::make('request_date')
-                                ->label('Ngày yêu cầu')
-                                ->default(now()->format('Y-m-d'))
-                                ->required(),
-                            Forms\Components\Select::make('requested_by')
-                                ->label('Người yêu cầu')
-                                ->options(User::all()->pluck('name', 'id'))
-                                ->required()
-                                ->default(auth()->user()->id),
-                            Forms\Components\Select::make('status')
-                                ->label('Trạng thái')
-                                ->options([
-                                    'pending' => 'Chờ xác nhận',
-                                    'approved' => 'Đã xác nhận',
-                                    'rejected' => 'Đã từ chối',
-                                ])
-                                ->disabled()
-                                ->default('pending')
-                                ->required(),
-                        ]),
-                    Forms\Components\Tabs\Tab::make('Details')
+            Forms\Components\Section::make('Thông tin')
+                ->label('Thông tin')
+                ->schema([
+                    Forms\Components\Select::make('restaurant_id')
+                        ->label('Cơ sở')
+                        ->options(Restaurant::all()->pluck('name', 'id'))
+                        ->required()
+                        ->reactive()
+                        ->searchable()
+                        ->afterStateUpdated(function (callable $get, callable $set) {
+                            $details = $get('details') ?? [];
+
+                            if (empty($details)) {
+                                return;
+                            }
+
+                            $restaurantId = $get('restaurant_id');
+                            if (!$restaurantId) {
+                                return;
+                            }
+
+                            $validIngredientIds = \App\Models\Ingredient::where('restaurant_id', $restaurantId)
+                                ->pluck('id')
+                                ->toArray();
+
+                            foreach ($details as $index => $detail) {
+                                $currentIngredientId = $detail['ingredient_id'] ?? null;
+
+                                if ($currentIngredientId && !in_array($currentIngredientId, $validIngredientIds)) {
+                                    $set("details.{$index}.ingredient_id", null);
+                                    $set("details.{$index}.actual_quantity", null);
+                                    $set("details.{$index}.reason", null);
+                                }
+                            }
+                        }),
+                    Forms\Components\DateTimePicker::make('request_date')
+                        ->label('Ngày yêu cầu')
+                        ->default(now()->format('Y-m-d'))
+                        ->required(),
+                    Forms\Components\Select::make('requested_by')
+                        ->label('Người yêu cầu')
+                        ->options(User::all()->pluck('name', 'id'))
+                        ->required()
+                        ->default(auth()->user()->id),
+                    Forms\Components\Select::make('status')
+                        ->label('Trạng thái')
+                        ->options([
+                            'pending' => 'Chờ xác nhận',
+                            'approved' => 'Đã xác nhận',
+                            'rejected' => 'Đã từ chối',
+                        ])
+                        ->default('pending')
+                        ->required()
+                        ->disabled(fn ($livewire) => $livewire instanceof \Filament\Resources\Pages\CreateRecord)
+                        ->dehydrated(fn () => auth()->user()->can('update_status_import::request'))
+                        ->disabled(fn () => !auth()->user()->can('update_status_import::request')),
+                ]),
+            Forms\Components\Section::make('Chi tiết')
+                ->label('Chi tiết')
+                ->schema([
+                    Forms\Components\Repeater::make('details')
+                        ->relationship('details')
                         ->label('Chi tiết')
                         ->schema([
-                            Forms\Components\Repeater::make('details')
-                                ->relationship('details')
-                                ->label('Chi tiết')
-                                ->schema([
-                                    Forms\Components\Select::make('ingredient_id')
-                                        ->relationship('ingredient', 'name')
-                                        ->label('Nguyên liệu')
-                                        ->required(),
-                                    Forms\Components\TextInput::make('requested_quantity')
-                                        ->label('Số lượng yêu cầu')
-                                        ->required(),
-                                ])->columns(2),
-                        ]),
-                ])->columnSpanFull(),
+                            Forms\Components\Select::make('ingredient_id')
+                                ->label('Nguyên liệu')
+                                ->options(function (callable $get) {
+                                    $restaurantId = $get('../../restaurant_id');
+                                    if (!$restaurantId) {
+                                        return [];
+                                    }
+                                    return \App\Models\Ingredient::where('restaurant_id', $restaurantId)
+                                        ->pluck('name', 'id');
+                                })
+                                ->required()
+                                ->searchable()
+                                ->reactive(),
+                            Forms\Components\TextInput::make('requested_quantity')
+                                ->label('Số lượng yêu cầu')
+                                ->required(),
+                        ])->columns(2),
+                ]),
         ]);
     }
 
@@ -75,21 +118,26 @@ class ImportRequestResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('restaurant.name')
+                    ->label('Cơ sở')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('request_date')
                     ->label('Ngày yêu cầu')
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('user.name')
-                        ->label('Người yêu cầu')
+                    ->label('Người yêu cầu')
                     ->searchable(),
-                Tables\Columns\SelectColumn::make('status')
+                Tables\Columns\TextColumn::make('status')
                     ->label('Trạng thái')
-                    ->options([
-                        'pending' => 'Chờ xác nhận',
-                        'approved' => 'Đã xác nhận',
-                        'rejected' => 'Đã từ chối',
-                    ])
-                    ->searchable(),
+                    ->formatStateUsing(function ($state) {
+                        return [
+                            'pending' => 'Chờ xác nhận',
+                            'approved' => 'Đã xác nhận',
+                            'rejected' => 'Đã từ chối',
+                        ][$state] ?? ucfirst($state);
+                    }),
+
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Ngày tạo')
                     ->dateTime()
@@ -101,39 +149,43 @@ class ImportRequestResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
+            ->filters([])
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make()
-                        ->label('Xem'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xem'),
                     Tables\Actions\EditAction::make()
-                        ->label('Chỉnh Sửa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Chỉnh Sửa'),
                     Tables\Actions\DeleteAction::make()
-                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xóa'),
                 ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
-                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xóa'),
                 ]),
-            ]);
+            ])
+            ->recordAction('view')
+            ->recordUrl(null);;
     }
-     public static function getNavigationBadge(): ?string
+
+    public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
+
     public static function getNavigationBadgeColor(): ?string
     {
         return 'success';
     }
+
     public static function getRelations(): array
     {
         return [
         ];
     }
+
     public static function getPages(): array
     {
         return [

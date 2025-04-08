@@ -610,11 +610,11 @@
                                         {{-- <div
                                             class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-000c4df"
                                             data-id="000c4df" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
-                                                <div class="elementor-element elementor-element-3d67de8 elementor-icon-list--layout-inline elementor-align-right elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-                                                    data-id="3d67de8" data-element_type="widget"
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-3d67de8 elementor-icon-list--layout-inline elementor-align-right elementor-mobile-align-center elementor-list-item-link-full_width elementor-widgets elementor-widgets-icon-list"
+                                                    data-id="3d67de8" data-element_type="widgets"
                                                     data-widget_type="icon-list.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         <ul class="elementor-icon-list-items elementor-inline-items">
                                                             <li class="elementor-icon-list-item elementor-inline-item">
                                                                 <span class="elementor-icon-list-text">Chính sách bảo

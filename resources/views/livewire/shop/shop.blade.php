@@ -104,9 +104,9 @@
                     </ul>
                 </div>
             </div>
-            {{-- <div id="woocommerce_product_categories-2" class="widget woocommerce widget_product_categories">
-                <span class="gamma widget-title">Danh mục nhà hàng</span>
-                <div class="widget-content">
+            {{-- <div id="woocommerce_product_categories-2" class="widgets woocommerce widget_product_categories">
+                <span class="gamma widgets-title">Danh mục nhà hàng</span>
+                <div class="widgets-content">
                     <ul class="product-categories">
                         @foreach ($restaurants as $restaurant)
                             <li class="cat-item cat-item-42"><a

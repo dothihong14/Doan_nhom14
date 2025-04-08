@@ -14,8 +14,8 @@ class ListMaterialTransactions extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            // Actions\CreateAction::make()
-            //     ->label('Tạo phiếu nhập xuất nguyên liệu'),
+             Actions\CreateAction::make()
+                 ->label('Tạo phiếu xuất kho'),
         ];
     }
 }

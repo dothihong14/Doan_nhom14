@@ -21,6 +21,7 @@ class RestaurantResource extends Resource
     protected static ?string $model = Restaurant::class;
     protected static ?string $navigationGroup = 'Quản lý Nhà Hàng';
     protected static ?string $navigationLabel = 'Cơ sở';
+    protected static ?string $modelLabel = 'Cơ sở';
 
     protected static ?string $title = 'Cơ sở';
     public static function getPluralModelLabel(): string

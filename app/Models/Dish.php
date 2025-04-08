@@ -10,7 +10,7 @@ class Dish extends Model
     use HasFactory;
 
     protected $fillable = [
- 'name', 'description', 'food_category_id', 'price',  'image', 'slug', 'sold_quantity', 'status'
+        'restaurant_id', 'name', 'description', 'food_category_id', 'price',  'image', 'slug', 'sold_quantity', 'status'
     ];
 
 
@@ -32,5 +32,10 @@ class Dish extends Model
     public function tableDishes()
     {
         return $this->hasMany(TableDish::class);
+    }
+
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurant::class);
     }
 }

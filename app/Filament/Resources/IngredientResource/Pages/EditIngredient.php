@@ -9,6 +9,7 @@ use Filament\Resources\Pages\EditRecord;
 class EditIngredient extends EditRecord
 {
     protected static string $resource = IngredientResource::class;
+    protected static ?string $title = "Chỉnh sửa nguyên liệu";
 
     protected function getHeaderActions(): array
     {

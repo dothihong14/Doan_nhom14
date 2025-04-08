@@ -48,7 +48,7 @@ return [
         ],
 
         'page' => 'page',
-        'widget' => 'widget',
+        'widgets' => 'widgets',
     ],
 
     'entities' => [

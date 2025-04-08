@@ -35,16 +35,12 @@ class TableDishRelationManagerRelationManager extends RelationManager
                 ->default(1)
                 ->minValue(1)
                 ->label('Số lượng'),
-
-            // Forms\Components\DateTimePicker::make('served_at')
-            //     ->label('Thời gian phục vụ')
-            //     ->nullable()
-            //     ->default(now())
-            //     ,
             Forms\Components\Select::make('status')
                 ->options([
                     'pending' => 'Chưa làm',
-                    'served' => 'Đã làm',
+                    'doing' => 'Đang chế biến',
+                    'done' => 'Đã làm xong',
+                    'served' => 'Đã phục vụ',
                 ])
                 ->label('Trạng thái')
                 ->default('pending')
@@ -60,17 +56,26 @@ class TableDishRelationManagerRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('dish.name')->label('Món ăn'),
                 Tables\Columns\TextColumn::make('quantity')->label('Số lượng'),
                 Tables\Columns\TextColumn::make('created_at')->label('Thời gian phục vụ')->dateTime(),
-                Tables\Columns\SelectColumn::make('status')->label('Trạng thái')->options([
-                    'pending' => 'Chưa làm',
-                    'served' => 'Đã làm',
-                ]),
+                Tables\Columns\SelectColumn::make('status')->label('Trạng thái')
+                    ->options([
+                        'pending' => 'Chưa làm',
+                        'doing' => 'Đang chế biến',
+                        'done' => 'Đã làm xong',
+                        'served' => 'Đã phục vụ',
+                    ]),
             ])
             ->filters([
                 //
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make()
-                ->label('Thêm món ăn'),
+                    ->label('Thêm món ăn')
+                    ->using(function (array $data, string $model): \Illuminate\Database\Eloquent\Model {
+                        $table = $this->getOwnerRecord();
+                        $data['table_id'] = $table->id;
+                        $data['type'] = 'face_to_face';
+                        return $model::create($data);
+                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

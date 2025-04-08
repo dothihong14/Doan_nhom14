@@ -19,6 +19,7 @@ class ReservationResource extends Resource
     protected static ?string $model = Reservation::class;
     protected static ?string $navigationGroup = 'Quản lý Nhà Hàng';
     protected static ?string $navigationLabel = 'Lịch đặt bàn';
+    protected static ?string $modelLabel = 'Lịch đặt bàn';
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách Lịch đặt bàn';

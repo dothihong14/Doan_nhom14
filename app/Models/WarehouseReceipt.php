@@ -9,7 +9,7 @@ class WarehouseReceipt extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['import_date', 'imported_by', 'supplier'];
+    protected $fillable = ['import_date', 'imported_by', 'supplier', 'restaurant_id'];
 
     public function details()
     {

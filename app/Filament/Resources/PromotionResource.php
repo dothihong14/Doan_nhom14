@@ -17,6 +17,7 @@ class PromotionResource extends Resource
 {
     protected static ?string $model = Promotion::class;
     protected static ?string $navigationGroup = 'Quản lý khuyến mãi';
+    protected static ?string $modelLabel = 'Quản lý khuyến mãi';
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách khuyến mãi';

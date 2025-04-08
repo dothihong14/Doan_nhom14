@@ -20,6 +20,7 @@ class IngredientResource extends Resource
 
     protected static ?string $model = Ingredient::class;
     protected static ?string $navigationGroup = 'Quản lý Nguyên Liệu';
+    protected static ?string $modelLabel = 'Quản lý nguyên liệu';
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách nguyên liệu';
@@ -119,7 +120,7 @@ class IngredientResource extends Resource
                     ->label('Ngưỡng tối thiểu')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('quantity_auto_updated')
+                Tables\Columns\TextColumn::make('quantity_in_stock')
                     ->label('Số lượng tự động cập nhật')
                     ->numeric()
                     ->sortable(),

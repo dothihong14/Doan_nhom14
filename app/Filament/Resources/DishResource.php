@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\DishResource\Pages;
 use App\Filament\Resources\DishResource\RelationManagers;
 use App\Models\Dish;
+use App\Models\Restaurant;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -20,6 +21,7 @@ class DishResource extends Resource
     protected static ?string $navigationGroup = 'Quản lý Món Ăn';
     protected static ?string $navigationLabel = 'Món ăn';
     protected static ?string $title = 'Món ăn';
+    protected static ?string $modelLabel = 'Món ăn';
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách món ăn';
@@ -36,11 +38,11 @@ class DishResource extends Resource
                     ->tabs([
                         Forms\Components\Tabs\Tab::make('Chi tiết')
                             ->schema([
-                                // Forms\Components\Select::make('restaurant_id')
-                                //     ->relationship('restaurant', 'name')
-                                //     ->label('Nhà hàng')
-                                //     ->required()
-                                //     ->columnSpanFull(),
+                                Forms\Components\Select::make('restaurant_id')
+                                    ->label('Cơ sở')
+                                    ->options(Restaurant::all()->pluck('name', 'id'))
+                                    ->required()
+                                    ->searchable(),
                                 Forms\Components\Select::make('food_category_id')
                                     ->relationship('food_category', 'name')
                                     ->label('Danh mục món ăn')
@@ -135,19 +137,12 @@ class DishResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
-                    ->label('Hình ảnh')
-
-
-                  ,
-
-                // Tables\Columns\TextColumn::make('restaurant.name')
-                //     ->label('Nhà hàng')
-                //     ->sortable(),
+                    ->label('Hình ảnh'),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Tên món ăn')
                     ->searchable(),
-                Tables\Columns\TextInputColumn::make('daily_sold_quantity')
-                    ->label('Số lượng có thể bán trong ngày')
+                Tables\Columns\TextColumn::make('restaurant.name')
+                    ->label('Cơ sở')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('price')
                     ->label('Giá')
@@ -167,7 +162,7 @@ class DishResource extends Resource
                     ->label('Ngày tạo')
                     ->dateTime()
                     ->sortable()
-                  ,
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label('Ngày cập nhật')
                     ->dateTime()

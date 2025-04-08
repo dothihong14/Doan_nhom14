@@ -9,23 +9,17 @@ class ReturnIngredient extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['ingredient_id', 'returned_quantity', 'reason'];
+    protected $fillable = ['restaurant_id', 'return_date'];
 
     public function ingredient()
     {
         return $this->belongsTo(Ingredient::class);
     }
-    protected static function boot()
+    public function restaurant() {
+        return $this->belongsTo(Restaurant::class);
+    }
+    public function details()
     {
-        parent::boot();
-
-        static::created(function ($returnIngredient) {
-           MaterialTransaction::create([
-            'type' => 'export',
-            'quantity' => $returnIngredient->returned_quantity,
-            'ingredient_id' => $returnIngredient->ingredient_id,
-            'reason' => $returnIngredient->reason,
-           ]);
-        });
+        return $this->hasMany(ReturnIngredientDetail::class);
     }
 }

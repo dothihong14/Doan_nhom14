@@ -20,6 +20,7 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
 
     protected static ?string $navigationGroup = 'Quản lý hệ thống';
+    protected static ?string $modelLabel = 'Quản lý người dùng';
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách tài khoản';

@@ -1558,7 +1558,7 @@
                                         {{-- <div
                                             class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-ac55357"
                                             data-id="ac55357" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
                                                 <div class="elementor-section elementor-inner-section elementor-element elementor-element-d32a7bd elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                                                     data-id="d32a7bd" data-element_type="section"
                                                     data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -1566,26 +1566,26 @@
                                                         <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-591d0ef"
                                                             data-id="591d0ef" data-element_type="column">
                                                             <div
-                                                                class="elementor-widget-wrap elementor-element-populated">
-                                                                <div class="elementor-element elementor-element-a651847 show-icon-deco-yes elementor-position-top elementor-position-below elementor-vertical-align-top elementor-widget elementor-widget-image-box"
-                                                                    data-id="a651847" data-element_type="widget"
+                                                                class="elementor-widgets-wrap elementor-element-populated">
+                                                                <div class="elementor-element elementor-element-a651847 show-icon-deco-yes elementor-position-top elementor-position-below elementor-vertical-align-top elementor-widgets elementor-widgets-image-box"
+                                                                    data-id="a651847" data-element_type="widgets"
                                                                     data-widget_type="image-box.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
                                                                         <style>
-                                                                            .elementor-widget-image-box .elementor-image-box-content {
+                                                                            .elementor-widgets-image-box .elementor-image-box-content {
                                                                                 width: 100%
                                                                             }
 
                                                                             @media (min-width:768px) {
 
-                                                                                .elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper,
-                                                                                .elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper {
+                                                                                .elementor-widgets-image-box.elementor-position-left .elementor-image-box-wrapper,
+                                                                                .elementor-widgets-image-box.elementor-position-right .elementor-image-box-wrapper {
                                                                                     display: -webkit-box;
                                                                                     display: -ms-flexbox;
                                                                                     display: flex
                                                                                 }
 
-                                                                                .elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper {
+                                                                                .elementor-widgets-image-box.elementor-position-right .elementor-image-box-wrapper {
                                                                                     text-align: right;
                                                                                     -webkit-box-orient: horizontal;
                                                                                     -webkit-box-direction: reverse;
@@ -1593,7 +1593,7 @@
                                                                                     flex-direction: row-reverse
                                                                                 }
 
-                                                                                .elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper {
+                                                                                .elementor-widgets-image-box.elementor-position-left .elementor-image-box-wrapper {
                                                                                     text-align: left;
                                                                                     -webkit-box-orient: horizontal;
                                                                                     -webkit-box-direction: normal;
@@ -1601,23 +1601,23 @@
                                                                                     flex-direction: row
                                                                                 }
 
-                                                                                .elementor-widget-image-box.elementor-position-top .elementor-image-box-img {
+                                                                                .elementor-widgets-image-box.elementor-position-top .elementor-image-box-img {
                                                                                     margin: auto
                                                                                 }
 
-                                                                                .elementor-widget-image-box.elementor-vertical-align-top .elementor-image-box-wrapper {
+                                                                                .elementor-widgets-image-box.elementor-vertical-align-top .elementor-image-box-wrapper {
                                                                                     -webkit-box-align: start;
                                                                                     -ms-flex-align: start;
                                                                                     align-items: flex-start
                                                                                 }
 
-                                                                                .elementor-widget-image-box.elementor-vertical-align-middle .elementor-image-box-wrapper {
+                                                                                .elementor-widgets-image-box.elementor-vertical-align-middle .elementor-image-box-wrapper {
                                                                                     -webkit-box-align: center;
                                                                                     -ms-flex-align: center;
                                                                                     align-items: center
                                                                                 }
 
-                                                                                .elementor-widget-image-box.elementor-vertical-align-bottom .elementor-image-box-wrapper {
+                                                                                .elementor-widgets-image-box.elementor-vertical-align-bottom .elementor-image-box-wrapper {
                                                                                     -webkit-box-align: end;
                                                                                     -ms-flex-align: end;
                                                                                     align-items: flex-end
@@ -1625,26 +1625,26 @@
                                                                             }
 
                                                                             @media (max-width:767px) {
-                                                                                .elementor-widget-image-box .elementor-image-box-img {
+                                                                                .elementor-widgets-image-box .elementor-image-box-img {
                                                                                     margin-left: auto !important;
                                                                                     margin-right: auto !important;
                                                                                     margin-bottom: 15px
                                                                                 }
                                                                             }
 
-                                                                            .elementor-widget-image-box .elementor-image-box-img {
+                                                                            .elementor-widgets-image-box .elementor-image-box-img {
                                                                                 display: inline-block
                                                                             }
 
-                                                                            .elementor-widget-image-box .elementor-image-box-title a {
+                                                                            .elementor-widgets-image-box .elementor-image-box-title a {
                                                                                 color: inherit
                                                                             }
 
-                                                                            .elementor-widget-image-box .elementor-image-box-wrapper {
+                                                                            .elementor-widgets-image-box .elementor-image-box-wrapper {
                                                                                 text-align: center
                                                                             }
 
-                                                                            .elementor-widget-image-box .elementor-image-box-description {
+                                                                            .elementor-widgets-image-box .elementor-image-box-description {
                                                                                 margin: 0
                                                                             }
                                                                         </style>
@@ -1662,10 +1662,10 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="elementor-element elementor-element-edc599e elementor-reservation-layout-2 elementor-widget elementor-widget-delicioz-reservation-form"
-                                                                    data-id="edc599e" data-element_type="widget"
+                                                                <div class="elementor-element elementor-element-edc599e elementor-reservation-layout-2 elementor-widgets elementor-widgets-delicioz-reservation-form"
+                                                                    data-id="edc599e" data-element_type="widgets"
                                                                     data-widget_type="delicioz-reservation-form.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
                                                                         <div class="delicioz-reservation-form">
                                                                             <form target="_blank" class="opentable-form"
                                                                                 action="https://www.opentable.com/restaurant-search.aspx">
@@ -2202,11 +2202,11 @@
                                     <div class="elementor-container elementor-column-gap-no">
                                         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-1b7af92"
                                             data-id="1b7af92" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
-                                                <div class="elementor-element elementor-element-681b118 menulist-align-left arrow-style-1 elementor-widget elementor-widget-delicioz-menu-list"
-                                                    data-id="681b118" data-element_type="widget"
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-681b118 menulist-align-left arrow-style-1 elementor-widgets elementor-widgets-delicioz-menu-list"
+                                                    data-id="681b118" data-element_type="widgets"
                                                     data-widget_type="delicioz-menu-list.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
 
                                                         <div class="elementor-menu-list-item-wrapper">
                                                             <div class="row menu-style-3 row"
@@ -2335,11 +2335,11 @@
                                     <div class="elementor-container elementor-column-gap-no">
                                         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f636fab"
                                             data-id="f636fab" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
-                                                <div class="elementor-element elementor-element-441c75a show-icon-deco-yes elementor-position-top elementor-position-below elementor-vertical-align-top elementor-widget elementor-widget-image-box"
-                                                    data-id="441c75a" data-element_type="widget"
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-441c75a show-icon-deco-yes elementor-position-top elementor-position-below elementor-vertical-align-top elementor-widgets elementor-widgets-image-box"
+                                                    data-id="441c75a" data-element_type="widgets"
                                                     data-widget_type="image-box.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         <div class="elementor-image-box-wrapper">
                                                             <div class="elementor-image-box-content">
                                                                 <div class="icon"><i aria-hidden="true"
@@ -2362,7 +2362,7 @@
                                     <div class="elementor-container elementor-column-gap-no">
                                         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-670b804"
                                             data-id="670b804" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
                                                 <div class="elementor-section elementor-inner-section elementor-element elementor-element-62b9db6 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                                                     data-id="62b9db6" data-element_type="section"
                                                     data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -2370,20 +2370,20 @@
                                                         <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-742133a"
                                                             data-id="742133a" data-element_type="column">
                                                             <div
-                                                                class="elementor-widget-wrap elementor-element-populated">
-                                                                <div class="elementor-element elementor-element-5ab935b elementor-widget elementor-widget-heading"
-                                                                    data-id="5ab935b" data-element_type="widget"
+                                                                class="elementor-widgets-wrap elementor-element-populated">
+                                                                <div class="elementor-element elementor-element-5ab935b elementor-widgets elementor-widgets-heading"
+                                                                    data-id="5ab935b" data-element_type="widgets"
                                                                     data-widget_type="heading.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
                                                                         <h2
                                                                             class="elementor-heading-title elementor-size-default">
                                                                             Appetizers</h2>
                                                                     </div>
                                                                 </div>
-                                                                <div class="elementor-element elementor-element-ed5705f menulist-align-left arrow-style-1 elementor-widget elementor-widget-delicioz-menu-list"
-                                                                    data-id="ed5705f" data-element_type="widget"
+                                                                <div class="elementor-element elementor-element-ed5705f menulist-align-left arrow-style-1 elementor-widgets elementor-widgets-delicioz-menu-list"
+                                                                    data-id="ed5705f" data-element_type="widgets"
                                                                     data-widget_type="delicioz-menu-list.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
 
                                                                         <div class="elementor-menu-list-item-wrapper">
                                                                             <div class="row menu-style-1 row"
@@ -2482,20 +2482,20 @@
                                                         <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-72d161d"
                                                             data-id="72d161d" data-element_type="column">
                                                             <div
-                                                                class="elementor-widget-wrap elementor-element-populated">
-                                                                <div class="elementor-element elementor-element-73c09fb elementor-widget elementor-widget-heading"
-                                                                    data-id="73c09fb" data-element_type="widget"
+                                                                class="elementor-widgets-wrap elementor-element-populated">
+                                                                <div class="elementor-element elementor-element-73c09fb elementor-widgets elementor-widgets-heading"
+                                                                    data-id="73c09fb" data-element_type="widgets"
                                                                     data-widget_type="heading.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
                                                                         <h2
                                                                             class="elementor-heading-title elementor-size-default">
                                                                             Main Dishes</h2>
                                                                     </div>
                                                                 </div>
-                                                                <div class="elementor-element elementor-element-26bd057 menulist-align-left arrow-style-1 elementor-widget elementor-widget-delicioz-menu-list"
-                                                                    data-id="26bd057" data-element_type="widget"
+                                                                <div class="elementor-element elementor-element-26bd057 menulist-align-left arrow-style-1 elementor-widgets elementor-widgets-delicioz-menu-list"
+                                                                    data-id="26bd057" data-element_type="widgets"
                                                                     data-widget_type="delicioz-menu-list.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
 
                                                                         <div class="elementor-menu-list-item-wrapper">
                                                                             <div class="row menu-style-1 row"
@@ -2597,20 +2597,20 @@
                                                         <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-7230851"
                                                             data-id="7230851" data-element_type="column">
                                                             <div
-                                                                class="elementor-widget-wrap elementor-element-populated">
-                                                                <div class="elementor-element elementor-element-9827c43 elementor-widget elementor-widget-heading"
-                                                                    data-id="9827c43" data-element_type="widget"
+                                                                class="elementor-widgets-wrap elementor-element-populated">
+                                                                <div class="elementor-element elementor-element-9827c43 elementor-widgets elementor-widgets-heading"
+                                                                    data-id="9827c43" data-element_type="widgets"
                                                                     data-widget_type="heading.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
                                                                         <h2
                                                                             class="elementor-heading-title elementor-size-default">
                                                                             Drink menu</h2>
                                                                     </div>
                                                                 </div>
-                                                                <div class="elementor-element elementor-element-ff7c262 menulist-align-left arrow-style-1 elementor-widget elementor-widget-delicioz-menu-list"
-                                                                    data-id="ff7c262" data-element_type="widget"
+                                                                <div class="elementor-element elementor-element-ff7c262 menulist-align-left arrow-style-1 elementor-widgets elementor-widgets-delicioz-menu-list"
+                                                                    data-id="ff7c262" data-element_type="widgets"
                                                                     data-widget_type="delicioz-menu-list.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
 
                                                                         <div class="elementor-menu-list-item-wrapper">
                                                                             <div class="row menu-style-1 row"
@@ -2721,11 +2721,11 @@
                                     <div class="elementor-container elementor-column-gap-no">
                                         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-21e0c96"
                                             data-id="21e0c96" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
-                                                <div class="elementor-element elementor-element-b8ebf2a elementor-align-center elementor-button-outline elementor-widget elementor-widget-button"
-                                                    data-id="b8ebf2a" data-element_type="widget"
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-b8ebf2a elementor-align-center elementor-button-outline elementor-widgets elementor-widgets-button"
+                                                    data-id="b8ebf2a" data-element_type="widgets"
                                                     data-widget_type="button.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         <div class="elementor-button-wrapper">
                                                             <a href="/shop/"
                                                                 class="elementor-button-link elementor-button elementor-size-sm"
@@ -2738,10 +2738,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="elementor-element elementor-element-aeeae78 elementor-widget elementor-widget-text-editor"
-                                                    data-id="aeeae78" data-element_type="widget"
+                                                <div class="elementor-element elementor-element-aeeae78 elementor-widgets elementor-widgets-text-editor"
+                                                    data-id="aeeae78" data-element_type="widgets"
                                                     data-widget_type="text-editor.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         During winter daily from <span
                                                             style="color: var(--e-global-color-primary);">8:30 am
                                                         </span> to <span
@@ -2760,11 +2760,11 @@
                                     <div class="elementor-container elementor-column-gap-no">
                                         <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-02fce9f"
                                             data-id="02fce9f" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
-                                                <div class="elementor-element elementor-element-6268ee6 arrow-style-1 dots-style-1 elementor-widget elementor-widget-delicioz-testimonials"
-                                                    data-id="6268ee6" data-element_type="widget"
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-6268ee6 arrow-style-1 dots-style-1 elementor-widgets elementor-widgets-delicioz-testimonials"
+                                                    data-id="6268ee6" data-element_type="widgets"
                                                     data-widget_type="delicioz-testimonials.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         <div class="elementor-testimonial-item-wrapper">
                                                             <div class="row layout-2 delicioz-carousel"
                                                                 data-settings="{&quot;navigation&quot;:&quot;arrows&quot;,&quot;autoplayHoverPause&quot;:true,&quot;autoplay&quot;:true,&quot;autoplaySpeed&quot;:5000,&quot;items&quot;:1,&quot;items_laptop&quot;:&quot;1&quot;,&quot;items_tablet_extra&quot;:&quot;1&quot;,&quot;items_tablet&quot;:&quot;2&quot;,&quot;items_mobile_extra&quot;:&quot;2&quot;,&quot;items_mobile&quot;:&quot;1&quot;,&quot;loop&quot;:true,&quot;breakpoint_laptop&quot;:1366,&quot;breakpoint_tablet_extra&quot;:1200,&quot;breakpoint_tablet&quot;:1024,&quot;breakpoint_mobile_extra&quot;:880,&quot;breakpoint_mobile&quot;:767}">
@@ -2921,11 +2921,11 @@
                                         </div>
                                         <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-61cf09d"
                                             data-id="61cf09d" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
-                                                <div class="elementor-element elementor-element-198a65c elementor-view-default elementor-widget elementor-widget-icon"
-                                                    data-id="198a65c" data-element_type="widget"
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-198a65c elementor-view-default elementor-widgets elementor-widgets-icon"
+                                                    data-id="198a65c" data-element_type="widgets"
                                                     data-widget_type="icon.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         <div class="elementor-icon-wrapper">
                                                             <div class="elementor-icon">
                                                                 <i aria-hidden="true"
@@ -2934,10 +2934,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="elementor-element elementor-element-3c79e81 elementor-widget__width-initial elementor-widget-tablet__width-inherit elementor-widget elementor-widget-heading"
-                                                    data-id="3c79e81" data-element_type="widget"
+                                                <div class="elementor-element elementor-element-3c79e81 elementor-widget__width-initial elementor-widgets-tablet__width-inherit elementor-widgets elementor-widgets-heading"
+                                                    data-id="3c79e81" data-element_type="widgets"
                                                     data-widget_type="heading.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         <h2 class="elementor-heading-title elementor-size-default">The
                                                             reviews of
                                                             customers when
@@ -2945,10 +2945,10 @@
                                                             restaurant!</h2>
                                                     </div>
                                                 </div>
-                                                <div class="elementor-element elementor-element-b8a5fcd elementor-align-left elementor-tablet-align-center elementor-mobile-align-center elementor-button-default elementor-widget elementor-widget-button"
-                                                    data-id="b8a5fcd" data-element_type="widget"
+                                                <div class="elementor-element elementor-element-b8a5fcd elementor-align-left elementor-tablet-align-center elementor-mobile-align-center elementor-button-default elementor-widgets elementor-widgets-button"
+                                                    data-id="b8a5fcd" data-element_type="widgets"
                                                     data-widget_type="button.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         <div class="elementor-button-wrapper">
                                                             <a href="#"
                                                                 class="elementor-button-link elementor-button elementor-size-sm"

@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\WarehouseReceiptResource\Pages;
 use App\Filament\Resources\WarehouseReceiptResource\RelationManagers;
+use App\Models\Restaurant;
 use App\Models\User;
 use App\Models\WarehouseReceipt;
 use Filament\Forms;
@@ -21,6 +22,7 @@ class WarehouseReceiptResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = 'Quản lý Nguyên Liệu';
     protected static ?string $title = 'Phiếu nhập kho';
+    protected static ?string $modelLabel = 'Phiếu nhập kho';
     protected static ?string $pluralModelLabel = 'Phiếu nhập kho';
     protected static ?int $navigationSort = 99;
 
@@ -29,18 +31,88 @@ class WarehouseReceiptResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\DatePicker::make('import_date')
-                    ->label('Ngày nhập')
-                    ->required(),
-                Forms\Components\Select::make('imported_by')
-                    ->label('Người nhập')
-                    ->default(auth()->user()->id)
-                    ->options(User::all()->pluck('name', 'id'))
-                    ->required(),
-                Forms\Components\TextInput::make('supplier')
-                    ->label('Nhà cung cấp')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\Section::make('Thông tin phiếu nhập kho')
+                    ->schema([
+                        Forms\Components\Select::make('restaurant_id')
+                            ->label('Cơ sở')
+                            ->options(Restaurant::all()->pluck('name', 'id'))
+                            ->required()
+                            ->reactive()
+                            ->searchable()
+                            ->afterStateUpdated(function (callable $get, callable $set) {
+                                $details = $get('details') ?? [];
+
+                                if (empty($details)) {
+                                    return;
+                                }
+
+                                $restaurantId = $get('restaurant_id');
+                                if (!$restaurantId) {
+                                    return;
+                                }
+
+                                $validIngredientIds = \App\Models\Ingredient::where('restaurant_id', $restaurantId)
+                                    ->pluck('id')
+                                    ->toArray();
+
+                                foreach ($details as $index => $detail) {
+                                    $currentIngredientId = $detail['ingredient_id'] ?? null;
+
+                                    if ($currentIngredientId && !in_array($currentIngredientId, $validIngredientIds)) {
+                                        $set("details.{$index}.ingredient_id", null);
+                                        $set("details.{$index}.actual_quantity", null);
+                                        $set("details.{$index}.unit_price", null);
+                                    }
+                                }
+                            }),
+                        Forms\Components\DatePicker::make('import_date')
+                            ->label('Ngày nhập')
+                            ->required(),
+                        Forms\Components\Select::make('imported_by')
+                            ->label('Người nhập')
+                            ->default(auth()->user()->id)
+                            ->options(\App\Models\User::all()->pluck('name', 'id'))
+                            ->searchable()
+                            ->required(),
+                        Forms\Components\TextInput::make('supplier')
+                            ->label('Nhà cung cấp')
+                            ->required()
+                            ->maxLength(255),
+                    ])
+                    ->columns(3),
+
+                Forms\Components\Section::make('Chi tiết nhập kho')
+                    ->schema([
+                        Forms\Components\Repeater::make('details')
+                            ->label('Chi tiết nhập kho')
+                            ->relationship('details')
+                            ->schema([
+                                Forms\Components\Select::make('ingredient_id')
+                                    ->label('Nguyên liệu')
+                                    ->options(function (callable $get) {
+                                        $restaurantId = $get('../../restaurant_id');
+                                        if (!$restaurantId) {
+                                            return [];
+                                        }
+                                        return \App\Models\Ingredient::where('restaurant_id', $restaurantId)
+                                            ->pluck('name', 'id');
+                                    })
+                                    ->required()
+                                    ->searchable()
+                                    ->reactive(),
+                                Forms\Components\TextInput::make('actual_quantity')
+                                    ->label('Số lượng thực tế')
+                                    ->numeric()
+                                    ->required(),
+                                Forms\Components\TextInput::make('unit_price')
+                                    ->label('Đơn giá')
+                                    ->numeric()
+                                    ->prefix('₫')
+                                    ->required(),
+                            ])
+                            ->columns(3),
+                    ])
+                    ->columnSpan('full'),
             ]);
     }
 
@@ -70,34 +142,27 @@ class WarehouseReceiptResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make()
-                        ->label('Xem'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xem'),
                     Tables\Actions\EditAction::make()
-                        ->label('Chỉnh Sửa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Chỉnh Sửa'),
                     Tables\Actions\DeleteAction::make()
-                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xóa'),
                 ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
-                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xóa'),
                 ]),
             ]);
     }
      public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
-    }
-    public static function getRelations(): array
-    {
-        return [
-            RelationManagers\WarehouseReceiptDetailRelationManager::class,
-        ];
     }
     public static function getPages(): array
     {

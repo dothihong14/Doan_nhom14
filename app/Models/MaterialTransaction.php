@@ -10,7 +10,7 @@ class MaterialTransaction extends Model
     use HasFactory;
 
     protected $fillable = [
-        'ingredient_id', 'reason', 'quantity', 'type' // type can be 'import' or 'export'
+        'exported_by', 'export_date', 'restaurant_id'
     ];
 
     public function ingredient()
@@ -18,23 +18,16 @@ class MaterialTransaction extends Model
         return $this->belongsTo(Ingredient::class);
     }
 
-    protected static function boot()
+    public function user() {
+        return $this->belongsTo(User::class, 'exported_by');
+    }
+
+    public function details()
     {
-        parent::boot();
+        return $this->hasMany(MaterialTransactionDetail::class);
+    }
 
-        static::created(function ($transaction) {
-            $ingredient = $transaction->ingredient;
-
-            if ($transaction->type === 'import') {
-                // Increase the quantity in stock
-                $ingredient->quantity_in_stock += $transaction->quantity;
-            } elseif ($transaction->type === 'export') {
-                // Decrease the quantity in stock
-                $ingredient->quantity_in_stock -= $transaction->quantity;
-            }
-
-            // Save the updated ingredient
-            $ingredient->save();
-        });
+    public function restaurant() {
+        return $this->belongsTo(Restaurant::class);
     }
 }

@@ -20,6 +20,7 @@ class CustomerResource extends Resource
     protected static ?string $model = Customer::class;
     protected static ?string $navigationGroup = 'Quản lý Khách hàng';
     protected static ?string $navigationLabel = 'Khách hàng';
+    protected static ?string $modelLabel = 'Khách hàng';
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách khách hàng';

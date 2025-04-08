@@ -23,6 +23,7 @@ class RoleResource extends Resource implements HasShieldPermissions
 
     protected static ?string $recordTitleAttribute = 'name';
     protected static ?string $navigationGroup = 'Quản lý hệ thống';
+    protected static ?string $modelLabel = 'Phân quyền';
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách chức vụ & phân quyền';
@@ -108,11 +109,14 @@ class RoleResource extends Resource implements HasShieldPermissions
                     ->badge()
                     ->color('warning')
                     ->label(__('Mã chức vụ')),
-                Tables\Columns\TextColumn::make('permissions_count')
-                    ->badge()
-                    ->label(__('filament-shield::filament-shield.column.permissions'))
-                    ->counts('permissions')
-                    ->colors(['success']),
+//                Tables\Columns\TextColumn::make('permissions_count')
+//                    ->badge()
+//                    ->label(__('filament-shield::filament-shield.column.permissions'))
+//                    ->counts('permissions')
+//                    ->colors(['success']),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('filament-shield::filament-shield.column.created_at'))
+                    ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label(__('filament-shield::filament-shield.column.updated_at'))
                     ->dateTime(),

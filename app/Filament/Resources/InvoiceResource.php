@@ -25,6 +25,7 @@ class InvoiceResource extends Resource
     protected static ?string $model = Invoice::class;
     protected static ?string $navigationGroup = 'Quản lý Hóa đơn';
     protected static ?string $navigationLabel = 'Đơn hàng trực tiếp';
+    protected static ?string $modelLabel = 'Đơn hàng trực tiếp';
     protected static ?string $title = 'Đơn hàng trực tiếp';
 
     public static function getPluralModelLabel(): string

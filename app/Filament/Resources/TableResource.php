@@ -24,6 +24,7 @@ class TableResource extends Resource
 {
     protected static ?string $model = TableModel::class;
     protected static ?string $navigationGroup = 'Quản lý Nhà Hàng';
+    protected static ?string $modelLabel = 'Danh sách bàn';
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách bàn';

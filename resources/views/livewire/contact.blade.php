@@ -1551,20 +1551,20 @@
                                             <div class="elementor-container elementor-column-gap-no">
                                                 <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-1cf6d9e"
                                                     data-id="1cf6d9e" data-element_type="column">
-                                                    <div class="elementor-widget-wrap elementor-element-populated">
-                                                        <div class="elementor-element elementor-element-228fd3d elementor-widget elementor-widget-heading"
-                                                            data-id="228fd3d" data-element_type="widget"
+                                                    <div class="elementor-widgets-wrap elementor-element-populated">
+                                                        <div class="elementor-element elementor-element-228fd3d elementor-widgets elementor-widgets-heading"
+                                                            data-id="228fd3d" data-element_type="widgets"
                                                             data-widget_type="heading.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <h2
                                                                     class="elementor-heading-title elementor-size-default">
                                                                     London</h2>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-79efa33 elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
-                                                            data-id="79efa33" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-79efa33 elementor-widget__width-auto elementor-view-default elementor-widgets elementor-widgets-icon"
+                                                            data-id="79efa33" data-element_type="widgets"
                                                             data-widget_type="icon.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <div class="elementor-icon-wrapper">
                                                                     <div class="elementor-icon">
                                                                         <i aria-hidden="true"
@@ -1573,16 +1573,16 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-978341e elementor-widget__width-auto elementor-widget elementor-widget-text-editor"
-                                                            data-id="978341e" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-978341e elementor-widget__width-auto elementor-widgets elementor-widgets-text-editor"
+                                                            data-id="978341e" data-element_type="widgets"
                                                             data-widget_type="text-editor.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 United Kingdom </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-fd61f30 elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
-                                                            data-id="fd61f30" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-fd61f30 elementor-widget__width-auto elementor-view-default elementor-widgets elementor-widgets-icon"
+                                                            data-id="fd61f30" data-element_type="widgets"
                                                             data-widget_type="icon.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <div class="elementor-icon-wrapper">
                                                                     <div class="elementor-icon">
                                                                         <i aria-hidden="true"
@@ -1591,10 +1591,10 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-e4e5b7b elementor-widget__width-initial elementor-widget elementor-widget-text-editor"
-                                                            data-id="e4e5b7b" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-e4e5b7b elementor-widget__width-initial elementor-widgets elementor-widgets-text-editor"
+                                                            data-id="e4e5b7b" data-element_type="widgets"
                                                             data-widget_type="text-editor.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 Silk St, Barbican, London EC2Y 8DS
                                                                 <a href="/cdn-cgi/l/email-protection"
                                                                     class="__cf_email__"
@@ -1603,10 +1603,10 @@
                                                                 +39 055 123 4567
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-9dbbf44 elementor-align-center elementor-button-outline elementor-widget elementor-widget-button"
-                                                            data-id="9dbbf44" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-9dbbf44 elementor-align-center elementor-button-outline elementor-widgets elementor-widgets-button"
+                                                            data-id="9dbbf44" data-element_type="widgets"
                                                             data-widget_type="button.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <div class="elementor-button-wrapper">
                                                                     <a href="https://www.google.com/maps/place/Barbican+Centre/@51.5205487,-0.0936463,18z/data=!4m13!1m7!3m6!1s0x48761ca98744377d:0x9e296ec2b218ce78!2zU2lsayBTdCwgTG9uZG9uLCBWxrDGoW5nIFF14buRYyBBbmg!3b1!8m2!3d51.5198778!4d-0.0916239!3m4!1s0x48761b56fb64b275:0xc756e26675d21f40!8m2!3d51.5202077!4d-0.0937864"
                                                                         class="elementor-button-link elementor-button elementor-size-sm"
@@ -1623,20 +1623,20 @@
                                                 </div>
                                                 <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-42453ba"
                                                     data-id="42453ba" data-element_type="column">
-                                                    <div class="elementor-widget-wrap elementor-element-populated">
-                                                        <div class="elementor-element elementor-element-249a757 elementor-widget elementor-widget-heading"
-                                                            data-id="249a757" data-element_type="widget"
+                                                    <div class="elementor-widgets-wrap elementor-element-populated">
+                                                        <div class="elementor-element elementor-element-249a757 elementor-widgets elementor-widgets-heading"
+                                                            data-id="249a757" data-element_type="widgets"
                                                             data-widget_type="heading.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <h2
                                                                     class="elementor-heading-title elementor-size-default">
                                                                     Tokyo</h2>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-075f0ec elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
-                                                            data-id="075f0ec" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-075f0ec elementor-widget__width-auto elementor-view-default elementor-widgets elementor-widgets-icon"
+                                                            data-id="075f0ec" data-element_type="widgets"
                                                             data-widget_type="icon.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <div class="elementor-icon-wrapper">
                                                                     <div class="elementor-icon">
                                                                         <i aria-hidden="true"
@@ -1645,16 +1645,16 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-10f68e6 elementor-widget__width-auto elementor-widget elementor-widget-text-editor"
-                                                            data-id="10f68e6" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-10f68e6 elementor-widget__width-auto elementor-widgets elementor-widgets-text-editor"
+                                                            data-id="10f68e6" data-element_type="widgets"
                                                             data-widget_type="text-editor.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 Japan </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-5983109 elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
-                                                            data-id="5983109" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-5983109 elementor-widget__width-auto elementor-view-default elementor-widgets elementor-widgets-icon"
+                                                            data-id="5983109" data-element_type="widgets"
                                                             data-widget_type="icon.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <div class="elementor-icon-wrapper">
                                                                     <div class="elementor-icon">
                                                                         <i aria-hidden="true"
@@ -1663,10 +1663,10 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-51be323 elementor-widget__width-initial elementor-widget-tablet__width-initial elementor-widget elementor-widget-text-editor"
-                                                            data-id="51be323" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-51be323 elementor-widget__width-initial elementor-widgets-tablet__width-initial elementor-widgets elementor-widgets-text-editor"
+                                                            data-id="51be323" data-element_type="widgets"
                                                             data-widget_type="text-editor.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 F564+FW Aoi Ward, Shizuoka, Japan
                                                                 <a href="/cdn-cgi/l/email-protection"
                                                                     class="__cf_email__"
@@ -1675,10 +1675,10 @@
                                                                 +39 055 123 4567
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-580d1aa elementor-align-center elementor-button-outline elementor-widget elementor-widget-button"
-                                                            data-id="580d1aa" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-580d1aa elementor-align-center elementor-button-outline elementor-widgets elementor-widgets-button"
+                                                            data-id="580d1aa" data-element_type="widgets"
                                                             data-widget_type="button.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <div class="elementor-button-wrapper">
                                                                     <a href="https://www.google.com/maps/place/Barbican+Centre/@51.5205487,-0.0936463,18z/data=!4m13!1m7!3m6!1s0x48761ca98744377d:0x9e296ec2b218ce78!2zU2lsayBTdCwgTG9uZG9uLCBWxrDGoW5nIFF14buRYyBBbmg!3b1!8m2!3d51.5198778!4d-0.0916239!3m4!1s0x48761b56fb64b275:0xc756e26675d21f40!8m2!3d51.5202077!4d-0.0937864"
                                                                         class="elementor-button-link elementor-button elementor-size-sm"
@@ -1695,20 +1695,20 @@
                                                 </div>
                                                 <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-8aa87a1"
                                                     data-id="8aa87a1" data-element_type="column">
-                                                    <div class="elementor-widget-wrap elementor-element-populated">
-                                                        <div class="elementor-element elementor-element-05c492c elementor-widget elementor-widget-heading"
-                                                            data-id="05c492c" data-element_type="widget"
+                                                    <div class="elementor-widgets-wrap elementor-element-populated">
+                                                        <div class="elementor-element elementor-element-05c492c elementor-widgets elementor-widgets-heading"
+                                                            data-id="05c492c" data-element_type="widgets"
                                                             data-widget_type="heading.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <h2
                                                                     class="elementor-heading-title elementor-size-default">
                                                                     New york</h2>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-7afb4fe elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
-                                                            data-id="7afb4fe" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-7afb4fe elementor-widget__width-auto elementor-view-default elementor-widgets elementor-widgets-icon"
+                                                            data-id="7afb4fe" data-element_type="widgets"
                                                             data-widget_type="icon.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <div class="elementor-icon-wrapper">
                                                                     <div class="elementor-icon">
                                                                         <i aria-hidden="true"
@@ -1717,16 +1717,16 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-4bda04e elementor-widget__width-auto elementor-widget elementor-widget-text-editor"
-                                                            data-id="4bda04e" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-4bda04e elementor-widget__width-auto elementor-widgets elementor-widgets-text-editor"
+                                                            data-id="4bda04e" data-element_type="widgets"
                                                             data-widget_type="text-editor.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 America </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-175e411 elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
-                                                            data-id="175e411" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-175e411 elementor-widget__width-auto elementor-view-default elementor-widgets elementor-widgets-icon"
+                                                            data-id="175e411" data-element_type="widgets"
                                                             data-widget_type="icon.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <div class="elementor-icon-wrapper">
                                                                     <div class="elementor-icon">
                                                                         <i aria-hidden="true"
@@ -1735,10 +1735,10 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-0a5f02a elementor-widget__width-initial elementor-widget elementor-widget-text-editor"
-                                                            data-id="0a5f02a" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-0a5f02a elementor-widget__width-initial elementor-widgets elementor-widgets-text-editor"
+                                                            data-id="0a5f02a" data-element_type="widgets"
                                                             data-widget_type="text-editor.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 71 Madison Ave, New York, USA
                                                                 <a href="/cdn-cgi/l/email-protection"
                                                                     class="__cf_email__"
@@ -1747,10 +1747,10 @@
                                                                 +39 055 123 4567
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-fb9afdc elementor-align-center elementor-button-outline elementor-widget elementor-widget-button"
-                                                            data-id="fb9afdc" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-fb9afdc elementor-align-center elementor-button-outline elementor-widgets elementor-widgets-button"
+                                                            data-id="fb9afdc" data-element_type="widgets"
                                                             data-widget_type="button.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <div class="elementor-button-wrapper">
                                                                     <a href="https://www.google.com/maps/place/Barbican+Centre/@51.5205487,-0.0936463,18z/data=!4m13!1m7!3m6!1s0x48761ca98744377d:0x9e296ec2b218ce78!2zU2lsayBTdCwgTG9uZG9uLCBWxrDGoW5nIFF14buRYyBBbmg!3b1!8m2!3d51.5198778!4d-0.0916239!3m4!1s0x48761b56fb64b275:0xc756e26675d21f40!8m2!3d51.5202077!4d-0.0937864"
                                                                         class="elementor-button-link elementor-button elementor-size-sm"
@@ -1767,20 +1767,20 @@
                                                 </div>
                                                 <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-c5dd624"
                                                     data-id="c5dd624" data-element_type="column">
-                                                    <div class="elementor-widget-wrap elementor-element-populated">
-                                                        <div class="elementor-element elementor-element-6d75014 elementor-widget elementor-widget-heading"
-                                                            data-id="6d75014" data-element_type="widget"
+                                                    <div class="elementor-widgets-wrap elementor-element-populated">
+                                                        <div class="elementor-element elementor-element-6d75014 elementor-widgets elementor-widgets-heading"
+                                                            data-id="6d75014" data-element_type="widgets"
                                                             data-widget_type="heading.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <h2
                                                                     class="elementor-heading-title elementor-size-default">
                                                                     Paris</h2>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-97faa47 elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
-                                                            data-id="97faa47" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-97faa47 elementor-widget__width-auto elementor-view-default elementor-widgets elementor-widgets-icon"
+                                                            data-id="97faa47" data-element_type="widgets"
                                                             data-widget_type="icon.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <div class="elementor-icon-wrapper">
                                                                     <div class="elementor-icon">
                                                                         <i aria-hidden="true"
@@ -1789,16 +1789,16 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-1c056bc elementor-widget__width-auto elementor-widget elementor-widget-text-editor"
-                                                            data-id="1c056bc" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-1c056bc elementor-widget__width-auto elementor-widgets elementor-widgets-text-editor"
+                                                            data-id="1c056bc" data-element_type="widgets"
                                                             data-widget_type="text-editor.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 french </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-2a8c954 elementor-widget__width-auto elementor-view-default elementor-widget elementor-widget-icon"
-                                                            data-id="2a8c954" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-2a8c954 elementor-widget__width-auto elementor-view-default elementor-widgets elementor-widgets-icon"
+                                                            data-id="2a8c954" data-element_type="widgets"
                                                             data-widget_type="icon.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <div class="elementor-icon-wrapper">
                                                                     <div class="elementor-icon">
                                                                         <i aria-hidden="true"
@@ -1807,10 +1807,10 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-fad0eb9 elementor-widget__width-initial elementor-widget elementor-widget-text-editor"
-                                                            data-id="fad0eb9" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-fad0eb9 elementor-widget__width-initial elementor-widgets elementor-widgets-text-editor"
+                                                            data-id="fad0eb9" data-element_type="widgets"
                                                             data-widget_type="text-editor.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 4 Rue des Meuniers, 93100 Montreuil, French
                                                                 <a href="/cdn-cgi/l/email-protection"
                                                                     class="__cf_email__"
@@ -1819,10 +1819,10 @@
                                                                 +39 055 123 4567
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-f98c685 elementor-align-center elementor-button-outline elementor-widget elementor-widget-button"
-                                                            data-id="f98c685" data-element_type="widget"
+                                                        <div class="elementor-element elementor-element-f98c685 elementor-align-center elementor-button-outline elementor-widgets elementor-widgets-button"
+                                                            data-id="f98c685" data-element_type="widgets"
                                                             data-widget_type="button.default">
-                                                            <div class="elementor-widget-container">
+                                                            <div class="elementor-widgets-container">
                                                                 <div class="elementor-button-wrapper">
                                                                     <a href="https://www.google.com/maps/place/Barbican+Centre/@51.5205487,-0.0936463,18z/data=!4m13!1m7!3m6!1s0x48761ca98744377d:0x9e296ec2b218ce78!2zU2lsayBTdCwgTG9uZG9uLCBWxrDGoW5nIFF14buRYyBBbmg!3b1!8m2!3d51.5198778!4d-0.0916239!3m4!1s0x48761b56fb64b275:0xc756e26675d21f40!8m2!3d51.5202077!4d-0.0937864"
                                                                         class="elementor-button-link elementor-button elementor-size-sm"

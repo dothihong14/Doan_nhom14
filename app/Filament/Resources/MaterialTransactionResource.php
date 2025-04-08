@@ -3,60 +3,125 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\MaterialTransactionResource\Pages;
-use App\Filament\Resources\MaterialTransactionResource\RelationManagers;
 use App\Models\MaterialTransaction;
+use App\Models\Restaurant;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
+use App\Filament\Resources\WarehouseReceiptResource\RelationManagers;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
-
 class MaterialTransactionResource extends Resource
 {
     protected static ?string $model = MaterialTransaction::class;
 
     protected static ?string $navigationGroup = 'Quản lý Nguyên Liệu';
-    protected static ?string $navigationLabel = 'Lịch sử nguyên liệu';
-    protected static ?string $title = 'Lịch sử nguyên liệu';
-    protected static ?string $pluralTitle = 'Lịch sử nguyên liệu';
-    protected static ?string $pluralModelLabel = 'Lịch sử nguyên liệu';
-    protected static ?string $modelLabel = 'Lịch sử nguyên liệu';
+    protected static ?string $navigationLabel = 'Phiếu xuất kho';
+    protected static ?string $title = 'Phiếu xuất kho';
+    protected static ?string $pluralTitle = 'Phiếu xuất kho';
+    protected static ?string $pluralModelLabel = 'Phiếu xuất kho';
+    protected static ?string $modelLabel = 'Phiếu xuất kho';
     protected static ?string $navigationIcon = 'heroicon-o-arrow-path';
 
     public static function getPluralModelLabel(): string
     {
-        return 'Lịch sử nguyên liệu';
+        return 'Phiếu xuất kho';
     }
     protected static ?int $navigationSort = 98;
-
-
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('ingredient_id')
-                    ->relationship('ingredient', 'name')
-                    ->label('Nguyên liệu')
-                    ->required()
-                  ,
-                Forms\Components\TextInput::make('reason')
-                    ->label('Lý do')
-                    ->required(),
-                Forms\Components\TextInput::make('quantity')
-                    ->label('Số lượng')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\Select::make('type')
-                    ->options([
-                        'import' => 'Nhập',
-                        'export' => 'Xuất',
+                Forms\Components\Section::make('Thông tin phiếu xuất kho')
+                    ->schema([
+                        Forms\Components\Select::make('restaurant_id')
+                            ->label('Cơ sở')
+                            ->options(Restaurant::all()->pluck('name', 'id'))
+                            ->required()
+                            ->reactive()
+                            ->searchable()
+                            ->afterStateUpdated(function (callable $get, callable $set) {
+                                $details = $get('details') ?? [];
+
+                                if (empty($details)) {
+                                    return;
+                                }
+
+                                $restaurantId = $get('restaurant_id');
+                                if (!$restaurantId) {
+                                    return;
+                                }
+
+                                $validIngredientIds = \App\Models\Ingredient::where('restaurant_id', $restaurantId)
+                                    ->pluck('id')
+                                    ->toArray();
+
+                                foreach ($details as $index => $detail) {
+                                    $currentIngredientId = $detail['ingredient_id'] ?? null;
+
+                                    if ($currentIngredientId && !in_array($currentIngredientId, $validIngredientIds)) {
+                                        $set("details.{$index}.ingredient_id", null);
+                                        $set("details.{$index}.actual_quantity", null);
+                                        $set("details.{$index}.reason", null);
+                                    }
+                                }
+                            }),
+                        Forms\Components\DatePicker::make('export_date')
+                            ->label('Ngày xuất')
+                            ->required(),
+                        Forms\Components\Select::make('exported_by')
+                            ->label('Người xuất')
+                            ->options(User::all()->pluck('name', 'id'))
+                            ->searchable()
+                            ->required(),
                     ])
-                    ->label('Loại')
-                    ->required(),
+                    ->columns(3),
+
+                Forms\Components\Section::make('Chi tiết xuất kho')
+                    ->schema([
+                        Forms\Components\Repeater::make('details')
+                            ->label('Chi tiết xuất kho')
+                            ->relationship('details')
+                            ->schema([
+                                Forms\Components\Select::make('ingredient_id')
+                                    ->label('Nguyên liệu')
+                                    ->options(function (callable $get) {
+                                        $restaurantId = $get('../../restaurant_id');
+                                        if (!$restaurantId) {
+                                            return [];
+                                        }
+                                        return \App\Models\Ingredient::where('restaurant_id', $restaurantId)
+                                            ->pluck('name', 'id');
+                                    })
+                                    ->required()
+                                    ->searchable()
+                                    ->reactive(),
+                                Forms\Components\TextInput::make('actual_quantity')
+                                    ->label('Số lượng thực tế')
+                                    ->numeric()
+                                    ->required()
+                                    ->rules(function (callable $get) {
+                                        $ingredientId = $get('ingredient_id');
+                                        $restaurantId = $get('../../restaurant_id');
+                                        if (!$ingredientId || !$restaurantId) {
+                                            return [];
+                                        }
+                                        $ingredient = \App\Models\Ingredient::where('id', $ingredientId)
+                                            ->where('restaurant_id', $restaurantId)
+                                            ->first();
+                                        if (!$ingredient) {
+                                            return [];
+                                        }
+                                        return ['max:' . $ingredient->quantity_in_stock];
+                                    }),
+                                Forms\Components\TextInput::make('reason')
+                                    ->label('Lý do'),
+                            ])
+                            ->columns(3),
+                    ])
+                    ->columnSpan('full'),
             ]);
     }
 
@@ -64,69 +129,52 @@ class MaterialTransactionResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('ingredient.image')
-                    ->label('Ảnh')
-                 ,
-                Tables\Columns\TextColumn::make('ingredient.name')
-                    ->label('Nguyên liệu')
-                    ->numeric()
-                    ->sortable(),
-                    Tables\Columns\BadgeColumn::make('quantity')
-                    ->color(fn ($record) => $record->type === 'import' ? 'success' : 'danger')
-                ->label('Số lượng')
-                ->formatStateUsing(function ($state, $record) {
-                    return $record->type === 'import' ? '+' . $state : '-' . $state; // Thêm dấu + hoặc - dựa trên loại
-                })
-                ->sortable(),
-                Tables\Columns\TextColumn::make('reason')
-                    ->label('Lý do')
+                Tables\Columns\TextColumn::make('restaurant.name')
+                    ->label('Cơ sở')
                     ->searchable(),
-
-                Tables\Columns\TextColumn::make('type')
-                    ->label('Loại')
+                Tables\Columns\TextColumn::make('export_date')
+                    ->label('Ngày xuất')
+                    ->date()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('Người xuất')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Ngày tạo')
                     ->dateTime()
                     ->sortable()
-                  ,
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label('Ngày cập nhật')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
+            ->filters([])
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make()
-                        ->label('Xem'), // Đổi nhãn sang tiếng Việt
-                    // Tables\Actions\EditAction::make()
-                    //     ->label('Chỉnh Sửa'), // Đổi nhãn sang tiếng Việt
-                    // Tables\Actions\DeleteAction::make()
-                    //     ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xem'),
+                    Tables\Actions\EditAction::make()
+                        ->label('Chỉnh Sửa'),
+                    Tables\Actions\DeleteAction::make()
+                        ->label('Xóa'),
                 ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    // Tables\Actions\DeleteBulkAction::make()
-                    //     ->label('Xóa'), // Đổi nhãn sang tiếng Việt
-                        ExportBulkAction::make()
-                        ->label('Xuất Excel'), // Đổi nhãn sang tiếng Việt
-
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->label('Xóa'),
                 ]),
             ]);
     }
-     public static function getNavigationBadge(): ?string
+    public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
     public static function getRelations(): array
     {
         return [
-            //
         ];
     }
 
@@ -135,7 +183,7 @@ class MaterialTransactionResource extends Resource
         return [
             'index' => Pages\ListMaterialTransactions::route('/'),
             'create' => Pages\CreateMaterialTransaction::route('/create'),
-            // 'edit' => Pages\EditMaterialTransaction::route('/{record}/edit'),
+            'edit' => Pages\EditMaterialTransaction::route('/{record}/edit'),
         ];
     }
 }

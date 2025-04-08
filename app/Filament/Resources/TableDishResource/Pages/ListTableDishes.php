@@ -10,18 +10,15 @@ class ListTableDishes extends ListRecords
 {
     protected static string $resource = TableDishResource::class;
 
-    protected function getTableActions(): array
-    {
-        return []; // Không cung cấp hành động nào cho bảng
-    }
-
     protected function getHeaderActions(): array
     {
         return [
+//            Actions\CreateAction::make()
+//                ->label('Tạo yêu cầu lên món'),
         ];
     }
     protected function getTableQuery(): Builder
-{
-    return parent::getTableQuery()->orderBy('created_at', 'desc');
-}
+    {
+        return parent::getTableQuery()->orderBy('created_at', 'desc');
+    }
 }
