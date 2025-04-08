@@ -5,11 +5,15 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\TableDishRelationManagerResource\RelationManagers\TableDishRelationManagerRelationManager;
 use App\Filament\Resources\TableResource\Pages;
 use App\Filament\Resources\TableResource\RelationManagers;
+use App\Models\Invoice;
+use App\Models\InvoiceItem;
 use App\Models\Reservation;
 use App\Models\Restaurant;
 use App\Models\Table as TableModel;
+use App\Models\TableDish;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -20,12 +24,13 @@ class TableResource extends Resource
 {
     protected static ?string $model = TableModel::class;
     protected static ?string $navigationGroup = 'Quản lý Nhà Hàng';
+    protected static ?string $modelLabel = 'Danh sách bàn';
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách bàn';
     }
     protected static ?string $navigationIcon = 'heroicon-o-table-cells'; // Bàn làm việc
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
 {
@@ -37,13 +42,15 @@ class TableResource extends Resource
                     Forms\Components\Select::make('restaurant_id')
                         ->options(Restaurant::all()->pluck('name', 'id'))
                         ->required()
-                        ->label('Nhà hàng'),
+                        ->label('Cơ sở'),
 
-                        Forms\Components\TextInput::make('table_number')
+                        Forms\Components\TextInput::make('table_code')
                         ->required()
-                        ->numeric()
-                        ->unique(TableModel::class, 'table_number', ignoreRecord: true) // Ensure uniqueness, ignoring current record
-                        ->label('Số bàn'),
+                        ->default(function ($context) {
+                           return 'TABLE_' . rand(1000, 9999);
+                        })
+                        ->unique(TableModel::class, 'table_code', ignoreRecord: true) // Ensure uniqueness, ignoring current record
+                        ->label('Mã bàn'),
                 ]),
 
             Forms\Components\Section::make('Trạng thái bàn')
@@ -63,6 +70,11 @@ class TableResource extends Resource
                         ->label('Mã đặt bàn')
                         ->searchable()
                         ,
+                        Forms\Components\TextInput::make('number_guest')
+                        ->required()
+                        ->numeric()
+                        ->label('Số người')
+                        ,
                 ]),
         ]);
 }
@@ -77,7 +89,7 @@ class TableResource extends Resource
 
                     ->label('ID')
                     ->toggleable(isToggledHiddenByDefault: true),
-                    Tables\Columns\TextColumn::make('table_number')
+                    Tables\Columns\TextColumn::make('table_code')
                     ->numeric()
                     ->sortable()
                     ->searchable()
@@ -85,17 +97,16 @@ class TableResource extends Resource
                 Tables\Columns\TextColumn::make('restaurant.name')
                     ->sortable()
                     ->searchable()
-                    ->label('Nhà hàng'),
+                    ->label('Cơ sở'),
 
-                    Tables\Columns\TextColumn::make('status')
+                    Tables\Columns\SelectColumn::make('status')
                     ->label('Trạng thái')
-                    ->badge(fn($record) => match ($record->status) {
-                        'available' => 'success',
-                        'occupied' => 'danger',
-                        'reserved' => 'warning',
-                        default => 'secondary', // Fallback for undefined statuses
-                    })
-                   ,
+                    ->options([
+                        'available' => 'Có sẵn',
+                        'occupied' => 'Đã sử dụng',
+                        'reserved' => 'Đã đặt',
+                    ])
+                    ,
                     Tables\Columns\TextColumn::make('reservation.reservation_code')
                     ->label('Mã đặt bàn')
                     ->searchable()
@@ -135,6 +146,12 @@ class TableResource extends Resource
                         ->label('Chỉnh Sửa'), // Đổi nhãn sang tiếng Việt
                     Tables\Actions\DeleteAction::make()
                         ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                        Tables\Actions\Action::make('createInvoice')
+                        ->label('Tạo Hóa Đơn')
+                        ->icon('heroicon-o-document-text')
+                        ->color('success')
+                        ->requiresConfirmation()
+                        ->action(fn ($record) => static::generateInvoice($record))
                 ])
             ])
             ->bulkActions([
@@ -153,6 +170,63 @@ class TableResource extends Resource
         return [
             TableDishRelationManagerRelationManager::class,
         ];
+    }
+    public static function generateInvoice($table)
+    {
+        if ($table->status === 'available') {
+            Notification::make()
+                ->title('Bàn trống không thể tạo hóa đơn!')
+                ->danger()
+                ->send();
+            return;
+        }
+
+        $tableDishes = TableDish::where('table_id', $table->id)->get();
+        if ($tableDishes->isEmpty()) {
+            Notification::make()
+                ->title('Không có món ăn nào để tạo hóa đơn!')
+                ->danger()
+                ->send();
+            return;
+        }
+
+        // Tạo hóa đơn mới
+        $invoice = Invoice::create([
+            'table_id' => $table->id,
+            'restaurant_id' => $table->restaurant_id,
+            'total_amount' => 0, // Sẽ tính lại tổng tiền bên dưới
+            'status' => 'pending',
+        ]);
+
+
+        $totalAmount = 0;
+
+        // Thêm các món vào invoice_items
+        foreach ($tableDishes as $dish) {
+            InvoiceItem::create([
+                'invoice_id' => $invoice->id,
+                'dish_id' => $dish->dish_id,
+                'quantity' => $dish->quantity,
+                'unit_price' => $dish->dish->price, // Giả sử bảng dishes có cột price
+                'total_price' => $dish->quantity * $dish->dish->price,
+            ]);
+
+            $totalAmount += $dish->quantity * $dish->dish->price;
+        }
+
+        // Cập nhật tổng tiền cho hóa đơn
+        $invoice->update(['total_amount' => $totalAmount]);
+
+        // Xóa các món ăn khỏi bàn
+        TableDish::where('table_id', $table->id)->delete();
+        // Cập nhật trạng thái bàn
+        $table->update(['status' => 'available']);
+        $table->update(['reservation_id' => null]);
+
+        Notification::make()
+            ->title('Hóa đơn đã được tạo thành công!')
+            ->success()
+            ->send();
     }
 
     public static function getPages(): array

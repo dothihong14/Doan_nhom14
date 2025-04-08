@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources;
 
+use App\Exports\DishesExport;
 use App\Filament\Resources\RestaurantResource\Pages;
 use App\Filament\Resources\RestaurantResource\RelationManagers;
 use App\Models\Restaurant;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,17 +14,23 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-
+use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 class RestaurantResource extends Resource
 {
     protected static ?string $model = Restaurant::class;
     protected static ?string $navigationGroup = 'Quản lý Nhà Hàng';
+    protected static ?string $navigationLabel = 'Cơ sở';
+    protected static ?string $modelLabel = 'Cơ sở';
+
+    protected static ?string $title = 'Cơ sở';
     public static function getPluralModelLabel(): string
     {
-        return 'Danh sách Nhà Hàng';
+        return 'Danh sách Cơ sở';
     }
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 1;
+
 
     public static function form(Form $form): Form
     {
@@ -109,12 +117,22 @@ class RestaurantResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
+                    Tables\Actions\Action::make('Xuất Báo Cáo')
+                    ->label('Xuất Báo Cáo')
+                    ->action(fn (Restaurant $record) => redirect()->route('restaurant.statistics', $record->id)) // Call the export method
+                    ->icon('heroicon-o-document-text'), // Optionally add an icon
+                    Tables\Actions\Action::make('Xuất Thống Kê')
+                    ->label('Xuất Thống Kê')
+                    ->action(fn (Restaurant $record) => self::thongke($record)) // Call the export method
+                    ->icon('heroicon-o-document-text'), // Optionally add an icon
                     Tables\Actions\ViewAction::make()
+
                         ->label('Xem'), // Đổi nhãn sang tiếng Việt
                     Tables\Actions\EditAction::make()
                         ->label('Chỉnh Sửa'), // Đổi nhãn sang tiếng Việt
-                    Tables\Actions\DeleteAction::make()
-                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                    // Tables\Actions\DeleteAction::make()
+                    //     ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+
                 ])
             ])
             ->bulkActions([
@@ -129,6 +147,11 @@ class RestaurantResource extends Resource
         return static::getModel()::count();
     }
 
+
+    public static function thongke(Restaurant $restaurant)
+    {
+        return Excel::download(new DishesExport($restaurant->id), 'thống kê doanh thu món ăn tháng ' . date('m') . ' cơ sở ' . $restaurant->name . '.xlsx');
+    }
     public static function getRelations(): array
     {
         return [

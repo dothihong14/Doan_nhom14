@@ -1,9 +1,14 @@
 <?php
 
 namespace App\Filament\Resources;
-
+use App\Models\Dish;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Filament\Forms\Components\Tabs;
+use Illuminate\Support\Facades\Storage;
+use Filament\Tables\Actions\Action;
 use App\Filament\Resources\InvoiceResource\Pages;
 use App\Filament\Resources\InvoiceResource\RelationManagers;
+use App\Filament\Resources\InvoiceResource\RelationManagers\InvoiceItemsRelationManager;
 use App\Models\Invoice;
 use App\Models\Restaurant;
 use Filament\Forms;
@@ -13,43 +18,116 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class InvoiceResource extends Resource
 {
     protected static ?string $model = Invoice::class;
     protected static ?string $navigationGroup = 'Quản lý Hóa đơn';
+    protected static ?string $navigationLabel = 'Đơn hàng trực tiếp';
+    protected static ?string $modelLabel = 'Đơn hàng trực tiếp';
+    protected static ?string $title = 'Đơn hàng trực tiếp';
+
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách hóa đơn';
     }
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 2;
+
     protected static ?string $navigationIcon = 'heroicon-o-credit-card';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('invoice_code')
-                    ->label('Mã hóa đơn')
-                    ->required()
-                    ->maxLength(255)
-                    ->default(function () {
-                        do {
-                            $code = 'INV-' . strtoupper(uniqid());
-                        } while (Invoice::where('invoice_code', $code)->exists());
+                Tabs::make('Thông tin hóa đơn') // Tab title in Vietnamese
+                    ->tabs([
+                        Tabs\Tab::make('Thông tin chung') // Tab for general information
+                            ->schema([
+                                Forms\Components\TextInput::make('invoice_code')
+                                    ->label('Mã hóa đơn')
+                                    ->required()
+                                    ->maxLength(255)
+                                    ->default(function () {
+                                        do {
+                                            $code = 'INV-' . strtoupper(uniqid());
+                                        } while (Invoice::where('invoice_code', $code)->exists());
 
-                        return $code;
-                    }),
-                Forms\Components\Select::make('restaurant_id')
-                    ->label('Nhà hàng')
-                    ->options(Restaurant::all()->pluck('name', 'id'))
-                    ->required()
-                   ,
-                Forms\Components\TextInput::make('total_amount')
-                    ->label('Tổng tiền')
-                    ->required()
-                    ->numeric()
-                    ->suffix('VNĐ'),
+                                        return $code;
+                                    }),
+
+                                Forms\Components\Select::make('restaurant_id')
+                                    ->label('Nhà hàng')
+                                    ->options(Restaurant::all()->pluck('name', 'id'))
+                                    ->required()
+                                    , // Description
+
+                                Forms\Components\Select::make('status')
+                                    ->label('Trạng thái')
+                                    ->options([
+                                        'pending' => 'Chưa thanh toán',
+                                        'paid' => 'Đã thanh toán',
+                                    ])
+                                    ->default('pending')
+                                    ->required()
+                                    , // Description
+                            ])->columns(3),
+
+                        Tabs\Tab::make('Chi tiết hóa đơn') // Tab for invoice details
+                            ->schema([
+                                Forms\Components\Repeater::make('invoiceItems')
+                                    ->label('Món ăn')
+                                    ->relationship('invoiceItems')
+                                    ->schema([
+                                        Forms\Components\Select::make('dish_id')
+                                            ->label('Món ăn')
+                                            ->options(Dish::pluck('name', 'id'))
+                                            ->required()
+                                            ->reactive() // Make the select reactive to trigger updates
+                                            ->afterStateUpdated(function ($state, callable $set, $get) {
+                                                $dish = Dish::find($state);
+                                                if ($dish) {
+                                                    $set('unit_price', $dish->price); // Set unit price based on the selected dish
+                                                    $set('total_price',  $dish->price * $get('quantity')); // Update total price when dish is selected
+                                                } else {
+                                                    $set('unit_price', 0); // Reset if not found
+                                                    $set('total_price', 0); // Reset total price
+                                                }
+                                            })
+                                            , // Description
+
+                                        Forms\Components\TextInput::make('quantity')
+                                            ->label('Số lượng')
+                                            ->required()
+                                            ->numeric()
+                                            ->default(1)
+                                            ->reactive() // Make quantity reactive for total price calculation
+                                            ->afterStateUpdated(function ($state, callable $set, $get) {
+                                                $set('total_price', $state * $get('unit_price')); // Update total price when quantity changes
+                                            })
+                                            , // Description
+
+                                        Forms\Components\TextInput::make('unit_price')
+                                            ->label('Đơn giá')
+                                            ->numeric()
+                                            ->suffix('VNĐ')
+                                            ->required()
+                                         , // Description
+
+                                        Forms\Components\TextInput::make('total_price')
+                                            ->label('Thành tiền')
+                                            ->numeric()
+                                            ->suffix('VNĐ')
+                                            ->required()
+                                            ->dehydrated(true) // Ensure this value is sent to the database
+                                            ->reactive() // Make total price reactive
+                                            ->afterStateUpdated(function ($state, callable $set, $get) {
+                                                $set('total_price', $get('quantity') * $get('unit_price')); // Calculate total price
+                                            })
+                                          , // Description
+                                    ])->columns(4),
+                            ]),
+                    ])->columnSpanFull(),
             ]);
     }
 
@@ -57,49 +135,42 @@ class InvoiceResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('invoice_code')
-                    ->label('Mã hóa đơn')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('restaurant.name')
-                    ->label('Nhà hàng')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('total_amount')
-                    ->label('Tổng tiền')
-                    ->numeric()
-                    ->money('VND')
-                    ,
-                Tables\Columns\TextColumn::make('created_at')
-                    ->label('Ngày tạo')
-                    ->dateTime()
-                    ->sortable()
-                   ,
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->label('Ngày cập nhật')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-            ])
-            ->filters([
-                //
+                Tables\Columns\TextColumn::make('invoice_code')->label('Mã hóa đơn')->searchable(),
+                Tables\Columns\TextColumn::make('restaurant.name')->label('Cơ sở')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('total_amount')->label('Tổng tiền')->numeric()->money('VND'),
+                Tables\Columns\TextColumn::make('status')->label('Trạng thái')->badge()->formatStateUsing(function ($state) {
+                    switch ($state) {
+                        case 'pending':
+                            return 'Chưa thanh toán';
+                        case 'paid':
+                            return 'Đã thanh toán';
+                    }
+                }),
+                Tables\Columns\TextColumn::make('created_at')->label('Ngày tạo')->dateTime()->sortable(),
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make()
-                        ->label('Xem'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xem'),
                     Tables\Actions\EditAction::make()
-                        ->label('Chỉnh Sửa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Chỉnh sửa'),
                     Tables\Actions\DeleteAction::make()
-                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
-                ])
+                        ->label('Xóa'),
+                    Tables\Actions\Action::make('print')
+                        ->label('In hóa đơn')
+                        ->icon('heroicon-o-printer')
+                        ->url(fn (Invoice $record) => route('invoices.print', $record))
+                        ->openUrlInNewTab(), // Mở file PDF trong tab mới
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make()
-                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                    Tables\Actions\DeleteBulkAction::make()->label('Xóa'),
+                    ExportBulkAction::make(),
                 ]),
             ]);
     }
+
      public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
@@ -108,8 +179,18 @@ class InvoiceResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            // InvoiceItemsRelationManager::class,
         ];
+    }
+
+    public static function printInvoice(Invoice $invoice)
+    {
+        $pdf = Pdf::loadView('pdf.invoice', ['invoice' => $invoice]);
+
+        $filePath = 'invoices/invoice_' . $invoice->invoice_code . '.pdf';
+        Storage::put('public/' . $filePath, $pdf->output());
+
+        return Storage::url($filePath);
     }
 
     public static function getPages(): array

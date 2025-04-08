@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\DishResource\Pages;
 use App\Filament\Resources\DishResource\RelationManagers;
 use App\Models\Dish;
+use App\Models\Restaurant;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -18,6 +19,9 @@ class DishResource extends Resource
 {
     protected static ?string $model = Dish::class;
     protected static ?string $navigationGroup = 'Quản lý Món Ăn';
+    protected static ?string $navigationLabel = 'Món ăn';
+    protected static ?string $title = 'Món ăn';
+    protected static ?string $modelLabel = 'Món ăn';
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách món ăn';
@@ -35,10 +39,10 @@ class DishResource extends Resource
                         Forms\Components\Tabs\Tab::make('Chi tiết')
                             ->schema([
                                 Forms\Components\Select::make('restaurant_id')
-                                    ->relationship('restaurant', 'name')
-                                    ->label('Nhà hàng')
+                                    ->label('Cơ sở')
+                                    ->options(Restaurant::all()->pluck('name', 'id'))
                                     ->required()
-                                    ->columnSpanFull(),
+                                    ->searchable(),
                                 Forms\Components\Select::make('food_category_id')
                                     ->relationship('food_category', 'name')
                                     ->label('Danh mục món ăn')
@@ -104,6 +108,26 @@ class DishResource extends Resource
                                     ->createItemButtonLabel('Thêm nguyên liệu')
                                     ->columnSpanFull(),
                             ]),
+                            Forms\Components\Tabs\Tab::make('Trạng thái món ăn')
+                            ->schema([
+                                Forms\Components\TextInput::make('daily_sold_quantity')
+                                    ->label('Số lượng có thể bán trong ngày')
+                                    ->required()
+                                    ->default(0)
+                                    ->minValue(0)
+                                    ->numeric()
+                                    ->columnSpanFull(),
+                                Forms\Components\Select::make('status')
+                                    ->label('Trạng thái')
+                                    ->options([
+                                        'available' => 'Có sẵn',
+                                        'unavailable' => 'Không có sẵn',
+                                    ])
+                                    ->default('available')
+                                    ->required()
+                                    ->columnSpanFull(),
+                            ]),
+
                     ])
                     ->columnSpanFull(), // Đặt chiều rộng cho toàn bộ tab
             ]);
@@ -112,32 +136,33 @@ class DishResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label('Mã món ăn')
-                    ->sortable(),
                 Tables\Columns\ImageColumn::make('image')
-                    ->label('Hình ảnh')
-
-
-                  ,
-                Tables\Columns\TextColumn::make('food_category.name')
-                    ->label('Danh mục món ăn')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('restaurant.name')
-                    ->label('Nhà hàng')
-                    ->sortable(),
+                    ->label('Hình ảnh'),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Tên món ăn')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('restaurant.name')
+                    ->label('Cơ sở')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('price')
                     ->label('Giá')
                     ->money('VND')
+                    ->sortable(),
+                Tables\Columns\SelectColumn::make('status')
+                    ->label('Trạng thái')
+                    ->options([
+                        'available' => 'Có sẵn',
+                        'unavailable' => 'Không có sẵn',
+                    ])
+                    ->sortable(),
+                    Tables\Columns\TextColumn::make('food_category.name')
+                    ->label('Danh mục món ăn')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Ngày tạo')
                     ->dateTime()
                     ->sortable()
-                  ,
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label('Ngày cập nhật')
                     ->dateTime()

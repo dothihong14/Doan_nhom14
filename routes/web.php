@@ -1,5 +1,11 @@
 <?php
-
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\OrderController;
+use App\Livewire\ResetPassword;
+use App\Livewire\RestaurantStatistics;
+use App\Models\Invoice;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
 
 use App\Livewire\EditAccount;
 use App\Livewire\Logout;
@@ -29,8 +35,8 @@ Route::get('/', Home::class);
 Route::get('/cart', Cart::class);
 Route::get('/checkout', Checkout::class);
 Route::get('/contact', Contact::class);
-Route::get('/login', Login::class);
-Route::get('/register', Login::class);
+Route::get('/login', Login::class)->name('login');
+Route::get('/register', Register::class);
 Route::get('/lost-password', LostPassword::class);
 Route::get('/my-account', MyAccount::class);
 Route::get('/my-account/edit-account', EditAccount::class);
@@ -40,6 +46,9 @@ Route::get('/my-account/reservations', Reservations::class);
 Route::get('/my-account/reservations/{code}', ReservationDetail::class);
 Route::get('/my-account/edit-account', EditAccount::class);
 Route::get('/my-account/logout', Logout::class);
+Route::get('/reset-password', action: ResetPassword::class)->name('password.reset');
+Route::get('/statistics/{id}', RestaurantStatistics::class)->name('restaurant.statistics');
+
 
 
 
@@ -55,3 +64,5 @@ Route::get('/promotion', Promotion::class);
 Route::get('/promotion/{slug}', PromotionDetail::class);
 Route::get('/restaurant', Restaurants::class);
 Route::get('/restaurant/{id}', RestaurantDetail::class);
+Route::get('/invoices/{invoice}/print', [InvoiceController::class, 'print'])->name('invoices.print');
+Route::get('/orders/{order}/print', [OrderController::class, 'print'])->name('orders.print');

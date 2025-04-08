@@ -19,6 +19,8 @@ class FoodCategoryResource extends Resource
     protected static ?int $navigationSort = 2;
 
     protected static ?string $navigationGroup = 'Quản lý Món Ăn';
+    protected static ?string $navigationLabel = 'Danh mục món ăn';
+    protected static ?string $modelLabel = 'Danh mục món ăn';
     public static function getPluralModelLabel(): string
     {
         return 'Danh sách loại món ăn';

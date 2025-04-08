@@ -8,6 +8,7 @@ use Livewire\Component;
 class Reservations extends Component
 {
         public $reservations;
+        protected $listeners = ['cancelReservation'];
 
     public function mount()
     {
@@ -17,12 +18,14 @@ class Reservations extends Component
     public function cancelReservation($id)
     {
         $reservation = Reservation::find($id);
-        if($reservation->status == 'pending'){
+        if ($reservation && $reservation->status == 'pending') {
             $reservation->status = 'canceled';
             $reservation->save();
+            $this->dispatch('reservationCancelled'); // Gửi sự kiện đến frontend
         }
-
     }
+
+
     public function reservationDetail($code)
     {
         return redirect('/my-account/reservations/'.$code);

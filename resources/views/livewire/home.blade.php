@@ -3,19 +3,63 @@
 
     <head>
         <title>Trang chủ</title>
-        <meta name='robots' content='max-image-preview:large' />
-        <link rel="dns-prefetch" href="//fonts.googleapis.com">
-        <link rel="dns-prefetch" href="//s.w.org">
-        <link rel='dns-prefetch' href='//demo2.themelexus.com' />
-        <link rel='dns-prefetch' href='//fonts.googleapis.com' />
-        <link rel='dns-prefetch' href='//s.w.org' />
-        <link rel="alternate" type="application/rss+xml" title="Delicioz &raquo; Feed" href="/delicioz/feed/" />
-        <link rel="alternate" type="application/rss+xml" title="Delicioz &raquo; Comments Feed"
-            href="/delicioz/comments/feed/" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <script>
-            window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "https:\/\/demo2.themelexus.com\/delicioz\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.0.2" } };
+            window._wpemojiSettings = {
+                "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/",
+                "ext": ".png",
+                "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/",
+                "svgExt": ".svg",
+                "source": {
+                    "concatemoji": "https:\/\/demo2.themelexus.com\/delicioz\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.0.2"
+                }
+            };
             /*! This file is auto-generated */
-            !function (e, a, t) { var n, r, o, i = a.createElement("canvas"), p = i.getContext && i.getContext("2d"); function s(e, t) { var a = String.fromCharCode, e = (p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, e), 0, 0), i.toDataURL()); return p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, t), 0, 0), e === i.toDataURL() } function c(e) { var t = a.createElement("script"); t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t) } for (o = Array("flag", "emoji"), t.supports = { everything: !0, everythingExceptFlag: !0 }, r = 0; r < o.length; r++)t.supports[o[r]] = function (e) { if (!p || !p.fillText) return !1; switch (p.textBaseline = "top", p.font = "600 32px Arial", e) { case "flag": return s([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039]) ? !1 : !s([55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819]) && !s([55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447]); case "emoji": return !s([129777, 127995, 8205, 129778, 127999], [129777, 127995, 8203, 129778, 127999]) }return !1 }(o[r]), t.supports.everything = t.supports.everything && t.supports[o[r]], "flag" !== o[r] && (t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[o[r]]); t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t.readyCallback = function () { t.DOMReady = !0 }, t.supports.everything || (n = function () { t.readyCallback() }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function () { "complete" === a.readyState && t.readyCallback() })), (e = t.source || {}).concatemoji ? c(e.concatemoji) : e.wpemoji && e.twemoji && (c(e.twemoji), c(e.wpemoji))) }(window, document, window._wpemojiSettings);
+            ! function (e, a, t) {
+                var n, r, o, i = a.createElement("canvas"),
+                    p = i.getContext && i.getContext("2d");
+
+                function s(e, t) {
+                    var a = String.fromCharCode,
+                        e = (p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, e), 0, 0), i.toDataURL());
+                    return p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, t), 0, 0), e === i.toDataURL()
+                }
+
+                function c(e) {
+                    var t = a.createElement("script");
+                    t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t)
+                }
+                for (o = Array("flag", "emoji"), t.supports = {
+                    everything: !0,
+                    everythingExceptFlag: !0
+                }, r = 0; r < o.length; r++) t.supports[o[r]] = function (e) {
+                    if (!p || !p.fillText) return !1;
+                    switch (p.textBaseline = "top", p.font = "600 32px Arial", e) {
+                        case "flag":
+                            return s([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039]) ? !1 : !s([
+                                55356, 56826, 55356, 56819
+                            ], [55356, 56826, 8203, 55356, 56819]) && !s([55356, 57332, 56128, 56423, 56128, 56418,
+                                56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447
+                            ], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203,
+                                56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447
+                            ]);
+                        case "emoji":
+                            return !s([129777, 127995, 8205, 129778, 127999], [129777, 127995, 8203, 129778, 127999])
+                    }
+                    return !1
+                }(o[r]), t.supports.everything = t.supports.everything && t.supports[o[r]], "flag" !== o[r] && (t.supports
+                    .everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[o[r]]);
+                t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t
+                    .readyCallback = function () {
+                        t.DOMReady = !0
+                    }, t.supports.everything || (n = function () {
+                        t.readyCallback()
+                    }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !
+                        1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function () {
+                            "complete" === a.readyState && t.readyCallback()
+                        })), (e = t.source || {}).concatemoji ? c(e.concatemoji) : e.wpemoji && e.twemoji && (c(e.twemoji), c(e
+                            .wpemoji)))
+            }(window, document, window._wpemojiSettings);
         </script>
         <style>
             img.wp-smiley,
@@ -985,27 +1029,11 @@
         <link rel='stylesheet' id='elementor-icons-fa-brands-css'
             href='/delicioz/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=5.15.3'
             media='all' />
-        <script type="text/template" id="tmpl-variation-template">
-</script>
-        <script type="text/template" id="tmpl-unavailable-variation-template">
-	<p>Sorry, this product is unavailable. Please choose a different combination.</p>
-</script>
+
         <script src='/delicioz/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
         <script src='/delicioz/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
         <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/jarallax.js?ver=6.0.2'
             id='jarallax-js'></script>
-        <link rel="https://api.w.org/" href="/delicioz/wp-json/" />
-        <link rel="alternate" type="application/json" href="/delicioz/wp-json/wp/v2/pages/24" />
-        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/delicioz/xmlrpc.php?rsd" />
-        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/delicioz/wp-includes/wlwmanifest.xml" />
-        <meta name="generator" content="WordPress 6.0.2" />
-        <meta name="generator" content="WooCommerce 6.8.2" />
-        <link rel="canonical" href="/delicioz/home-3/" />
-        <link rel='shortlink' href='/delicioz/?p=24' />
-        <link rel="alternate" type="application/json+oembed"
-            href="/delicioz/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo2.themelexus.com%2Fdelicioz%2Fhome-3%2F" />
-        <link rel="alternate" type="text/xml+oembed"
-            href="/delicioz/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo2.themelexus.com%2Fdelicioz%2Fhome-3%2F&#038;format=xml" />
         <noscript>
             <style>
                 .woocommerce-product-gallery {
@@ -1015,7 +1043,8 @@
         </noscript>
         <meta name="generator"
             content="Powered by Slider Revolution 6.5.31 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
-        <script>function setREVStartSize(e) {
+        <script>
+            function setREVStartSize(e) {
                 //window.requestAnimationFrame(function() {
                 window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
                 window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
@@ -1034,10 +1063,12 @@
                         newh = Math.max(e.mh, window.RSIH);
                     else {
                         e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
-                        for (var i in e.rl) if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
+                        for (var i in e.rl)
+                            if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
                         e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
                         e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
-                        for (var i in e.rl) if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
+                        for (var i in e.rl)
+                            if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
 
                         var nl = new Array(e.rl.length),
                             ix = 0,
@@ -1048,7 +1079,11 @@
                         e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
                         for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
                         sl = nl[0];
-                        for (var i in nl) if (sl > nl[i] && nl[i] > 0) { sl = nl[i]; ix = i; }
+                        for (var i in nl)
+                            if (sl > nl[i] && nl[i] > 0) {
+                                sl = nl[i];
+                                ix = i;
+                            }
                         var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
                         newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
                     }
@@ -1063,7 +1098,8 @@
                     console.log("Failure at Presize of Slider:" + e)
                 }
                 //});
-            };</script>
+            };
+        </script>
     </head>
 
     <body
@@ -1189,7 +1225,7 @@
                 </filter>
             </defs>
         </svg>
-        <div id="page" class="hfeed site">
+        <div id="page" class="hfeed site" style="background-color: white;">
             @livewire('inc.header-home')
 
             <div class="breadcrumb-wrap">
@@ -1226,8 +1262,14 @@
                         <main id="main" class="site-main">
                             <div data-elementor-type="wp-page" data-elementor-id="24" class="elementor elementor-24">
                                 <div class="elementor-section elementor-top-section elementor-element elementor-element-5e80539 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                                    data-id="5e80539" data-element_type="section"
-                                    data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+                                    style="
+                                    background-color: #002B40;
+                                ">
+                                    <style>
+                                        .elementor-section.elementor-top-section.elementor-element.elementor-element-2ff0cd2.elementor-section-content-middle.elementor-section-stretched.elementor-hidden-tablet.elementor-hidden-mobile_extra.elementor-hidden-mobile.elementor-section-boxed.elementor-section-height-default.elementor-section-height-default {
+                                            background-color: #002B40;
+                                        }
+                                    </style>
                                     <div class="elementor-container elementor-column-gap-no">
                                         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6fbe15b"
                                             data-id="6fbe15b" data-element_type="column">
@@ -1262,31 +1304,31 @@
                                                                                 class="rev_row_zone_middle"
                                                                                 style="z-index: 13;"><!--
 
-								--><rs-row id="slider-2-slide-4-layer-0" data-type="row" data-xy="xo:50px;yo:50px;" data-rsp_bd="off"
+        --><rs-row id="slider-2-slide-4-layer-0" data-type="row" data-xy="xo:50px;yo:50px;" data-rsp_bd="off"
                                                                                     data-margin="t:80,80,80,50;r:90,90,90,15;b:95,95,95,50;l:90,90,90,15;"
                                                                                     data-frame_0="o:1;"
                                                                                     data-frame_999="o:0;st:w;sR:8700;sA:9000;"
                                                                                     style="z-index:1;"><!--
-									--><rs-column id="slider-2-slide-4-layer-1" data-type="column" data-xy="xo:50px;yo:50px;"
+         --><rs-column id="slider-2-slide-4-layer-1" data-type="column" data-xy="xo:50px;yo:50px;"
                                                                                         data-text="a:left,left,center,center;"
                                                                                         data-rsp_bd="off"
                                                                                         data-column="w:100%;"
                                                                                         data-frame_0="o:1;"
                                                                                         data-frame_999="o:0;st:w;sR:8700;sA:9000;"
                                                                                         style="z-index:2;width:100%;"><!--
-										--><rs-layer id="slider-2-slide-4-layer-4" data-type="text" data-rsp_ch="on" data-xy="xo:50px;yo:50px;"
+          --><rs-layer id="slider-2-slide-4-layer-4" data-type="text" data-rsp_ch="on" data-xy="xo:50px;yo:50px;"
                                                                                             data-text="w:normal;s:80,70,70,60;l:88,76,70,62;a:left,left,center,center;"
                                                                                             data-disp="inline-block"
                                                                                             data-padding="t:13;b:7;"
                                                                                             data-frame_0="x:-50;"
                                                                                             data-frame_1="st:220;sp:1500;sR:220;"
                                                                                             data-frame_999="o:0;st:w;sR:7280;"
-                                                                                            style="z-index:3;font-family:'Delicioz';text-transform:capitalize;display:inline-block;">The
-                                                                                            taste <br />
-                                                                                            of passion
+                                                                                            style="z-index:3;font-family:'Delicioz';text-transform:capitalize;display:inline-block;">Vị
+                                                                                            ngọt <br />
+                                                                                            của sự đam mê
                                                                                         </rs-layer><!--
 
-										--><rs-layer id="slider-2-slide-4-layer-3" data-type="shape" data-rsp_ch="on" data-xy="xo:50px,34px,25px,15px;yo:50px,34px,25px,15px;"
+          --><rs-layer id="slider-2-slide-4-layer-3" data-type="shape" data-rsp_ch="on" data-xy="xo:50px,34px,25px,15px;yo:50px,34px,25px,15px;"
                                                                                             data-text="w:normal;s:20,13,9,5;c:both;l:0,17,12,7;"
                                                                                             data-flcr="c:both;"
                                                                                             data-dim="w:100%;h:1px;"
@@ -1294,18 +1336,20 @@
                                                                                             style="z-index:4;">
                                                                                         </rs-layer><!--
 
-										--><rs-layer id="slider-2-slide-4-layer-2" data-type="text" data-rsp_ch="on" data-xy="xo:50px;yo:50px;"
+          --><rs-layer id="slider-2-slide-4-layer-2" data-type="text" data-rsp_ch="on" data-xy="xo:50px;yo:50px;"
                                                                                             data-text="w:normal;s:18,18,18,16;l:26;a:center;"
                                                                                             data-disp="inline-block"
                                                                                             data-frame_0="x:-50;"
                                                                                             data-frame_1="st:810;sp:1500;sR:810;"
                                                                                             data-frame_999="o:0;st:w;sR:6690;"
-                                                                                            style="z-index:5;font-family:'Manrope';display:inline-block;">Discover
-                                                                                            a world of culinary bliss at
+                                                                                            style="z-index:5;font-family:'Manrope';display:inline-block;">Khám
+                                                                                            phá
+                                                                                            một thế giới ăn uống tốt
+                                                                                            nhất tại
                                                                                             Delicioz!
                                                                                         </rs-layer><!--
 
-										--><rs-layer id="slider-2-slide-4-layer-15" data-type="shape" data-rsp_ch="on" data-xy="xo:50px,34px,25px,15px;yo:50px,34px,25px,15px;"
+          --><rs-layer id="slider-2-slide-4-layer-15" data-type="shape" data-rsp_ch="on" data-xy="xo:50px,34px,25px,15px;yo:50px,34px,25px,15px;"
                                                                                             data-text="w:normal;s:20,13,9,5;c:both;l:0,17,12,7;"
                                                                                             data-flcr="c:both;"
                                                                                             data-dim="w:100%;h:1px;"
@@ -1313,7 +1357,7 @@
                                                                                             style="z-index:6;">
                                                                                         </rs-layer><!--
 
-										--><rs-layer id="slider-2-slide-4-layer-14" class="rev-btn-outline rev-btn" data-type="button"
+          --><rs-layer id="slider-2-slide-4-layer-14" class="rev-btn-outline rev-btn" data-type="button"
                                                                                             data-xy="xo:50px;yo:50px;"
                                                                                             data-text="w:normal;s:12;l:54,54,50,46;ls:3px;fw:700;"
                                                                                             data-dim="minh:0px,none,none,none;"
@@ -1325,14 +1369,16 @@
                                                                                             data-border="bos:solid;boc:#ffdea0;bow:1px,1px,1px,1px;"
                                                                                             data-frame_0="x:-50;"
                                                                                             data-frame_1="st:1490;sp:1500;sR:1490;"
+                                                                                            onclick="window.location.href = '/shop'"
                                                                                             data-frame_999="o:0;st:w;sR:6010;"
                                                                                             data-frame_hover="c:#000;bgc:rgba(0,0,0,0);boc:#ffdea0;bor:0px,0px,0px,0px;bos:solid;bow:1px,1px,1px,1px;e:power1.inOut;"
-                                                                                            style="z-index:7;background-color:rgba(0,0,0,0);font-family:'Manrope';display:inline-block;">DISCOVER
+                                                                                            style="z-index:7;background-color:rgba(0,0,0,0);font-family:'Manrope';display:inline-block;">Khám
+                                                                                            phá
                                                                                             MENU
                                                                                         </rs-layer><!--
-									--></rs-column><!--
-								--></rs-row><!--
-							--></rs-zone><!--
+         --></rs-column><!--
+        --></rs-row><!--
+       --></rs-zone><!--
 --> </rs-slide>
                                                                         <rs-slide style="position: absolute;"
                                                                             data-key="rs-7" data-title="Slide"
@@ -1350,19 +1396,19 @@
                                                                                 class="rev_row_zone_middle"
                                                                                 style="z-index: 13;"><!--
 
-								--><rs-row id="slider-2-slide-7-layer-0" data-type="row" data-xy="xo:50px;yo:50px;" data-rsp_bd="off"
+        --><rs-row id="slider-2-slide-7-layer-0" data-type="row" data-xy="xo:50px;yo:50px;" data-rsp_bd="off"
                                                                                     data-margin="t:80,80,80,50;r:90,90,90,15;b:95,95,95,50;l:90,90,90,15;"
                                                                                     data-frame_0="o:1;"
                                                                                     data-frame_999="o:0;st:w;sR:8700;sA:9000;"
                                                                                     style="z-index:1;"><!--
-									--><rs-column id="slider-2-slide-7-layer-1" data-type="column" data-xy="xo:50px;yo:50px;"
+         --><rs-column id="slider-2-slide-7-layer-1" data-type="column" data-xy="xo:50px;yo:50px;"
                                                                                         data-text="a:left,left,center,center;"
                                                                                         data-rsp_bd="off"
                                                                                         data-column="w:100%;"
                                                                                         data-frame_0="o:1;"
                                                                                         data-frame_999="o:0;st:w;sR:8700;sA:9000;"
                                                                                         style="z-index:2;width:100%;"><!--
-										--><rs-layer id="slider-2-slide-7-layer-4" data-type="text" data-rsp_ch="on" data-xy="xo:50px;yo:50px;"
+          --><rs-layer id="slider-2-slide-7-layer-4" data-type="text" data-rsp_ch="on" data-xy="xo:50px;yo:50px;"
                                                                                             data-text="w:normal;s:80,70,70,50;l:88,76,70,55;a:left,left,center,center;"
                                                                                             data-dim="w:auto,630px,auto,auto;"
                                                                                             data-disp="inline-block"
@@ -1370,12 +1416,13 @@
                                                                                             data-frame_0="x:-50;"
                                                                                             data-frame_1="st:220;sp:1500;sR:220;"
                                                                                             data-frame_999="o:0;st:w;sR:7280;"
-                                                                                            style="z-index:3;font-family:'Delicioz';text-transform:capitalize;display:inline-block;">Welcome
-                                                                                            to <br />
-                                                                                            Restaurant
+                                                                                            style="z-index:3;font-family:'Delicioz';text-transform:capitalize;display:inline-block;">Chào
+                                                                                            mừng
+                                                                                            đến <br />
+                                                                                            Nhà hàng
                                                                                         </rs-layer><!--
 
-										--><rs-layer id="slider-2-slide-7-layer-3" data-type="shape" data-rsp_ch="on" data-xy="xo:50px,34px,25px,15px;yo:50px,34px,25px,15px;"
+          --><rs-layer id="slider-2-slide-7-layer-3" data-type="shape" data-rsp_ch="on" data-xy="xo:50px,34px,25px,15px;yo:50px,34px,25px,15px;"
                                                                                             data-text="w:normal;s:20,13,9,5;c:both;l:0,17,12,7;"
                                                                                             data-flcr="c:both;"
                                                                                             data-dim="w:100%;h:1px;"
@@ -1383,18 +1430,20 @@
                                                                                             style="z-index:4;">
                                                                                         </rs-layer><!--
 
-										--><rs-layer id="slider-2-slide-7-layer-2" data-type="text" data-rsp_ch="on" data-xy="xo:50px;yo:50px;"
+          --><rs-layer id="slider-2-slide-7-layer-2" data-type="text" data-rsp_ch="on" data-xy="xo:50px;yo:50px;"
                                                                                             data-text="w:normal;s:18,18,18,14;l:26;a:center;"
                                                                                             data-disp="inline-block"
                                                                                             data-frame_0="x:-50;"
                                                                                             data-frame_1="st:810;sp:1500;sR:810;"
                                                                                             data-frame_999="o:0;st:w;sR:6690;"
-                                                                                            style="z-index:5;font-family:'Manrope';display:inline-block;">Discover
-                                                                                            a world of culinary bliss at
+                                                                                            style="z-index:5;font-family:'Manrope';display:inline-block;">Khám
+                                                                                            phá
+                                                                                            một thế giới ăn uống tốt
+                                                                                            nhất tại
                                                                                             Delicioz!
                                                                                         </rs-layer><!--
 
-										--><rs-layer id="slider-2-slide-7-layer-15" data-type="shape" data-rsp_ch="on" data-xy="xo:50px,34px,25px,15px;yo:50px,34px,25px,15px;"
+          --><rs-layer id="slider-2-slide-7-layer-15" data-type="shape" data-rsp_ch="on" data-xy="xo:50px,34px,25px,15px;yo:50px,34px,25px,15px;"
                                                                                             data-text="w:normal;s:20,13,9,5;c:both;l:0,17,12,7;"
                                                                                             data-flcr="c:both;"
                                                                                             data-dim="w:100%;h:1px;"
@@ -1402,7 +1451,7 @@
                                                                                             style="z-index:6;">
                                                                                         </rs-layer><!--
 
-										--><rs-layer id="slider-2-slide-7-layer-14" class="rev-btn-outline rev-btn" data-type="button"
+          --><rs-layer id="slider-2-slide-7-layer-14" class="rev-btn-outline rev-btn" data-type="button"
                                                                                             data-xy="xo:50px,41px,31px,19px;yo:50px,41px,31px,19px;"
                                                                                             data-text="w:normal;s:12;l:54,54,50,46;ls:3px;fw:700;"
                                                                                             data-dim="minh:0px,none,none,none;"
@@ -1415,18 +1464,20 @@
                                                                                             data-frame_0="x:-50;"
                                                                                             data-frame_1="st:1490;sp:1500;sR:1490;"
                                                                                             data-frame_999="o:0;st:w;sR:6010;"
+                                                                                            onclick="window.location.href = '/shop'"
                                                                                             data-frame_hover="c:#000;bgc:rgba(0,0,0,0);boc:#ffdea0;bor:0px,0px,0px,0px;bos:solid;bow:1px,1px,1px,1px;e:power1.inOut;"
-                                                                                            style="z-index:7;background-color:rgba(0,0,0,0);font-family:'Manrope';display:inline-block;">DISCOVER
+                                                                                            style="z-index:7;background-color:rgba(0,0,0,0);font-family:'Manrope';display:inline-block;">Khám
+                                                                                            phá
                                                                                             MENU
                                                                                         </rs-layer><!--
-									--></rs-column><!--
-								--></rs-row><!--
-							--></rs-zone><!--
+         --></rs-column><!--
+        --></rs-row><!--
+       --></rs-zone><!--
 --> </rs-slide>
                                                                     </rs-slides>
                                                                     <rs-static-layers><!--
 
-							--><rs-group id="slider-2-slide-2-layer-5" class="rs-layer-static" data-type="group"
+       --><rs-group id="slider-2-slide-2-layer-5" class="rs-layer-static" data-type="group"
                                                                             data-xy="x:c;y:m,m,b,b;yo:0,0,30px,30px;"
                                                                             data-text="w:normal;"
                                                                             data-dim="w:100%;h:50px;"
@@ -1436,7 +1487,7 @@
                                                                             data-frame_0="o:1;"
                                                                             data-frame_999="o:0;st:w;sA:9000;"
                                                                             style="z-index:10;"><!--
-								--><rs-layer id="slider-2-slide-2-layer-6" class="rev-btn rs-layer-static" data-type="button"
+        --><rs-layer id="slider-2-slide-2-layer-6" class="rev-btn rs-layer-static" data-type="button"
                                                                                 data-xy="x:l,l,r,r;xo:60px,30px,80px,80px;y:m;"
                                                                                 data-text="w:normal;l:40;a:center;"
                                                                                 data-dim="w:40px;h:40px;minh:0px,none,none,none;"
@@ -1450,7 +1501,7 @@
                                                                                     class="material-icons">arrow_back</i>
                                                                             </rs-layer><!--
 
-								--><rs-layer id="slider-2-slide-2-layer-7" class="rev-btn rs-layer-static" data-type="button"
+        --><rs-layer id="slider-2-slide-2-layer-7" class="rev-btn rs-layer-static" data-type="button"
                                                                                 data-xy="x:r;xo:60px,30px,30px,30px;y:m;"
                                                                                 data-text="w:normal;l:40;a:center;"
                                                                                 data-dim="w:40px;h:40px;minh:0px,none,none,none;"
@@ -1463,11 +1514,27 @@
                                                                                 style="z-index:8;background-color:rgba(0,0,0,0);font-family:'Roboto';cursor:pointer;"><i
                                                                                     class="material-icons">arrow_forward</i>
                                                                             </rs-layer><!--
-							--></rs-group><!--
-					--></rs-static-layers>
+       --></rs-group><!--
+     --></rs-static-layers>
                                                                 </rs-module>
                                                                 <script>
-                                                                    setREVStartSize({ c: 'rev_slider_2_1', rl: [1240, 1024, 778, 480], el: [800, 700, 600, 500], gw: [1470, 1024, 778, 480], gh: [800, 700, 600, 500], type: 'standard', justify: '', layout: 'fullwidth', mh: "0" }); if (window.RS_MODULES !== undefined && window.RS_MODULES.modules !== undefined && window.RS_MODULES.modules["revslider21"] !== undefined) { window.RS_MODULES.modules["revslider21"].once = false; window.revapi2 = undefined; if (window.RS_MODULES.checkMinimal !== undefined) window.RS_MODULES.checkMinimal() }
+                                                                    setREVStartSize({
+                                                                        c: 'rev_slider_2_1',
+                                                                        rl: [1240, 1024, 778, 480],
+                                                                        el: [800, 700, 600, 500],
+                                                                        gw: [1470, 1024, 778, 480],
+                                                                        gh: [800, 700, 600, 500],
+                                                                        type: 'standard',
+                                                                        justify: '',
+                                                                        layout: 'fullwidth',
+                                                                        mh: "0"
+                                                                    });
+                                                                    if (window.RS_MODULES !== undefined && window.RS_MODULES.modules !== undefined && window.RS_MODULES.modules[
+                                                                        "revslider21"] !== undefined) {
+                                                                        window.RS_MODULES.modules["revslider21"].once = false;
+                                                                        window.revapi2 = undefined;
+                                                                        if (window.RS_MODULES.checkMinimal !== undefined) window.RS_MODULES.checkMinimal()
+                                                                    }
                                                                 </script>
                                                             </rs-module-wrap>
                                                             <!-- END REVOLUTION SLIDER -->
@@ -1488,9 +1555,10 @@
                                             <div class="elementor-widget-wrap">
                                             </div>
                                         </div>
-                                        {{-- <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-ac55357"
+                                        {{-- <div
+                                            class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-ac55357"
                                             data-id="ac55357" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
                                                 <div class="elementor-section elementor-inner-section elementor-element elementor-element-d32a7bd elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                                                     data-id="d32a7bd" data-element_type="section"
                                                     data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -1498,26 +1566,26 @@
                                                         <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-591d0ef"
                                                             data-id="591d0ef" data-element_type="column">
                                                             <div
-                                                                class="elementor-widget-wrap elementor-element-populated">
-                                                                <div class="elementor-element elementor-element-a651847 show-icon-deco-yes elementor-position-top elementor-position-below elementor-vertical-align-top elementor-widget elementor-widget-image-box"
-                                                                    data-id="a651847" data-element_type="widget"
+                                                                class="elementor-widgets-wrap elementor-element-populated">
+                                                                <div class="elementor-element elementor-element-a651847 show-icon-deco-yes elementor-position-top elementor-position-below elementor-vertical-align-top elementor-widgets elementor-widgets-image-box"
+                                                                    data-id="a651847" data-element_type="widgets"
                                                                     data-widget_type="image-box.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
                                                                         <style>
-                                                                            .elementor-widget-image-box .elementor-image-box-content {
+                                                                            .elementor-widgets-image-box .elementor-image-box-content {
                                                                                 width: 100%
                                                                             }
 
                                                                             @media (min-width:768px) {
 
-                                                                                .elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper,
-                                                                                .elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper {
+                                                                                .elementor-widgets-image-box.elementor-position-left .elementor-image-box-wrapper,
+                                                                                .elementor-widgets-image-box.elementor-position-right .elementor-image-box-wrapper {
                                                                                     display: -webkit-box;
                                                                                     display: -ms-flexbox;
                                                                                     display: flex
                                                                                 }
 
-                                                                                .elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper {
+                                                                                .elementor-widgets-image-box.elementor-position-right .elementor-image-box-wrapper {
                                                                                     text-align: right;
                                                                                     -webkit-box-orient: horizontal;
                                                                                     -webkit-box-direction: reverse;
@@ -1525,7 +1593,7 @@
                                                                                     flex-direction: row-reverse
                                                                                 }
 
-                                                                                .elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper {
+                                                                                .elementor-widgets-image-box.elementor-position-left .elementor-image-box-wrapper {
                                                                                     text-align: left;
                                                                                     -webkit-box-orient: horizontal;
                                                                                     -webkit-box-direction: normal;
@@ -1533,23 +1601,23 @@
                                                                                     flex-direction: row
                                                                                 }
 
-                                                                                .elementor-widget-image-box.elementor-position-top .elementor-image-box-img {
+                                                                                .elementor-widgets-image-box.elementor-position-top .elementor-image-box-img {
                                                                                     margin: auto
                                                                                 }
 
-                                                                                .elementor-widget-image-box.elementor-vertical-align-top .elementor-image-box-wrapper {
+                                                                                .elementor-widgets-image-box.elementor-vertical-align-top .elementor-image-box-wrapper {
                                                                                     -webkit-box-align: start;
                                                                                     -ms-flex-align: start;
                                                                                     align-items: flex-start
                                                                                 }
 
-                                                                                .elementor-widget-image-box.elementor-vertical-align-middle .elementor-image-box-wrapper {
+                                                                                .elementor-widgets-image-box.elementor-vertical-align-middle .elementor-image-box-wrapper {
                                                                                     -webkit-box-align: center;
                                                                                     -ms-flex-align: center;
                                                                                     align-items: center
                                                                                 }
 
-                                                                                .elementor-widget-image-box.elementor-vertical-align-bottom .elementor-image-box-wrapper {
+                                                                                .elementor-widgets-image-box.elementor-vertical-align-bottom .elementor-image-box-wrapper {
                                                                                     -webkit-box-align: end;
                                                                                     -ms-flex-align: end;
                                                                                     align-items: flex-end
@@ -1557,26 +1625,26 @@
                                                                             }
 
                                                                             @media (max-width:767px) {
-                                                                                .elementor-widget-image-box .elementor-image-box-img {
+                                                                                .elementor-widgets-image-box .elementor-image-box-img {
                                                                                     margin-left: auto !important;
                                                                                     margin-right: auto !important;
                                                                                     margin-bottom: 15px
                                                                                 }
                                                                             }
 
-                                                                            .elementor-widget-image-box .elementor-image-box-img {
+                                                                            .elementor-widgets-image-box .elementor-image-box-img {
                                                                                 display: inline-block
                                                                             }
 
-                                                                            .elementor-widget-image-box .elementor-image-box-title a {
+                                                                            .elementor-widgets-image-box .elementor-image-box-title a {
                                                                                 color: inherit
                                                                             }
 
-                                                                            .elementor-widget-image-box .elementor-image-box-wrapper {
+                                                                            .elementor-widgets-image-box .elementor-image-box-wrapper {
                                                                                 text-align: center
                                                                             }
 
-                                                                            .elementor-widget-image-box .elementor-image-box-description {
+                                                                            .elementor-widgets-image-box .elementor-image-box-description {
                                                                                 margin: 0
                                                                             }
                                                                         </style>
@@ -1594,10 +1662,10 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="elementor-element elementor-element-edc599e elementor-reservation-layout-2 elementor-widget elementor-widget-delicioz-reservation-form"
-                                                                    data-id="edc599e" data-element_type="widget"
+                                                                <div class="elementor-element elementor-element-edc599e elementor-reservation-layout-2 elementor-widgets elementor-widgets-delicioz-reservation-form"
+                                                                    data-id="edc599e" data-element_type="widgets"
                                                                     data-widget_type="delicioz-reservation-form.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
                                                                         <div class="delicioz-reservation-form">
                                                                             <form target="_blank" class="opentable-form"
                                                                                 action="https://www.opentable.com/restaurant-search.aspx">
@@ -1704,10 +1772,10 @@
                                                                     data-widget_type="heading.default">
                                                                     <div class="elementor-widget-container">
                                                                         <h2
-                                                                            class="elementor-heading-title elementor-size-default">
-                                                                            The perfect place
-                                                                            for an exceptional
-                                                                            experience</h2>
+                                                                            class="elementor-heading-title elementor-size-default" style="color: black;">
+                                                                            Nơi lý tưởng
+                                                                            cho trải nghiệm tuyệt vời
+                                                                        </h2>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1719,7 +1787,7 @@
                                                                 <div class="elementor-element elementor-element-90ea129 elementor-widget__width-initial elementor-widget-tablet__width-inherit elementor-widget elementor-widget-text-editor"
                                                                     data-id="90ea129" data-element_type="widget"
                                                                     data-widget_type="text-editor.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widget-container" style="color: black;">
                                                                         <style>
                                                                             /*! elementor - v3.7.3 - 29-08-2022 */
                                                                             .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap {
@@ -1752,25 +1820,33 @@
                                                                             .elementor-widget-text-editor .elementor-drop-cap-letter {
                                                                                 display: inline-block
                                                                             }
-                                                                        </style> By day, Delicioz provides a hub to meet
-                                                                        friends and colleagues with a well-crafted wine
-                                                                        list, discreet yet professional service and
-                                                                        sophisticated menus all delivered in a relaxed
-                                                                        setting.
+                                                                        </style>
+                                                                        Bất cứ ngày nào, Delicioz cung cấp một trung tâm
+                                                                        để gặp gỡ
+                                                                        bạn bè và đồng nghiệp với một danh sách rượu tốt
+                                                                        và
+                                                                        dịch vụ chuyên nghiệp, thương mại đa dạng và
+                                                                        thiết kế menu được thiết kế để đáp ứng nhu cầu
+                                                                        của bạn.
                                                                     </div>
                                                                 </div>
                                                                 <div class="elementor-element elementor-element-cdaebb3 elementor-widget__width-initial elementor-widget-tablet__width-inherit elementor-widget elementor-widget-text-editor"
                                                                     data-id="cdaebb3" data-element_type="widget"
                                                                     data-widget_type="text-editor.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widget-container" style="color: black;">
 
 
-                                                                        By night the scene is set for any and all
-                                                                        occasions. From intimate tables for two to small
-                                                                        groups or larger private events. Our
-                                                                        unparalleled attention to detail and strong
-                                                                        focus on delivering the best culinary
-                                                                        experiences is designed to exceed expectations.
+                                                                        Bất cứ đêm nào, cảnh sắc được thiết lập cho bất
+                                                                        kỳ và tất cả
+                                                                        các sự kiện. Từ bàn nhỏ cho hai người đến nhóm
+                                                                        nhỏ
+                                                                        hoặc sự kiện riêng tư lớn hơn. Sự chú ý không
+                                                                        thể đạt được
+                                                                        đến chi tiết và sự tập trung cao độ trong việc
+                                                                        cung cấp
+                                                                        những trải nghiệm ăn uống tốt nhất được thiết kế
+                                                                        để vượt
+                                                                        quá những kỳ vọng.
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1817,16 +1893,16 @@
                                                                 <div class="elementor-element elementor-element-5ca450f elementor-widget elementor-widget-text-editor"
                                                                     data-id="5ca450f" data-element_type="widget"
                                                                     data-widget_type="text-editor.default">
-                                                                    <div class="elementor-widget-container">
-                                                                        Booking request </div>
+                                                                    <div class="elementor-widget-container" style="color: black;">
+                                                                        Đặt bàn </div>
                                                                 </div>
                                                                 <div class="elementor-element elementor-element-8b6de7a elementor-widget elementor-widget-heading"
                                                                     data-id="8b6de7a" data-element_type="widget"
                                                                     data-widget_type="heading.default">
                                                                     <div class="elementor-widget-container">
                                                                         <h2
-                                                                            class="elementor-heading-title elementor-size-default">
-                                                                            +39-055-123456</h2>
+                                                                            class="elementor-heading-title elementor-size-default" style="color: black;">
+                                                                            0329 081 960</h2>
                                                                     </div>
                                                                 </div>
                                                                 <div class="elementor-element elementor-element-12a588a elementor-align-right elementor-mobile-align-center elementor-button-default elementor-widget elementor-widget-button"
@@ -1840,8 +1916,8 @@
                                                                                 <span
                                                                                     class="elementor-button-content-wrapper">
                                                                                     <span
-                                                                                        class="elementor-button-text">make
-                                                                                        a reservation</span>
+                                                                                        class="elementor-button-text">Đặt
+                                                                                        bàn</span>
                                                                                 </span>
                                                                             </a>
                                                                         </div>
@@ -2046,10 +2122,10 @@
                                                                 <div class="icon"><i aria-hidden="true"
                                                                         class="delicioz-icon- delicioz-icon-fork-knife"></i>
                                                                 </div>
-                                                                <h3 class="elementor-image-box-title">Best Specialties
+                                                                <h3 class="elementor-image-box-title" style="color: black;">Món ăn
                                                                 </h3>
-                                                                <div class="elementor-image-box-sub-title">Special
-                                                                    Offers</div>
+                                                                <div class="elementor-image-box-sub-title" style="color: black;">Đặc sản
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2079,7 +2155,7 @@
                                                                 data-elementor-columns-tablet="4"
                                                                 data-elementor-columns-mobile-extra="2"
                                                                 data-elementor-columns-mobile="1">
-                                                                @foreach($dishes as $dish)
+                                                                @foreach ($dishes as $dish)
                                                                     <div class="column-item elementor-menu-list-item">
 
                                                                         <div class="elementor-menu-list-image">
@@ -2088,19 +2164,28 @@
                                                                         </div>
                                                                         <div class="elementor-menu-list-text">
                                                                             <div class="elementor-menu-list-title"><a
-                                                                                    href="/product/{{ $dish->slug }}">{{ $dish->name }}</a>
+                                                                                    href="/product/{{ $dish->slug }}" style="color: black;">{{ Str::limit($dish->name, 25) }}</a>
                                                                             </div>
-                                                                            <div class="elementor-menu-list-description">
-                                                                                {{ Str::limit($dish->description, 100) }}
+                                                                            <div class="elementor-menu-list-description" style="color: black;">
+                                                                                {{ Str::limit($dish->description, 30) }}
                                                                             </div>
                                                                             <div class="elementor-menu-list-price">
                                                                                 {{ number_format($dish->price, 0, ',', '.') }}
                                                                                 VNĐ
                                                                             </div>
                                                                         </div>
+                                                                        <div class="elementor-menu-list-button">
+                                                                            <button class="icon-button"
+                                                                                wire:click="addToCart({{ $dish->id }})">
+                                                                                <i class="fas fa-cart-plus"></i>
+                                                                            </button>
+                                                                            <button class="icon-button"
+                                                                                wire:click="buyNow({{ $dish->id }})">
+                                                                                <i class="fas fa-bolt"></i>
+                                                                            </button>
+                                                                        </div>
+
                                                                     </div>
-
-
                                                                 @endforeach
                                                             </div>
                                                         </div>
@@ -2117,11 +2202,11 @@
                                     <div class="elementor-container elementor-column-gap-no">
                                         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-1b7af92"
                                             data-id="1b7af92" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
-                                                <div class="elementor-element elementor-element-681b118 menulist-align-left arrow-style-1 elementor-widget elementor-widget-delicioz-menu-list"
-                                                    data-id="681b118" data-element_type="widget"
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-681b118 menulist-align-left arrow-style-1 elementor-widgets elementor-widgets-delicioz-menu-list"
+                                                    data-id="681b118" data-element_type="widgets"
                                                     data-widget_type="delicioz-menu-list.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
 
                                                         <div class="elementor-menu-list-item-wrapper">
                                                             <div class="row menu-style-3 row"
@@ -2232,7 +2317,7 @@
                                                                 class="elementor-button-link elementor-button elementor-size-sm"
                                                                 role="button">
                                                                 <span class="elementor-button-content-wrapper">
-                                                                    <span class="elementor-button-text">view all
+                                                                    <span class="elementor-button-text" style="color: black;">view all
                                                                         menu</span>
                                                                 </span>
                                                             </a>
@@ -2243,17 +2328,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="elementor-section elementor-top-section elementor-element elementor-element-7cc5f43 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                {{-- <div
+                                    class="elementor-section elementor-top-section elementor-element elementor-element-7cc5f43 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                                     data-id="7cc5f43" data-element_type="section"
                                     data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
                                     <div class="elementor-container elementor-column-gap-no">
                                         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f636fab"
                                             data-id="f636fab" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
-                                                <div class="elementor-element elementor-element-441c75a show-icon-deco-yes elementor-position-top elementor-position-below elementor-vertical-align-top elementor-widget elementor-widget-image-box"
-                                                    data-id="441c75a" data-element_type="widget"
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-441c75a show-icon-deco-yes elementor-position-top elementor-position-below elementor-vertical-align-top elementor-widgets elementor-widgets-image-box"
+                                                    data-id="441c75a" data-element_type="widgets"
                                                     data-widget_type="image-box.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         <div class="elementor-image-box-wrapper">
                                                             <div class="elementor-image-box-content">
                                                                 <div class="icon"><i aria-hidden="true"
@@ -2276,7 +2362,7 @@
                                     <div class="elementor-container elementor-column-gap-no">
                                         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-670b804"
                                             data-id="670b804" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
                                                 <div class="elementor-section elementor-inner-section elementor-element elementor-element-62b9db6 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                                                     data-id="62b9db6" data-element_type="section"
                                                     data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -2284,20 +2370,20 @@
                                                         <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-742133a"
                                                             data-id="742133a" data-element_type="column">
                                                             <div
-                                                                class="elementor-widget-wrap elementor-element-populated">
-                                                                <div class="elementor-element elementor-element-5ab935b elementor-widget elementor-widget-heading"
-                                                                    data-id="5ab935b" data-element_type="widget"
+                                                                class="elementor-widgets-wrap elementor-element-populated">
+                                                                <div class="elementor-element elementor-element-5ab935b elementor-widgets elementor-widgets-heading"
+                                                                    data-id="5ab935b" data-element_type="widgets"
                                                                     data-widget_type="heading.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
                                                                         <h2
                                                                             class="elementor-heading-title elementor-size-default">
                                                                             Appetizers</h2>
                                                                     </div>
                                                                 </div>
-                                                                <div class="elementor-element elementor-element-ed5705f menulist-align-left arrow-style-1 elementor-widget elementor-widget-delicioz-menu-list"
-                                                                    data-id="ed5705f" data-element_type="widget"
+                                                                <div class="elementor-element elementor-element-ed5705f menulist-align-left arrow-style-1 elementor-widgets elementor-widgets-delicioz-menu-list"
+                                                                    data-id="ed5705f" data-element_type="widgets"
                                                                     data-widget_type="delicioz-menu-list.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
 
                                                                         <div class="elementor-menu-list-item-wrapper">
                                                                             <div class="row menu-style-1 row"
@@ -2396,20 +2482,20 @@
                                                         <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-72d161d"
                                                             data-id="72d161d" data-element_type="column">
                                                             <div
-                                                                class="elementor-widget-wrap elementor-element-populated">
-                                                                <div class="elementor-element elementor-element-73c09fb elementor-widget elementor-widget-heading"
-                                                                    data-id="73c09fb" data-element_type="widget"
+                                                                class="elementor-widgets-wrap elementor-element-populated">
+                                                                <div class="elementor-element elementor-element-73c09fb elementor-widgets elementor-widgets-heading"
+                                                                    data-id="73c09fb" data-element_type="widgets"
                                                                     data-widget_type="heading.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
                                                                         <h2
                                                                             class="elementor-heading-title elementor-size-default">
                                                                             Main Dishes</h2>
                                                                     </div>
                                                                 </div>
-                                                                <div class="elementor-element elementor-element-26bd057 menulist-align-left arrow-style-1 elementor-widget elementor-widget-delicioz-menu-list"
-                                                                    data-id="26bd057" data-element_type="widget"
+                                                                <div class="elementor-element elementor-element-26bd057 menulist-align-left arrow-style-1 elementor-widgets elementor-widgets-delicioz-menu-list"
+                                                                    data-id="26bd057" data-element_type="widgets"
                                                                     data-widget_type="delicioz-menu-list.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
 
                                                                         <div class="elementor-menu-list-item-wrapper">
                                                                             <div class="row menu-style-1 row"
@@ -2511,20 +2597,20 @@
                                                         <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-7230851"
                                                             data-id="7230851" data-element_type="column">
                                                             <div
-                                                                class="elementor-widget-wrap elementor-element-populated">
-                                                                <div class="elementor-element elementor-element-9827c43 elementor-widget elementor-widget-heading"
-                                                                    data-id="9827c43" data-element_type="widget"
+                                                                class="elementor-widgets-wrap elementor-element-populated">
+                                                                <div class="elementor-element elementor-element-9827c43 elementor-widgets elementor-widgets-heading"
+                                                                    data-id="9827c43" data-element_type="widgets"
                                                                     data-widget_type="heading.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
                                                                         <h2
                                                                             class="elementor-heading-title elementor-size-default">
                                                                             Drink menu</h2>
                                                                     </div>
                                                                 </div>
-                                                                <div class="elementor-element elementor-element-ff7c262 menulist-align-left arrow-style-1 elementor-widget elementor-widget-delicioz-menu-list"
-                                                                    data-id="ff7c262" data-element_type="widget"
+                                                                <div class="elementor-element elementor-element-ff7c262 menulist-align-left arrow-style-1 elementor-widgets elementor-widgets-delicioz-menu-list"
+                                                                    data-id="ff7c262" data-element_type="widgets"
                                                                     data-widget_type="delicioz-menu-list.default">
-                                                                    <div class="elementor-widget-container">
+                                                                    <div class="elementor-widgets-container">
 
                                                                         <div class="elementor-menu-list-item-wrapper">
                                                                             <div class="row menu-style-1 row"
@@ -2628,17 +2714,18 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                                {{-- <div class="elementor-section elementor-top-section elementor-element elementor-element-44b8f56 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                {{-- <div
+                                    class="elementor-section elementor-top-section elementor-element elementor-element-44b8f56 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                                     data-id="44b8f56" data-element_type="section"
                                     data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
                                     <div class="elementor-container elementor-column-gap-no">
                                         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-21e0c96"
                                             data-id="21e0c96" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
-                                                <div class="elementor-element elementor-element-b8ebf2a elementor-align-center elementor-button-outline elementor-widget elementor-widget-button"
-                                                    data-id="b8ebf2a" data-element_type="widget"
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-b8ebf2a elementor-align-center elementor-button-outline elementor-widgets elementor-widgets-button"
+                                                    data-id="b8ebf2a" data-element_type="widgets"
                                                     data-widget_type="button.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         <div class="elementor-button-wrapper">
                                                             <a href="/shop/"
                                                                 class="elementor-button-link elementor-button elementor-size-sm"
@@ -2651,10 +2738,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="elementor-element elementor-element-aeeae78 elementor-widget elementor-widget-text-editor"
-                                                    data-id="aeeae78" data-element_type="widget"
+                                                <div class="elementor-element elementor-element-aeeae78 elementor-widgets elementor-widgets-text-editor"
+                                                    data-id="aeeae78" data-element_type="widgets"
                                                     data-widget_type="text-editor.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         During winter daily from <span
                                                             style="color: var(--e-global-color-primary);">8:30 am
                                                         </span> to <span
@@ -2666,17 +2753,18 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                                <div class="elementor-section elementor-top-section elementor-element elementor-element-d9e67d1 elementor-section-stretched elementor-reverse-tablet elementor-reverse-mobile_extra elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                                {{-- <div
+                                    class="elementor-section elementor-top-section elementor-element elementor-element-d9e67d1 elementor-section-stretched elementor-reverse-tablet elementor-reverse-mobile_extra elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                                     data-id="d9e67d1" data-element_type="section"
                                     data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
                                     <div class="elementor-container elementor-column-gap-no">
                                         <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-02fce9f"
                                             data-id="02fce9f" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
-                                                <div class="elementor-element elementor-element-6268ee6 arrow-style-1 dots-style-1 elementor-widget elementor-widget-delicioz-testimonials"
-                                                    data-id="6268ee6" data-element_type="widget"
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-6268ee6 arrow-style-1 dots-style-1 elementor-widgets elementor-widgets-delicioz-testimonials"
+                                                    data-id="6268ee6" data-element_type="widgets"
                                                     data-widget_type="delicioz-testimonials.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         <div class="elementor-testimonial-item-wrapper">
                                                             <div class="row layout-2 delicioz-carousel"
                                                                 data-settings="{&quot;navigation&quot;:&quot;arrows&quot;,&quot;autoplayHoverPause&quot;:true,&quot;autoplay&quot;:true,&quot;autoplaySpeed&quot;:5000,&quot;items&quot;:1,&quot;items_laptop&quot;:&quot;1&quot;,&quot;items_tablet_extra&quot;:&quot;1&quot;,&quot;items_tablet&quot;:&quot;2&quot;,&quot;items_mobile_extra&quot;:&quot;2&quot;,&quot;items_mobile&quot;:&quot;1&quot;,&quot;loop&quot;:true,&quot;breakpoint_laptop&quot;:1366,&quot;breakpoint_tablet_extra&quot;:1200,&quot;breakpoint_tablet&quot;:1024,&quot;breakpoint_mobile_extra&quot;:880,&quot;breakpoint_mobile&quot;:767}">
@@ -2685,7 +2773,8 @@
                                                                     <div class="inner">
 
                                                                         <div class="testimonial-content">
-                                                                            <div class="content">“ This cozy restaurant
+                                                                            <div class="content">“ This cozy
+                                                                                restaurant
                                                                                 has left the best impressions!
                                                                                 Hospitable hosts, delicious dishes,
                                                                                 beautiful presentation, wide wine list
@@ -2731,7 +2820,8 @@
                                                                     <div class="inner">
 
                                                                         <div class="testimonial-content">
-                                                                            <div class="content">“ This cozy restaurant
+                                                                            <div class="content">“ This cozy
+                                                                                restaurant
                                                                                 has left the best impressions!
                                                                                 Hospitable hosts, delicious dishes,
                                                                                 beautiful presentation, wide wine list
@@ -2778,7 +2868,8 @@
                                                                     <div class="inner">
 
                                                                         <div class="testimonial-content">
-                                                                            <div class="content">“ This cozy restaurant
+                                                                            <div class="content">“ This cozy
+                                                                                restaurant
                                                                                 has left the best impressions!
                                                                                 Hospitable hosts, delicious dishes,
                                                                                 beautiful presentation, wide wine list
@@ -2830,11 +2921,11 @@
                                         </div>
                                         <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-61cf09d"
                                             data-id="61cf09d" data-element_type="column">
-                                            <div class="elementor-widget-wrap elementor-element-populated">
-                                                <div class="elementor-element elementor-element-198a65c elementor-view-default elementor-widget elementor-widget-icon"
-                                                    data-id="198a65c" data-element_type="widget"
+                                            <div class="elementor-widgets-wrap elementor-element-populated">
+                                                <div class="elementor-element elementor-element-198a65c elementor-view-default elementor-widgets elementor-widgets-icon"
+                                                    data-id="198a65c" data-element_type="widgets"
                                                     data-widget_type="icon.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         <div class="elementor-icon-wrapper">
                                                             <div class="elementor-icon">
                                                                 <i aria-hidden="true"
@@ -2843,10 +2934,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="elementor-element elementor-element-3c79e81 elementor-widget__width-initial elementor-widget-tablet__width-inherit elementor-widget elementor-widget-heading"
-                                                    data-id="3c79e81" data-element_type="widget"
+                                                <div class="elementor-element elementor-element-3c79e81 elementor-widget__width-initial elementor-widgets-tablet__width-inherit elementor-widgets elementor-widgets-heading"
+                                                    data-id="3c79e81" data-element_type="widgets"
                                                     data-widget_type="heading.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         <h2 class="elementor-heading-title elementor-size-default">The
                                                             reviews of
                                                             customers when
@@ -2854,10 +2945,10 @@
                                                             restaurant!</h2>
                                                     </div>
                                                 </div>
-                                                <div class="elementor-element elementor-element-b8a5fcd elementor-align-left elementor-tablet-align-center elementor-mobile-align-center elementor-button-default elementor-widget elementor-widget-button"
-                                                    data-id="b8a5fcd" data-element_type="widget"
+                                                <div class="elementor-element elementor-element-b8a5fcd elementor-align-left elementor-tablet-align-center elementor-mobile-align-center elementor-button-default elementor-widgets elementor-widgets-button"
+                                                    data-id="b8a5fcd" data-element_type="widgets"
                                                     data-widget_type="button.default">
-                                                    <div class="elementor-widget-container">
+                                                    <div class="elementor-widgets-container">
                                                         <div class="elementor-button-wrapper">
                                                             <a href="#"
                                                                 class="elementor-button-link elementor-button elementor-size-sm"
@@ -2873,7 +2964,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="elementor-section elementor-top-section elementor-element elementor-element-05416e0 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                                     data-id="05416e0" data-element_type="section"
                                     data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
@@ -2890,8 +2981,12 @@
                                                                 <div class="icon"><i aria-hidden="true"
                                                                         class="delicioz-icon- delicioz-icon-chef"></i>
                                                                 </div>
-                                                                <h3 class="elementor-image-box-title">Meet Our Chef</h3>
-                                                                <div class="elementor-image-box-sub-title">amazing team
+                                                                <h3 class="elementor-image-box-title" style="color: black;">Nhà hàng của
+                                                                    chúng
+                                                                    tôi
+                                                                </h3>
+                                                                <div class="elementor-image-box-sub-title" style="color: black;">Đội ngũ
+                                                                    tuyệt vời
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2919,11 +3014,13 @@
                                                                                     sizes="(max-width: 390px) 100vw, 390px" />
                                                                             </div>
                                                                             <div class="team-caption">
-                                                                                <div class="team-name">Lorenzo Morelli
+                                                                                <div class="team-name" style="color: black;"> Lorenzo
+                                                                                    Morelli
                                                                                 </div>
-                                                                                <div class="team-job"> CEO &amp; FOUNDER
+                                                                                <div class="team-job" style="color: black;"> CEO &amp;
+                                                                                    FOUNDER
                                                                                 </div>
-                                                                                <div class="description-text">Aenean
+                                                                                <div class="description-text" style="color: black;">Aenean
                                                                                     commodo ligula eget dolor. Aenean
                                                                                     massa. Cum
                                                                                     sociis natoque penatibus et magnis
@@ -2933,28 +3030,28 @@
                                                                                         <li class="social">
                                                                                             <a
                                                                                                 href="https://www.facebook.com">
-                                                                                                <i aria-hidden="true"
+                                                                                                <i style="color: black;" aria-hidden="true"
                                                                                                     class="fab fa-facebook-f"></i>
                                                                                             </a>
                                                                                         </li>
                                                                                         <li class="social">
                                                                                             <a
                                                                                                 href="https://twitter.com">
-                                                                                                <i aria-hidden="true"
+                                                                                                <i style="color: black;" aria-hidden="true"
                                                                                                     class="fab fa-twitter"></i>
                                                                                             </a>
                                                                                         </li>
                                                                                         <li class="social">
                                                                                             <a
                                                                                                 href="https://www.instagram.com">
-                                                                                                <i aria-hidden="true"
+                                                                                                <i style="color: black;" aria-hidden="true"
                                                                                                     class="fab fa-instagram"></i>
                                                                                             </a>
                                                                                         </li>
                                                                                         <li class="social">
                                                                                             <a
                                                                                                 href="https://www.youtube.com/">
-                                                                                                <i aria-hidden="true"
+                                                                                                <i style="color: black;" aria-hidden="true"
                                                                                                     class="fab fa-youtube"></i>
                                                                                             </a>
                                                                                         </li>
@@ -2985,10 +3082,11 @@
                                                                                     sizes="(max-width: 390px) 100vw, 390px" />
                                                                             </div>
                                                                             <div class="team-caption">
-                                                                                <div class="team-name">Wesley Brewer
+                                                                                <div class="team-name" style="color: black;">Wesley Brewer
                                                                                 </div>
-                                                                                <div class="team-job">MASTER CHEF</div>
-                                                                                <div class="description-text">Lorem
+                                                                                <div class="team-job" style="color: black;">MASTER CHEF
+                                                                                </div>
+                                                                                <div class="description-text" style="color: black;">Lorem
                                                                                     ipsum dolor sit amet, consectetuer
                                                                                     adipiscing elit.
                                                                                     Aenean commodo ligula eget dolor.
@@ -2998,28 +3096,28 @@
                                                                                         <li class="social">
                                                                                             <a
                                                                                                 href="https://www.facebook.com">
-                                                                                                <i aria-hidden="true"
+                                                                                                <i style="color: black;" aria-hidden="true"
                                                                                                     class="fab fa-facebook-f"></i>
                                                                                             </a>
                                                                                         </li>
                                                                                         <li class="social">
                                                                                             <a
                                                                                                 href="https://twitter.com">
-                                                                                                <i aria-hidden="true"
+                                                                                                <i style="color: black;" aria-hidden="true"
                                                                                                     class="fab fa-twitter"></i>
                                                                                             </a>
                                                                                         </li>
                                                                                         <li class="social">
                                                                                             <a
                                                                                                 href="https://www.instagram.com">
-                                                                                                <i aria-hidden="true"
+                                                                                                <i style="color: black;" aria-hidden="true"
                                                                                                     class="fab fa-instagram"></i>
                                                                                             </a>
                                                                                         </li>
                                                                                         <li class="social">
                                                                                             <a
                                                                                                 href="https://www.youtube.com/">
-                                                                                                <i aria-hidden="true"
+                                                                                                <i style="color: black;" aria-hidden="true"
                                                                                                     class="fab fa-youtube"></i>
                                                                                             </a>
                                                                                         </li>
@@ -3051,10 +3149,13 @@
                                                                                     sizes="(max-width: 390px) 100vw, 390px" />
                                                                             </div>
                                                                             <div class="team-caption">
-                                                                                <div class="team-name">Aaliyah Williams
+                                                                                <div class="team-name" style="color: black;">Aaliyah
+                                                                                    Williams
                                                                                 </div>
-                                                                                <div class="team-job">PASTRY CHEF</div>
-                                                                                <div class="description-text">Donec pede
+                                                                                <div class="team-job" style="color: black;">PASTRY CHEF
+                                                                                </div>
+                                                                                <div class="description-text" style="color: black;">Donec
+                                                                                    pede
                                                                                     justo, fringilla vel, aliquet nec,
                                                                                     vulputate eget.
                                                                                     In enim justo, rhoncus ut, imperdiet
@@ -3064,28 +3165,28 @@
                                                                                         <li class="social">
                                                                                             <a
                                                                                                 href="https://www.facebook.com">
-                                                                                                <i aria-hidden="true"
+                                                                                                <i style="color: black;" aria-hidden="true"
                                                                                                     class="fab fa-facebook-f"></i>
                                                                                             </a>
                                                                                         </li>
                                                                                         <li class="social">
                                                                                             <a
                                                                                                 href="https://twitter.com">
-                                                                                                <i aria-hidden="true"
+                                                                                                <i style="color: black;" aria-hidden="true"
                                                                                                     class="fab fa-twitter"></i>
                                                                                             </a>
                                                                                         </li>
                                                                                         <li class="social">
                                                                                             <a
                                                                                                 href="https://www.instagram.com">
-                                                                                                <i aria-hidden="true"
+                                                                                                <i style="color: black;" aria-hidden="true"
                                                                                                     class="fab fa-instagram"></i>
                                                                                             </a>
                                                                                         </li>
                                                                                         <li class="social">
                                                                                             <a
                                                                                                 href="https://www.youtube.com/">
-                                                                                                <i aria-hidden="true"
+                                                                                                <i style="color: black;" aria-hidden="true"
                                                                                                     class="fab fa-youtube"></i>
                                                                                             </a>
                                                                                         </li>
@@ -3242,9 +3343,11 @@
                                                                 <div class="icon"><i aria-hidden="true"
                                                                         class="delicioz-icon- delicioz-icon-event-like"></i>
                                                                 </div>
-                                                                <h3 class="elementor-image-box-title">News & Events</h3>
-                                                                <div class="elementor-image-box-sub-title">Today
-                                                                    Specials</div>
+                                                                <h3 class="elementor-image-box-title" style="color: black;">Tin tức & Sự kiện
+                                                                </h3>
+                                                                <div class="elementor-image-box-sub-title" style="color: black;">Ưu đãi hôm
+                                                                    nay
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -3262,32 +3365,36 @@
                                                                 data-elementor-columns-mobile-extra="2"
                                                                 data-elementor-columns-mobile="1">
                                                                 @foreach ($latestPromotions as $promotion)
-                                                                <div
-                                                                    class="column-item post-style-3 post-129 post type-post status-publish format-standard has-post-thumbnail hentry category-decoration category-healthy-food tag-desserts tag-recipes tag-style">
-                                                                    <div class="post-inner">
-                                                                        <div class="posted-on"><a
-                                                                                href="/promotion/{{ $promotion->slug }}"
-                                                                                rel="bookmark">{{ $promotion->created_at->format('d/m/Y') }}</a></div>
-                                                                        <div class="post-thumbnail"><img loading="lazy"
-                                                                                width="820" height="500"
-                                                                                src="{{ asset('storage/' . $promotion->banner) }}"
-                                                                                class="attachment-delicioz-post-grid size-delicioz-post-grid wp-post-image"
-                                                                                alt="" /></div>
-                                                                        <div class="entry-content">
-                                                                            <h3 class="entry-title"><a
+                                                                    <div
+                                                                        class="column-item post-style-3 post-129 post type-post status-publish format-standard has-post-thumbnail hentry category-decoration category-healthy-food tag-desserts tag-recipes tag-style">
+                                                                        <div class="post-inner">
+                                                                            <div class="posted-on"><a
                                                                                     href="/promotion/{{ $promotion->slug }}"
-                                                                                    rel="bookmark">{{ $promotion->title }}</a></h3>
-                                                                            <div class="excerpt-content">{{ Str::limit($promotion->description, 100) }}</div>
+                                                                                    rel="bookmark">{{ $promotion->created_at->format('d/m/Y') }}</a>
+                                                                            </div>
+                                                                            <div class="post-thumbnail"><img loading="lazy"
+                                                                                    width="820" height="500"
+                                                                                    src="{{ asset('storage/' . $promotion->banner) }}"
+                                                                                    class="attachment-delicioz-post-grid size-delicioz-post-grid wp-post-image"
+                                                                                    alt="" /></div>
+                                                                            <div class="entry-content">
+                                                                                <h3 class="entry-title"><a style="color: black;"
+                                                                                        href="/promotion/{{ $promotion->slug }}"
+                                                                                        rel="bookmark">{{ $promotion->title }}</a>
+                                                                                </h3>
+                                                                                <div class="excerpt-content" style="color: black;">
+                                                                                    {{ Str::limit($promotion->description, 100) }}
+                                                                                </div>
 
-                                                                            <div class="more-link-wrap">
-                                                                                <a class="more-link"
-                                                                                    href="/promotion/{{ $promotion->slug }}">
-                                                                                    <span>Read More</span>
-                                                                                </a>
+                                                                                <div class="more-link-wrap">
+                                                                                    <a class="more-link"
+                                                                                        href="/promotion/{{ $promotion->slug }}">
+                                                                                        <span style="color: black;">Read More</span>
+                                                                                    </a>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
                                                                 @endforeach
 
                                                             </div>
@@ -3298,9 +3405,10 @@
                                                 <div class="elementor-element elementor-element-f886650 elementor-widget__width-initial elementor-widget elementor-widget-text-editor"
                                                     data-id="f886650" data-element_type="widget"
                                                     data-widget_type="text-editor.default">
-                                                    <div class="elementor-widget-container">
-                                                        Read the news of our restaurant, recipes for delicious fears,
-                                                        tips for your home kitchen in our blog! </div>
+                                                    <div class="elementor-widget-container" style="color: black;">
+                                                        Đọc tin tức của nhà hàng của chúng tôi, công thức cho đồ ăn
+                                                        ngon,
+                                                        mẹo cho nhà bếp gia đình của bạn! </div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-45e70b0 elementor-align-center elementor-button-outline elementor-widget elementor-widget-button"
                                                     data-id="45e70b0" data-element_type="widget"
@@ -3311,8 +3419,8 @@
                                                                 class="elementor-button-link elementor-button elementor-size-sm"
                                                                 role="button">
                                                                 <span class="elementor-button-content-wrapper">
-                                                                    <span class="elementor-button-text">view our
-                                                                        blog</span>
+                                                                    <span class="elementor-button-text" style="color: black;">Xem ƯU
+                                                                        ĐÃI</span>
                                                                 </span>
                                                             </a>
                                                         </div>
@@ -3345,78 +3453,9 @@
             window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
             window.RS_MODULES.type = 'compiled';
         </script>
-        <div class="site-search-popup">
-            <div class="site-search-popup-wrap">
-                <a href="#" class="site-search-popup-close"><i class="delicioz-icon-times-circle"></i></a>
-                <div class="site-search ajax-search">
-                    <div class="widget woocommerce widget_product_search">
-                        <div class="ajax-search-result d-none"></div>
-                        <form role="search" method="get" class="woocommerce-product-search" action="/delicioz/">
-                            <label class="screen-reader-text" for="woocommerce-product-search-field-2">Search
-                                for:</label>
-                            <input type="search" id="woocommerce-product-search-field-2" class="search-field"
-                                placeholder="Search products&hellip;" autocomplete="off" value="" name="s" />
-                            <button type="submit" value="Search">Search</button>
-                            <input type="hidden" name="post_type" value="product" />
-                            <div class="search-by-category input-dropdown">
-                                <div class="input-dropdown-inner delicioz-scroll-content">
-                                    <!--                    <input type="hidden" name="product_cat" value="0">-->
-                                    <a href="#" data-val="0"><span>All category</span></a>
-                                    <select name='product_cat' id='product_cat1' class='dropdown_product_cat_ajax'>
-                                        <option value='' selected='selected'>All category</option>
-                                        <option class="level-0" value="accessories">Accessories</option>
-                                        <option class="level-0" value="desserts">Desserts</option>
-                                        <option class="level-0" value="food">Food</option>
-                                        <option class="level-0" value="humburger">Humburger</option>
-                                        <option class="level-0" value="recipes">Recipes</option>
-                                        <option class="level-0" value="uncategorized">Uncategorized</option>
-                                        <option class="level-0" value="whiskey">Whiskey</option>
-                                    </select>
-                                    <div class="list-wrapper delicioz-scroll">
-                                        <ul class="delicioz-scroll-content">
-                                            <li class="d-none">
-                                                <a href="#" data-val="0">All category</a>
-                                            </li>
-                                            <li class="cat-item cat-item-42"><a class="pf-value"
-                                                    href="/delicioz/product-category/accessories/"
-                                                    data-val="accessories" data-title="Accessories">Accessories</a>
-                                            </li>
-                                            <li class="cat-item cat-item-35"><a class="pf-value"
-                                                    href="/delicioz/product-category/desserts/" data-val="desserts"
-                                                    data-title="Desserts">Desserts</a>
-                                            </li>
-                                            <li class="cat-item cat-item-38"><a class="pf-value"
-                                                    href="/delicioz/product-category/food/" data-val="food"
-                                                    data-title="Food">Food</a>
-                                            </li>
-                                            <li class="cat-item cat-item-40"><a class="pf-value"
-                                                    href="/delicioz/product-category/humburger/" data-val="humburger"
-                                                    data-title="Humburger">Humburger</a>
-                                            </li>
-                                            <li class="cat-item cat-item-39"><a class="pf-value"
-                                                    href="/delicioz/product-category/recipes/" data-val="recipes"
-                                                    data-title="Recipes">Recipes</a>
-                                            </li>
-                                            <li class="cat-item cat-item-15"><a class="pf-value"
-                                                    href="/delicioz/product-category/uncategorized/"
-                                                    data-val="uncategorized"
-                                                    data-title="Uncategorized">Uncategorized</a>
-                                            </li>
-                                            <li class="cat-item cat-item-37"><a class="pf-value"
-                                                    href="/delicioz/product-category/whiskey/" data-val="whiskey"
-                                                    data-title="Whiskey">Whiskey</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="site-search-popup-overlay"></div>
-        <script>(function () {
+        @livewire('inc.search')
+        <script>
+            (function () {
                 function maybePrefixUrlField() {
                     if (this.value.trim() !== '' && this.value.indexOf('http') !== 0) {
                         this.value = "http://" + this.value;
@@ -3429,7 +3468,8 @@
                         urlFields[j].addEventListener('blur', maybePrefixUrlField);
                     }
                 }
-            })();</script>
+            })();
+        </script>
         <div class="woosc-popup woosc-search">
             <div class="woosc-popup-inner">
                 <div class="woosc-popup-content">
@@ -3561,7 +3601,19 @@
             })();
         </script>
         <script>
-            if (typeof revslider_showDoubleJqueryError === "undefined") { function revslider_showDoubleJqueryError(sliderID) { console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion."); console.log("To fix this, you can:"); console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on"); console.log("2. Find the double jQuery.js inclusion and remove it"); return "Double Included jQuery Library"; } }
+            if (typeof revslider_showDoubleJqueryError === "undefined") {
+                function revslider_showDoubleJqueryError(sliderID) {
+                    console.log(
+                        "You have some jquery.js library include that comes after the Slider Revolution files js inclusion."
+                    );
+                    console.log("To fix this, you can:");
+                    console.log(
+                        "1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on"
+                    );
+                    console.log("2. Find the double jQuery.js inclusion and remove it");
+                    return "Double Included jQuery Library";
+                }
+            }
         </script>
         <link rel='stylesheet' id='elementor-post-671-css'
             href='/delicioz/wp-content/uploads/elementor/css/post-671.css?ver=1661932588' media='all' />
@@ -3712,44 +3764,83 @@
             }
         </style>
         <script src='/delicioz/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9'
-            id='regenerator-runtime-js'></script>
+            id='regenerator-runtime-js'>
+            </script>
         <script src='/delicioz/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
         <script id='contact-form-7-js-extra'>
-            var wpcf7 = { "api": { "root": "https:\/\/demo2.themelexus.com\/delicioz\/wp-json\/", "namespace": "contact-form-7\/v1" }, "cached": "1" };
+            var wpcf7 = {
+                "api": {
+                    "root": "https:\/\/demo2.themelexus.com\/delicioz\/wp-json\/",
+                    "namespace": "contact-form-7\/v1"
+                },
+                "cached": "1"
+            };
         </script>
-        <script src='/delicioz/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.6.2'
-            id='contact-form-7-js'></script>
+        <script src='/delicioz/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.6.2' id='contact-form-7-js'>
+        </script>
         <script src='/delicioz/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.5.18' defer async
             id='tp-tools-js'></script>
         <script src='/delicioz/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.5.31' defer async
-            id='revmin-js'></script>
+            id='revmin-js'>
+            </script>
         <script
             src='/delicioz/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.6.8.2'
             id='jquery-blockui-js'></script>
         <script id='wc-add-to-cart-js-extra'>
-            var wc_add_to_cart_params = { "ajax_url": "\/delicioz\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%", "i18n_view_cart": "", "cart_url": "https:\/\/demo2.themelexus.com\/delicioz\/cart\/", "is_cart": "", "cart_redirect_after_add": "no" };
+            var wc_add_to_cart_params = {
+                "ajax_url": "\/delicioz\/wp-admin\/admin-ajax.php",
+                "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%",
+                "i18n_view_cart": "",
+                "cart_url": "https:\/\/demo2.themelexus.com\/delicioz\/cart\/",
+                "is_cart": "",
+                "cart_redirect_after_add": "no"
+            };
         </script>
         <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=6.8.2'
             id='wc-add-to-cart-js'></script>
         <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.6.8.2'
             id='js-cookie-js'></script>
         <script id='woocommerce-js-extra'>
-            var woocommerce_params = { "ajax_url": "\/delicioz\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%" };
+            var woocommerce_params = {
+                "ajax_url": "\/delicioz\/wp-admin\/admin-ajax.php",
+                "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%"
+            };
         </script>
         <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=6.8.2'
             id='woocommerce-js'></script>
         <script id='wc-cart-fragments-js-extra'>
-            var wc_cart_fragments_params = { "ajax_url": "\/delicioz\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%", "cart_hash_key": "wc_cart_hash_fb254261fa3641bff9c309f0d976a3b1", "fragment_name": "wc_fragments_fb254261fa3641bff9c309f0d976a3b1", "request_timeout": "5000" };
+            var wc_cart_fragments_params = {
+                "ajax_url": "\/delicioz\/wp-admin\/admin-ajax.php",
+                "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%",
+                "cart_hash_key": "wc_cart_hash_fb254261fa3641bff9c309f0d976a3b1",
+                "fragment_name": "wc_fragments_fb254261fa3641bff9c309f0d976a3b1",
+                "request_timeout": "5000"
+            };
         </script>
         <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=6.8.2'
             id='wc-cart-fragments-js'></script>
         <script src='/delicioz/wp-includes/js/underscore.min.js?ver=1.13.3' id='underscore-js'></script>
         <script id='wp-util-js-extra'>
-            var _wpUtilSettings = { "ajax": { "url": "\/delicioz\/wp-admin\/admin-ajax.php" } };
+            var _wpUtilSettings = {
+                "ajax": {
+                    "url": "\/delicioz\/wp-admin\/admin-ajax.php"
+                }
+            };
         </script>
         <script src='/delicioz/wp-includes/js/wp-util.min.js?ver=6.0.2' id='wp-util-js'></script>
         <script id='woo-variation-swatches-js-extra'>
-            var woo_variation_swatches_options = { "show_variation_label": "1", "clear_on_reselect": "", "variation_label_separator": ":", "is_mobile": "", "show_variation_stock": "", "stock_label_threshold": "5", "cart_redirect_after_add": "no", "enable_ajax_add_to_cart": "yes", "cart_url": "https:\/\/demo2.themelexus.com\/delicioz\/cart\/", "is_cart": "" };
+            var woo_variation_swatches_options = {
+                "show_variation_label": "1",
+                "clear_on_reselect": "",
+                "variation_label_separator": ":",
+                "is_mobile": "",
+                "show_variation_stock": "",
+                "stock_label_threshold": "5",
+                "cart_redirect_after_add": "no",
+                "enable_ajax_add_to_cart": "yes",
+                "cart_url": "https:\/\/demo2.themelexus.com\/delicioz\/cart\/",
+                "is_cart": ""
+            };
         </script>
         <script src='/delicioz/wp-content/plugins/woo-variation-swatches/assets/js/frontend.min.js?ver=1660386322'
             id='woo-variation-swatches-js'></script>
@@ -3763,12 +3854,47 @@
         <script src='/delicioz/wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.1' id='jquery-ui-mouse-js'></script>
         <script src='/delicioz/wp-includes/js/jquery/ui/sortable.min.js?ver=1.13.1' id='jquery-ui-sortable-js'></script>
         <script id='woosc-frontend-js-extra'>
-            var woosc_vars = { "ajax_url": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php", "user_id": "5aa4ef0c5f6af53f117a6e44ea55d787", "page_url": "#", "open_button": "", "open_button_action": "open_popup", "menu_action": "open_popup", "button_action": "show_table", "sidebar_position": "right", "message_position": "right-top", "message_added": "{name} has been added to Compare list.", "message_removed": "{name} has been removed from the Compare list.", "message_exists": "{name} is already in the Compare list.", "open_bar": "", "bar_bubble": "no", "adding": "prepend", "click_again": "no", "hide_empty": "no", "click_outside": "yes", "freeze_column": "yes", "freeze_row": "yes", "scrollbar": "yes", "limit": "100", "button_text_change": "yes", "remove_all": "Do you want to remove all products from the compare?", "limit_notice": "You can add a maximum of {limit} products to the compare table.", "copied_text": "Share link %s was copied to clipboard!", "button_text": "Compare", "button_text_added": "Compare" };
+            var woosc_vars = {
+                "ajax_url": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php",
+                "user_id": "5aa4ef0c5f6af53f117a6e44ea55d787",
+                "page_url": "#",
+                "open_button": "",
+                "open_button_action": "open_popup",
+                "menu_action": "open_popup",
+                "button_action": "show_table",
+                "sidebar_position": "right",
+                "message_position": "right-top",
+                "message_added": "{name} has been added to Compare list.",
+                "message_removed": "{name} has been removed from the Compare list.",
+                "message_exists": "{name} is already in the Compare list.",
+                "open_bar": "",
+                "bar_bubble": "no",
+                "adding": "prepend",
+                "click_again": "no",
+                "hide_empty": "no",
+                "click_outside": "yes",
+                "freeze_column": "yes",
+                "freeze_row": "yes",
+                "scrollbar": "yes",
+                "limit": "100",
+                "button_text_change": "yes",
+                "remove_all": "Do you want to remove all products from the compare?",
+                "limit_notice": "You can add a maximum of {limit} products to the compare table.",
+                "copied_text": "Share link %s was copied to clipboard!",
+                "button_text": "Compare",
+                "button_text_added": "Compare"
+            };
         </script>
         <script src='/delicioz/wp-content/plugins/woo-smart-compare/assets/js/frontend.js?ver=5.1.5'
-            id='woosc-frontend-js'></script>
+            id='woosc-frontend-js'>
+            </script>
         <script id='wc-add-to-cart-variation-js-extra'>
-            var wc_add_to_cart_variation_params = { "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%", "i18n_no_matching_variations_text": "Sorry, no products matched your selection. Please choose a different combination.", "i18n_make_a_selection_text": "Please select some product options before adding this product to your cart.", "i18n_unavailable_text": "Sorry, this product is unavailable. Please choose a different combination." };
+            var wc_add_to_cart_variation_params = {
+                "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%",
+                "i18n_no_matching_variations_text": "Sorry, no products matched your selection. Please choose a different combination.",
+                "i18n_make_a_selection_text": "Please select some product options before adding this product to your cart.",
+                "i18n_unavailable_text": "Sorry, this product is unavailable. Please choose a different combination."
+            };
         </script>
         <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min.js?ver=6.8.2'
             id='wc-add-to-cart-variation-js'></script>
@@ -3776,17 +3902,50 @@
         <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/jquery.magnific-popup.min.js?ver=1.0.1'
             id='magnific-popup-js'></script>
         <script id='woosq-frontend-js-extra'>
-            var woosq_vars = { "ajax_url": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php", "view": "popup", "effect": "mfp-3d-unfold", "scrollbar": "yes", "hashchange": "no", "cart_redirect": "no", "cart_url": "https:\/\/demo2.themelexus.com\/delicioz\/cart\/", "close": "Close (Esc)", "next": "Next (Right arrow key)", "prev": "Previous (Left arrow key)", "thumbnails_effect": "no", "related_slick_params": "{\"slidesToShow\":2,\"slidesToScroll\":2,\"dots\":true,\"arrows\":false,\"adaptiveHeight\":true,\"rtl\":false}", "thumbnails_slick_params": "{\"slidesToShow\":1,\"slidesToScroll\":1,\"dots\":true,\"arrows\":true,\"adaptiveHeight\":false,\"rtl\":false}", "thumbnails_zoom_params": "{\"duration\":120,\"magnify\":1}" };
+            var woosq_vars = {
+                "ajax_url": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php",
+                "view": "popup",
+                "effect": "mfp-3d-unfold",
+                "scrollbar": "yes",
+                "hashchange": "no",
+                "cart_redirect": "no",
+                "cart_url": "https:\/\/demo2.themelexus.com\/delicioz\/cart\/",
+                "close": "Close (Esc)",
+                "next": "Next (Right arrow key)",
+                "prev": "Previous (Left arrow key)",
+                "thumbnails_effect": "no",
+                "related_slick_params": "{\"slidesToShow\":2,\"slidesToScroll\":2,\"dots\":true,\"arrows\":false,\"adaptiveHeight\":true,\"rtl\":false}",
+                "thumbnails_slick_params": "{\"slidesToShow\":1,\"slidesToScroll\":1,\"dots\":true,\"arrows\":true,\"adaptiveHeight\":false,\"rtl\":false}",
+                "thumbnails_zoom_params": "{\"duration\":120,\"magnify\":1}"
+            };
         </script>
         <script src='/delicioz/wp-content/plugins/woo-smart-quick-view/assets/js/frontend.js?ver=3.1.2'
-            id='woosq-frontend-js'></script>
+            id='woosq-frontend-js'>
+            </script>
         <script id='woosw-frontend-js-extra'>
-            var woosw_vars = { "ajax_url": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php", "menu_action": "open_page", "perfect_scrollbar": "yes", "wishlist_url": "https:\/\/demo2.themelexus.com\/delicioz\/wishlist\/", "button_action": "list", "message_position": "right-top", "button_action_added": "popup", "empty_confirm": "This action cannot be undone. Are you sure?", "delete_confirm": "This action cannot be undone. Are you sure?", "copied_text": "Copied the wishlist link:", "menu_text": "Wishlist", "button_text": "Add to wishlist", "button_text_added": "Browse wishlist" };
+            var woosw_vars = {
+                "ajax_url": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php",
+                "menu_action": "open_page",
+                "perfect_scrollbar": "yes",
+                "wishlist_url": "https:\/\/demo2.themelexus.com\/delicioz\/wishlist\/",
+                "button_action": "list",
+                "message_position": "right-top",
+                "button_action_added": "popup",
+                "empty_confirm": "This action cannot be undone. Are you sure?",
+                "delete_confirm": "This action cannot be undone. Are you sure?",
+                "copied_text": "Copied the wishlist link:",
+                "menu_text": "Wishlist",
+                "button_text": "Add to wishlist",
+                "button_text_added": "Browse wishlist"
+            };
         </script>
         <script src='/delicioz/wp-content/plugins/woo-smart-wishlist/assets/js/frontend.js?ver=4.3.1'
-            id='woosw-frontend-js'></script>
+            id='woosw-frontend-js'>
+            </script>
         <script id='delicioz-theme-js-extra'>
-            var deliciozAjax = { "ajaxurl": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php" };
+            var deliciozAjax = {
+                "ajaxurl": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php"
+            };
         </script>
         <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/main.js?ver=1.0.1'
             id='delicioz-theme-js'></script>
@@ -3802,7 +3961,8 @@
         <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/header-cart.min.js?ver=1.0.1'
             id='delicioz-header-cart-js'></script>
         <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/tooltipster.bundle.js?ver=1.0.1'
-            id='tooltipster-js'></script>
+            id='tooltipster-js'>
+            </script>
         <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/product-ajax-search.min.js?ver=1.0.1'
             id='delicioz-products-ajax-search-js'></script>
         <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/main.min.js?ver=1.0.1'
@@ -3820,10 +3980,130 @@
         <script src='/delicioz/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2'
             id='elementor-waypoints-js'></script>
         <script id='elementor-frontend-js-before'>
-            var elementorFrontendConfig = { "environmentMode": { "edit": false, "wpPreview": false, "isScriptDebug": false }, "i18n": { "shareOnFacebook": "Share on Facebook", "shareOnTwitter": "Share on Twitter", "pinIt": "Pin it", "download": "Download", "downloadImage": "Download image", "fullscreen": "Fullscreen", "zoom": "Zoom", "share": "Share", "playVideo": "Play Video", "previous": "Previous", "next": "Next", "close": "Close" }, "is_rtl": false, "breakpoints": { "xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600 }, "responsive": { "breakpoints": { "mobile": { "label": "Mobile", "value": 767, "default_value": 767, "direction": "max", "is_enabled": true }, "mobile_extra": { "label": "Mobile Extra", "value": 880, "default_value": 880, "direction": "max", "is_enabled": true }, "tablet": { "label": "Tablet", "value": 1024, "default_value": 1024, "direction": "max", "is_enabled": true }, "tablet_extra": { "label": "Tablet Extra", "value": 1200, "default_value": 1200, "direction": "max", "is_enabled": true }, "laptop": { "label": "Laptop", "value": 1366, "default_value": 1366, "direction": "max", "is_enabled": true }, "widescreen": { "label": "Widescreen", "value": 2400, "default_value": 2400, "direction": "min", "is_enabled": false } } }, "version": "3.7.3", "is_static": false, "experimentalFeatures": { "e_dom_optimization": true, "e_optimized_assets_loading": true, "e_optimized_css_loading": true, "a11y_improvements": true, "additional_custom_breakpoints": true, "e_import_export": true, "e_hidden_wordpress_widgets": true, "landing-pages": true, "elements-color-picker": true, "favorite-widgets": true, "admin-top-bar": true }, "urls": { "assets": "https:\/\/demo2.themelexus.com\/delicioz\/wp-content\/plugins\/elementor\/assets\/" }, "settings": { "page": [], "editorPreferences": [] }, "kit": { "active_breakpoints": ["viewport_mobile", "viewport_mobile_extra", "viewport_tablet", "viewport_tablet_extra", "viewport_laptop"], "body_background_background": "classic", "global_image_lightbox": "yes", "lightbox_enable_counter": "yes", "lightbox_enable_fullscreen": "yes", "lightbox_enable_zoom": "yes", "lightbox_enable_share": "yes", "lightbox_title_src": "title", "lightbox_description_src": "description" }, "post": { "id": 24, "title": "Home%203%20%E2%80%93%20Delicioz", "excerpt": "", "featuredImage": false }, "user": { "roles": ["customer"] } };
+            var elementorFrontendConfig = {
+                "environmentMode": {
+                    "edit": false,
+                    "wpPreview": false,
+                    "isScriptDebug": false
+                },
+                "i18n": {
+                    "shareOnFacebook": "Share on Facebook",
+                    "shareOnTwitter": "Share on Twitter",
+                    "pinIt": "Pin it",
+                    "download": "Download",
+                    "downloadImage": "Download image",
+                    "fullscreen": "Fullscreen",
+                    "zoom": "Zoom",
+                    "share": "Share",
+                    "playVideo": "Play Video",
+                    "previous": "Previous",
+                    "next": "Next",
+                    "close": "Close"
+                },
+                "is_rtl": false,
+                "breakpoints": {
+                    "xs": 0,
+                    "sm": 480,
+                    "md": 768,
+                    "lg": 1025,
+                    "xl": 1440,
+                    "xxl": 1600
+                },
+                "responsive": {
+                    "breakpoints": {
+                        "mobile": {
+                            "label": "Mobile",
+                            "value": 767,
+                            "default_value": 767,
+                            "direction": "max",
+                            "is_enabled": true
+                        },
+                        "mobile_extra": {
+                            "label": "Mobile Extra",
+                            "value": 880,
+                            "default_value": 880,
+                            "direction": "max",
+                            "is_enabled": true
+                        },
+                        "tablet": {
+                            "label": "Tablet",
+                            "value": 1024,
+                            "default_value": 1024,
+                            "direction": "max",
+                            "is_enabled": true
+                        },
+                        "tablet_extra": {
+                            "label": "Tablet Extra",
+                            "value": 1200,
+                            "default_value": 1200,
+                            "direction": "max",
+                            "is_enabled": true
+                        },
+                        "laptop": {
+                            "label": "Laptop",
+                            "value": 1366,
+                            "default_value": 1366,
+                            "direction": "max",
+                            "is_enabled": true
+                        },
+                        "widescreen": {
+                            "label": "Widescreen",
+                            "value": 2400,
+                            "default_value": 2400,
+                            "direction": "min",
+                            "is_enabled": false
+                        }
+                    }
+                },
+                "version": "3.7.3",
+                "is_static": false,
+                "experimentalFeatures": {
+                    "e_dom_optimization": true,
+                    "e_optimized_assets_loading": true,
+                    "e_optimized_css_loading": true,
+                    "a11y_improvements": true,
+                    "additional_custom_breakpoints": true,
+                    "e_import_export": true,
+                    "e_hidden_wordpress_widgets": true,
+                    "landing-pages": true,
+                    "elements-color-picker": true,
+                    "favorite-widgets": true,
+                    "admin-top-bar": true
+                },
+                "urls": {
+                    "assets": "https:\/\/demo2.themelexus.com\/delicioz\/wp-content\/plugins\/elementor\/assets\/"
+                },
+                "settings": {
+                    "page": [],
+                    "editorPreferences": []
+                },
+                "kit": {
+                    "active_breakpoints": ["viewport_mobile", "viewport_mobile_extra", "viewport_tablet",
+                        "viewport_tablet_extra", "viewport_laptop"
+                    ],
+                    "body_background_background": "classic",
+                    "global_image_lightbox": "yes",
+                    "lightbox_enable_counter": "yes",
+                    "lightbox_enable_fullscreen": "yes",
+                    "lightbox_enable_zoom": "yes",
+                    "lightbox_enable_share": "yes",
+                    "lightbox_title_src": "title",
+                    "lightbox_description_src": "description"
+                },
+                "post": {
+                    "id": 24,
+                    "title": "Home%203%20%E2%80%93%20Delicioz",
+                    "excerpt": "",
+                    "featuredImage": false
+                },
+                "user": {
+                    "roles": ["customer"]
+                }
+            };
         </script>
         <script src='/delicioz/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.7.3'
-            id='elementor-frontend-js'></script>
+            id='elementor-frontend-js'>
+            </script>
         <script src='/delicioz/wp-content/themes/delicioz/assets/js/elementor/reservation-form.js?ver=1.0.1'
             id='delicioz-elementor-reservation-form-js'></script>
         <script src='/delicioz/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.13.1'
@@ -3840,13 +4120,15 @@
             src='/delicioz/wp-content/plugins/make-column-clickable-elementor/assets/js/make-column-clickable.js?ver=1.4.0'
             id='make-column-clickable-elementor-js'></script>
         <script defer src='/delicioz/wp-content/plugins/mailchimp-for-wp/assets/js/forms.js?ver=4.8.8'
-            id='mc4wp-forms-api-js'></script>
+            id='mc4wp-forms-api-js'>
+            </script>
         <script src='/delicioz/wp-content/themes/delicioz/assets/js/elementor-frontend.js?ver=1.0.1'
             id='delicioz-elementor-frontend-js'></script>
         <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/jquery.sticky.js?ver=1.0.1'
             id='elementor-sticky-js'></script>
         <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/sticky.js?ver=1.0.1'
-            id='delicioz-elementor-sticky-js'></script>
+            id='delicioz-elementor-sticky-js'>
+            </script>
         <script id="rs-initialisation-scripts">
             var tpj = jQuery;
 
@@ -3855,11 +4137,22 @@
             if (window.RS_MODULES === undefined) window.RS_MODULES = {};
             if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
             RS_MODULES.modules["revslider21"] = {
-                once: RS_MODULES.modules["revslider21"] !== undefined ? RS_MODULES.modules["revslider21"].once : undefined, init: function () {
-                    window.revapi2 = window.revapi2 === undefined || window.revapi2 === null || window.revapi2.length === 0 ? document.getElementById("rev_slider_2_1") : window.revapi2;
-                    if (window.revapi2 === null || window.revapi2 === undefined || window.revapi2.length == 0) { window.revapi2initTry = window.revapi2initTry === undefined ? 0 : window.revapi2initTry + 1; if (window.revapi2initTry < 20) requestAnimationFrame(function () { RS_MODULES.modules["revslider21"].init() }); return; }
+                once: RS_MODULES.modules["revslider21"] !== undefined ? RS_MODULES.modules["revslider21"].once : undefined,
+                init: function () {
+                    window.revapi2 = window.revapi2 === undefined || window.revapi2 === null || window.revapi2
+                        .length === 0 ? document.getElementById("rev_slider_2_1") : window.revapi2;
+                    if (window.revapi2 === null || window.revapi2 === undefined || window.revapi2.length == 0) {
+                        window.revapi2initTry = window.revapi2initTry === undefined ? 0 : window.revapi2initTry + 1;
+                        if (window.revapi2initTry < 20) requestAnimationFrame(function () {
+                            RS_MODULES.modules["revslider21"].init()
+                        });
+                        return;
+                    }
                     window.revapi2 = jQuery(window.revapi2);
-                    if (window.revapi2.revolution == undefined) { revslider_showDoubleJqueryError("rev_slider_2_1"); return; }
+                    if (window.revapi2.revolution == undefined) {
+                        revslider_showDoubleJqueryError("rev_slider_2_1");
+                        return;
+                    }
                     revapi2.revolutionInit({
                         revapi: "revapi2",
                         DPR: "dpr",
@@ -3873,7 +4166,9 @@
                         keepBPHeight: true,
                         editorheight: "800,700,600,500",
                         responsiveLevels: "1240,1024,778,480",
-                        progressBar: { disableProgressBar: true },
+                        progressBar: {
+                            disableProgressBar: true
+                        },
                         navigation: {
                             wheelCallDelay: 1000,
                             onHoverStop: false,
@@ -3898,8 +4193,14 @@
                 }
             } // End of RevInitScript
 
-            if (window.RS_MODULES.checkMinimal !== undefined) { window.RS_MODULES.checkMinimal(); };
+            if (window.RS_MODULES.checkMinimal !== undefined) {
+                window.RS_MODULES.checkMinimal();
+            };
         </script>
     </body>
-
+    <style>
+        .elementor-menu-list-image>img {
+            height: 280px !important;
+        }
+    </style>
 </div>

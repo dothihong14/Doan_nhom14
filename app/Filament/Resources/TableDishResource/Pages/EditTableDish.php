@@ -13,7 +13,13 @@ class EditTableDish extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
         ];
+    }
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        if ($data['type'] === 'online') {
+            $data['table_id'] = null;
+        }
+        return $data;
     }
 }

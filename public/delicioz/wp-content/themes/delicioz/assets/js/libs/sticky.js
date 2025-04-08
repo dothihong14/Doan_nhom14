@@ -55,7 +55,7 @@
                 $wpAdminBar = elementorFrontend.elements.$wpAdminBar;
 
             if (elementSettings.sticky_parent) {
-                stickyOptions.parent = '.elementor-widget-wrap';
+                stickyOptions.parent = '.elementor-widgets-wrap';
             }
 
             if ($wpAdminBar.length && 'top' === elementSettings.sticky && 'fixed' === $wpAdminBar.css('position')) {
@@ -150,7 +150,7 @@
         };
 
         elementorFrontend.hooks.addAction( 'frontend/element_ready/section', addHandler );
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/widget', addHandler );
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/widgets', addHandler );
     } );
 
 }(jQuery, window.elementorFrontend, window.elementorModules));
