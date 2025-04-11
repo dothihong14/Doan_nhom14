@@ -52,7 +52,8 @@ class ReservationResource extends Resource
                             ->label('ID người dùng'),
                         Forms\Components\Select::make('restaurant_id')
                             ->options(Restaurant::all()->pluck('name', 'id'))
-                            ->label('Nhà hàng'),
+                            ->label('Nhà hàng')
+                            ->visible(fn () => !auth()->user()->restaurant_id),
                         Forms\Components\TextInput::make('number_of_people')
                             ->required()
                             ->numeric()
@@ -100,6 +101,7 @@ class ReservationResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('restaurant.name')
                     ->numeric()
+                    ->visible(fn () => !auth()->user()->restaurant_id)
                     ->searchable()
                     ->label('Tên nhà hàng')
                     ->sortable(),

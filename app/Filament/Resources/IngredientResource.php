@@ -61,7 +61,8 @@ class IngredientResource extends Resource
                         Forms\Components\Select::make('restaurant_id')
                             ->relationship('restaurant', 'name')
                             ->label('Nhà hàng')
-                            ->required(),
+                            ->required()
+                            ->visible(fn () => !auth()->user()->restaurant_id),
                         Forms\Components\Select::make('status')
                             ->label('Trạng thái')
                             ->options([
@@ -82,9 +83,6 @@ class IngredientResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
-                    ->sortable(),
                 Tables\Columns\ImageColumn::make('image')
                     ->label('Ảnh')
                     ,
@@ -106,6 +104,22 @@ class IngredientResource extends Resource
                         $record->quantity_in_stock = $state;
                         $record->save();
                     }),
+                Tables\Columns\TextColumn::make('minimum_threshold')
+                    ->label('Ngưỡng tối thiểu')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('quantity_auto_updated')
+                    ->label('Số lượng tự động cập nhật')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('unit')
+                    ->label('Đơn vị')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('restaurant.name')
+                    ->label('Nhà hàng')
+                    ->visible(fn () => !auth()->user()->restaurant_id)
+                    ->numeric()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Ngày tạo')
                     ->dateTime()
@@ -116,25 +130,6 @@ class IngredientResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('minimum_threshold')
-                    ->label('Ngưỡng tối thiểu')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('quantity_in_stock')
-                    ->label('Số lượng tự động cập nhật')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\BadgeColumn::make('expiration_date')
-                    ->label('Ngày hạn sử dụng')
-                    ->color(fn ($record) => $record->expiration_date < now() ? 'danger' : 'success')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('unit')
-                    ->label('Đơn vị')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('restaurant.name')
-                    ->label('Nhà hàng')
-                    ->numeric()
-                    ->sortable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('status')
@@ -173,6 +168,7 @@ class IngredientResource extends Resource
             //
         ];
     }
+
 
     public static function getPages(): array
     {

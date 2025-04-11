@@ -26,6 +26,7 @@ class LatestReservationsWidget extends BaseWidget
                     ->label('Tên người đặt')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('restaurant.name')
+                    ->visible(fn () => !auth()->user()->restaurant_id)
                     ->numeric()
                     ->searchable()
                     ->label('Tên nhà hàng')

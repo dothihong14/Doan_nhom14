@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Ingredient extends Model
 {
@@ -30,6 +31,15 @@ class Ingredient extends Model
                 $ingredient->status = 'low_stock'; // sắp hết
             } else {
                 $ingredient->status = 'out_of_stock'; // hết hàng
+            }
+        });
+    }
+
+    protected static function booted()
+    {
+        static::addGlobalScope('restaurant', function (Builder $builder) {
+            if (auth()->check() && auth()->user()->restaurant_id) {
+                $builder->where('restaurant_id', auth()->user()->restaurant_id);
             }
         });
     }

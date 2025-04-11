@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class MaterialTransaction extends Model
 {
@@ -29,5 +30,14 @@ class MaterialTransaction extends Model
 
     public function restaurant() {
         return $this->belongsTo(Restaurant::class);
+    }
+
+    protected static function booted()
+    {
+        static::addGlobalScope('restaurant', function (Builder $builder) {
+            if (auth()->check() && auth()->user()->restaurant_id) {
+                $builder->where('restaurant_id', auth()->user()->restaurant_id);
+            }
+        });
     }
 }

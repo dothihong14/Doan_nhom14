@@ -1190,9 +1190,9 @@
                                         data-id="901b06e" data-element_type="widget"
                                         data-widget_type="woocommerce-breadcrumb.default">
                                         <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">Thanh toán</div>
+                                            <div class="delicioz-woocommerce-title">Đặt hàng</div>
                                             <nav class="woocommerce-breadcrumb"><a href="/">Trang chủ</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i>Thanh toán</nav>
+                                                    class="delicioz-icon-arrow-right-s-line"></i>Đặt hàng</nav>
                                         </div>
                                     </div>
                                 </div>
@@ -1247,30 +1247,30 @@
 
                                                             <p class="form-row form-row-wide" id="billing_company_field"
                                                                 data-priority="30"><label for="billing_company"
-                                                                    class="">Tên người nhận&nbsp;<span
-                                                                        class="optional">(tùy chọn)</span></label><span
+                                                                    class="">Tên người nhận&nbsp;<abbr class="required"
+                                                                        title="required">*</abbr></label><span
                                                                     class="woocommerce-input-wrapper"><input type="text"
                                                                         class="input-text " wire:model="name"
                                                                         id="billing_company" placeholder="" value=""
-                                                                        autocomplete="organization" /></span></p>
+                                                                        autocomplete="name" /></span></p>
                                                             <p class="form-row form-row-wide" id="billing_company_field"
                                                                 data-priority="30"><label for="billing_company"
-                                                                    class="">Số điện thoại&nbsp;<span
-                                                                        class="optional">(tùy chọn)</span></label><span
-                                                                    class="woocommerce-input-wrapper"><input type="text"
+                                                                    class="">Số điện thoại&nbsp;<abbr class="required"
+                                                                        title="required">*</abbr></label><span
+                                   `                                 class="woocommerce-input-wrapper"><input type="text"
                                                                         class="input-text " wire:model="phone"
                                                                         id="billing_company" placeholder="" value=""
-                                                                        autocomplete="organization" /></span></p>
+                                                                        autocomplete="phone" /></span></p>
                                                             <p class="form-row form-row-wide" id="billing_company_field"
                                                                 data-priority="30"><label for="billing_company"
-                                                                    class="">Email&nbsp;<span
-                                                                        class="optional">(tùy chọn)</span></label><span
+                                                                    class="">Email&nbsp;<abbr class="required"
+                                                                        title="required">*</abbr></label><span
                                                                     class="woocommerce-input-wrapper" style="
                                                                     display: flex;
                                                                 "><input type="text"
                                                                         class="input-text " wire:model="email"
                                                                         id="billing_company" placeholder="" value=""
-                                                                        autocomplete="organization" />
+                                                                        autocomplete="email" />
                                                                         @if (!auth()->check())
                                                                         <button type="button" wire:click="sendVerificationCode">Gửi mã xác thực</button></span>
                                                                         @endif

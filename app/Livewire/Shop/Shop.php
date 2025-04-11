@@ -40,7 +40,7 @@ class Shop extends Component
     public function addToCart($id)
     {
         CartManagement::addItemToCart($id, 1);
-        return redirect('/cart');
+        $this->dispatch('showToastr', ['type' => 'success', 'message' => 'Sản phẩm đã được thêm vào giỏ hàng!']);
     }
     public function buyNow($id)
     {

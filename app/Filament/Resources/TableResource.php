@@ -41,6 +41,7 @@ class TableResource extends Resource
                 ->schema([
                     Forms\Components\Select::make('restaurant_id')
                         ->options(Restaurant::all()->pluck('name', 'id'))
+                        ->visible(fn () => !auth()->user()->restaurant_id)
                         ->required()
                         ->label('Cơ sở'),
 
@@ -95,6 +96,7 @@ class TableResource extends Resource
                     ->searchable()
                     ->label('Mã bàn'),
                 Tables\Columns\TextColumn::make('restaurant.name')
+                    ->visible(fn () => !auth()->user()->restaurant_id)
                     ->sortable()
                     ->searchable()
                     ->label('Cơ sở'),

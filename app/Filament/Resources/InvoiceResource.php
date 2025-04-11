@@ -60,7 +60,7 @@ class InvoiceResource extends Resource
                                     ->label('Nhà hàng')
                                     ->options(Restaurant::all()->pluck('name', 'id'))
                                     ->required()
-                                    , // Description
+                                    ->visible(fn () => !auth()->user()->restaurant_id),
 
                                 Forms\Components\Select::make('status')
                                     ->label('Trạng thái')
@@ -136,7 +136,7 @@ class InvoiceResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('invoice_code')->label('Mã hóa đơn')->searchable(),
-                Tables\Columns\TextColumn::make('restaurant.name')->label('Cơ sở')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('restaurant.name')->label('Cơ sở')->searchable()->sortable()->visible(fn () => !auth()->user()->restaurant_id),
                 Tables\Columns\TextColumn::make('total_amount')->label('Tổng tiền')->numeric()->money('VND'),
                 Tables\Columns\TextColumn::make('status')->label('Trạng thái')->badge()->formatStateUsing(function ($state) {
                     switch ($state) {
