@@ -14,7 +14,7 @@
                 }
             };
             /*! This file is auto-generated */
-            ! function(e, a, t) {
+            !function (e, a, t) {
                 var n, r, o, i = a.createElement("canvas"),
                     p = i.getContext && i.getContext("2d");
 
@@ -28,10 +28,11 @@
                     var t = a.createElement("script");
                     t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t)
                 }
+
                 for (o = Array("flag", "emoji"), t.supports = {
-                        everything: !0,
-                        everythingExceptFlag: !0
-                    }, r = 0; r < o.length; r++) t.supports[o[r]] = function(e) {
+                    everything: !0,
+                    everythingExceptFlag: !0
+                }, r = 0; r < o.length; r++) t.supports[o[r]] = function (e) {
                     if (!p || !p.fillText) return !1;
                     switch (p.textBaseline = "top", p.font = "600 32px Arial", e) {
                         case "flag":
@@ -49,15 +50,15 @@
                 }(o[r]), t.supports.everything = t.supports.everything && t.supports[o[r]], "flag" !== o[r] && (t.supports
                     .everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[o[r]]);
                 t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t
-                    .readyCallback = function() {
-                        t.DOMReady = !0
-                    }, t.supports.everything || (n = function() {
-                        t.readyCallback()
-                    }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !
-                        1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function() {
-                        "complete" === a.readyState && t.readyCallback()
-                    })), (e = t.source || {}).concatemoji ? c(e.concatemoji) : e.wpemoji && e.twemoji && (c(e.twemoji), c(e
-                        .wpemoji)))
+                    .readyCallback = function () {
+                    t.DOMReady = !0
+                }, t.supports.everything || (n = function () {
+                    t.readyCallback()
+                }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !
+                    1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function () {
+                    "complete" === a.readyState && t.readyCallback()
+                })), (e = t.source || {}).concatemoji ? c(e.concatemoji) : e.wpemoji && e.twemoji && (c(e.twemoji), c(e
+                    .wpemoji)))
             }(window, document, window._wpemojiSettings);
         </script>
         <style>
@@ -75,7 +76,7 @@
             }
         </style>
         <link rel='stylesheet' id='wp-block-library-css'
-            href='/delicioz/wp-includes/css/dist/block-library/style.min.css?ver=6.0.2' media='all' />
+              href='/delicioz/wp-includes/css/dist/block-library/style.min.css?ver=6.0.2' media='all'/>
         <style id='wp-block-library-theme-inline-css'>
             .wp-block-audio figcaption {
                 color: #555;
@@ -250,13 +251,13 @@
             }
         </style>
         <link rel='stylesheet' id='wc-blocks-vendors-style-css'
-            href='/delicioz/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=8.0.0'
-            media='all' />
+              href='/delicioz/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=8.0.0'
+              media='all'/>
         <link rel='stylesheet' id='wc-blocks-style-css'
-            href='/delicioz/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css?ver=8.0.0'
-            media='all' />
+              href='/delicioz/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css?ver=8.0.0'
+              media='all'/>
         <link rel='stylesheet' id='delicioz-gutenberg-blocks-css'
-            href='/delicioz/wp-content/themes/delicioz/assets/css/base/gutenberg-blocks.css?ver=1.0.1' media='all' />
+              href='/delicioz/wp-content/themes/delicioz/assets/css/base/gutenberg-blocks.css?ver=1.0.1' media='all'/>
         <style id='global-styles-inline-css'>
             body {
                 --wp--preset--color--black: #000000;
@@ -508,45 +509,45 @@
             }
         </style>
         <link rel='stylesheet' id='contact-form-7-css'
-            href='/delicioz/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.6.2' media='all' />
+              href='/delicioz/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.6.2' media='all'/>
         <link rel='stylesheet' id='-css' href='/delicioz/wp-content/plugins/opal-demo/style.css?ver=6.0.2'
-            media='all' />
+              media='all'/>
         <link rel='stylesheet' id='photoswipe-css'
-            href='/delicioz/wp-content/plugins/woocommerce/assets/css/photoswipe/photoswipe.min.css?ver=6.8.2'
-            media='all' />
+              href='/delicioz/wp-content/plugins/woocommerce/assets/css/photoswipe/photoswipe.min.css?ver=6.8.2'
+              media='all'/>
         <link rel='stylesheet' id='photoswipe-default-skin-css'
-            href='/delicioz/wp-content/plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.min.css?ver=6.8.2'
-            media='all' />
+              href='/delicioz/wp-content/plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.min.css?ver=6.8.2'
+              media='all'/>
         <style id='woocommerce-inline-inline-css'>
             .woocommerce form .form-row .required {
                 visibility: visible;
             }
         </style>
         <link rel='stylesheet' id='hfe-style-css'
-            href='/delicioz/wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor.css?ver=1.6.13'
-            media='all' />
+              href='/delicioz/wp-content/plugins/header-footer-elementor/assets/css/header-footer-elementor.css?ver=1.6.13'
+              media='all'/>
         <link rel='stylesheet' id='elementor-icons-css'
-            href='/delicioz/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.16.0'
-            media='all' />
+              href='/delicioz/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.16.0'
+              media='all'/>
         <link rel='stylesheet' id='elementor-frontend-css'
-            href='/delicioz/wp-content/uploads/elementor/css/custom-frontend-lite.min.css?ver=1661932570'
-            media='all' />
+              href='/delicioz/wp-content/uploads/elementor/css/custom-frontend-lite.min.css?ver=1661932570'
+              media='all'/>
         <link rel='stylesheet' id='elementor-post-7-css'
-            href='/delicioz/wp-content/uploads/elementor/css/post-7.css?ver=1661932570' media='all' />
+              href='/delicioz/wp-content/uploads/elementor/css/post-7.css?ver=1661932570' media='all'/>
         <link rel='stylesheet' id='elementor-global-css'
-            href='/delicioz/wp-content/uploads/elementor/css/global.css?ver=1661932571' media='all' />
+              href='/delicioz/wp-content/uploads/elementor/css/global.css?ver=1661932571' media='all'/>
         <link rel='stylesheet' id='elementor-post-84-css'
-            href='/delicioz/wp-content/uploads/elementor/css/post-84.css?ver=1661932571' media='all' />
+              href='/delicioz/wp-content/uploads/elementor/css/post-84.css?ver=1661932571' media='all'/>
         <link rel='stylesheet' id='hfe-widgets-style-css'
-            href='/delicioz/wp-content/plugins/header-footer-elementor/inc/widgets-css/frontend.css?ver=1.6.13'
-            media='all' />
+              href='/delicioz/wp-content/plugins/header-footer-elementor/inc/widgets-css/frontend.css?ver=1.6.13'
+              media='all'/>
         <link rel='stylesheet' id='elementor-post-92-css'
-            href='/delicioz/wp-content/uploads/elementor/css/post-92.css?ver=1661932571' media='all' />
+              href='/delicioz/wp-content/uploads/elementor/css/post-92.css?ver=1661932571' media='all'/>
         <link rel='stylesheet' id='elementor-post-98-css'
-            href='/delicioz/wp-content/uploads/elementor/css/post-98.css?ver=1661932571' media='all' />
+              href='/delicioz/wp-content/uploads/elementor/css/post-98.css?ver=1661932571' media='all'/>
         <link rel='stylesheet' id='woo-variation-swatches-css'
-            href='/delicioz/wp-content/plugins/woo-variation-swatches/assets/css/frontend.min.css?ver=1660386322'
-            media='all' />
+              href='/delicioz/wp-content/plugins/woo-variation-swatches/assets/css/frontend.min.css?ver=1660386322'
+              media='all'/>
         <style id='woo-variation-swatches-inline-css'>
             :root {
                 --wvs-tick: url("data:image/svg+xml;utf8,%3Csvg filter='drop-shadow(0px 0px 2px rgb(0 0 0 / .8))' xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 30 30'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='4' d='M4 16L11 23 27 7'/%3E%3C/svg%3E");
@@ -558,32 +559,32 @@
             }
         </style>
         <link rel='stylesheet' id='hint-css'
-            href='/delicioz/wp-content/plugins/woo-smart-compare/assets/libs/hint/hint.min.css?ver=6.0.2'
-            media='all' />
+              href='/delicioz/wp-content/plugins/woo-smart-compare/assets/libs/hint/hint.min.css?ver=6.0.2'
+              media='all'/>
         <link rel='stylesheet' id='perfect-scrollbar-css'
-            href='/delicioz/wp-content/plugins/woo-smart-compare/assets/libs/perfect-scrollbar/css/perfect-scrollbar.min.css?ver=6.0.2'
-            media='all' />
+              href='/delicioz/wp-content/plugins/woo-smart-compare/assets/libs/perfect-scrollbar/css/perfect-scrollbar.min.css?ver=6.0.2'
+              media='all'/>
         <link rel='stylesheet' id='perfect-scrollbar-wpc-css'
-            href='/delicioz/wp-content/plugins/woo-smart-compare/assets/libs/perfect-scrollbar/css/custom-theme.css?ver=6.0.2'
-            media='all' />
+              href='/delicioz/wp-content/plugins/woo-smart-compare/assets/libs/perfect-scrollbar/css/custom-theme.css?ver=6.0.2'
+              media='all'/>
         <link rel='stylesheet' id='woosc-frontend-css'
-            href='/delicioz/wp-content/plugins/woo-smart-compare/assets/css/frontend.css?ver=5.1.5' media='all' />
+              href='/delicioz/wp-content/plugins/woo-smart-compare/assets/css/frontend.css?ver=5.1.5' media='all'/>
         <link rel='stylesheet' id='slick-css'
-            href='/delicioz/wp-content/plugins/woo-smart-quick-view/assets/libs/slick/slick.css?ver=6.0.2'
-            media='all' />
+              href='/delicioz/wp-content/plugins/woo-smart-quick-view/assets/libs/slick/slick.css?ver=6.0.2'
+              media='all'/>
         <link rel='stylesheet' id='magnific-popup-css'
-            href='/delicioz/wp-content/themes/delicioz/assets/css/libs/magnific-popup.css?ver=1.0.1' media='all' />
+              href='/delicioz/wp-content/themes/delicioz/assets/css/libs/magnific-popup.css?ver=1.0.1' media='all'/>
         <link rel='stylesheet' id='woosq-feather-css'
-            href='/delicioz/wp-content/plugins/woo-smart-quick-view/assets/libs/feather/feather.css?ver=6.0.2'
-            media='all' />
+              href='/delicioz/wp-content/plugins/woo-smart-quick-view/assets/libs/feather/feather.css?ver=6.0.2'
+              media='all'/>
         <link rel='stylesheet' id='woosq-frontend-css'
-            href='/delicioz/wp-content/plugins/woo-smart-quick-view/assets/css/frontend.css?ver=3.1.2'
-            media='all' />
+              href='/delicioz/wp-content/plugins/woo-smart-quick-view/assets/css/frontend.css?ver=3.1.2'
+              media='all'/>
         <link rel='stylesheet' id='woosw-feather-css'
-            href='/delicioz/wp-content/plugins/woo-smart-wishlist/assets/libs/feather/feather.css?ver=6.0.2'
-            media='all' />
+              href='/delicioz/wp-content/plugins/woo-smart-wishlist/assets/libs/feather/feather.css?ver=6.0.2'
+              media='all'/>
         <link rel='stylesheet' id='woosw-frontend-css'
-            href='/delicioz/wp-content/plugins/woo-smart-wishlist/assets/css/frontend.css?ver=4.3.1' media='all' />
+              href='/delicioz/wp-content/plugins/woo-smart-wishlist/assets/css/frontend.css?ver=4.3.1' media='all'/>
         <style id='woosw-frontend-inline-css'>
             .woosw-popup .woosw-popup-inner .woosw-popup-content .woosw-popup-content-bot .woosw-notice {
                 background-color: #5fbd74;
@@ -595,16 +596,16 @@
             }
         </style>
         <link rel='stylesheet' id='delicioz-fonts-css'
-            href='//fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&#038;subset=latin%2Clatin-ext&#038;display=swap'
-            media='all' />
+              href='//fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&#038;subset=latin%2Clatin-ext&#038;display=swap'
+              media='all'/>
         <link rel='stylesheet' id='delicioz-style-css'
-            href='/delicioz/wp-content/themes/delicioz/style.css?ver=1.0.1' media='all' />
+              href='/delicioz/wp-content/themes/delicioz/style.css?ver=1.0.1' media='all'/>
         <style id='delicioz-style-inline-css'>
             .col-full {
                 max-width: 1290px
             }
 
-            @media(max-width:1366px) {
+            @media (max-width: 1366px) {
                 body.theme-delicioz [data-elementor-columns-laptop="1"] .column-item {
                     flex: 0 0 100%;
                     max-width: 100%;
@@ -686,7 +687,7 @@
                 }
             }
 
-            @media(max-width:1200px) {
+            @media (max-width: 1200px) {
                 body.theme-delicioz [data-elementor-columns-tablet-extra="1"] .column-item {
                     flex: 0 0 100%;
                     max-width: 100%;
@@ -768,7 +769,7 @@
                 }
             }
 
-            @media(max-width:1024px) {
+            @media (max-width: 1024px) {
                 body.theme-delicioz [data-elementor-columns-tablet="1"] .column-item {
                     flex: 0 0 100%;
                     max-width: 100%;
@@ -850,7 +851,7 @@
                 }
             }
 
-            @media(max-width:880px) {
+            @media (max-width: 880px) {
                 body.theme-delicioz [data-elementor-columns-mobile-extra="1"] .column-item {
                     flex: 0 0 100%;
                     max-width: 100%;
@@ -932,7 +933,7 @@
                 }
             }
 
-            @media(max-width:767px) {
+            @media (max-width: 767px) {
                 body.theme-delicioz [data-elementor-columns-mobile="1"] .column-item {
                     flex: 0 0 100%;
                     max-width: 100%;
@@ -1015,51 +1016,52 @@
             }
         </style>
         <link rel='stylesheet' id='delicioz-slick-style-css'
-            href='/delicioz/wp-content/themes/delicioz/assets/css/base/slick.css?ver=1.0.1' media='all' />
+              href='/delicioz/wp-content/themes/delicioz/assets/css/base/slick.css?ver=1.0.1' media='all'/>
         <link rel='stylesheet' id='delicioz-slick-theme-style-css'
-            href='/delicioz/wp-content/themes/delicioz/assets/css/base/slick-theme.css?ver=1.0.1' media='all' />
+              href='/delicioz/wp-content/themes/delicioz/assets/css/base/slick-theme.css?ver=1.0.1' media='all'/>
         <link rel='stylesheet' id='elementor-post-101-css'
-            href='/delicioz/wp-content/uploads/elementor/css/post-101.css?ver=1661932571' media='all' />
+              href='/delicioz/wp-content/uploads/elementor/css/post-101.css?ver=1661932571' media='all'/>
         <link rel='stylesheet' id='delicioz-elementor-css'
-            href='/delicioz/wp-content/themes/delicioz/assets/css/base/elementor.css?ver=1.0.1' media='all' />
+              href='/delicioz/wp-content/themes/delicioz/assets/css/base/elementor.css?ver=1.0.1' media='all'/>
         <link rel='stylesheet' id='delicioz-woocommerce-style-css'
-            href='/delicioz/wp-content/themes/delicioz/assets/css/woocommerce/woocommerce.css?ver=1.0.1'
-            media='all' />
+              href='/delicioz/wp-content/themes/delicioz/assets/css/woocommerce/woocommerce.css?ver=1.0.1'
+              media='all'/>
         <link rel='stylesheet' id='tooltipster-css'
-            href='/delicioz/wp-content/themes/delicioz/assets/css/libs/tooltipster.bundle.min.css?ver=1.0.1'
-            media='all' />
+              href='/delicioz/wp-content/themes/delicioz/assets/css/libs/tooltipster.bundle.min.css?ver=1.0.1'
+              media='all'/>
         <link rel='stylesheet' id='delicioz-child-style-css'
-            href='/delicioz/wp-content/themes/demo-child/style.css?ver=1.0.0' media='all' />
+              href='/delicioz/wp-content/themes/demo-child/style.css?ver=1.0.0' media='all'/>
         <link rel='stylesheet' id='google-fonts-1-css'
-            href='https://fonts.googleapis.com/css?family=Manrope%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRajdhani%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.0.2'
-            media='all' />
+              href='https://fonts.googleapis.com/css?family=Manrope%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRajdhani%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=auto&#038;ver=6.0.2'
+              media='all'/>
         <link rel='stylesheet' id='elementor-icons-shared-0-css'
-            href='/delicioz/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3'
-            media='all' />
+              href='/delicioz/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3'
+              media='all'/>
         <link rel='stylesheet' id='elementor-icons-fa-brands-css'
-            href='/delicioz/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=5.15.3'
-            media='all' />
+              href='/delicioz/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=5.15.3'
+              media='all'/>
         <script type="text/template" id="tmpl-variation-template">
 </script>
         <script type="text/template" id="tmpl-unavailable-variation-template">
-	<p>Sorry, this product is unavailable. Please choose a different combination.</p>
-</script>
+            <p>Sorry, this product is unavailable. Please choose a different combination.</p>
+        </script>
         <script src='/delicioz/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
         <script src='/delicioz/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/jarallax.js?ver=6.0.2' id='jarallax-js'></script>
-        <link rel="https://api.w.org/" href="/delicioz/wp-json/" />
-        <link rel="alternate" type="application/json" href="/delicioz/wp-json/wp/v2/product/474" />
+        <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/jarallax.js?ver=6.0.2'
+                id='jarallax-js'></script>
+        <link rel="https://api.w.org/" href="/delicioz/wp-json/"/>
+        <link rel="alternate" type="application/json" href="/delicioz/wp-json/wp/v2/product/474"/>
         <link rel="EditURI" type="application/rsd+xml" title="RSD"
-            href="https://demo2.themelexus.com/delicioz/xmlrpc.php?rsd" />
-        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/delicioz/wp-includes/wlwmanifest.xml" />
-        <meta name="generator" content="WordPress 6.0.2" />
-        <meta name="generator" content="WooCommerce 6.8.2" />
-        <link rel="canonical" href="https://demo2.themelexus.com/delicioz/product/grilled-salmon/" />
-        <link rel='shortlink' href='https://demo2.themelexus.com/delicioz/?p=474' />
+              href="https://demo2.themelexus.com/delicioz/xmlrpc.php?rsd"/>
+        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/delicioz/wp-includes/wlwmanifest.xml"/>
+        <meta name="generator" content="WordPress 6.0.2"/>
+        <meta name="generator" content="WooCommerce 6.8.2"/>
+        <link rel="canonical" href="https://demo2.themelexus.com/delicioz/product/grilled-salmon/"/>
+        <link rel='shortlink' href='https://demo2.themelexus.com/delicioz/?p=474'/>
         <link rel="alternate" type="application/json+oembed"
-            href="/delicioz/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo2.themelexus.com%2Fdelicioz%2Fproduct%2Fgrilled-salmon%2F" />
+              href="/delicioz/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo2.themelexus.com%2Fdelicioz%2Fproduct%2Fgrilled-salmon%2F"/>
         <link rel="alternate" type="text/xml+oembed"
-            href="/delicioz/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo2.themelexus.com%2Fdelicioz%2Fproduct%2Fgrilled-salmon%2F&#038;format=xml" />
+              href="/delicioz/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdemo2.themelexus.com%2Fdelicioz%2Fproduct%2Fgrilled-salmon%2F&#038;format=xml"/>
         <noscript>
             <style>
                 .woocommerce-product-gallery {
@@ -1068,7 +1070,7 @@
             </style>
         </noscript>
         <meta name="generator"
-            content="Powered by Slider Revolution 6.5.31 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+              content="Powered by Slider Revolution 6.5.31 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface."/>
         <script>
             function setREVStartSize(e) {
                 //window.requestAnimationFrame(function() {
@@ -1130,1021 +1132,1076 @@
 
     <body
         class="product-template-default single single-product postid-474 logged-in wp-custom-logo wp-embed-responsive theme-delicioz woocommerce woocommerce-page woocommerce-no-js ehf-header ehf-footer ehf-template-delicioz ehf-stylesheet-demo-child woo-variation-swatches wvs-behavior-blur wvs-theme-demo-child wvs-show-label wvs-tooltip chrome has-post-thumbnail woocommerce-active product-block-style-1 delicioz-product-laptop-2 delicioz-product-mobile-2 delicioz-full-width-content single-product-horizontal elementor-default elementor-kit-7">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
-            role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-dark-grayscale">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
-                        values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0 0.49803921568627" />
-                        <feFuncG type="table" tableValues="0 0.49803921568627" />
-                        <feFuncB type="table" tableValues="0 0.49803921568627" />
-                        <feFuncA type="table" tableValues="1 1" />
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in" />
-                </filter>
-            </defs>
-        </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
-            focusable="false" role="none"
-            style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-grayscale">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
-                        values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0 1" />
-                        <feFuncG type="table" tableValues="0 1" />
-                        <feFuncB type="table" tableValues="0 1" />
-                        <feFuncA type="table" tableValues="1 1" />
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in" />
-                </filter>
-            </defs>
-        </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
-            focusable="false" role="none"
-            style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-purple-yellow">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
-                        values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" />
-                        <feFuncG type="table" tableValues="0 1" />
-                        <feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" />
-                        <feFuncA type="table" tableValues="1 1" />
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in" />
-                </filter>
-            </defs>
-        </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
-            focusable="false" role="none"
-            style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-blue-red">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
-                        values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0 1" />
-                        <feFuncG type="table" tableValues="0 0.27843137254902" />
-                        <feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" />
-                        <feFuncA type="table" tableValues="1 1" />
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in" />
-                </filter>
-            </defs>
-        </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
-            focusable="false" role="none"
-            style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-midnight">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
-                        values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0 0" />
-                        <feFuncG type="table" tableValues="0 0.64705882352941" />
-                        <feFuncB type="table" tableValues="0 1" />
-                        <feFuncA type="table" tableValues="1 1" />
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in" />
-                </filter>
-            </defs>
-        </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
-            focusable="false" role="none"
-            style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-magenta-yellow">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
-                        values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0.78039215686275 1" />
-                        <feFuncG type="table" tableValues="0 0.94901960784314" />
-                        <feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" />
-                        <feFuncA type="table" tableValues="1 1" />
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in" />
-                </filter>
-            </defs>
-        </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
-            focusable="false" role="none"
-            style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-purple-green">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
-                        values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" />
-                        <feFuncG type="table" tableValues="0 1" />
-                        <feFuncB type="table" tableValues="0.44705882352941 0.4" />
-                        <feFuncA type="table" tableValues="1 1" />
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in" />
-                </filter>
-            </defs>
-        </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
-            focusable="false" role="none"
-            style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
-            <defs>
-                <filter id="wp-duotone-blue-orange">
-                    <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
-                        values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
-                    <feComponentTransfer color-interpolation-filters="sRGB">
-                        <feFuncR type="table" tableValues="0.098039215686275 1" />
-                        <feFuncG type="table" tableValues="0 0.66274509803922" />
-                        <feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" />
-                        <feFuncA type="table" tableValues="1 1" />
-                    </feComponentTransfer>
-                    <feComposite in2="SourceGraphic" operator="in" />
-                </filter>
-            </defs>
-        </svg>
-        <div id="page" class="hfeed site" style="
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false"
+         role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-dark-grayscale">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                               values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0 0.49803921568627"/>
+                    <feFuncG type="table" tableValues="0 0.49803921568627"/>
+                    <feFuncB type="table" tableValues="0 0.49803921568627"/>
+                    <feFuncA type="table" tableValues="1 1"/>
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in"/>
+            </filter>
+        </defs>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
+         focusable="false" role="none"
+         style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-grayscale">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                               values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0 1"/>
+                    <feFuncG type="table" tableValues="0 1"/>
+                    <feFuncB type="table" tableValues="0 1"/>
+                    <feFuncA type="table" tableValues="1 1"/>
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in"/>
+            </filter>
+        </defs>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
+         focusable="false" role="none"
+         style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-purple-yellow">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                               values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0.54901960784314 0.98823529411765"/>
+                    <feFuncG type="table" tableValues="0 1"/>
+                    <feFuncB type="table" tableValues="0.71764705882353 0.25490196078431"/>
+                    <feFuncA type="table" tableValues="1 1"/>
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in"/>
+            </filter>
+        </defs>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
+         focusable="false" role="none"
+         style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-blue-red">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                               values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0 1"/>
+                    <feFuncG type="table" tableValues="0 0.27843137254902"/>
+                    <feFuncB type="table" tableValues="0.5921568627451 0.27843137254902"/>
+                    <feFuncA type="table" tableValues="1 1"/>
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in"/>
+            </filter>
+        </defs>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
+         focusable="false" role="none"
+         style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-midnight">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                               values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0 0"/>
+                    <feFuncG type="table" tableValues="0 0.64705882352941"/>
+                    <feFuncB type="table" tableValues="0 1"/>
+                    <feFuncA type="table" tableValues="1 1"/>
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in"/>
+            </filter>
+        </defs>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
+         focusable="false" role="none"
+         style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-magenta-yellow">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                               values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0.78039215686275 1"/>
+                    <feFuncG type="table" tableValues="0 0.94901960784314"/>
+                    <feFuncB type="table" tableValues="0.35294117647059 0.47058823529412"/>
+                    <feFuncA type="table" tableValues="1 1"/>
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in"/>
+            </filter>
+        </defs>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
+         focusable="false" role="none"
+         style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-purple-green">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                               values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0.65098039215686 0.40392156862745"/>
+                    <feFuncG type="table" tableValues="0 1"/>
+                    <feFuncB type="table" tableValues="0.44705882352941 0.4"/>
+                    <feFuncA type="table" tableValues="1 1"/>
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in"/>
+            </filter>
+        </defs>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0"
+         focusable="false" role="none"
+         style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-blue-orange">
+                <feColorMatrix color-interpolation-filters="sRGB" type="matrix"
+                               values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/>
+                <feComponentTransfer color-interpolation-filters="sRGB">
+                    <feFuncR type="table" tableValues="0.098039215686275 1"/>
+                    <feFuncG type="table" tableValues="0 0.66274509803922"/>
+                    <feFuncB type="table" tableValues="0.84705882352941 0.41960784313725"/>
+                    <feFuncA type="table" tableValues="1 1"/>
+                </feComponentTransfer>
+                <feComposite in2="SourceGraphic" operator="in"/>
+            </filter>
+        </defs>
+    </svg>
+    <div id="page" class="hfeed site" style="
         background: white;
     ">
-            @livewire('inc.header')
+        @livewire('inc.header')
 
-            <div class="breadcrumb-wrap">
-                <div data-elementor-type="wp-post" data-elementor-id="101" class="elementor elementor-101">
-                    <section
-                        class="elementor-section elementor-top-section elementor-element elementor-element-4fdca72 elementor-section-content-middle elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                        data-id="4fdca72" data-element_type="section"
-                        data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
-                        <div class="elementor-background-overlay"></div>
-                        <div class="elementor-container elementor-column-gap-no">
-                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-617dbdb"
-                                data-id="617dbdb" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-901b06e hidden-delicioz-title-single-yes elementor-widget elementor-widget-woocommerce-breadcrumb"
-                                        data-id="901b06e" data-element_type="widget"
-                                        data-widget_type="woocommerce-breadcrumb.default">
-                                        <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">{{ $product->name }}</div>
-                                            <nav class="woocommerce-breadcrumb"><a href="/">Trang chủ</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i><a
-                                                    href="/shop?category={{ $product->food_category->id }}">{{ $product->food_category->name }}</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i>{{ $product->name }}
-                                            </nav>
-                                        </div>
+        <div class="breadcrumb-wrap">
+            <div data-elementor-type="wp-post" data-elementor-id="101" class="elementor elementor-101">
+                <section
+                    class="elementor-section elementor-top-section elementor-element elementor-element-4fdca72 elementor-section-content-middle elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                    data-id="4fdca72" data-element_type="section"
+                    data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+                    <div class="elementor-background-overlay"></div>
+                    <div class="elementor-container elementor-column-gap-no">
+                        <div
+                            class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-617dbdb"
+                            data-id="617dbdb" data-element_type="column">
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div
+                                    class="elementor-element elementor-element-901b06e hidden-delicioz-title-single-yes elementor-widget elementor-widget-woocommerce-breadcrumb"
+                                    data-id="901b06e" data-element_type="widget"
+                                    data-widget_type="woocommerce-breadcrumb.default">
+                                    <div class="elementor-widget-container">
+                                        <div class="delicioz-woocommerce-title">{{ $product->name }}</div>
+                                        <nav class="woocommerce-breadcrumb"><a href="/">Trang chủ</a><i
+                                                class="delicioz-icon-arrow-right-s-line"></i><a
+                                                href="/shop?category={{ $product->food_category->id }}">{{ $product->food_category->name }}</a><i
+                                                class="delicioz-icon-arrow-right-s-line"></i>{{ $product->name }}
+                                        </nav>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </section>
-                </div>
+                    </div>
+                </section>
             </div>
-            <div id="content" class="site-content" tabindex="-1" wire:ignore>
-                <div class="col-full">
+        </div>
+        <div id="content" class="site-content" tabindex="-1" wire:ignore>
+            <div class="col-full">
 
-                    <div class="woocommerce"></div>
-                    <div id="primary" class="content-area">
-                        <main id="main" class="site-main">
+                <div class="woocommerce"></div>
+                <div id="primary" class="content-area">
+                    <main id="main" class="site-main">
 
-                            <div class="woocommerce-notices-wrapper"></div>
-                            <div id="product-474"
-                                class="single-product-type-horizontal product type-product post-474 status-publish first instock product_cat-humburger product_cat-whiskey product_tag-desserts product_tag-style has-post-thumbnail sale featured virtual purchasable product-type-simple">
+                        <div class="woocommerce-notices-wrapper"></div>
+                        <div id="product-474"
+                             class="single-product-type-horizontal product type-product post-474 status-publish first instock product_cat-humburger product_cat-whiskey product_tag-desserts product_tag-style has-post-thumbnail sale featured virtual purchasable product-type-simple">
 
-                                <div class="content-single-wrapper">
-                                    <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-3 images woocommerce-product-gallery-horizontal"
-                                        data-columns="3">
-                                        <figure class="woocommerce-product-gallery__wrapper">
-                                            <div data-thumb="{{ Storage::url($product->image) }}" data-thumb-alt=""
-                                                class="woocommerce-product-gallery__image"><a
-                                                    href="{{ Storage::url($product->image) }}"><img width="650"
-                                                        height="650" src="{{ Storage::url($product->image) }}"
-                                                        class="wp-post-image" alt="" loading="lazy"
-                                                        title="product-1-1" data-caption=""
-                                                        data-src="{{ Storage::url($product->image) }}"
-                                                        data-large_image="{{ Storage::url($product->image) }}"
-                                                        data-large_image_width="683" data-large_image_height="683"
-                                                        sizes="(max-width: 650px) 100vw, 650px" /></a></div>
-                                        </figure>
-                                        <div class="product-video-360"></div>
-                                        <span class="onsale">Sale!</span>
-                                    </div>
+                            <div class="content-single-wrapper">
+                                <div
+                                    class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-3 images woocommerce-product-gallery-horizontal"
+                                    data-columns="3">
+                                    <figure class="woocommerce-product-gallery__wrapper">
+                                        <div data-thumb="{{ Storage::url($product->image) }}" data-thumb-alt=""
+                                             class="woocommerce-product-gallery__image"><a
+                                                href="{{ Storage::url($product->image) }}"><img width="650"
+                                                                                                height="650"
+                                                                                                src="{{ Storage::url($product->image) }}"
+                                                                                                class="wp-post-image"
+                                                                                                alt="" loading="lazy"
+                                                                                                title="product-1-1"
+                                                                                                data-caption=""
+                                                                                                data-src="{{ Storage::url($product->image) }}"
+                                                                                                data-large_image="{{ Storage::url($product->image) }}"
+                                                                                                data-large_image_width="683"
+                                                                                                data-large_image_height="683"
+                                                                                                sizes="(max-width: 650px) 100vw, 650px"/></a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-video-360"></div>
+                                </div>
 
-                                    <div class="summary entry-summary ">
-                                        <div class="left">
-                                            <h1 class="product_title entry-title" style="color: black;">{{ $product->name }}</h1>
-                                            {{-- <div class="product_after_title">
-                                                <span class="sku_wrapper">SKU: <span
-                                                        class="sku">{{ $product->id }}</span></span>
-                                            </div>
+                                <div class="summary entry-summary ">
+                                    <div class="left">
+                                        <h1 class="product_title entry-title"
+                                            style="color: black; font-family: 'Times New Roman'">{{ $product->name }}</h1>
+                                        {{-- <div class="product_after_title">
+                                            <span class="sku_wrapper">SKU: <span
+                                                    class="sku">{{ $product->id }}</span></span>
+                                        </div>
 
-                                            <div class="woocommerce-product-rating">
-                                                <div class="star-rating" role="img"
-                                                    aria-label="Rated 4.00 out of 5">
-                                                    <span style="width:80%">Rated <strong class="rating">4.00</strong>
-                                                        out of 5 based on <span class="rating">4</span> customer
-                                                        ratings</span>
-                                                </div> <a href="#reviews" class="woocommerce-review-link"
-                                                    rel="nofollow">(<span class="count">5</span> customer
-                                                    reviews)</a>
-                                            </div> --}}
+                                        <div class="woocommerce-product-rating">
+                                            <div class="star-rating" role="img"
+                                                aria-label="Rated 4.00 out of 5">
+                                                <span style="width:80%">Rated <strong class="rating">4.00</strong>
+                                                    out of 5 based on <span class="rating">4</span> customer
+                                                    ratings</span>
+                                            </div> <a href="#reviews" class="woocommerce-review-link"
+                                                rel="nofollow">(<span class="count">5</span> customer
+                                                reviews)</a>
+                                        </div> --}}
 
-                                            <p class="price"><del aria-hidden="true"><span
-                                                        class="woocommerce-Price-amount amount" style="color: black;"><bdi><span
-                                                                class="woocommerce-Price-currencySymbol"></span>{{ number_format($product->price, 0, ',', '.') }}
-                                                            VNĐ </bdi></span></del>
-                                                <ins><span class="woocommerce-Price-amount amount" style="color: black;"><bdi><span
-                                                                class="woocommerce-Price-currencySymbol"></span>{{ number_format($product->price, 0, ',', '.') }}
+                                        <p class="price">
+{{--                                            <del aria-hidden="true"><span--}}
+{{--                                                    class="woocommerce-Price-amount amount"--}}
+{{--                                                    style="color: black; font-family: 'Times New Roman'"><bdi><span--}}
+{{--                                                            class="woocommerce-Price-currencySymbol"></span>{{ number_format($product->price, 0, ',', '.') }}--}}
+{{--                                                            VNĐ </bdi></span></del>--}}
+                                            <ins><span class="woocommerce-Price-amount amount"
+                                                       style="color: black; font-family: 'Times New Roman'"><bdi><span
+                                                            class="woocommerce-Price-currencySymbol"></span>{{ number_format($product->price, 0, ',', '.') }}
                                                             VNĐ</bdi></span></ins>
-                                            </p>
-                                            <span class="inventory_status"><span
-                                                    class="stock-title screen-reader-text">Availability:</span> In
+                                        </p>
+                                        <span class="inventory_status"><span
+                                                class="stock-title screen-reader-text">Availability:</span> In
                                                 Stock</span>
 
-                                            <form class="cart" wire:submit.prevent="addToCart">
+                                        <form class="cart" wire:submit.prevent="addToCart">
 
-                                                <div class="quantity_wrap">
-                                                    <label class="quantity_label"
-                                                        for="quantity_67d00dd1a5711">Quantity</label>
-                                                    <div class="quantity buttons_added"><button type="button"
-                                                            class="minus" wire:click="decrementQuantity"><i
-                                                                class="delicioz-icon-minus"></i></button>
-                                                        <input type="number" id="quantity_67d00dd1a5711"
-                                                            class="input-text qty text" step="1" min="1"
-                                                            max="999" wire:model="quantity" name="quantity"
-                                                            value="1" title="Qty" placeholder=""
-                                                            inputmode="numeric" style="color: black;"><button type="button" class="plus"
+                                            <div class="quantity_wrap">
+                                                <label class="quantity_label"
+                                                       for="quantity_67d00dd1a5711">Quantity</label>
+                                                <div class="quantity buttons_added">
+                                                    <button type="button"
+                                                            class="minus" wire:click="decrementQuantity"
+                                                            style="color: black"><i
+                                                            class="delicioz-icon-minus"></i></button>
+                                                    <input type="number" id="quantity_67d00dd1a5711"
+                                                           class="input-text qty text" step="1" min="1"
+                                                           max="999" wire:model="quantity" name="quantity"
+                                                           value="1" title="Qty" placeholder=""
+                                                           inputmode="numeric" style="color: black;">
+                                                    <button type="button" class="plus" style="color: black"
                                                             wire:click="incrementQuantity"><i
-                                                                class="delicioz-icon-plus"></i></button>
-                                                    </div>
+                                                            class="delicioz-icon-plus"></i></button>
                                                 </div>
+                                            </div>
 
-                                                <button type="submit" name="add-to-cart" value="474"
+                                            <button type="submit" name="add-to-cart" value="474"
                                                     class="single_add_to_cart_button button alt">Thêm vào giỏ
-                                                    hàng</button>
+                                                hàng
+                                            </button>
 
-                                            </form>
+                                        </form>
 
 
-                                            <div class="product_meta">
+                                        <div class="product_meta">
 
 
                                                 <span class="posted_in">Danh mục: <a
                                                         href="/shop?category={{ $product->food_category->id }}"
-                                                        rel="tag" style="color: black;">{{ $product->food_category->name }}</a></span>
+                                                        rel="tag"
+                                                        style="color: black;">{{ $product->food_category->name }}</a></span>
 
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
-
-
-                                <div class="woocommerce-tabs wc-tabs-wrapper delicioz-tabs-wrapper">
-                                    <div class="col-full">
-                                        <ul class="tabs wc-tabs" role="tablist">
-                                            <li class="description_tab" id="tab-title-description" role="tab"
-                                                aria-controls="tab-description">
-                                                <a href="#tab-description" style="color: black;">
-                                                    Mô tả </a>
-                                            </li>
-                                            {{-- <li class="reviews_tab" id="tab-title-reviews" role="tab"
-                                                aria-controls="tab-reviews">
-                                                <a href="#tab-reviews">
-                                                    Thành phần </a>
-                                            </li> --}}
-                                        </ul>
-                                        <h2 class="resp-accordion tab-description active" role="tab"
-                                            data-control=".description_tab" aria-controls="#tab-description" style="color: black;">Mô tả
-                                        </h2>
-                                        <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab"
-                                            id="tab-description" role="tabpanel"
-                                            aria-labelledby="tab-title-description" style="color: black;">
-
-                                            {{ $product->description }}
-
-
-
-                                        </div>
-                                        {{-- <h2 class="resp-accordion tab-reviews" role="tab"
-                                            data-control=".reviews_tab" aria-controls="#tab-reviews">Thành phần</h2>
-                                        <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab"
-                                            id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
-                                            <div id="reviews" class="woocommerce-Reviews">
-                                                <div id="comments">
-
-
-                                                    <table>
-                                                        <tr>
-                                                            <td>Thành phần</td>
-                                                            <td>Số lượng</td>
-                                                        </tr>
-                                                        @foreach ($product->recipes as $recipe)
-                                                            <tr>
-                                                                <td>{{ $recipe->ingredient->name }}</td>
-                                                                <td>{{ $recipe->quantity }}
-                                                                    {{ $recipe->ingredient->unit }}
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-                                                    </table>
-
-                                                </div>
-
-
-
-                                                <div class="clear"></div>
-                                            </div>
-                                        </div> --}}
-
-                                    </div>
-                                </div>
-
-
-
-                                <section class="related products">
-
-                                    <h2 style="color: black;">Sản phẩm liên quan</h2>
-                                    <div class="woocommerce delicioz-theme-carousel"
-                                        data-settings="{&quot;navigation&quot;:&quot;dots&quot;,&quot;items&quot;:4,&quot;items_laptop&quot;:&quot;2&quot;,&quot;items_tablet_extra&quot;:false,&quot;items_tablet&quot;:false,&quot;items_mobile_extra&quot;:false,&quot;items_mobile&quot;:&quot;2&quot;}">
-                                        <div class="delicioz-products-spacing ">
-                                            <ul class="delicioz-products products columns-4">
-
-
-                                                @foreach ($related_products as $related_product)
-                                                    <li
-                                                        class="product type-product post-482 status-publish first instock product_cat-accessories product_cat-humburger product_tag-restaurant product_tag-style has-post-thumbnail virtual purchasable product-type-simple">
-                                                        <div class="product-block">
-                                                            <div class="product-transition"><img width="300"
-                                                                    height="300"
-                                                                    src="{{ Storage::url($related_product->image) }}"
-                                                                    class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                                                    alt="" loading="lazy"
-                                                                    sizes="(max-width: 300px) 100vw, 300px" />
-
-                                                                <a href="/product/{{ $related_product->slug }}"
-                                                                    class="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
-                                                            </div>
-                                                            <div class="product-caption">
-                                                                <h3 class="woocommerce-loop-product__title"><a
-                                                                        href="/product/{{ $related_product->slug }}">{{ $related_product->name }}</a>
-                                                                </h3>
-                                                                {{-- <div class="count-review">
-                                                                    <div class="star-rating" role="img"
-                                                                        aria-label="Rated 4.00 out of 5"><span
-                                                                            style="width:80%">Rated <strong
-                                                                                class="rating">4.00</strong> out of
-                                                                            5</span>
-                                                                    </div><span></span>
-                                                                </div> --}}
-                                                                <span class="price"><span
-                                                                        class="woocommerce-Price-amount amount"><bdi><span
-                                                                                class="woocommerce-Price-currencySymbol"></span>{{ number_format($related_product->price, 0, ',', '.') }}
-                                                                            VNĐ</bdi></span></span>
-                                                                <div class="product-caption-bottom"><a
-                                                                        class="button product_type_simple add_to_cart_button ajax_add_to_cart"
-                                                                        wire:click="addToCart_related({{ $related_product->id }})">Thêm
-                                                                        vào giỏ hàng</a></div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-
-
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </section>
                             </div>
 
 
+                            <div class="woocommerce-tabs wc-tabs-wrapper delicioz-tabs-wrapper">
+                                <div class="col-full">
+                                    <ul class="tabs wc-tabs" role="tablist">
+                                        <li class="description_tab" id="tab-title-description" role="tab"
+                                            aria-controls="tab-description">
+                                            <a href="#tab-description" style="color: black; font-family: 'Times New Roman'">
+                                                Mô tả </a>
+                                        </li>
+                                        {{-- <li class="reviews_tab" id="tab-title-reviews" role="tab"
+                                            aria-controls="tab-reviews">
+                                            <a href="#tab-reviews">
+                                                Thành phần </a>
+                                        </li> --}}
+                                    </ul>
+                                    <h2 class="resp-accordion tab-description active"  role="tab"
+                                        data-control=".description_tab" aria-controls="#tab-description"
+                                        style="color: black; font-family: 'Times New Roman'">Mô tả
+                                    </h2>
+                                    <div
+                                        class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab"
+                                        id="tab-description" role="tabpanel"
+                                        aria-labelledby="tab-title-description" style="color: black;">
 
-                        </main><!-- #main -->
-                    </div><!-- #primary -->
+                                        {{ $product->description }}
 
 
-                </div><!-- .col-full -->
-            </div><!-- #content -->
+                                    </div>
+                                    {{-- <h2 class="resp-accordion tab-reviews" role="tab"
+                                        data-control=".reviews_tab" aria-controls="#tab-reviews">Thành phần</h2>
+                                    <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab"
+                                        id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
+                                        <div id="reviews" class="woocommerce-Reviews">
+                                            <div id="comments">
 
-            @livewire('inc.footer')
-            <section class="delicioz-sticky-add-to-cart">
-                <div class="col-full">
-                    <div class="delicioz-sticky-add-to-cart__content">
-                        <img width="300" height="300" src="{{ Storage::url($product->image) }}"
-                            class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt=""
-                            loading="lazy" sizes="(max-width: 300px) 100vw, 300px" />
-                        <div class="delicioz-sticky-add-to-cart__content-product-info">
+
+                                                <table>
+                                                    <tr>
+                                                        <td>Thành phần</td>
+                                                        <td>Số lượng</td>
+                                                    </tr>
+                                                    @foreach ($product->recipes as $recipe)
+                                                        <tr>
+                                                            <td>{{ $recipe->ingredient->name }}</td>
+                                                            <td>{{ $recipe->quantity }}
+                                                                {{ $recipe->ingredient->unit }}
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </table>
+
+                                            </div>
+
+
+
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div> --}}
+
+                                </div>
+                            </div>
+
+
+                            <section class="related products">
+
+                                <h2 style="color: black; font-family: 'Times New Roman'">Sản phẩm liên quan</h2>
+                                <div class="woocommerce delicioz-theme-carousel"
+                                     data-settings="{&quot;navigation&quot;:&quot;dots&quot;,&quot;items&quot;:4,&quot;items_laptop&quot;:&quot;2&quot;,&quot;items_tablet_extra&quot;:false,&quot;items_tablet&quot;:false,&quot;items_mobile_extra&quot;:false,&quot;items_mobile&quot;:&quot;2&quot;}">
+                                    <div class="delicioz-products-spacing ">
+                                        <ul class="delicioz-products products columns-4">
+
+
+                                            @foreach ($related_products as $related_product)
+                                                <li
+                                                    class="product type-product post-482 status-publish first instock product_cat-accessories product_cat-humburger product_tag-restaurant product_tag-style has-post-thumbnail virtual purchasable product-type-simple">
+                                                    <div class="product-block">
+                                                        <div class="product-transition"><img width="300"
+                                                                                             height="300"
+                                                                                             src="{{ Storage::url($related_product->image) }}"
+                                                                                             class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                                                                                             alt="" loading="lazy"
+                                                                                             sizes="(max-width: 300px) 100vw, 300px"/>
+
+                                                            <a href="/product/{{ $related_product->slug }}"
+                                                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                                                        </div>
+                                                        <div class="product-caption">
+                                                            <h3 class="woocommerce-loop-product__title"><a
+                                                                    href="/product/{{ $related_product->slug }}">{{ $related_product->name }}</a>
+                                                            </h3>
+                                                            {{-- <div class="count-review">
+                                                                <div class="star-rating" role="img"
+                                                                    aria-label="Rated 4.00 out of 5"><span
+                                                                        style="width:80%">Rated <strong
+                                                                            class="rating">4.00</strong> out of
+                                                                        5</span>
+                                                                </div><span></span>
+                                                            </div> --}}
+                                                            <span class="price"><span
+                                                                    class="woocommerce-Price-amount amount"><bdi><span
+                                                                            class="woocommerce-Price-currencySymbol"></span>{{ number_format($related_product->price, 0, ',', '.') }}
+                                                                            VNĐ</bdi></span></span>
+                                                            <div class="product-caption-bottom"><a
+                                                                    class="button product_type_simple add_to_cart_button ajax_add_to_cart"
+                                                                    wire:click="addToCart_related({{ $related_product->id }})">Thêm
+                                                                    vào giỏ hàng</a></div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endforeach
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+
+                    </main><!-- #main -->
+                </div><!-- #primary -->
+
+
+            </div><!-- .col-full -->
+        </div><!-- #content -->
+
+        @livewire('inc.footer')
+        <section class="delicioz-sticky-add-to-cart">
+            <div class="col-full">
+                <div class="delicioz-sticky-add-to-cart__content">
+                    <img width="300" height="300" src="{{ Storage::url($product->image) }}"
+                         class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt=""
+                         loading="lazy" sizes="(max-width: 300px) 100vw, 300px"/>
+                    <div class="delicioz-sticky-add-to-cart__content-product-info">
                             <span class="delicioz-sticky-add-to-cart__content-title">Bạn đang xem:
                                 <strong>{{ $product->name }}</strong></span>
-                            <span class="delicioz-sticky-add-to-cart__content-price"><del aria-hidden="true"><span
-                                        class="woocommerce-Price-amount amount"><bdi><span
-                                                class="woocommerce-Price-currencySymbol"></span>{{ number_format($product->price, 0, ',', '.') }}
+                        <span class="delicioz-sticky-add-to-cart__content-price"><del aria-hidden="true"><span
+                                    class="woocommerce-Price-amount amount"><bdi><span
+                                            class="woocommerce-Price-currencySymbol"></span>{{ number_format($product->price, 0, ',', '.') }}
                                             VNĐ</bdi></span></del>
                                 <ins><span class="woocommerce-Price-amount amount"><bdi><span
                                                 class="woocommerce-Price-currencySymbol"></span>{{ number_format($product->price, 0, ',', '.') }}
                                             VNĐ</bdi></span></ins></span>
-                            {{-- <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5"><span
-                                    style="width:80%">Rated <strong class="rating">4.00</strong> out of 5</span></div> --}}
-                        </div>
-                        <a wire:click="addToCart" class="delicioz-sticky-add-to-cart__content-button button alt">
-                            Thêm vào giỏ hàng </a>
+                        {{-- <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5"><span
+                                style="width:80%">Rated <strong class="rating">4.00</strong> out of 5</span></div> --}}
                     </div>
+                    <a wire:click="addToCart" class="delicioz-sticky-add-to-cart__content-button button alt">
+                        Thêm vào giỏ hàng </a>
                 </div>
-            </section><!-- .delicioz-sticky-add-to-cart -->
+            </div>
+        </section><!-- .delicioz-sticky-add-to-cart -->
 
-        </div><!-- #page -->
+    </div><!-- #page -->
 
-        @livewire('inc.menu-mobile')
+    @livewire('inc.menu-mobile')
 
-        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-        <script>
-            window.RS_MODULES = window.RS_MODULES || {};
-            window.RS_MODULES.modules = window.RS_MODULES.modules || {};
-            window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
-            window.RS_MODULES.defered = true;
-            window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
-            window.RS_MODULES.type = 'compiled';
-        </script>
-        @livewire('inc.search')
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        window.RS_MODULES = window.RS_MODULES || {};
+        window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+        window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+        window.RS_MODULES.defered = true;
+        window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+        window.RS_MODULES.type = 'compiled';
+    </script>
+    @livewire('inc.search')
 
-        <script>
-            (function() {
-                function maybePrefixUrlField() {
-                    if (this.value.trim() !== '' && this.value.indexOf('http') !== 0) {
-                        this.value = "http://" + this.value;
-                    }
+    <script>
+        (function () {
+            function maybePrefixUrlField() {
+                if (this.value.trim() !== '' && this.value.indexOf('http') !== 0) {
+                    this.value = "http://" + this.value;
                 }
+            }
 
-                var urlFields = document.querySelectorAll('.mc4wp-form input[type="url"]');
-                if (urlFields) {
-                    for (var j = 0; j < urlFields.length; j++) {
-                        urlFields[j].addEventListener('blur', maybePrefixUrlField);
-                    }
+            var urlFields = document.querySelectorAll('.mc4wp-form input[type="url"]');
+            if (urlFields) {
+                for (var j = 0; j < urlFields.length; j++) {
+                    urlFields[j].addEventListener('blur', maybePrefixUrlField);
                 }
-            })();
-        </script>
-        <div class="woosc-popup woosc-search">
-            <div class="woosc-popup-inner">
-                <div class="woosc-popup-content">
-                    <div class="woosc-popup-content-inner">
-                        <div class="woosc-popup-close"></div>
-                        <div class="woosc-search-input">
-                            <input type="search" id="woosc_search_input"
-                                placeholder="Type any keyword to search..." />
+            }
+        })();
+    </script>
+    <div class="woosc-popup woosc-search">
+        <div class="woosc-popup-inner">
+            <div class="woosc-popup-content">
+                <div class="woosc-popup-content-inner">
+                    <div class="woosc-popup-close"></div>
+                    <div class="woosc-search-input">
+                        <input type="search" id="woosc_search_input"
+                               placeholder="Type any keyword to search..."/>
+                    </div>
+                    <div class="woosc-search-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="woosc-popup woosc-settings">
+        <div class="woosc-popup-inner">
+            <div class="woosc-popup-content">
+                <div class="woosc-popup-content-inner">
+                    <div class="woosc-popup-close"></div>
+                    <ul class="woosc-settings-tools">
+                        <li><label><input type="checkbox" class="woosc-settings-tool"
+                                          id="woosc_hide_similarities"/> Hide similarities </label></li>
+                        <li><label><input type="checkbox" class="woosc-settings-tool"
+                                          id="woosc_highlight_differences"/> Highlight differences </label></li>
+                    </ul>
+                    Select the fields to be shown. Others will be hidden. Drag and drop to rearrange the order.
+                    <ul
+                        class="woosc-settings-fields">
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="image" checked/><span
+                                class="label">Image</span></li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="sku" checked/><span class="label">SKU</span>
+                        </li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="rating" checked/><span
+                                class="label">Rating</span></li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="price" checked/><span
+                                class="label">Price</span></li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="stock" checked/><span
+                                class="label">Stock</span></li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="availability" checked/><span class="label">Availability</span>
+                        </li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="add_to_cart" checked/><span class="label">Add to cart</span>
+                        </li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="description" checked/><span class="label">Description</span>
+                        </li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="content" checked/><span
+                                class="label">Content</span></li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="weight" checked/><span
+                                class="label">Weight</span></li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="dimensions" checked/><span class="label">Dimensions</span>
+                        </li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="additional" checked/><span class="label">Additional information</span>
+                        </li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="attributes" checked/><span class="label">Attributes</span>
+                        </li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="custom_attributes" checked/><span
+                                class="label">Custom attributes</span>
+                        </li>
+                        <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
+                                                                   value="custom_fields" checked/><span class="label">Custom fields</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="woosc-popup woosc-share">
+        <div class="woosc-popup-inner">
+            <div class="woosc-popup-content">
+                <div class="woosc-popup-content-inner">
+                    <div class="woosc-popup-close"></div>
+                    <div class="woosc-share-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="woosc-area"
+         class="woosc-area woosc-bar-bottom woosc-bar-right woosc-bar-click-outside-yes woosc-hide-checkout"
+         data-bg-color="#292a30" data-btn-color="#00a0d2">
+        <div class="woosc-inner">
+            <div class="woosc-table">
+                <div class="woosc-table-inner">
+                    <a href="#close" id="woosc-table-close" class="woosc-table-close hint--left"
+                       aria-label="Close"><span class="woosc-table-close-icon"></span></a>
+                    <div class="woosc-table-items"></div>
+                </div>
+            </div>
+            <div class="woosc-bar">
+                <div class="woosc-bar-notice">
+                    Click outside to hide the compare bar
+                </div>
+                <a href="#share" class="woosc-bar-share hint--top" aria-label="Share"></a>
+                <a href="#search" class="woosc-bar-search hint--top" aria-label="Add product"></a>
+                <div class="woosc-bar-items"></div>
+                <div class="woosc-bar-btn woosc-bar-btn-text">
+                    <div class="woosc-bar-btn-icon-wrapper">
+                        <div class="woosc-bar-btn-icon-inner"><span></span><span></span><span></span>
                         </div>
-                        <div class="woosc-search-result"></div>
                     </div>
+                    Compare
+                </div>
+            </div>
+            <div class="woosc-sidebar woosc-sidebar-position-right">
+                <div class="woosc-sidebar-top">
+                    <span class="woosc-sidebar-heading">Compare</span>
+                    <span class="woosc-sidebar-count"></span>
+                    <span class="woosc-sidebar-close hint--left" aria-label="Close"> &times; </span>
+                </div>
+                <div class="woosc-sidebar-items"></div>
+                <div class="woosc-sidebar-bot">
+                    <span class="woosc-sidebar-btn">Let&#039;s Compare!</span>
+                    <span class="woosc-sidebar-continue"><span>Continue shopping</span></span>
                 </div>
             </div>
         </div>
-        <div class="woosc-popup woosc-settings">
-            <div class="woosc-popup-inner">
-                <div class="woosc-popup-content">
-                    <div class="woosc-popup-content-inner">
-                        <div class="woosc-popup-close"></div>
-                        <ul class="woosc-settings-tools">
-                            <li><label><input type="checkbox" class="woosc-settings-tool"
-                                        id="woosc_hide_similarities" /> Hide similarities </label></li>
-                            <li><label><input type="checkbox" class="woosc-settings-tool"
-                                        id="woosc_highlight_differences" /> Highlight differences </label></li>
-                        </ul>
-                        Select the fields to be shown. Others will be hidden. Drag and drop to rearrange the order. <ul
-                            class="woosc-settings-fields">
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="image" checked /><span class="label">Image</span></li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="sku" checked /><span class="label">SKU</span></li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="rating" checked /><span class="label">Rating</span></li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="price" checked /><span class="label">Price</span></li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="stock" checked /><span class="label">Stock</span></li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="availability" checked /><span class="label">Availability</span></li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="add_to_cart" checked /><span class="label">Add to cart</span></li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="description" checked /><span class="label">Description</span></li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="content" checked /><span class="label">Content</span></li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="weight" checked /><span class="label">Weight</span></li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="dimensions" checked /><span class="label">Dimensions</span></li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="additional" checked /><span class="label">Additional information</span>
-                            </li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="attributes" checked /><span class="label">Attributes</span></li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="custom_attributes" checked /><span class="label">Custom attributes</span>
-                            </li>
-                            <li class="woosc-settings-field-li"><input type="checkbox" class="woosc-settings-field"
-                                    value="custom_fields" checked /><span class="label">Custom fields</span></li>
-                        </ul>
-                    </div>
-                </div>
+    </div>
+    <div id="woosw_wishlist" class="woosw-popup woosw-popup-center"></div>
+    <a href="#"
+       class="scrollup"><span class="scrollup-icon delicioz-icon-angle-up"></span><span
+            class="scrollup-label">Top</span></a>
+
+    <script
+        type="application/ld+json">
+        {"@context":"https:\/\/schema.org\/","@graph":[{"@context":"https:\/\/schema.org\/","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"name":"Home Page","@id":"https:\/\/demo2.themelexus.com\/delicioz"}},{"@type":"ListItem","position":2,"item":{"name":"Whiskey","@id":"https:\/\/demo2.themelexus.com\/delicioz\/product-category\/whiskey\/"}},{"@type":"ListItem","position":3,"item":{"name":"Grilled Salmon","@id":"https:\/\/demo2.themelexus.com\/delicioz\/product\/grilled-salmon\/"}}]},{"@context":"https:\/\/schema.org\/","@type":"Product","@id":"https:\/\/demo2.themelexus.com\/delicioz\/product\/grilled-salmon\/#product","name":"Grilled Salmon","url":"https:\/\/demo2.themelexus.com\/delicioz\/product\/grilled-salmon\/","description":"Nisi et unde cupiditate nemo. Ea est non consequuntur omnis ut ut. In illum velit quo. Harum enim ex nam.","image":"https:\/\/demo2.themelexus.com\/delicioz\/wp-content\/uploads\/2022\/07\/product-1-1.jpg","sku":"BE45VGRT","offers":[{"@type":"Offer","price":"49.95","priceValidUntil":"2026-12-31","priceSpecification":{"price":"49.95","priceCurrency":"USD","valueAddedTaxIncluded":"false"},"priceCurrency":"USD","availability":"http:\/\/schema.org\/InStock","url":"https:\/\/demo2.themelexus.com\/delicioz\/product\/grilled-salmon\/","seller":{"@type":"Organization","name":"Delicioz","url":"https:\/\/demo2.themelexus.com\/delicioz"}}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.00","reviewCount":5},"review":[{"@type":"Review","reviewRating":{"@type":"Rating","bestRating":"5","ratingValue":"3","worstRating":"1"},"author":{"@type":"Person","name":"Patrick M. Newman"},"reviewBody":"Real authentic genuine quality however it fit me like an XL size when In fact Im L. Beware","datePublished":"2022-07-30T02:42:05+00:00"},{"@type":"Review","reviewRating":{"@type":"Rating","bestRating":"5","ratingValue":"5","worstRating":"1"},"author":{"@type":"Person","name":"Ervin Arlington"},"reviewBody":"The shirt was not the fabric I believed it to be. It says Classic Fit but was made like the older versions, not the soft cotton like my others. I don\u2019t understand how the labels are the same but a completely different shirt. Oh well, stuck with it now.","datePublished":"2022-07-30T02:42:03+00:00"},{"@type":"Review","reviewRating":{"@type":"Rating","bestRating":"5","ratingValue":"3","worstRating":"1"},"author":{"@type":"Person","name":"Amanda"},"reviewBody":"I am 6 feet tall and 220 lbs. This shirt fit me perfectly in the chest and shoulders. My only complaint is that it is so long! I like to wear polo shirts untucked. This shirt goes completely past my rear end. If I wore it with ordinary shorts, you probably wouldnt be able to see the shorts at all - completely hidden by the shirt. It needs to be 4 to 5 inches shorter in terms of length to suit me. I have many RL polo shirts, and this one is by far the longest. I dont understand why.","datePublished":"2022-07-30T02:42:01+00:00"},{"@type":"Review","reviewRating":{"@type":"Rating","bestRating":"5","ratingValue":"4","worstRating":"1"},"author":{"@type":"Person","name":"Philip King"},"reviewBody":"I like","datePublished":"2022-07-30T02:41:59+00:00"},{"@type":"Review","reviewRating":{"@type":"Rating","bestRating":"5","ratingValue":"4","worstRating":"1"},"author":{"@type":"Person","name":"Kay Mills"},"reviewBody":"Awesome","datePublished":"2022-07-30T02:41:57+00:00"}]}]}
+    </script>
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
             </div>
-        </div>
-        <div class="woosc-popup woosc-share">
-            <div class="woosc-popup-inner">
-                <div class="woosc-popup-content">
-                    <div class="woosc-popup-content-inner">
-                        <div class="woosc-popup-close"></div>
-                        <div class="woosc-share-content"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="woosc-area"
-            class="woosc-area woosc-bar-bottom woosc-bar-right woosc-bar-click-outside-yes woosc-hide-checkout"
-            data-bg-color="#292a30" data-btn-color="#00a0d2">
-            <div class="woosc-inner">
-                <div class="woosc-table">
-                    <div class="woosc-table-inner">
-                        <a href="#close" id="woosc-table-close" class="woosc-table-close hint--left"
-                            aria-label="Close"><span class="woosc-table-close-icon"></span></a>
-                        <div class="woosc-table-items"></div>
-                    </div>
-                </div>
-                <div class="woosc-bar">
-                    <div class="woosc-bar-notice">
-                        Click outside to hide the compare bar </div>
-                    <a href="#share" class="woosc-bar-share hint--top" aria-label="Share"></a>
-                    <a href="#search" class="woosc-bar-search hint--top" aria-label="Add product"></a>
-                    <div class="woosc-bar-items"></div>
-                    <div class="woosc-bar-btn woosc-bar-btn-text">
-                        <div class="woosc-bar-btn-icon-wrapper">
-                            <div class="woosc-bar-btn-icon-inner"><span></span><span></span><span></span>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" aria-label="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" aria-label="Share"></button>
+                    <button class="pswp__button pswp__button--fs" aria-label="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" aria-label="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
                             </div>
                         </div>
-                        Compare
                     </div>
                 </div>
-                <div class="woosc-sidebar woosc-sidebar-position-right">
-                    <div class="woosc-sidebar-top">
-                        <span class="woosc-sidebar-heading">Compare</span>
-                        <span class="woosc-sidebar-count"></span>
-                        <span class="woosc-sidebar-close hint--left" aria-label="Close"> &times; </span>
-                    </div>
-                    <div class="woosc-sidebar-items"></div>
-                    <div class="woosc-sidebar-bot">
-                        <span class="woosc-sidebar-btn">Let&#039;s Compare!</span>
-                        <span class="woosc-sidebar-continue"><span>Continue shopping</span></span>
-                    </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
                 </div>
-            </div>
-        </div>
-        <div id="woosw_wishlist" class="woosw-popup woosw-popup-center"></div><a href="#"
-            class="scrollup"><span class="scrollup-icon delicioz-icon-angle-up"></span><span
-                class="scrollup-label">Top</span></a>
-
-        <script
-            type="application/ld+json">{"@context":"https:\/\/schema.org\/","@graph":[{"@context":"https:\/\/schema.org\/","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"name":"Home Page","@id":"https:\/\/demo2.themelexus.com\/delicioz"}},{"@type":"ListItem","position":2,"item":{"name":"Whiskey","@id":"https:\/\/demo2.themelexus.com\/delicioz\/product-category\/whiskey\/"}},{"@type":"ListItem","position":3,"item":{"name":"Grilled Salmon","@id":"https:\/\/demo2.themelexus.com\/delicioz\/product\/grilled-salmon\/"}}]},{"@context":"https:\/\/schema.org\/","@type":"Product","@id":"https:\/\/demo2.themelexus.com\/delicioz\/product\/grilled-salmon\/#product","name":"Grilled Salmon","url":"https:\/\/demo2.themelexus.com\/delicioz\/product\/grilled-salmon\/","description":"Nisi et unde cupiditate nemo. Ea est non consequuntur omnis ut ut. In illum velit quo. Harum enim ex nam.","image":"https:\/\/demo2.themelexus.com\/delicioz\/wp-content\/uploads\/2022\/07\/product-1-1.jpg","sku":"BE45VGRT","offers":[{"@type":"Offer","price":"49.95","priceValidUntil":"2026-12-31","priceSpecification":{"price":"49.95","priceCurrency":"USD","valueAddedTaxIncluded":"false"},"priceCurrency":"USD","availability":"http:\/\/schema.org\/InStock","url":"https:\/\/demo2.themelexus.com\/delicioz\/product\/grilled-salmon\/","seller":{"@type":"Organization","name":"Delicioz","url":"https:\/\/demo2.themelexus.com\/delicioz"}}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.00","reviewCount":5},"review":[{"@type":"Review","reviewRating":{"@type":"Rating","bestRating":"5","ratingValue":"3","worstRating":"1"},"author":{"@type":"Person","name":"Patrick M. Newman"},"reviewBody":"Real authentic genuine quality however it fit me like an XL size when In fact Im L. Beware","datePublished":"2022-07-30T02:42:05+00:00"},{"@type":"Review","reviewRating":{"@type":"Rating","bestRating":"5","ratingValue":"5","worstRating":"1"},"author":{"@type":"Person","name":"Ervin Arlington"},"reviewBody":"The shirt was not the fabric I believed it to be. It says Classic Fit but was made like the older versions, not the soft cotton like my others. I don\u2019t understand how the labels are the same but a completely different shirt. Oh well, stuck with it now.","datePublished":"2022-07-30T02:42:03+00:00"},{"@type":"Review","reviewRating":{"@type":"Rating","bestRating":"5","ratingValue":"3","worstRating":"1"},"author":{"@type":"Person","name":"Amanda"},"reviewBody":"I am 6 feet tall and 220 lbs. This shirt fit me perfectly in the chest and shoulders. My only complaint is that it is so long! I like to wear polo shirts untucked. This shirt goes completely past my rear end. If I wore it with ordinary shorts, you probably wouldnt be able to see the shorts at all - completely hidden by the shirt. It needs to be 4 to 5 inches shorter in terms of length to suit me. I have many RL polo shirts, and this one is by far the longest. I dont understand why.","datePublished":"2022-07-30T02:42:01+00:00"},{"@type":"Review","reviewRating":{"@type":"Rating","bestRating":"5","ratingValue":"4","worstRating":"1"},"author":{"@type":"Person","name":"Philip King"},"reviewBody":"I like","datePublished":"2022-07-30T02:41:59+00:00"},{"@type":"Review","reviewRating":{"@type":"Rating","bestRating":"5","ratingValue":"4","worstRating":"1"},"author":{"@type":"Person","name":"Kay Mills"},"reviewBody":"Awesome","datePublished":"2022-07-30T02:41:57+00:00"}]}]}</script>
-        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="pswp__bg"></div>
-            <div class="pswp__scroll-wrap">
-                <div class="pswp__container">
-                    <div class="pswp__item"></div>
-                    <div class="pswp__item"></div>
-                    <div class="pswp__item"></div>
-                </div>
-                <div class="pswp__ui pswp__ui--hidden">
-                    <div class="pswp__top-bar">
-                        <div class="pswp__counter"></div>
-                        <button class="pswp__button pswp__button--close" aria-label="Close (Esc)"></button>
-                        <button class="pswp__button pswp__button--share" aria-label="Share"></button>
-                        <button class="pswp__button pswp__button--fs" aria-label="Toggle fullscreen"></button>
-                        <button class="pswp__button pswp__button--zoom" aria-label="Zoom in/out"></button>
-                        <div class="pswp__preloader">
-                            <div class="pswp__preloader__icn">
-                                <div class="pswp__preloader__cut">
-                                    <div class="pswp__preloader__donut"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                        <div class="pswp__share-tooltip"></div>
-                    </div>
-                    <button class="pswp__button pswp__button--arrow--left"
+                <button class="pswp__button pswp__button--arrow--left"
                         aria-label="Previous (arrow left)"></button>
-                    <button class="pswp__button pswp__button--arrow--right" aria-label="Next (arrow right)"></button>
-                    <div class="pswp__caption">
-                        <div class="pswp__caption__center"></div>
-                    </div>
+                <button class="pswp__button pswp__button--arrow--right" aria-label="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            (function() {
-                var c = document.body.className;
-                c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
-                document.body.className = c;
-            })();
-        </script>
+    </div>
+    <script type="text/javascript">
+        (function () {
+            var c = document.body.className;
+            c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+            document.body.className = c;
+        })();
+    </script>
 
-        <link rel='stylesheet' id='elementor-post-671-css'
-            href='/delicioz/wp-content/uploads/elementor/css/post-671.css?ver=1661932588' media='all' />
-        <link rel='stylesheet' id='elementor-post-705-css'
-            href='/delicioz/wp-content/uploads/elementor/css/post-705.css?ver=1661932588' media='all' />
-        <link rel='stylesheet' id='rs-plugin-settings-css'
-            href='/delicioz/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=6.5.31' media='all' />
-        <style id='rs-plugin-settings-inline-css'>
-            #rs-demo-id {}
-        </style>
-        <script src='/delicioz/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9' id='regenerator-runtime-js'>
-        </script>
-        <script src='/delicioz/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
-        <script id='contact-form-7-js-extra'>
-            var wpcf7 = {
-                "api": {
-                    "root": "https:\/\/demo2.themelexus.com\/delicioz\/wp-json\/",
-                    "namespace": "contact-form-7\/v1"
-                },
-                "cached": "1"
-            };
-        </script>
-        <script src='/delicioz/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.6.2' id='contact-form-7-js'>
-        </script>
-        <script src='/delicioz/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.5.18' defer async
+    <link rel='stylesheet' id='elementor-post-671-css'
+          href='/delicioz/wp-content/uploads/elementor/css/post-671.css?ver=1661932588' media='all'/>
+    <link rel='stylesheet' id='elementor-post-705-css'
+          href='/delicioz/wp-content/uploads/elementor/css/post-705.css?ver=1661932588' media='all'/>
+    <link rel='stylesheet' id='rs-plugin-settings-css'
+          href='/delicioz/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=6.5.31' media='all'/>
+    <style id='rs-plugin-settings-inline-css'>
+        #rs-demo-id {
+        }
+    </style>
+    <script src='/delicioz/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.9'
+            id='regenerator-runtime-js'>
+    </script>
+    <script src='/delicioz/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0' id='wp-polyfill-js'></script>
+    <script id='contact-form-7-js-extra'>
+        var wpcf7 = {
+            "api": {
+                "root": "https:\/\/demo2.themelexus.com\/delicioz\/wp-json\/",
+                "namespace": "contact-form-7\/v1"
+            },
+            "cached": "1"
+        };
+    </script>
+    <script src='/delicioz/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.6.2' id='contact-form-7-js'>
+    </script>
+    <script src='/delicioz/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.5.18' defer async
             id='tp-tools-js'></script>
-        <script src='/delicioz/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.5.31' defer async id='revmin-js'>
-        </script>
-        <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.6.8.2'
-            id='jquery-blockui-js'></script>
-        <script id='wc-add-to-cart-js-extra'>
-            var wc_add_to_cart_params = {
-                "ajax_url": "\/delicioz\/wp-admin\/admin-ajax.php",
-                "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%",
-                "i18n_view_cart": "",
-                "cart_url": "https:\/\/demo2.themelexus.com\/delicioz\/cart\/",
-                "is_cart": "",
-                "cart_redirect_after_add": "no"
-            };
-        </script>
-        <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=6.8.2'
+    <script src='/delicioz/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.5.31' defer async
+            id='revmin-js'>
+    </script>
+    <script
+        src='/delicioz/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.6.8.2'
+        id='jquery-blockui-js'></script>
+    <script id='wc-add-to-cart-js-extra'>
+        var wc_add_to_cart_params = {
+            "ajax_url": "\/delicioz\/wp-admin\/admin-ajax.php",
+            "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%",
+            "i18n_view_cart": "",
+            "cart_url": "https:\/\/demo2.themelexus.com\/delicioz\/cart\/",
+            "is_cart": "",
+            "cart_redirect_after_add": "no"
+        };
+    </script>
+    <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=6.8.2'
             id='wc-add-to-cart-js'></script>
-        <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/zoom/jquery.zoom.min.js?ver=1.7.21-wc.6.8.2'
+    <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/zoom/jquery.zoom.min.js?ver=1.7.21-wc.6.8.2'
             id='zoom-js'></script>
-        <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/flexslider/jquery.flexslider.min.js?ver=2.7.2-wc.6.8.2'
-            id='flexslider-js'></script>
-        <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe.min.js?ver=4.1.1-wc.6.8.2'
+    <script
+        src='/delicioz/wp-content/plugins/woocommerce/assets/js/flexslider/jquery.flexslider.min.js?ver=2.7.2-wc.6.8.2'
+        id='flexslider-js'></script>
+    <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe.min.js?ver=4.1.1-wc.6.8.2'
             id='photoswipe-js'></script>
-        <script
-            src='/delicioz/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe-ui-default.min.js?ver=4.1.1-wc.6.8.2'
-            id='photoswipe-ui-default-js'></script>
-        <script id='wc-single-product-js-extra'>
-            var wc_single_product_params = {
-                "i18n_required_rating_text": "Please select a rating",
-                "review_rating_required": "yes",
-                "flexslider": {
-                    "rtl": false,
-                    "animation": "slide",
-                    "smoothHeight": true,
-                    "directionNav": false,
-                    "controlNav": "thumbnails",
-                    "slideshow": false,
-                    "animationSpeed": 500,
-                    "animationLoop": false,
-                    "allowOneSlide": false
-                },
-                "zoom_enabled": "1",
-                "zoom_options": [],
-                "photoswipe_enabled": "1",
-                "photoswipe_options": {
-                    "shareEl": false,
-                    "closeOnScroll": false,
-                    "history": false,
-                    "hideAnimationDuration": 0,
-                    "showAnimationDuration": 0
-                },
-                "flexslider_enabled": "1"
-            };
-        </script>
-        <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/single-product.min.js?ver=6.8.2'
+    <script
+        src='/delicioz/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe-ui-default.min.js?ver=4.1.1-wc.6.8.2'
+        id='photoswipe-ui-default-js'></script>
+    <script id='wc-single-product-js-extra'>
+        var wc_single_product_params = {
+            "i18n_required_rating_text": "Please select a rating",
+            "review_rating_required": "yes",
+            "flexslider": {
+                "rtl": false,
+                "animation": "slide",
+                "smoothHeight": true,
+                "directionNav": false,
+                "controlNav": "thumbnails",
+                "slideshow": false,
+                "animationSpeed": 500,
+                "animationLoop": false,
+                "allowOneSlide": false
+            },
+            "zoom_enabled": "1",
+            "zoom_options": [],
+            "photoswipe_enabled": "1",
+            "photoswipe_options": {
+                "shareEl": false,
+                "closeOnScroll": false,
+                "history": false,
+                "hideAnimationDuration": 0,
+                "showAnimationDuration": 0
+            },
+            "flexslider_enabled": "1"
+        };
+    </script>
+    <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/single-product.min.js?ver=6.8.2'
             id='wc-single-product-js'></script>
-        <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.6.8.2'
+    <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.6.8.2'
             id='js-cookie-js'></script>
-        <script id='woocommerce-js-extra'>
-            var woocommerce_params = {
-                "ajax_url": "\/delicioz\/wp-admin\/admin-ajax.php",
-                "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%"
-            };
-        </script>
-        <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=6.8.2'
+    <script id='woocommerce-js-extra'>
+        var woocommerce_params = {
+            "ajax_url": "\/delicioz\/wp-admin\/admin-ajax.php",
+            "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%"
+        };
+    </script>
+    <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=6.8.2'
             id='woocommerce-js'></script>
-        <script id='wc-cart-fragments-js-extra'>
-            var wc_cart_fragments_params = {
-                "ajax_url": "\/delicioz\/wp-admin\/admin-ajax.php",
-                "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%",
-                "cart_hash_key": "wc_cart_hash_fb254261fa3641bff9c309f0d976a3b1",
-                "fragment_name": "wc_fragments_fb254261fa3641bff9c309f0d976a3b1",
-                "request_timeout": "5000"
-            };
-        </script>
-        <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=6.8.2'
+    <script id='wc-cart-fragments-js-extra'>
+        var wc_cart_fragments_params = {
+            "ajax_url": "\/delicioz\/wp-admin\/admin-ajax.php",
+            "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%",
+            "cart_hash_key": "wc_cart_hash_fb254261fa3641bff9c309f0d976a3b1",
+            "fragment_name": "wc_fragments_fb254261fa3641bff9c309f0d976a3b1",
+            "request_timeout": "5000"
+        };
+    </script>
+    <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=6.8.2'
             id='wc-cart-fragments-js'></script>
-        <script src='/delicioz/wp-includes/js/underscore.min.js?ver=1.13.3' id='underscore-js'></script>
-        <script id='wp-util-js-extra'>
-            var _wpUtilSettings = {
-                "ajax": {
-                    "url": "\/delicioz\/wp-admin\/admin-ajax.php"
-                }
-            };
-        </script>
-        <script src='/delicioz/wp-includes/js/wp-util.min.js?ver=6.0.2' id='wp-util-js'></script>
-        <script id='woo-variation-swatches-js-extra'>
-            var woo_variation_swatches_options = {
-                "show_variation_label": "1",
-                "clear_on_reselect": "",
-                "variation_label_separator": ":",
-                "is_mobile": "",
-                "show_variation_stock": "",
-                "stock_label_threshold": "5",
-                "cart_redirect_after_add": "no",
-                "enable_ajax_add_to_cart": "yes",
-                "cart_url": "https:\/\/demo2.themelexus.com\/delicioz\/cart\/",
-                "is_cart": ""
-            };
-        </script>
-        <script src='/delicioz/wp-content/plugins/woo-variation-swatches/assets/js/frontend.min.js?ver=1660386322'
+    <script src='/delicioz/wp-includes/js/underscore.min.js?ver=1.13.3' id='underscore-js'></script>
+    <script id='wp-util-js-extra'>
+        var _wpUtilSettings = {
+            "ajax": {
+                "url": "\/delicioz\/wp-admin\/admin-ajax.php"
+            }
+        };
+    </script>
+    <script src='/delicioz/wp-includes/js/wp-util.min.js?ver=6.0.2' id='wp-util-js'></script>
+    <script id='woo-variation-swatches-js-extra'>
+        var woo_variation_swatches_options = {
+            "show_variation_label": "1",
+            "clear_on_reselect": "",
+            "variation_label_separator": ":",
+            "is_mobile": "",
+            "show_variation_stock": "",
+            "stock_label_threshold": "5",
+            "cart_redirect_after_add": "no",
+            "enable_ajax_add_to_cart": "yes",
+            "cart_url": "https:\/\/demo2.themelexus.com\/delicioz\/cart\/",
+            "is_cart": ""
+        };
+    </script>
+    <script src='/delicioz/wp-content/plugins/woo-variation-swatches/assets/js/frontend.min.js?ver=1660386322'
             id='woo-variation-swatches-js'></script>
-        <script src='/delicioz/wp-content/plugins/woo-smart-compare/assets/libs/table-head-fixer/table-head-fixer.js?ver=5.1.5'
-            id='table-head-fixer-js'></script>
-        <script
-            src='/delicioz/wp-content/plugins/woo-smart-compare/assets/libs/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js?ver=5.1.5'
-            id='perfect-scrollbar-js'></script>
-        <script src='/delicioz/wp-includes/js/jquery/ui/core.min.js?ver=1.13.1' id='jquery-ui-core-js'></script>
-        <script src='/delicioz/wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.1' id='jquery-ui-mouse-js'></script>
-        <script src='/delicioz/wp-includes/js/jquery/ui/sortable.min.js?ver=1.13.1' id='jquery-ui-sortable-js'></script>
-        <script id='woosc-frontend-js-extra'>
-            var woosc_vars = {
-                "ajax_url": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php",
-                "user_id": "507cd05cd3b624f070c3beb15c1092c4",
-                "page_url": "#",
-                "open_button": "",
-                "open_button_action": "open_popup",
-                "menu_action": "open_popup",
-                "button_action": "show_table",
-                "sidebar_position": "right",
-                "message_position": "right-top",
-                "message_added": "{name} has been added to Compare list.",
-                "message_removed": "{name} has been removed from the Compare list.",
-                "message_exists": "{name} is already in the Compare list.",
-                "open_bar": "",
-                "bar_bubble": "no",
-                "adding": "prepend",
-                "click_again": "no",
-                "hide_empty": "no",
-                "click_outside": "yes",
-                "freeze_column": "yes",
-                "freeze_row": "yes",
-                "scrollbar": "yes",
-                "limit": "100",
-                "button_text_change": "yes",
-                "remove_all": "Do you want to remove all products from the compare?",
-                "limit_notice": "You can add a maximum of {limit} products to the compare table.",
-                "copied_text": "Share link %s was copied to clipboard!",
-                "button_text": "Compare",
-                "button_text_added": "Compare"
-            };
-        </script>
-        <script src='/delicioz/wp-content/plugins/woo-smart-compare/assets/js/frontend.js?ver=5.1.5' id='woosc-frontend-js'>
-        </script>
-        <script id='wc-add-to-cart-variation-js-extra'>
-            var wc_add_to_cart_variation_params = {
-                "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%",
-                "i18n_no_matching_variations_text": "Sorry, no products matched your selection. Please choose a different combination.",
-                "i18n_make_a_selection_text": "Please select some product options before adding this product to your cart.",
-                "i18n_unavailable_text": "Sorry, this product is unavailable. Please choose a different combination.",
-                "woo_variation_swatches_ajax_variation_threshold_min": "30",
-                "woo_variation_swatches_ajax_variation_threshold_max": "100",
-                "woo_variation_swatches_total_children": "0"
-            };
-        </script>
-        <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min.js?ver=6.8.2'
+    <script
+        src='/delicioz/wp-content/plugins/woo-smart-compare/assets/libs/table-head-fixer/table-head-fixer.js?ver=5.1.5'
+        id='table-head-fixer-js'></script>
+    <script
+        src='/delicioz/wp-content/plugins/woo-smart-compare/assets/libs/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js?ver=5.1.5'
+        id='perfect-scrollbar-js'></script>
+    <script src='/delicioz/wp-includes/js/jquery/ui/core.min.js?ver=1.13.1' id='jquery-ui-core-js'></script>
+    <script src='/delicioz/wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.1' id='jquery-ui-mouse-js'></script>
+    <script src='/delicioz/wp-includes/js/jquery/ui/sortable.min.js?ver=1.13.1' id='jquery-ui-sortable-js'></script>
+    <script id='woosc-frontend-js-extra'>
+        var woosc_vars = {
+            "ajax_url": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php",
+            "user_id": "507cd05cd3b624f070c3beb15c1092c4",
+            "page_url": "#",
+            "open_button": "",
+            "open_button_action": "open_popup",
+            "menu_action": "open_popup",
+            "button_action": "show_table",
+            "sidebar_position": "right",
+            "message_position": "right-top",
+            "message_added": "{name} has been added to Compare list.",
+            "message_removed": "{name} has been removed from the Compare list.",
+            "message_exists": "{name} is already in the Compare list.",
+            "open_bar": "",
+            "bar_bubble": "no",
+            "adding": "prepend",
+            "click_again": "no",
+            "hide_empty": "no",
+            "click_outside": "yes",
+            "freeze_column": "yes",
+            "freeze_row": "yes",
+            "scrollbar": "yes",
+            "limit": "100",
+            "button_text_change": "yes",
+            "remove_all": "Do you want to remove all products from the compare?",
+            "limit_notice": "You can add a maximum of {limit} products to the compare table.",
+            "copied_text": "Share link %s was copied to clipboard!",
+            "button_text": "Compare",
+            "button_text_added": "Compare"
+        };
+    </script>
+    <script src='/delicioz/wp-content/plugins/woo-smart-compare/assets/js/frontend.js?ver=5.1.5' id='woosc-frontend-js'>
+    </script>
+    <script id='wc-add-to-cart-variation-js-extra'>
+        var wc_add_to_cart_variation_params = {
+            "wc_ajax_url": "\/delicioz\/?wc-ajax=%%endpoint%%",
+            "i18n_no_matching_variations_text": "Sorry, no products matched your selection. Please choose a different combination.",
+            "i18n_make_a_selection_text": "Please select some product options before adding this product to your cart.",
+            "i18n_unavailable_text": "Sorry, this product is unavailable. Please choose a different combination.",
+            "woo_variation_swatches_ajax_variation_threshold_min": "30",
+            "woo_variation_swatches_ajax_variation_threshold_max": "100",
+            "woo_variation_swatches_total_children": "0"
+        };
+    </script>
+    <script src='/delicioz/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min.js?ver=6.8.2'
             id='wc-add-to-cart-variation-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/slick.min.js?ver=1.0.1' id='slick-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/jquery.magnific-popup.min.js?ver=1.0.1'
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/slick.min.js?ver=1.0.1' id='slick-js'></script>
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/jquery.magnific-popup.min.js?ver=1.0.1'
             id='magnific-popup-js'></script>
-        <script id='woosq-frontend-js-extra'>
-            var woosq_vars = {
-                "ajax_url": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php",
-                "view": "popup",
-                "effect": "mfp-3d-unfold",
-                "scrollbar": "yes",
-                "hashchange": "no",
-                "cart_redirect": "no",
-                "cart_url": "https:\/\/demo2.themelexus.com\/delicioz\/cart\/",
-                "close": "Close (Esc)",
-                "next": "Next (Right arrow key)",
-                "prev": "Previous (Left arrow key)",
-                "thumbnails_effect": "no",
-                "related_slick_params": "{\"slidesToShow\":2,\"slidesToScroll\":2,\"dots\":true,\"arrows\":false,\"adaptiveHeight\":true,\"rtl\":false}",
-                "thumbnails_slick_params": "{\"slidesToShow\":1,\"slidesToScroll\":1,\"dots\":true,\"arrows\":true,\"adaptiveHeight\":false,\"rtl\":false}",
-                "thumbnails_zoom_params": "{\"duration\":120,\"magnify\":1}"
-            };
-        </script>
-        <script src='/delicioz/wp-content/plugins/woo-smart-quick-view/assets/js/frontend.js?ver=3.1.2' id='woosq-frontend-js'>
-        </script>
-        <script id='woosw-frontend-js-extra'>
-            var woosw_vars = {
-                "ajax_url": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php",
-                "menu_action": "open_page",
-                "perfect_scrollbar": "yes",
-                "wishlist_url": "https:\/\/demo2.themelexus.com\/delicioz\/wishlist\/",
-                "button_action": "list",
-                "message_position": "right-top",
-                "button_action_added": "popup",
-                "empty_confirm": "This action cannot be undone. Are you sure?",
-                "delete_confirm": "This action cannot be undone. Are you sure?",
-                "copied_text": "Copied the wishlist link:",
-                "menu_text": "Wishlist",
-                "button_text": "Add to wishlist",
-                "button_text_added": "Browse wishlist"
-            };
-        </script>
-        <script src='/delicioz/wp-content/plugins/woo-smart-wishlist/assets/js/frontend.js?ver=4.3.1' id='woosw-frontend-js'>
-        </script>
-        <script id='delicioz-theme-js-extra'>
-            var deliciozAjax = {
-                "ajaxurl": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php"
-            };
-        </script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/main.js?ver=1.0.1' id='delicioz-theme-js'></script>
-        <script src='/delicioz/wp-includes/js/imagesloaded.min.js?ver=4.1.4' id='imagesloaded-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/search-popup.js?ver=1.0.1'
+    <script id='woosq-frontend-js-extra'>
+        var woosq_vars = {
+            "ajax_url": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php",
+            "view": "popup",
+            "effect": "mfp-3d-unfold",
+            "scrollbar": "yes",
+            "hashchange": "no",
+            "cart_redirect": "no",
+            "cart_url": "https:\/\/demo2.themelexus.com\/delicioz\/cart\/",
+            "close": "Close (Esc)",
+            "next": "Next (Right arrow key)",
+            "prev": "Previous (Left arrow key)",
+            "thumbnails_effect": "no",
+            "related_slick_params": "{\"slidesToShow\":2,\"slidesToScroll\":2,\"dots\":true,\"arrows\":false,\"adaptiveHeight\":true,\"rtl\":false}",
+            "thumbnails_slick_params": "{\"slidesToShow\":1,\"slidesToScroll\":1,\"dots\":true,\"arrows\":true,\"adaptiveHeight\":false,\"rtl\":false}",
+            "thumbnails_zoom_params": "{\"duration\":120,\"magnify\":1}"
+        };
+    </script>
+    <script src='/delicioz/wp-content/plugins/woo-smart-quick-view/assets/js/frontend.js?ver=3.1.2'
+            id='woosq-frontend-js'>
+    </script>
+    <script id='woosw-frontend-js-extra'>
+        var woosw_vars = {
+            "ajax_url": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php",
+            "menu_action": "open_page",
+            "perfect_scrollbar": "yes",
+            "wishlist_url": "https:\/\/demo2.themelexus.com\/delicioz\/wishlist\/",
+            "button_action": "list",
+            "message_position": "right-top",
+            "button_action_added": "popup",
+            "empty_confirm": "This action cannot be undone. Are you sure?",
+            "delete_confirm": "This action cannot be undone. Are you sure?",
+            "copied_text": "Copied the wishlist link:",
+            "menu_text": "Wishlist",
+            "button_text": "Add to wishlist",
+            "button_text_added": "Browse wishlist"
+        };
+    </script>
+    <script src='/delicioz/wp-content/plugins/woo-smart-wishlist/assets/js/frontend.js?ver=4.3.1'
+            id='woosw-frontend-js'>
+    </script>
+    <script id='delicioz-theme-js-extra'>
+        var deliciozAjax = {
+            "ajaxurl": "https:\/\/demo2.themelexus.com\/delicioz\/wp-admin\/admin-ajax.php"
+        };
+    </script>
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/main.js?ver=1.0.1'
+            id='delicioz-theme-js'></script>
+    <script src='/delicioz/wp-includes/js/imagesloaded.min.js?ver=4.1.4' id='imagesloaded-js'></script>
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/search-popup.js?ver=1.0.1'
             id='delicioz-search-popup-js'></script>
-        <script src='/delicioz/wp-includes/js/comment-reply.min.js?ver=6.0.2' id='comment-reply-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/text-editor.js?ver=1.0.1'
+    <script src='/delicioz/wp-includes/js/comment-reply.min.js?ver=6.0.2' id='comment-reply-js'></script>
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/text-editor.js?ver=1.0.1'
             id='delicioz-text-editor-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/nav-mobile.js?ver=1.0.1'
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/nav-mobile.js?ver=1.0.1'
             id='delicioz-nav-mobile-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/inc/megamenu/assets/js/frontend.js?ver=1.0.1'
+    <script src='/delicioz/wp-content/themes/delicioz/inc/megamenu/assets/js/frontend.js?ver=1.0.1'
             id='delicioz-megamenu-frontend-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/header-cart.min.js?ver=1.0.1'
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/header-cart.min.js?ver=1.0.1'
             id='delicioz-header-cart-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/tooltipster.bundle.js?ver=1.0.1' id='tooltipster-js'>
-        </script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/product-ajax-search.min.js?ver=1.0.1'
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/tooltipster.bundle.js?ver=1.0.1'
+            id='tooltipster-js'>
+    </script>
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/product-ajax-search.min.js?ver=1.0.1'
             id='delicioz-products-ajax-search-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/main.min.js?ver=1.0.1'
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/main.min.js?ver=1.0.1'
             id='delicioz-products-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/quantity.min.js?ver=1.0.1'
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/quantity.min.js?ver=1.0.1'
             id='delicioz-input-quantity-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/off-canvas.min.js?ver=1.0.1'
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/off-canvas.min.js?ver=1.0.1'
             id='delicioz-off-canvas-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/cart-canvas.min.js?ver=1.0.1'
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/cart-canvas.min.js?ver=1.0.1'
             id='delicioz-cart-canvas-js'></script>
-        <script id='delicioz-sticky-add-to-cart-js-extra'>
-            var delicioz_sticky_add_to_cart_params = {
-                "trigger_class": "entry-summary"
-            };
-        </script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/sticky-add-to-cart.min.js?ver=1.0.1'
+    <script id='delicioz-sticky-add-to-cart-js-extra'>
+        var delicioz_sticky_add_to_cart_params = {
+            "trigger_class": "entry-summary"
+        };
+    </script>
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/sticky-add-to-cart.min.js?ver=1.0.1'
             id='delicioz-sticky-add-to-cart-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/countdown.js?ver=1.0.1' id='delicioz-countdown-js'>
-        </script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/spritespin.js?ver=1.0.1' id='spritespin-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/jquery.sticky-kit.min.js?ver=1.0.1' id='sticky-kit-js'>
-        </script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/single.min.js?ver=1.0.1'
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/countdown.js?ver=1.0.1'
+            id='delicioz-countdown-js'>
+    </script>
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/spritespin.js?ver=1.0.1'
+            id='spritespin-js'></script>
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/jquery.sticky-kit.min.js?ver=1.0.1'
+            id='sticky-kit-js'>
+    </script>
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/woocommerce/single.min.js?ver=1.0.1'
             id='delicioz-single-product-js'></script>
-        <script src='/delicioz/wp-content/plugins/make-column-clickable-elementor/assets/js/make-column-clickable.js?ver=1.4.0'
-            id='make-column-clickable-elementor-js'></script>
-        <script defer src='/delicioz/wp-content/plugins/mailchimp-for-wp/assets/js/forms.js?ver=4.8.8' id='mc4wp-forms-api-js'>
-        </script>
-        <script src='/delicioz/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.7.3'
+    <script
+        src='/delicioz/wp-content/plugins/make-column-clickable-elementor/assets/js/make-column-clickable.js?ver=1.4.0'
+        id='make-column-clickable-elementor-js'></script>
+    <script defer src='/delicioz/wp-content/plugins/mailchimp-for-wp/assets/js/forms.js?ver=4.8.8'
+            id='mc4wp-forms-api-js'>
+    </script>
+    <script src='/delicioz/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.7.3'
             id='elementor-webpack-runtime-js'></script>
-        <script src='/delicioz/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.7.3'
+    <script src='/delicioz/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.7.3'
             id='elementor-frontend-modules-js'></script>
-        <script src='/delicioz/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2'
+    <script src='/delicioz/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2'
             id='elementor-waypoints-js'></script>
-        <script id='elementor-frontend-js-before'>
-            var elementorFrontendConfig = {
-                "environmentMode": {
-                    "edit": false,
-                    "wpPreview": false,
-                    "isScriptDebug": false
-                },
-                "i18n": {
-                    "shareOnFacebook": "Share on Facebook",
-                    "shareOnTwitter": "Share on Twitter",
-                    "pinIt": "Pin it",
-                    "download": "Download",
-                    "downloadImage": "Download image",
-                    "fullscreen": "Fullscreen",
-                    "zoom": "Zoom",
-                    "share": "Share",
-                    "playVideo": "Play Video",
-                    "previous": "Previous",
-                    "next": "Next",
-                    "close": "Close"
-                },
-                "is_rtl": false,
+    <script id='elementor-frontend-js-before'>
+        var elementorFrontendConfig = {
+            "environmentMode": {
+                "edit": false,
+                "wpPreview": false,
+                "isScriptDebug": false
+            },
+            "i18n": {
+                "shareOnFacebook": "Share on Facebook",
+                "shareOnTwitter": "Share on Twitter",
+                "pinIt": "Pin it",
+                "download": "Download",
+                "downloadImage": "Download image",
+                "fullscreen": "Fullscreen",
+                "zoom": "Zoom",
+                "share": "Share",
+                "playVideo": "Play Video",
+                "previous": "Previous",
+                "next": "Next",
+                "close": "Close"
+            },
+            "is_rtl": false,
+            "breakpoints": {
+                "xs": 0,
+                "sm": 480,
+                "md": 768,
+                "lg": 1025,
+                "xl": 1440,
+                "xxl": 1600
+            },
+            "responsive": {
                 "breakpoints": {
-                    "xs": 0,
-                    "sm": 480,
-                    "md": 768,
-                    "lg": 1025,
-                    "xl": 1440,
-                    "xxl": 1600
-                },
-                "responsive": {
-                    "breakpoints": {
-                        "mobile": {
-                            "label": "Mobile",
-                            "value": 767,
-                            "default_value": 767,
-                            "direction": "max",
-                            "is_enabled": true
-                        },
-                        "mobile_extra": {
-                            "label": "Mobile Extra",
-                            "value": 880,
-                            "default_value": 880,
-                            "direction": "max",
-                            "is_enabled": true
-                        },
-                        "tablet": {
-                            "label": "Tablet",
-                            "value": 1024,
-                            "default_value": 1024,
-                            "direction": "max",
-                            "is_enabled": true
-                        },
-                        "tablet_extra": {
-                            "label": "Tablet Extra",
-                            "value": 1200,
-                            "default_value": 1200,
-                            "direction": "max",
-                            "is_enabled": true
-                        },
-                        "laptop": {
-                            "label": "Laptop",
-                            "value": 1366,
-                            "default_value": 1366,
-                            "direction": "max",
-                            "is_enabled": true
-                        },
-                        "widescreen": {
-                            "label": "Widescreen",
-                            "value": 2400,
-                            "default_value": 2400,
-                            "direction": "min",
-                            "is_enabled": false
-                        }
+                    "mobile": {
+                        "label": "Mobile",
+                        "value": 767,
+                        "default_value": 767,
+                        "direction": "max",
+                        "is_enabled": true
+                    },
+                    "mobile_extra": {
+                        "label": "Mobile Extra",
+                        "value": 880,
+                        "default_value": 880,
+                        "direction": "max",
+                        "is_enabled": true
+                    },
+                    "tablet": {
+                        "label": "Tablet",
+                        "value": 1024,
+                        "default_value": 1024,
+                        "direction": "max",
+                        "is_enabled": true
+                    },
+                    "tablet_extra": {
+                        "label": "Tablet Extra",
+                        "value": 1200,
+                        "default_value": 1200,
+                        "direction": "max",
+                        "is_enabled": true
+                    },
+                    "laptop": {
+                        "label": "Laptop",
+                        "value": 1366,
+                        "default_value": 1366,
+                        "direction": "max",
+                        "is_enabled": true
+                    },
+                    "widescreen": {
+                        "label": "Widescreen",
+                        "value": 2400,
+                        "default_value": 2400,
+                        "direction": "min",
+                        "is_enabled": false
                     }
-                },
-                "version": "3.7.3",
-                "is_static": false,
-                "experimentalFeatures": {
-                    "e_dom_optimization": true,
-                    "e_optimized_assets_loading": true,
-                    "e_optimized_css_loading": true,
-                    "a11y_improvements": true,
-                    "additional_custom_breakpoints": true,
-                    "e_import_export": true,
-                    "e_hidden_wordpress_widgets": true,
-                    "landing-pages": true,
-                    "elements-color-picker": true,
-                    "favorite-widgets": true,
-                    "admin-top-bar": true
-                },
-                "urls": {
-                    "assets": "https:\/\/demo2.themelexus.com\/delicioz\/wp-content\/plugins\/elementor\/assets\/"
-                },
-                "settings": {
-                    "page": [],
-                    "editorPreferences": []
-                },
-                "kit": {
-                    "active_breakpoints": ["viewport_mobile", "viewport_mobile_extra", "viewport_tablet",
-                        "viewport_tablet_extra", "viewport_laptop"
-                    ],
-                    "body_background_background": "classic",
-                    "global_image_lightbox": "yes",
-                    "lightbox_enable_counter": "yes",
-                    "lightbox_enable_fullscreen": "yes",
-                    "lightbox_enable_zoom": "yes",
-                    "lightbox_enable_share": "yes",
-                    "lightbox_title_src": "title",
-                    "lightbox_description_src": "description"
-                },
-                "post": {
-                    "id": 474,
-                    "title": "Grilled%20Salmon%20%E2%80%93%20Delicioz",
-                    "excerpt": "Nisi et unde cupiditate nemo. Ea est non consequuntur omnis ut ut. In illum velit quo. Harum enim ex nam.",
-                    "featuredImage": "https:\/\/demo2.themelexus.com\/delicioz\/wp-content\/uploads\/2022\/07\/product-1-1.jpg"
-                },
-                "user": {
-                    "roles": ["customer"]
                 }
-            };
-        </script>
-        <script src='/delicioz/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.7.3' id='elementor-frontend-js'>
-        </script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/elementor-frontend.js?ver=1.0.1'
+            },
+            "version": "3.7.3",
+            "is_static": false,
+            "experimentalFeatures": {
+                "e_dom_optimization": true,
+                "e_optimized_assets_loading": true,
+                "e_optimized_css_loading": true,
+                "a11y_improvements": true,
+                "additional_custom_breakpoints": true,
+                "e_import_export": true,
+                "e_hidden_wordpress_widgets": true,
+                "landing-pages": true,
+                "elements-color-picker": true,
+                "favorite-widgets": true,
+                "admin-top-bar": true
+            },
+            "urls": {
+                "assets": "https:\/\/demo2.themelexus.com\/delicioz\/wp-content\/plugins\/elementor\/assets\/"
+            },
+            "settings": {
+                "page": [],
+                "editorPreferences": []
+            },
+            "kit": {
+                "active_breakpoints": ["viewport_mobile", "viewport_mobile_extra", "viewport_tablet",
+                    "viewport_tablet_extra", "viewport_laptop"
+                ],
+                "body_background_background": "classic",
+                "global_image_lightbox": "yes",
+                "lightbox_enable_counter": "yes",
+                "lightbox_enable_fullscreen": "yes",
+                "lightbox_enable_zoom": "yes",
+                "lightbox_enable_share": "yes",
+                "lightbox_title_src": "title",
+                "lightbox_description_src": "description"
+            },
+            "post": {
+                "id": 474,
+                "title": "Grilled%20Salmon%20%E2%80%93%20Delicioz",
+                "excerpt": "Nisi et unde cupiditate nemo. Ea est non consequuntur omnis ut ut. In illum velit quo. Harum enim ex nam.",
+                "featuredImage": "https:\/\/demo2.themelexus.com\/delicioz\/wp-content\/uploads\/2022\/07\/product-1-1.jpg"
+            },
+            "user": {
+                "roles": ["customer"]
+            }
+        };
+    </script>
+    <script src='/delicioz/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.7.3' id='elementor-frontend-js'>
+    </script>
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/elementor-frontend.js?ver=1.0.1'
             id='delicioz-elementor-frontend-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/jquery.sticky.js?ver=1.0.1'
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/frontend/jquery.sticky.js?ver=1.0.1'
             id='elementor-sticky-js'></script>
-        <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/sticky.js?ver=1.0.1' id='delicioz-elementor-sticky-js'>
-        </script>
+    <script src='/delicioz/wp-content/themes/delicioz/assets/js/libs/sticky.js?ver=1.0.1'
+            id='delicioz-elementor-sticky-js'>
+    </script>
     </body>
 
 </div>

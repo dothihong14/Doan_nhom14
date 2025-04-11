@@ -35,6 +35,11 @@ class Login extends Component
         } else {
             $credentials['phone'] = $this->email_or_phone; // Giả định bạn có trường phone trong model User
         }
+        $customer = Customer::where('email', $this->email_or_phone)->first();
+        if(empty($customer)) {
+            $this->dispatch('showToastr', ['type' => 'error', 'message' => 'Tài khoản không tồn tại!']);
+            return;
+        }
         if (Customer::where('email', $this->email_or_phone)->first()->is_locked == 1) {
             session()->flash('error', 'Tài khoản đã bị khóa.');
             return;
