@@ -41,7 +41,7 @@ class ReservationResource extends Resource
                             ->label('Tên'),
                         Forms\Components\TextInput::make('phone')
                             ->tel()
-                            ->numeric()
+                            ->inputMode('numeric')
                             ->required()
                             ->maxLength(255)
                             ->label('Số điện thoại')

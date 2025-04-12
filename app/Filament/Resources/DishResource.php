@@ -59,11 +59,11 @@ class DishResource extends Resource
                                     ->required()
                                     ->maxLength(255)
                                     ->columnSpanFull(),
-                                Forms\Components\TextInput::make('sold_quantity')
-                                    ->label('Số lượng đã bán')
-                                    ->required()
-                                    ->numeric()
-                                    ->columnSpanFull(),
+//                                Forms\Components\TextInput::make('sold_quantity')
+//                                    ->label('Số lượng đã bán')
+//                                    ->required()
+//                                    ->numeric()
+//                                    ->columnSpanFull(),
                                 Forms\Components\Select::make('status')
                                     ->label('Trạng thái')
                                     ->options([
@@ -101,7 +101,7 @@ class DishResource extends Resource
                                             ->required()
                                             ->columnSpanFull(),
                                         Forms\Components\TextInput::make('quantity')
-                                            ->label('Số lượng')
+                                            ->label('Khối lượng')
                                             ->required()
                                             ->numeric()
                                             ->columnSpanFull(),
@@ -109,25 +109,25 @@ class DishResource extends Resource
                                     ->createItemButtonLabel('Thêm nguyên liệu')
                                     ->columnSpanFull(),
                             ]),
-                            Forms\Components\Tabs\Tab::make('Trạng thái món ăn')
-                            ->schema([
-                                Forms\Components\TextInput::make('daily_sold_quantity')
-                                    ->label('Số lượng có thể bán trong ngày')
-                                    ->required()
-                                    ->default(0)
-                                    ->minValue(0)
-                                    ->numeric()
-                                    ->columnSpanFull(),
-                                Forms\Components\Select::make('status')
-                                    ->label('Trạng thái')
-                                    ->options([
-                                        'available' => 'Có sẵn',
-                                        'unavailable' => 'Không có sẵn',
-                                    ])
-                                    ->default('available')
-                                    ->required()
-                                    ->columnSpanFull(),
-                            ]),
+//                            Forms\Components\Tabs\Tab::make('Trạng thái món ăn')
+//                            ->schema([
+//                                Forms\Components\TextInput::make('daily_sold_quantity')
+//                                    ->label('Số lượng có thể bán trong ngày')
+//                                    ->required()
+//                                    ->default(0)
+//                                    ->minValue(0)
+//                                    ->numeric()
+//                                    ->columnSpanFull(),
+//                                Forms\Components\Select::make('status')
+//                                    ->label('Trạng thái')
+//                                    ->options([
+//                                        'available' => 'Có sẵn',
+//                                        'unavailable' => 'Không có sẵn',
+//                                    ])
+//                                    ->default('available')
+//                                    ->required()
+//                                    ->columnSpanFull(),
+//                            ]),
 
                     ])
                     ->columnSpanFull(), // Đặt chiều rộng cho toàn bộ tab

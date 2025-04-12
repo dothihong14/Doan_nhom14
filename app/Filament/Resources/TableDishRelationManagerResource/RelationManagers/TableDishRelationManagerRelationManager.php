@@ -36,6 +36,15 @@ class TableDishRelationManagerRelationManager extends RelationManager
                 ->default(1)
                 ->minValue(1)
                 ->label('Số lượng'),
+            Forms\Components\Select::make('type')
+                ->label('Loại')
+                ->options([
+                    'dine_in' => 'Trực tiếp',
+                    'take_away' => 'Mang về',
+                ])
+                ->default('dine_in')
+                ->reactive()
+                ->required(),
             Forms\Components\Select::make('status')
                 ->options([
                     'pending' => 'Chưa làm',
@@ -56,7 +65,18 @@ class TableDishRelationManagerRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('dish.name')->label('Món ăn'),
                 Tables\Columns\TextColumn::make('quantity')->label('Số lượng'),
-                Tables\Columns\TextColumn::make('created_at')->label('Thời gian phục vụ')->dateTime(),
+                Tables\Columns\TextColumn::make('type')
+                    ->label('Loại')
+                    ->formatStateUsing(function ($state) {
+                        return match ($state) {
+                            'delivery' => 'Trực tuyến',
+                            'dine_in' => 'Trực tiếp',
+                            'take_away' => 'Mang về',
+                            default => 'Không xác định',
+                        };
+                    }),
+
+//                Tables\Columns\TextColumn::make('created_at')->label('Thời gian phục vụ')->dateTime(),
                 Tables\Columns\SelectColumn::make('status')->label('Trạng thái')
                     ->options([
                         'pending' => 'Chưa làm',

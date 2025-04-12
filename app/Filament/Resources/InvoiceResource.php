@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 use App\Models\Dish;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Filament\Forms\Components\Tabs;
 use Illuminate\Support\Facades\Storage;
@@ -30,7 +31,7 @@ class InvoiceResource extends Resource
 
     public static function getPluralModelLabel(): string
     {
-        return 'Danh sách hóa đơn';
+        return 'Danh sách đơn hàng trực tuyến';
     }
     protected static ?int $navigationSort = 2;
 
@@ -61,6 +62,10 @@ class InvoiceResource extends Resource
                                     ->options(Restaurant::all()->pluck('name', 'id'))
                                     ->required()
                                     ->visible(fn () => !auth()->user()->restaurant_id),
+
+                            Forms\Components\Select::make('user_id')
+                                ->label('Khách hàng')
+                                ->options(User::all()->pluck('name', 'id')),
 
                                 Forms\Components\Select::make('status')
                                     ->label('Trạng thái')
@@ -112,6 +117,7 @@ class InvoiceResource extends Resource
                                             ->numeric()
                                             ->suffix('VNĐ')
                                             ->required()
+                                            ->disabled()
                                          , // Description
 
                                         Forms\Components\TextInput::make('total_price')
@@ -124,6 +130,7 @@ class InvoiceResource extends Resource
                                             ->afterStateUpdated(function ($state, callable $set, $get) {
                                                 $set('total_price', $get('quantity') * $get('unit_price')); // Calculate total price
                                             })
+                                            ->disabled()
                                           , // Description
                                     ])->columns(4),
                             ]),
@@ -136,6 +143,12 @@ class InvoiceResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('invoice_code')->label('Mã hóa đơn')->searchable(),
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('Khách hàng')
+                    ->searchable()
+                    ->formatStateUsing(function ($state, $record) {
+                        return $record->user ? $state : 'Vãng lai';
+                    }),
                 Tables\Columns\TextColumn::make('restaurant.name')->label('Cơ sở')->searchable()->sortable()->visible(fn () => !auth()->user()->restaurant_id),
                 Tables\Columns\TextColumn::make('total_amount')->label('Tổng tiền')->numeric()->money('VND'),
                 Tables\Columns\TextColumn::make('status')->label('Trạng thái')->badge()->formatStateUsing(function ($state) {
