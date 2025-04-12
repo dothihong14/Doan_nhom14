@@ -32,10 +32,11 @@ class TableDishResource extends Resource
                     Forms\Components\Select::make('type')
                         ->label('Loại')
                         ->options([
-                            'online' => 'Trực tuyến',
-                            'face_to_face' => 'Trực tiếp',
+                            'delivery' => 'Trực tuyến',
+                            'dine_in' => 'Trực tiếp',
+                            'take_away' => 'Mang đi',
                         ])
-                        ->default('face_to_face')
+                        ->default('dine_in')
                         ->reactive()
                         ->required()
                         ->afterStateUpdated(function (callable $set, $state) {
@@ -46,9 +47,9 @@ class TableDishResource extends Resource
                     Forms\Components\Select::make('table_id')
                         ->options(\App\Models\Table::all()->pluck('table_code', 'id'))
                         ->label('Bàn')
-                        ->required(fn (callable $get) => $get('type') === 'face_to_face')
-                        ->hidden(fn (callable $get) => $get('type') === 'online')
-                        ->dehydrated(fn (callable $get) => $get('type') === 'face_to_face'),
+                        ->required(fn (callable $get) => $get('type') === 'dine_in')
+                        ->hidden(fn (callable $get) => $get('type') === 'delivery')
+                        ->dehydrated(fn (callable $get) => $get('type') === 'dine_in'),
                     Forms\Components\Select::make('dish_id')
                         ->options(\App\Models\Dish::all()->pluck('name', 'id'))
                         ->label('Món ăn')

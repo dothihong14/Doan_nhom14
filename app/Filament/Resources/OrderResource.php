@@ -21,7 +21,7 @@ class OrderResource extends Resource
     protected static ?string $model = Order::class;
     public static function getPluralModelLabel(): string
     {
-        return 'Danh sách đơn hàng';
+        return 'Danh sách đơn hàng trực tuyến';
     }
     protected static ?string $navigationGroup = 'Quản lý Hóa đơn';
 
@@ -49,8 +49,15 @@ class OrderResource extends Resource
                             ->required()
                             ->label('Email'),
                         Forms\Components\TextInput::make('phone')
+                            ->tel()
+                            ->numeric()
                             ->required()
-                            ->label('Số điện thoại'),
+                            ->maxLength(255)
+                            ->label('Số điện thoại')
+                            ->regex('/^0(3[2-9]|5[6|8|9]|7[0|6-9]|8[1-9]|9[0-9])[0-9]{7}$/')
+                            ->validationMessages([
+                                'regex' => 'Số điện thoại không đúng định dạng Việt Nam (ví dụ: 0912345678).',
+                            ]),
                         Forms\Components\TextInput::make('address')
                             ->required()
                             ->label('Địa chỉ giao hàng'),

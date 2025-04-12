@@ -43,9 +43,15 @@ class CustomerResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('phone')
-                    ->label('Số điện thoại')
+                    ->tel()
+                    ->inputMode('numeric')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->label('Số điện thoại')
+                    ->regex('/^0(3[2-9]|5[6|8|9]|7[0|6-9]|8[1-9]|9[0-9])[0-9]{7}$/')
+                    ->validationMessages([
+                        'regex' => 'Số điện thoại không đúng định dạng Việt Nam (ví dụ: 0912345678).',
+                    ]),
                 Forms\Components\Toggle::make('is_locked')
                     ->required()
                     ->label('Khoá tài khoản'),
@@ -53,6 +59,7 @@ class CustomerResource extends Resource
                     ->required()
                     ->numeric()
                     ->default(0)
+                    ->disabled()
                     ->label('Điểm thưởng'),
             ]);
     }

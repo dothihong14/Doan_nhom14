@@ -10,10 +10,10 @@ class EditTable extends EditRecord
 {
     protected static string $resource = TableResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
-    }
+//    protected function getHeaderActions(): array
+//    {
+//        return [
+//            Actions\DeleteAction::make(),
+//        ];
+//    }
 }
