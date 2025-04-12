@@ -1234,7 +1234,7 @@
                                         <div class="posted-on"><a
 
                                                 rel="bookmark">{{ $promotion->created_at->format('d/m/Y') }}</a></div>
-                                        <h1 class="alpha entry-title" style="color: black;">{{ $promotion->title }}</h1>
+                                        <h1 class="alpha entry-title" style="color: black; font-family: 'Times New Roman'">{{ $promotion->title }}</h1>
 
                                     </header><!-- .entry-header -->
                                     <div class="post-thumbnail"><img width="1000" height="510"
@@ -1242,7 +1242,7 @@
                                             width: 100%;
                                         " class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" />
                                     </div>
-                                    <div class="entry-content" style="color: black;"> {!! $promotion->description !!}</div><!-- .entry-content -->
+                                    <div class="entry-content" style="color: black; font-family: 'Times New Roman'"> {!! $promotion->description !!}</div><!-- .entry-content -->
                                 </div>
 
                             </article><!-- #post-## -->
@@ -1349,18 +1349,13 @@
                                                             <div class="elementor-image-box-content">
                                                                 <div class="icon"></div>
                                                                 <h3 class="elementor-image-box-title"><a
-                                                                        href="/reservation/" style="color: black;">About
-                                                                        Our Restaurant</a></h3>
-                                                                <p class="elementor-image-box-description" style="color: black;">By day,
-                                                                    Delicioz provides a hub to meet friends and
-                                                                    colleagues with a well-crafted wine list, discreet
-                                                                    yet professional service and sophisticated menus all
-                                                                    delivered in a relaxed setting.</p>
+                                                                        href="/reservation/" style="color: black; font-family: 'Times New Roman'">Me Me Bistro</a></h3>
+                                                                <p class="elementor-image-box-description" style="color: black;">"Modern Thai food, Bangkok living, with cocktails around-the-clock."</p>
                                                                 <div class="elementor-image-box-button-wrapper"><a
                                                                         href="/reservation/"
                                                                         class="elementor-image-box-button"><span
                                                                             class="elementor-image-box-button-text">
-                                                                            Book a table</span></a></div>
+                                                                            Đặt bàn</span></a></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1374,7 +1369,7 @@
 
 
                         <div id="recent-posts-2" class="widget widget_recent_entries"> <span
-                                class="gamma widget-title" style="color: black;">Latest Post</span>
+                                class="gamma widget-title" style="color: black; font-family: 'Times New Roman'">Bài viết mới nhất</span>
                             <div class="widget-content">
                                 <ul>
                                     @foreach ($promotions as $promotion)
@@ -1391,7 +1386,7 @@
                                         <div class="recent-posts-info">
                                             <span class="post-date" style="color: black;">{{ $promotion->created_at->format('d/m/Y') }}</span>
                                             <h4 class="post-title"><a
-                                                    href="/promotion/{{ $promotion->slug }}" style="color: black;">{{ Str::limit($promotion->title, 100) }}</a></h4>
+                                                    href="/promotion/{{ $promotion->slug }}" style="color: black;font-family: 'Times New Roman'">{{ Str::limit($promotion->title, 100) }}</a></h4>
                                         </div>
 
                                     </li>

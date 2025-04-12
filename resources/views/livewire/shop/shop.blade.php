@@ -27,21 +27,22 @@
                                     <div class="product-transition"><img width="300" height="300"
                                             src="{{ Storage::url($dish->image) }}"
                                             class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt=""
-                                            loading="lazy" sizes="(max-width: 300px) 100vw, 300px" />
+                                        z    loading="lazy" sizes="(max-width: 300px) 100vw, 300px" />
 
                                         <a href="/product/{{ $dish->slug }}"
                                             class="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
                                     </div>
                                     <div class="product-caption" style="padding-bottom: 20px !important;">
-                                        <h3 class="woocommerce-loop-product__title"><a
-                                                href="/product/{{ $dish->slug }}" style="text-align: center; display: block;">{{ $dish->name }}</a></h3>
+                                        <h3 class="woocommerce-loop-product__title" style="font-family: 'Times New Roman'">
+                                            <a href="/product/{{ $dish->slug }}" style="text-align: center; display: block;">{{ Str::limit($dish->name, 26, '...') }}</a>
+                                        </h3>
                                         {{-- <div class="count-review">
                                             <div class="star-rating" role="img" aria-label="Rated 4.75 out of 5"><span
                                                     style="width:95%">Rated
                                                     <strong class="rating">4.75</strong> out of 5</span></div>
                                             <span></span>
                                         </div> --}}
-                                        <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span
+                                        <span class="price"><span class="woocommerce-Price-amount amount" style="font-family: 'Times New Roman'"><bdi><span
                                                         class="woocommerce-Price-currencySymbol"></span>{{ number_format($dish->price, 0, ',', '.') }}
                                                     VNĐ</bdi></span></span>
                                         <div class="elementor-menu-list-button">
@@ -91,11 +92,15 @@
         </div><!-- #primary -->
         <div id="secondary" class="widget-area" role="complementary">
             <div id="woocommerce_product_categories-2" class="widget woocommerce widget_product_categories">
-                <span class="gamma widget-title" style="color: black;">Danh mục món ăn</span>
+                <span class="gamma widget-title" style="color: black; font-family: 'Times New Roman'">Danh mục món ăn</span>
                 <div class="widget-content">
                     <ul class="product-categories">
+                        <li class="cat-item cat-item-42"><a
+                                onclick="window.location.href='/shop'" style="color: black; cursor: pointer">Tất cả</a>
+                            <span class="count" style="color: black;">({{ $dishCount }})</span>
+                        </li>
                         @foreach ($categories as $category)
-                            <li class="cat-item cat-item-42"><a
+                            <li class="cat-item cat-item-42" style="cursor:pointer;"><a
                                     onclick="window.location.href='/shop?category={{ $category->id }}'" style="color: black;">{{ $category->name }}</a>
                                 <span class="count" style="color: black;">({{ $category->dishes_count }})</span>
                             </li>
@@ -120,7 +125,7 @@
             </div> --}}
 
             <div id="woocommerce_products-2" class="widget woocommerce widget_products"><span
-                    class="gamma widget-title " style="color: black;">Best Seller</span>
+                    class="gamma widget-title " style="color: black; font-family: 'Times New Roman'">Bán chạy</span>
                 <div class="widget-content">
                     <ul class="product_list_widget">
                         @foreach ($topSellingDishes as $dish)
@@ -135,7 +140,7 @@
                                 </div>
 
                                 <div class="product-content">
-                                    <h3 class="woocommerce-loop-product__title" style="color: black;"><a
+                                    <h3 class="woocommerce-loop-product__title" style="color: black; font-family: 'Times New Roman'"><a
                                             href="/product/{{ $dish->slug }}" style="color: black;">{{ $dish->name }}</a></h3>
                                     {{-- <div class="count-review">
                                         <div class="star-rating" role="img" aria-label="Rated 4.50 out of 5"><span
@@ -143,7 +148,7 @@
                                                 <strong class="rating">4.50</strong> out of 5</span></div>
                                         <span></span>
                                     </div> --}}
-                                    <span class="price" style="color: black;"><span class="woocommerce-Price-amount amount"><bdi><span
+                                    <span class="price" style="color: black; font-family: 'Times New Roman'"><span class="woocommerce-Price-amount amount"><bdi><span
                                                     class="woocommerce-Price-currencySymbol"></span>{{ number_format($dish->price, 0, ',', '.') }}
                                                     VNĐ</bdi></span></span>
                                 </div>
@@ -156,50 +161,50 @@
                 </div>
             </div>
 
-            <div id="block-9" class="widget widget_block">
-                <div data-elementor-type="section" data-elementor-id="537" class="elementor elementor-537">
-                    <div class="elementor-section elementor-top-section elementor-element elementor-element-23c4c6e elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                        data-id="23c4c6e" data-element_type="section">
-                        <div class="elementor-container elementor-column-gap-no">
-                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b418e07"
-                                data-id="b418e07" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-f852d15 elementor-position-above elementor-cta--valign-top elementor-type-button-default elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-delicioz-banner"
-                                        data-id="f852d15" data-element_type="widget"
-                                        data-widget_type="delicioz-banner.default">
-                                        <div class="elementor-widget-container">
-                                            <a href="/delicioz/menu-list-01/"
-                                                class="elementor-cta--skin-cover elementor-cta elementor-delicioz-banner">
-                                                <div class="elementor-cta__bg-wrapper">
-                                                    <div class="elementor-cta__bg-overlay"></div>
-                                                    <div class="elementor-cta__bg elementor-bg"
-                                                        style="background-image: url(/delicioz/wp-content/uploads/2022/07/banner-sidebar.jpg);">
-                                                    </div>
-                                                </div>
-                                                <div class="elementor-cta__content">
-                                                    <div class="elementor-cta__content_inner">
-                                                        <div
-                                                            class="elementor-cta__subtitle elementor-cta__content-item elementor-content-item">
-                                                            <div>Special offers</div>
-                                                        </div>
+{{--            <div id="block-9" class="widget widget_block">--}}
+{{--                <div data-elementor-type="section" data-elementor-id="537" class="elementor elementor-537">--}}
+{{--                    <div class="elementor-section elementor-top-section elementor-element elementor-element-23c4c6e elementor-section-boxed elementor-section-height-default elementor-section-height-default"--}}
+{{--                        data-id="23c4c6e" data-element_type="section">--}}
+{{--                        <div class="elementor-container elementor-column-gap-no">--}}
+{{--                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b418e07"--}}
+{{--                                data-id="b418e07" data-element_type="column">--}}
+{{--                                <div class="elementor-widget-wrap elementor-element-populated">--}}
+{{--                                    <div class="elementor-element elementor-element-f852d15 elementor-position-above elementor-cta--valign-top elementor-type-button-default elementor-bg-transform elementor-bg-transform-zoom-in elementor-widget elementor-widget-delicioz-banner"--}}
+{{--                                        data-id="f852d15" data-element_type="widget"--}}
+{{--                                        data-widget_type="delicioz-banner.default">--}}
+{{--                                        <div class="elementor-widget-container">--}}
+{{--                                            <a href="/delicioz/menu-list-01/"--}}
+{{--                                                class="elementor-cta--skin-cover elementor-cta elementor-delicioz-banner">--}}
+{{--                                                <div class="elementor-cta__bg-wrapper">--}}
+{{--                                                    <div class="elementor-cta__bg-overlay"></div>--}}
+{{--                                                    <div class="elementor-cta__bg elementor-bg"--}}
+{{--                                                        style="background-image: url(/delicioz/wp-content/uploads/2022/07/banner-sidebar.jpg);">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="elementor-cta__content">--}}
+{{--                                                    <div class="elementor-cta__content_inner">--}}
+{{--                                                        <div--}}
+{{--                                                            class="elementor-cta__subtitle elementor-cta__content-item elementor-content-item">--}}
+{{--                                                            <div>Special offers</div>--}}
+{{--                                                        </div>--}}
 
-                                                        <h3
-                                                            class="elementor-cta__title elementor-cta__content-item elementor-content-item">
-                                                            Organic Cravings Menu </h3>
+{{--                                                        <h3--}}
+{{--                                                            class="elementor-cta__title elementor-cta__content-item elementor-content-item">--}}
+{{--                                                            Organic Cravings Menu </h3>--}}
 
 
 
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div><!-- #secondary -->
         <style>
             .delicioz-products.products.columns-3 img.attachment-woocommerce_thumbnail.size-woocommerce_thumbnail {

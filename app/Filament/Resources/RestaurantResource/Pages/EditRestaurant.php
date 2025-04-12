@@ -10,11 +10,11 @@ class EditRestaurant extends EditRecord
 {
     protected static string $resource = RestaurantResource::class;
     protected static ?string $title = 'Cập nhật cơ sở';
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make()
-            ->label('Xóa'),
-        ];
-    }
+//    protected function getHeaderActions(): array
+//    {
+//        return [
+//            Actions\DeleteAction::make()
+//            ->label('Xóa'),
+//        ];
+//    }
 }

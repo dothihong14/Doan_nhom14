@@ -94,8 +94,8 @@ class ContactResource extends Resource
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make()
                         ->label('Xem'), // Đổi nhãn sang tiếng Việt
-                    Tables\Actions\EditAction::make()
-                        ->label('Chỉnh Sửa'), // Đổi nhãn sang tiếng Việt
+//                    Tables\Actions\EditAction::make()
+//                        ->label('Chỉnh Sửa'), // Đổi nhãn sang tiếng Việt
                     Tables\Actions\DeleteAction::make()
                         ->label('Xóa'), // Đổi nhãn sang tiếng Việt
                 ])

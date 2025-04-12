@@ -6,6 +6,7 @@ use App\Filament\Resources\ReservationResource\Pages;
 use App\Filament\Resources\ReservationResource\RelationManagers;
 use App\Models\Reservation;
 use App\Models\Restaurant;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -22,7 +23,7 @@ class ReservationResource extends Resource
     protected static ?string $modelLabel = 'Lịch đặt bàn';
     public static function getPluralModelLabel(): string
     {
-        return 'Danh sách Lịch đặt bàn';
+        return 'Danh sách đặt bàn';
     }
     protected static ?string $navigationIcon = 'heroicon-o-calendar';
     protected static ?int $navigationSort = 1;
@@ -40,19 +41,27 @@ class ReservationResource extends Resource
                             ->label('Tên'),
                         Forms\Components\TextInput::make('phone')
                             ->tel()
+                            ->numeric()
                             ->required()
                             ->maxLength(255)
-                            ->label('Số điện thoại'),
-                    ]),
+                            ->label('Số điện thoại')
+                            ->regex('/^0(3[2-9]|5[6|8|9]|7[0|6-9]|8[1-9]|9[0-9])[0-9]{7}$/')
+                            ->validationMessages([
+                                'regex' => 'Số điện thoại không đúng định dạng Việt Nam (ví dụ: 0912345678).',
+                            ]),
+                    ])->columns(2),
 
                 Forms\Components\Section::make('Thông tin đặt chỗ')
                     ->schema([
-                        Forms\Components\TextInput::make('user_id')
-                            ->numeric()
-                            ->label('ID người dùng'),
+                        Forms\Components\Select::make('user_id')
+                            ->options(User::all()->pluck('name', 'id'))
+
+                            ->label('Tài khoản người dùng'),
                         Forms\Components\Select::make('restaurant_id')
                             ->options(Restaurant::all()->pluck('name', 'id'))
-                            ->label('Nhà hàng'),
+                            ->label('Cơ sở')
+                            ->required()
+                            ->visible(fn () => !auth()->user()->restaurant_id),
                         Forms\Components\TextInput::make('number_of_people')
                             ->required()
                             ->numeric()
@@ -70,7 +79,7 @@ class ReservationResource extends Resource
                             ->required()
                             ->maxLength(255)
                             ->label('Ghi chú'),
-                    ]),
+                    ])->columns(3),
 
                 Forms\Components\Section::make('Trạng thái')
                     ->schema([
@@ -82,6 +91,8 @@ class ReservationResource extends Resource
                                 'completed' => 'Đã hoàn thành',
                                 'cancelled' => 'Đã hủy',
                             ])
+                            ->default('confirmed')
+                            ->disabled()
                             ->label('Trạng thái'),
                     ]),
             ]);
@@ -90,9 +101,9 @@ class ReservationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('reservation_code')
-                    ->searchable()
-                    ->label('Mã đặt bàn'),
+//                Tables\Columns\TextColumn::make('reservation_code')
+//                    ->searchable()
+//                    ->label('Mã đặt bàn'),
                 Tables\Columns\TextColumn::make('name')
                     ->numeric()
                     ->searchable()
@@ -100,6 +111,7 @@ class ReservationResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('restaurant.name')
                     ->numeric()
+                    ->visible(fn () => !auth()->user()->restaurant_id)
                     ->searchable()
                     ->label('Tên nhà hàng')
                     ->sortable(),
@@ -163,6 +175,8 @@ class ReservationResource extends Resource
                     ])
                     ->placeholder('Chọn trạng thái'),
             ])
+            ->recordUrl(null)
+            ->recordAction('view')
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make()

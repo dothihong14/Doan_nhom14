@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Builder;
 
 class Invoice extends Model
 {
@@ -41,6 +42,15 @@ class Invoice extends Model
             } while (self::where('invoice_code', $code)->exists());
 
             $invoice->invoice_code = $code;
+        });
+    }
+
+    protected static function booted()
+    {
+        static::addGlobalScope('restaurant', function (Builder $builder) {
+            if (auth()->check() && auth()->user()->restaurant_id) {
+                $builder->where('restaurant_id', auth()->user()->restaurant_id);
+            }
         });
     }
 

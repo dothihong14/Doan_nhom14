@@ -40,6 +40,7 @@ class ReturnIngredientResource extends Resource
                         ->required()
                         ->reactive()
                         ->searchable()
+                        ->visible(fn () => !auth()->user()->restaurant_id)
                         ->afterStateUpdated(function (callable $get, callable $set) {
                             $details = $get('details') ?? [];
 
@@ -81,12 +82,15 @@ class ReturnIngredientResource extends Resource
                             Forms\Components\Select::make('ingredient_id')
                                 ->label('Nguyên liệu')
                                 ->options(function (callable $get) {
-                                    $restaurantId = $get('../../restaurant_id');
-                                    if (!$restaurantId) {
-                                        return [];
+                                    if (!auth()->user()->restaurant_id) {
+                                        $restaurantId = $get('../../restaurant_id');
+                                        if (!$restaurantId) {
+                                            return [];
+                                        }
+                                        return \App\Models\Ingredient::where('restaurant_id', $restaurantId)
+                                            ->pluck('name', 'id');
                                     }
-                                    return \App\Models\Ingredient::where('restaurant_id', $restaurantId)
-                                        ->pluck('name', 'id');
+                                    return \App\Models\Ingredient::all()->pluck('name', 'id');
                                 })
                                 ->required()
                                 ->searchable()
@@ -120,7 +124,11 @@ class ReturnIngredientResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->label('ID')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('restaurant.name')
+                    ->visible(fn () => !auth()->user()->restaurant_id)
                     ->label('Cơ sở')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('return_date')

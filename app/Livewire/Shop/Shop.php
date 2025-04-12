@@ -40,7 +40,7 @@ class Shop extends Component
     public function addToCart($id)
     {
         CartManagement::addItemToCart($id, 1);
-        return redirect('/cart');
+        $this->dispatch('showToastr', ['type' => 'success', 'message' => 'Sản phẩm đã được thêm vào giỏ hàng!']);
     }
     public function buyNow($id)
     {
@@ -66,10 +66,12 @@ class Shop extends Component
             ->paginate(9);
         $topSellingDishes = Dish::orderBy('sold_quantity', 'desc')->where('status', 'available')->take(4)->get();
         $categories = FoodCategory::withCount('dishes')->get();
+        $dishCount = Dish::count();
         return view('livewire.shop.shop', [
             'dishes' => $dishes,
             'categories' => $categories,
             'topSellingDishes' => $topSellingDishes,
+            'dishCount' => $dishCount,
         ]);
     }
 

@@ -107,6 +107,7 @@ class UserResource extends Resource
                     ->badge()
                     ->color('success'),
                 Tables\Columns\TextColumn::make('restaurant.name')
+                    ->visible(fn () => !auth()->user()->restaurant_id)
                     ->label('Cơ sở')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')

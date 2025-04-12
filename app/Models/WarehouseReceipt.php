@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class WarehouseReceipt extends Model
 {
@@ -18,5 +19,14 @@ class WarehouseReceipt extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'imported_by');
+    }
+
+    protected static function booted()
+    {
+        static::addGlobalScope('restaurant', function (Builder $builder) {
+            if (auth()->check() && auth()->user()->restaurant_id) {
+                $builder->where('restaurant_id', auth()->user()->restaurant_id);
+            }
+        });
     }
 }

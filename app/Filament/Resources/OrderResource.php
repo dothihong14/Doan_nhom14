@@ -58,7 +58,7 @@ class OrderResource extends Resource
                             ->options([
                                 'pending' => 'Đang chờ',
                                 'confirmed' => 'Đã xác nhận',
-                                'preparing' => 'Đang chuẩn bị',
+//                                'preparing' => 'Đang chuẩn bị',
                                 'on_the_way' => 'Đang giao hàng',
                                 'delivered' => 'Đã giao hàng',
                                 'canceled' => 'Đã hủy',
@@ -85,17 +85,18 @@ class OrderResource extends Resource
                             ])
                             ->required()
                             ->label('Trạng thái thanh toán'),
-                        Forms\Components\TextInput::make('address')
-                            ->label('Địa chỉ giao hàng')
-                            ->required(),
+//                        Forms\Components\TextInput::make('address')
+//                            ->label('Địa chỉ giao hàng')
+//                            ->required(),
 
                         Forms\Components\DateTimePicker::make('created_at')
                             ->label('Ngày đặt hàng')
                             ->default(now()),
-                            Forms\Components\Select::make('restaurant_id')
+                        Forms\Components\Select::make('restaurant_id')
                             ->relationship('restaurant', 'name')
                             ->required()
-                            ->label('Nhà hàng'),
+                            ->label('Nhà hàng')
+                            ->visible(fn () => !auth()->user()->restaurant_id),
 
                         Forms\Components\Textarea::make('notes')
                             ->label('Ghi chú')
@@ -125,7 +126,7 @@ class OrderResource extends Resource
                     ->options([
                         'pending' => 'Đang chờ',
                         'confirmed' => 'Đã xác nhận',
-                        'preparing' => 'Đang chuẩn bị',
+//                        'preparing' => 'Đang chuẩn bị',
                         'on_the_way' => 'Đang giao hàng',
                         'delivered' => 'Đã giao hàng',
                         'canceled' => 'Đã hủy',
@@ -138,12 +139,14 @@ class OrderResource extends Resource
                                     'dish_id' => $item->dish_id,
                                     'quantity' => $item->quantity,
                                     'status' => 'pending',
+                                    'order_code' => $item->order->order_code,
                                 ]);
                             }
                         }
                     })
                     ->label('Trạng thái'),
                 Tables\Columns\TextColumn::make('restaurant.name')
+                    ->visible(fn () => !auth()->user()->restaurant_id)
                     ->label('Cơ sở'),
                 Tables\Columns\TextColumn::make('total_amount')
                     ->numeric()

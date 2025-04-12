@@ -1189,10 +1189,10 @@
                                         data-id="f1766c2" data-element_type="widget"
                                         data-widget_type="woocommerce-breadcrumb.default">
                                         <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">Ưu đãi</div>
+                                            <div class="delicioz-woocommerce-title" style="font-family: 'Times New Roman'">Khuyến mãi</div>
                                             <nav class="woocommerce-breadcrumb"><a
                                                     href="/">Trang chủ</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i>Ưu đãi</nav>
+                                                    class="delicioz-icon-arrow-right-s-line"></i>Khuyến mãi</nav>
                                         </div>
                                     </div>
                                 </div>
@@ -1217,12 +1217,14 @@
                                         <div class="posted-on"><a
                                                 href="/promotion/{{ $promotion->slug }}"
                                                 rel="bookmark">{{ $promotion->created_at->format('d/m/Y') }}</a></div>
-                                        <div class="post-thumbnail"><img width="820" height="500"
-                                                src="{{ Storage::url($promotion->banner) }}"
-                                                class="attachment-delicioz-post-grid size-delicioz-post-grid wp-post-image"
-                                                alt="" /></div>
+                                        <a href="/promotion/{{ $promotion->slug }}">
+                                            <div class="post-thumbnail"><img width="820" height="500"
+                                                                             src="{{ Storage::url($promotion->banner) }}"
+                                                                             class="attachment-delicioz-post-grid size-delicioz-post-grid wp-post-image"
+                                                                             alt="" /></div>
+                                        </a>
                                         <div class="entry-content">
-                                            <h3 class="entry-title"><a
+                                            <h3 class="entry-title" style="font-family: 'Times New Roman';"><a
                                                     href="/promotion/{{ $promotion->slug }}"
                                                     rel="bookmark">{{ $promotion->title }}</a></h3>
                                         </div>
@@ -1245,9 +1247,9 @@
                                         @foreach ($promotions->getUrlRange(1, $promotions->lastPage()) as $page => $url)
                                             <li>
                                                 @if ($page == $promotions->currentPage())
-                                                    <span aria-current="page" class="page-numbers current">{{ $page }}</span>
+                                                    <span aria-current="page" class="page-numbers current" style="color: black;">{{ $page }}</span>
                                                 @else
-                                                    <a class="page-numbers" href="{{ $url }}">{{ $page }}</a>
+                                                    <a class="page-numbers" href="{{ $url }}" style="color: black;">{{ $page }}</a>
                                                 @endif
                                             </li>
                                         @endforeach

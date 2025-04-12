@@ -11,6 +11,16 @@
             }
         </style>
         <style>
+            input[type=number]::-webkit-inner-spin-button,
+            input[type=number]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Firefox */
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
             img.wp-smiley,
             img.emoji {
                 display: inline !important;
@@ -1190,9 +1200,9 @@
                                         data-id="901b06e" data-element_type="widget"
                                         data-widget_type="woocommerce-breadcrumb.default">
                                         <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">Đặt bàn online</div>
+                                            <div class="delicioz-woocommerce-title" style="font-family: 'Times New Roman'">Đặt bàn</div>
                                             <nav class="woocommerce-breadcrumb"><a href="/">Trang chủ</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i>Đặt bàn online</nav>
+                                                    class="delicioz-icon-arrow-right-s-line"></i>Đặt bàn</nav>
                                         </div>
                                     </div>
                                 </div>
@@ -1260,8 +1270,8 @@
                                                                     }
                                                                 </style>
                                                                 <h2 class="elementor-heading-title elementor-size-default"
-                                                                    style="color: black;">
-                                                                    Đặt bàn online</h2>
+                                                                    style="color: black;font-family: 'Times New Roman'; font-size: 50px">
+                                                                    Đặt bàn</h2>
                                                             </div>
                                                         </div>
                                                         <div class="elementor-element elementor-element-50c9855 elementor-widget elementor-widget-text-editor"
@@ -1321,7 +1331,6 @@
                                                                         display: inline-block
                                                                     }
                                                                 </style>
-                                                                <p style="color: black;">Đặt bàn online</p>
                                                             </div>
                                                         </div>
                                                         <div class="elementor-element elementor-element-e27bec2 contact-form-align-center contact-form-special-yes elementor-widget elementor-widget-delicioz-contactform"
@@ -1375,7 +1384,7 @@
                                                                             <div class="column-tablet-6 column-12">
                                                                                 <p><span
                                                                                         class="wpcf7-form-control-wrap"><input
-                                                                                            type="text" size="40"
+                                                                                            type="number" size="10"
                                                                                             wire:model="phone" style="
                                                                                             width: 100%;
                                                                                         " class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
@@ -1394,7 +1403,7 @@
                                                                                             wire:model="number_of_people"
                                                                                             type="number"
                                                                                             name="menu-498" min="1"
-                                                                                            max="20" required
+                                                                                            max="100" required
                                                                                             class="wpcf7-form-control wpcf7-date wpcf7-validates-as-required wpcf7-validates-as-date"
                                                                                             aria-required="true"
                                                                                             aria-invalid="false"
@@ -1450,8 +1459,8 @@
 
                                                                                 <p><span class="wpcf7-form-control-wrap"
                                                                                         data-name="your-message">
-                                                                                        <select name="" id=""
-                                                                                            wire:model="restaurant_id">
+                                                                                        <select name="" id="" wire:model="restaurant_id">
+                                                                                        <option value="">Lựa chọn cơ sở</option>>
                                                                                             @foreach ($restaurants as $restaurant)
                                                                                                 <option
                                                                                                     value="{{ $restaurant->id }}">
@@ -1495,200 +1504,6 @@
                                                                                 class="wpcf7-form-control has-spinner wpcf7-submit" />
                                                                         </div>
                                                                     </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="elementor-section elementor-top-section elementor-element elementor-element-c9ad437 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default"
-                                            data-id="c9ad437" data-element_type="section"
-                                            data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
-                                            <div class="elementor-container elementor-column-gap-no">
-                                                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-81472ad"
-                                                    data-id="81472ad" data-element_type="column">
-                                                    <div class="elementor-widget-wrap elementor-element-populated">
-                                                        <div class="elementor-element elementor-element-52e47d4 elementor-position-above content-effects-yes elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-image-box"
-                                                            data-id="52e47d4" data-element_type="widget"
-                                                            data-widget_type="image-box.default">
-                                                            <div class="elementor-widget-container">
-                                                                <style>
-                                                                    .elementor-widget-image-box .elementor-image-box-content {
-                                                                        width: 100%
-                                                                    }
-
-                                                                    @media (min-width:768px) {
-
-                                                                        .elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper,
-                                                                        .elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper {
-                                                                            display: -webkit-box;
-                                                                            display: -ms-flexbox;
-                                                                            display: flex
-                                                                        }
-
-                                                                        .elementor-widget-image-box.elementor-position-right .elementor-image-box-wrapper {
-                                                                            text-align: right;
-                                                                            -webkit-box-orient: horizontal;
-                                                                            -webkit-box-direction: reverse;
-                                                                            -ms-flex-direction: row-reverse;
-                                                                            flex-direction: row-reverse
-                                                                        }
-
-                                                                        .elementor-widget-image-box.elementor-position-left .elementor-image-box-wrapper {
-                                                                            text-align: left;
-                                                                            -webkit-box-orient: horizontal;
-                                                                            -webkit-box-direction: normal;
-                                                                            -ms-flex-direction: row;
-                                                                            flex-direction: row
-                                                                        }
-
-                                                                        .elementor-widget-image-box.elementor-position-top .elementor-image-box-img {
-                                                                            margin: auto
-                                                                        }
-
-                                                                        .elementor-widget-image-box.elementor-vertical-align-top .elementor-image-box-wrapper {
-                                                                            -webkit-box-align: start;
-                                                                            -ms-flex-align: start;
-                                                                            align-items: flex-start
-                                                                        }
-
-                                                                        .elementor-widget-image-box.elementor-vertical-align-middle .elementor-image-box-wrapper {
-                                                                            -webkit-box-align: center;
-                                                                            -ms-flex-align: center;
-                                                                            align-items: center
-                                                                        }
-
-                                                                        .elementor-widget-image-box.elementor-vertical-align-bottom .elementor-image-box-wrapper {
-                                                                            -webkit-box-align: end;
-                                                                            -ms-flex-align: end;
-                                                                            align-items: flex-end
-                                                                        }
-                                                                    }
-
-                                                                    @media (max-width:767px) {
-                                                                        .elementor-widget-image-box .elementor-image-box-img {
-                                                                            margin-left: auto !important;
-                                                                            margin-right: auto !important;
-                                                                            margin-bottom: 15px
-                                                                        }
-                                                                    }
-
-                                                                    .elementor-widget-image-box .elementor-image-box-img {
-                                                                        display: inline-block
-                                                                    }
-
-                                                                    .elementor-widget-image-box .elementor-image-box-title a {
-                                                                        color: inherit
-                                                                    }
-
-                                                                    .elementor-widget-image-box .elementor-image-box-wrapper {
-                                                                        text-align: center
-                                                                    }
-
-                                                                    .elementor-widget-image-box .elementor-image-box-description {
-                                                                        margin: 0
-                                                                    }
-                                                                </style>
-                                                                <div class="elementor-image-box-wrapper">
-                                                                    <figure class="elementor-image-box-img"><a
-                                                                            href="/delicioz/menu-list-01/"><img
-                                                                                width="640" height="370"
-                                                                                src="/delicioz/wp-content/uploads/2022/08/reservation01.jpg"
-                                                                                class="attachment-full size-full" alt=""
-                                                                                loading="lazy" /></a></figure>
-                                                                    <div class="elementor-image-box-content">
-                                                                        <div class="icon"><i aria-hidden="true"
-                                                                                class="delicioz-icon- delicioz-icon-wine"></i>
-                                                                        </div>
-                                                                        <h3 class="elementor-image-box-title"><a
-                                                                                href="/delicioz/menu-list-01/">Wine
-                                                                                List</a></h3>
-                                                                        <div class="elementor-image-box-sub-title">
-                                                                            Selection</div>
-                                                                        <p class="elementor-image-box-description">Wines
-                                                                            "On-Tap" & Bottles</p>
-                                                                        <div class="elementor-image-box-button-wrapper">
-                                                                            <a href="/delicioz/menu-list-01/"
-                                                                                class="elementor-image-box-button"><span
-                                                                                    class="elementor-image-box-button-text">
-                                                                                    Discover now</span></a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-bec447e"
-                                                    data-id="bec447e" data-element_type="column">
-                                                    <div class="elementor-widget-wrap elementor-element-populated">
-                                                        <div class="elementor-element elementor-element-b635a60 content-effects-yes elementor-position-top elementor-position-below elementor-vertical-align-top elementor-widget elementor-widget-image-box"
-                                                            data-id="b635a60" data-element_type="widget"
-                                                            data-widget_type="image-box.default">
-                                                            <div class="elementor-widget-container">
-                                                                <div class="elementor-image-box-wrapper">
-                                                                    <figure class="elementor-image-box-img"><a
-                                                                            href="/delicioz/menu-list-02/"><img
-                                                                                width="640" height="370"
-                                                                                src="/delicioz/wp-content/uploads/2022/08/reservation2.jpg"
-                                                                                class="attachment-full size-full" alt=""
-                                                                                loading="lazy" /></a></figure>
-                                                                    <div class="elementor-image-box-content">
-                                                                        <div class="icon"><i aria-hidden="true"
-                                                                                class="delicioz-icon- delicioz-icon-appetizers"></i>
-                                                                        </div>
-                                                                        <h3 class="elementor-image-box-title"><a
-                                                                                href="/delicioz/menu-list-02/">Appetizers</a>
-                                                                        </h3>
-                                                                        <div class="elementor-image-box-sub-title">
-                                                                            Selection</div>
-                                                                        <p class="elementor-image-box-description">
-                                                                            Shareable plates & Flatbreads</p>
-                                                                        <div class="elementor-image-box-button-wrapper">
-                                                                            <a href="/delicioz/menu-list-02/"
-                                                                                class="elementor-image-box-button"><span
-                                                                                    class="elementor-image-box-button-text">
-                                                                                    Discover now</span></a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-0ea4546"
-                                                    data-id="0ea4546" data-element_type="column">
-                                                    <div class="elementor-widget-wrap elementor-element-populated">
-                                                        <div class="elementor-element elementor-element-88f61b9 elementor-position-above content-effects-yes elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-image-box"
-                                                            data-id="88f61b9" data-element_type="widget"
-                                                            data-widget_type="image-box.default">
-                                                            <div class="elementor-widget-container">
-                                                                <div class="elementor-image-box-wrapper">
-                                                                    <figure class="elementor-image-box-img"><a
-                                                                            href="/promotion"><img width="640"
-                                                                                height="370"
-                                                                                src="/delicioz/wp-content/uploads/2022/08/reservation03.jpg"
-                                                                                class="attachment-full size-full" alt=""
-                                                                                loading="lazy" /></a></figure>
-                                                                    <div class="elementor-image-box-content">
-                                                                        <div class="icon"><i aria-hidden="true"
-                                                                                class="delicioz-icon- delicioz-icon-event"></i>
-                                                                        </div>
-                                                                        <h3 class="elementor-image-box-title"><a
-                                                                                href="/promotion">Upcoming</a>
-                                                                        </h3>
-                                                                        <div class="elementor-image-box-sub-title">
-                                                                            events</div>
-                                                                        <p class="elementor-image-box-description">Wine
-                                                                            tasting event coming soon</p>
-                                                                        <div class="elementor-image-box-button-wrapper">
-                                                                            <a href="/promotion"
-                                                                                class="elementor-image-box-button"><span
-                                                                                    class="elementor-image-box-button-text">
-                                                                                    Discover now</span></a>
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>

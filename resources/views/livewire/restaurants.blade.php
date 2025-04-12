@@ -1189,7 +1189,7 @@
                                         data-id="f1766c2" data-element_type="widget"
                                         data-widget_type="woocommerce-breadcrumb.default">
                                         <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">Danh sách cơ sở</div>
+                                            <div class="delicioz-woocommerce-title" style="font-family: 'Times New Roman'">Danh sách cơ sở</div>
                                             <nav class="woocommerce-breadcrumb"><a href="/">Trang chủ</a><i
                                                     class="delicioz-icon-arrow-right-s-line"></i>Danh sách cơ sở</nav>
                                         </div>
@@ -1221,7 +1221,7 @@
                                             <div class="entry-content">
 
                                                 <h3 class="entry-title" style="color: black;"><a href="/restaurant/{{ $restaurant->id }}"
-                                                        rel="bookmark" style="color: black;">{{ $restaurant->name }}</a></h3>
+                                                        rel="bookmark" style="color: black; font-family: 'Times New Roman'">{{ $restaurant->name }}</a></h3>
                                                 <div class="entry-meta">
                                                     <div class="categories-link"><span
                                                             class="screen-reader-text">Categories</span><a
@@ -1232,7 +1232,7 @@
 
                                                 <div class="more-link-wrap">
                                                     <a class="more-link" href="/restaurant/{{ $restaurant->id }}" style="color: black;">
-                                                        <span>Read More</span>
+                                                        <span>Xem thêm</span>
                                                     </a>
                                                 </div>
                                             </div>

@@ -37,6 +37,13 @@
                 font-size: 13px;
                 text-align: center
             }
+            .cart_totals h2,
+            table tr td div,
+            table tr td a,
+            table th,
+            table tr td span {
+                color: black !important;
+            }
 
             .is-dark-theme .wp-block-audio figcaption {
                 color: hsla(0, 0%, 100%, .65)
@@ -1227,7 +1234,7 @@
                     </section>
                 </div>
             </div>
-            <div id="content" class="site-content" tabindex="-1">
+            <div id="content" class="site-content" tabindex="-1" style="margin-bottom: 60px;margin-bottom: 0px;margin-top: 0px;background: white;padding-bottom: 60px;">
                 <div class="col-full">
 
                     <div class="woocommerce"></div>
@@ -1237,13 +1244,9 @@
                             <article id="post-10" class="post-10 page type-page status-publish hentry">
                                 <div class="entry-content">
                                     <div class="woocommerce">
-                                        <div class="woocommerce-notices-wrapper">
-                                            <ul class="woocommerce-error" style="background-color: green;" role="alert">
-                                                <li>
-                                                    <strong>Thông báo:</strong> Khi bạn đăng ký tài khoản - sẽ được tích điểm theo giá trị đơn hàng
-                                                    Để xem chi tiết cũng như trạng thái đơn hàng, bạn vui lòng đăng ký tài khoản bằng SĐT đã đặt đơn.
-                                                </li>
-                                            </ul>
+                                        <div class="woocommerce-notices-wrapper" style="color: green; padding: 50px 0; font-size: 20px">
+                                                    <strong>Thông báo:</strong> Khi bạn đăng ký tài khoản sẽ được tích điểm theo giá trị đơn hàng
+                                                    và xem chi tiết cũng như trạng thái đơn hàng
                                         </div>
                                         <form class="woocommerce-cart-form"
                                         >
@@ -1297,8 +1300,8 @@
                                                             <div class="quantity_wrap">
                                                                 <label class="quantity_label"
                                                                     for="quantity_67ce591b2fd08">Số lượng</label>
-                                                                    <div class="quantity buttons_added"><button type="button" class="minus" wire:click="decrement({{ $item['product_id'] }})"><i class="delicioz-icon-minus"></i></button>
-                                                                        <input type="number" id="quantity_67ce591b2fd08" class="input-text qty text" step="1" min="0" max="999"  value="{{ $item['quantity'] }}" title="Qty" placeholder="" inputmode="numeric"><button type="button" wire:click="increment({{ $item['product_id'] }})" class="plus"><i class="delicioz-icon-plus"></i></button>
+                                                                    <div class="quantity buttons_added"><button type="button" style="color: black" class="minus" wire:click="decrement({{ $item['product_id'] }})"><i class="delicioz-icon-minus"></i></button>
+                                                                        <input style="color: black" type="number" id="quantity_67ce591b2fd08" class="input-text qty text" step="1" min="0" max="999"  value="{{ $item['quantity'] }}" title="Qty" placeholder="" inputmode="numeric"><button type="button" style="color: black" wire:click="increment({{ $item['product_id'] }})" class="plus"><i class="delicioz-icon-plus"></i></button>
                                                                     </div>
                                                             </div>
                                                         </td>
@@ -1328,7 +1331,7 @@
                                             <div class="cart_totals ">
 
 
-                                                <h2>Tổng tiền</h2>
+                                                <h2 style="font-family: 'Times New Roman'">Tổng tiền</h2>
 
                                                 <table cellspacing="0" class="shop_table shop_table_responsive">
 

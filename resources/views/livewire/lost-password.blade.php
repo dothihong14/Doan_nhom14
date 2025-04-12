@@ -1191,34 +1191,7 @@
         </svg>
         <div id="page" class="hfeed site">
          @livewire('inc.header')
-
-            <div class="breadcrumb-wrap">
-                <div data-elementor-type="wp-post" data-elementor-id="101" class="elementor elementor-101">
-                    <section
-                        class="elementor-section elementor-top-section elementor-element elementor-element-4fdca72 elementor-section-content-middle elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                        data-id="4fdca72" data-element_type="section"
-                        data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
-                        <div class="elementor-background-overlay"></div>
-                        <div class="elementor-container elementor-column-gap-no">
-                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-617dbdb"
-                                data-id="617dbdb" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-901b06e hidden-delicioz-title-single-yes elementor-widget elementor-widget-woocommerce-breadcrumb"
-                                        data-id="901b06e" data-element_type="widget"
-                                        data-widget_type="woocommerce-breadcrumb.default">
-                                        <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">Quên mật khẩu</div>
-                                            <nav class="woocommerce-breadcrumb"><a href="/">Trang chủ</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i>Quên mật khẩu</nav>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <div id="content" class="site-content" tabindex="-1">
+            <div id="content" class="site-content" tabindex="-1" style="background: white; background: white; margin-bottom: 0;margin-top: 110px; padding-bottom: 60px">
                 <div class="col-full">
 
                     <div class="woocommerce"></div>
@@ -1226,27 +1199,28 @@
                         <main id="main" class="site-main">
 
                             <article id="post-12" class="post-12 page type-page status-publish hentry">
-                                <div class="entry-content">
+                                <div class="entry-content" style="display: flex; justify-content: center; padding-top: 40px">
                                     <div class="woocommerce">
+                                        <h2 class="register-form-title text-center" style="font-family: 'Manrope;'; color: black;">Quên mật khẩu</h2>
                                         <div class="woocommerce-notices-wrapper"></div>
                                         <form wire:submit.prevent="sendResetLink" class="woocommerce-ResetPassword lost_reset_password" style="
                                         display: flex;
                                         flex-direction: column;
                                     ">
-                                            <p>Quên mật khẩu? Vui lòng nhập email của bạn. Chúng tôi sẽ gửi một liên kết để đặt lại mật khẩu.</p>
+                                            <p style="color: black">Quên mật khẩu? Vui lòng nhập email của bạn. Chúng tôi sẽ gửi một liên kết để đặt lại mật khẩu.</p>
 
-                                            <p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
-                                                <label for="email">Nhập Email đăng ký</label>
-                                                <input class="woocommerce-Input woocommerce-Input--text input-text"
+                                            <p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first" style="width: 100% !important;">
+                                                <label style="color: black" for="email">Nhập Email đăng ký</label>
+                                                <input style="width: 100% !important;" class="woocommerce-Input woocommerce-Input--text input-text"
                                                        type="email" id="email" wire:model="email" required>
                                             </p>
 
                                             @error('email')
-                                                <span class="text-red-500">{{ $message }}</span>
+                                                <span style="color: red" class="text-red-500">{{ $message }}</span>
                                             @enderror
 
                                             <p class="woocommerce-form-row form-row">
-                                                <button type="submit" class="woocommerce-Button button">Gửi yêu cầu</button>
+                                                <button type="submit" style="color: black" class="woocommerce-Button button">Gửi yêu cầu</button>
                                             </p>
 
                                             @if(session()->has('success'))

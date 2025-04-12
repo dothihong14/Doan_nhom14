@@ -75,7 +75,7 @@ public $emailVerified = false;
     public function sendVerificationCode()
     {
         if (empty($this->email)) {
-            session()->flash('error', 'Vui lòng nhập email.');
+            $this->dispatch('showToastr', ['type' => 'error', 'message' => 'Vui lòng nhập email !']);
             return;
         }
 
@@ -93,7 +93,7 @@ public $emailVerified = false;
                 ->subject('Mã xác thực đặt hàng');
         });
 
-        session()->flash('message', 'Mã xác thực đã được gửi đến email của bạn.');
+        $this->dispatch('showToastr', ['type' => 'success', 'message' => 'Mã xác thực đã được gửi tới gmail của bạn!']);
     }
 
 
@@ -108,6 +108,10 @@ public $emailVerified = false;
         if (empty($this->address) || empty($this->name) || empty($this->phone) || empty($this->email)) {
             session()->flash('error', 'Vui lòng điền đầy đủ các trường bắt buộc.');
             return redirect('/checkout');
+        }
+        if (!preg_match('/^\d{10}$/', $this->phone)) {
+            session()->flash('error', 'Số điện thoại không hợp lệ. Vui lòng nhập đúng 10 chữ số.');
+            return;
         }
         if (empty($this->paymentMethod)) {
             session()->flash('error', 'Vui lòng chọn phương thức thanh toán.');

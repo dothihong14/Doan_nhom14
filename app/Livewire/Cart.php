@@ -38,7 +38,8 @@ class Cart extends Component
     public function remove($productId)
     {
         CartManagement::removeCartItem($productId);
-        $this->refreshCart();
+//        $this->refreshCart();
+        $this->redirect('/cart');
     }
 
     public function render()

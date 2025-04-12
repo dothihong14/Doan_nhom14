@@ -42,7 +42,8 @@ class DishResource extends Resource
                                     ->label('Cơ sở')
                                     ->options(Restaurant::all()->pluck('name', 'id'))
                                     ->required()
-                                    ->searchable(),
+                                    ->searchable()
+                                    ->visible(fn () => !auth()->user()->restaurant_id),
                                 Forms\Components\Select::make('food_category_id')
                                     ->relationship('food_category', 'name')
                                     ->label('Danh mục món ăn')
@@ -142,6 +143,7 @@ class DishResource extends Resource
                     ->label('Tên món ăn')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('restaurant.name')
+                    ->visible(fn () => !auth()->user()->restaurant_id)
                     ->label('Cơ sở')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('price')

@@ -26,7 +26,7 @@ class Product extends Component
     public function addToCart()
     {
         CartManagement::addItemToCart($this->product->id, $this->quantity);
-        return redirect('/cart');
+        $this->dispatch('showToastr', ['type' => 'success', 'message' => 'Sản phẩm đã được thêm vào giỏ hàng!']);
     }
     public function incrementQuantity()
     {
@@ -35,7 +35,7 @@ class Product extends Component
     public function addToCart_related($id)
     {
         CartManagement::addItemToCart($id, 1);
-        return redirect('/cart');
+//        return redirect('/cart');
     }
     public function decrementQuantity()
     {

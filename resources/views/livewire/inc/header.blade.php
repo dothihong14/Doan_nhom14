@@ -3,7 +3,9 @@
     <div data-elementor-type="wp-post" data-elementor-id="84" class="elementor elementor-84">
         <div class="elementor-section elementor-top-section elementor-element elementor-element-8482736 elementor-section-content-middle elementor-section-stretched header-absolute elementor-section-boxed elementor-section-height-default elementor-section-height-default"
             data-id="8482736" data-element_type="section"
-            data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+            data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}"
+            style="position: fixed !important; background-color: #021d2a !important;"
+            >
             <div class="elementor-container elementor-column-gap-no">
                 <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-e890c86"
                     data-id="e890c86" data-element_type="column"
@@ -52,12 +54,12 @@
                                                 </li>
                                                 <li id="menu-item-75"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75">
-                                                    <a href="/promotion"><span class="menu-title">ƯU ĐÃI</span></a>
+                                                    <a href="/promotion"><span class="menu-title">KHUYẾN MÃI</span></a>
                                                 </li>
-                                                <li id="menu-item-75"
-                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75">
-                                                    <a href="/reservation"><span class="menu-title">ĐẶT BÀN</span></a>
-                                                </li>
+{{--                                                <li id="menu-item-75"--}}
+{{--                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75">--}}
+{{--                                                    <a href="/reservation"><span class="menu-title">ĐẶT BÀN</span></a>--}}
+{{--                                                </li>--}}
                                                 <li id="menu-item-75"
                                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75">
                                                     <a href="/contact"><span class="menu-title">LIÊN HỆ</span></a>

@@ -7,6 +7,10 @@
             }
         </style>
         <style>
+            .wpcf7-textarea::placeholder {
+                color: #999;
+            }
+
             img.wp-smiley,
             img.emoji {
                 display: inline !important;
@@ -1209,7 +1213,7 @@
                                         data-id="901b06e" data-element_type="widget"
                                         data-widget_type="woocommerce-breadcrumb.default">
                                         <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">Liên hệ</div>
+                                            <div class="delicioz-woocommerce-title" style="font-family: 'Times New Roman'">Liên hệ</div>
                                             <nav class="woocommerce-breadcrumb"><a
                                                     href="/">Trang chủ</a><i
                                                     class="delicioz-icon-arrow-right-s-line"></i>Liên hệ</nav>
@@ -1278,7 +1282,7 @@
                                                                     }
                                                                 </style>
                                                                 <h2
-                                                                    class="elementor-heading-title elementor-size-default" style="color: black;">
+                                                                    class="elementor-heading-title elementor-size-default" style="color: black; font-family: 'Times New Roman'">
                                                                    Bạn có câu hỏi gì không?</h2>
                                                             </div>
                                                         </div>
@@ -1429,7 +1433,7 @@
                                                 <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-d738cd4"
                                                     data-id="d738cd4" data-element_type="column"
                                                     data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-                                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                                    <div class="elementor-widget-wrap elementor-element-populated" style="background-color: #02486B">
                                                         <div class="elementor-element elementor-element-8aec94c elementor-view-default elementor-widget elementor-widget-icon"
                                                             data-id="8aec94c" data-element_type="widget"
                                                             data-widget_type="icon.default">
@@ -1447,8 +1451,8 @@
                                                             data-widget_type="heading.default">
                                                             <div class="elementor-widget-container">
                                                                 <h2
-                                                                    class="elementor-heading-title elementor-size-default">
-                                                                    Đến Me Me Bistore <br>
+                                                                    class="elementor-heading-title elementor-size-default" style="font-family: 'Times New Roman'">
+                                                                    Me Me Bistro <br>
                                                                     </h2>
                                                             </div>
                                                         </div>
@@ -1485,8 +1489,8 @@
                                                         <div class="elementor-element elementor-element-f3a04f7 elementor-widget elementor-widget-text-editor"
                                                             data-id="f3a04f7" data-element_type="widget"
                                                             data-widget_type="text-editor.default">
-                                                            <div class="elementor-widget-container">
-                                                                Đặt hàng </div>
+                                                            <div class="elementor-widget-container" style="font-family: 'Times New Roman'; font-size: 18px">
+                                                                Số điện thoại </div>
                                                         </div>
                                                         <div class="elementor-element elementor-element-423ea65 elementor-widget elementor-widget-heading"
                                                             data-id="423ea65" data-element_type="widget"
@@ -1501,7 +1505,7 @@
                                                             data-id="34128c7" data-element_type="widget"
                                                             data-widget_type="heading.default">
                                                             <div class="elementor-widget-container">
-                                                                <h2
+                                                                <h2 style="font-family: 'Times New Roman'; font-size: 18px"
                                                                     class="elementor-heading-title elementor-size-default">
                                                                     Địa chỉ</h2>
                                                             </div>
@@ -1510,8 +1514,8 @@
                                                             data-id="38bda7b" data-element_type="widget"
                                                             data-widget_type="text-editor.default">
                                                             <div class="elementor-widget-container">
-                                                                Me Me Bistore,
-                                                                71 Madison Ave, New York, USA </div>
+                                                                51A Mai Hắc Đế, Hai Bà Trưng
+                                                                34T Hoàng Đạo Thuý, Cầu Giấy</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1533,11 +1537,12 @@
                                                                     }
                                                                 </style>
                                                                 <div class="elementor-custom-embed">
-                                                                    <iframe frameborder="0" scrolling="no"
-                                                                        marginheight="0" marginwidth="0"
-                                                                        src="https://maps.google.com/maps?q=London%20Eye%2C%20London%2C%20United%20Kingdom&#038;t=m&#038;z=10&#038;output=embed&#038;iwloc=near"
-                                                                        title="London Eye, London, United Kingdom"
-                                                                        aria-label="London Eye, London, United Kingdom"></iframe>
+                                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4505.22392209386!2d105.84847907591022!3d21.014762588257923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab446be04bb1%3A0x7182a61ef70c4fa7!2zTWUgTWUgQmlzdHJvIE1haSBI4bqvYyDEkOG6vw!5e1!3m2!1svi!2s!4v1744395915380!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+{{--                                                                    <iframe frameborder="0" scrolling="no"--}}
+{{--                                                                        marginheight="0" marginwidth="0"--}}
+{{--                                                                        src="https://maps.google.com/maps?q=London%20Eye%2C%20London%2C%20United%20Kingdom&#038;t=m&#038;z=10&#038;output=embed&#038;iwloc=near"--}}
+{{--                                                                        title="London Eye, London, United Kingdom"--}}
+{{--                                                                        aria-label="London Eye, London, United Kingdom"></iframe>--}}
                                                                 </div>
                                                             </div>
                                                         </div>
