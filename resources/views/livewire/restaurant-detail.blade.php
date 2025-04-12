@@ -1210,7 +1210,7 @@
                                             <nav class="woocommerce-breadcrumb"><a
                                                     href="/">Trang chủ</a><i
                                                     class="delicioz-icon-arrow-right-s-line"></i><a
-                                                    href="/restaurant">Restaurant</a><i class="delicioz-icon-arrow-right-s-line"></i>{{ $restaurant->name }}</nav>
+                                                    href="/restaurant">Cơ sở</a><i class="delicioz-icon-arrow-right-s-line"></i>{{ $restaurant->name }}</nav>
                                         </div>
                                     </div>
                                 </div>
@@ -1345,17 +1345,16 @@
                                                             <div class="elementor-image-box-content">
                                                                 <div class="icon"></div>
                                                                 <h3 class="elementor-image-box-title"><a
-                                                                        href="/reservation/" style="color: black;">About
-                                                                        Our Restaurant</a></h3>
+                                                                        href="/reservation/" style="color: black;">Cơ sở</a></h3>
                                                                 <p class="elementor-image-box-description" style="color: black;">
-                                                                    Email: {{ $restaurant->email }} <br>
+{{--                                                                    Email: {{ $restaurant->email }} <br>--}}
                                                                     Phone: {{ $restaurant->phone }} <br>
                                                                 </p>
                                                                 <div class="elementor-image-box-button-wrapper"><a
                                                                         href="/reservation/"
                                                                         class="elementor-image-box-button" style="color: black;"><span
                                                                             class="elementor-image-box-button-text">
-                                                                            Book a table</span></a></div>
+                                                                            Đặt bàn</span></a></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1369,13 +1368,13 @@
 
 
                         <div id="recent-posts-2" class="widget widget_recent_entries"> <span
-                                class="gamma widget-title" style="color: black;">Món ăn</span>
+                                class="gamma widget-title" style="color: black; font-family: 'Times New Roman'">Món ăn</span>
                             <div class="widget-content">
                                 <ul>
                                     @foreach ($dishbyrestaurant as $dish)
                                     <li>
                                         <div class="recent-posts-thumbnail">
-                                            <a
+                                            <a style="font-family: 'Times New Roman'"
                                                 href="/dish/{{ $dish->slug }}">
                                                 <img width="150" height="150"
                                                     src="{{ Storage::url($dish->image) }}"

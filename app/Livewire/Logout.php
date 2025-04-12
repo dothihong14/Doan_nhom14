@@ -9,7 +9,7 @@ class Logout extends Component
     public function mount()
     {
         auth()->logout();
-        return redirect('/');
+        return redirect('/login');
     }
     public function render()
     {

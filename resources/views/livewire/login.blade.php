@@ -1181,34 +1181,7 @@
         </svg>
         <div id="page" class="hfeed site">
             @livewire('inc.header')
-
-            <div class="breadcrumb-wrap">
-                <div data-elementor-type="wp-post" data-elementor-id="101" class="elementor elementor-101">
-                    <section
-                        class="elementor-section elementor-top-section elementor-element elementor-element-4fdca72 elementor-section-content-middle elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                        data-id="4fdca72" data-element_type="section"
-                        data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
-                        <div class="elementor-background-overlay"></div>
-                        <div class="elementor-container elementor-column-gap-no">
-                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-617dbdb"
-                                data-id="617dbdb" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-901b06e hidden-delicioz-title-single-yes elementor-widget elementor-widget-woocommerce-breadcrumb"
-                                        data-id="901b06e" data-element_type="widget"
-                                        data-widget_type="woocommerce-breadcrumb.default">
-                                        <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">Đăng nhập</div>
-                                            <nav class="woocommerce-breadcrumb"><a href="/">Home Page</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i>Đăng nhập</nav>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <div id="content" class="site-content" tabindex="-1">
+            <div id="content" class="site-content" tabindex="-1" style="margin-bottom: 60px;margin-bottom: 0px;margin-top: 110px;background: white;padding-bottom: 60px;">
                 <div class="col-full">
 
                     <div class="woocommerce">
@@ -1244,26 +1217,27 @@
                                         justify-content: center;
                                     ">
 
-                                            <div class="u-column1 login-form-col col-1">
+                                            <div class="u-column1 login-form-col col-1" style="width: unset; padding-right: unset; padding-top: 85px">
                                                 <form class="woocommerce-form woocommerce-form-login login"
                                                 wire:submit.prevent="login">
 
                                                     <div class="woocommerce-form-login-wrap">
-                                                        <h2 class="login-form-title">Đăng nhập</h2>
+                                                        <h2 class="login-form-title text-center" style="font-family: 'Manrope;'; color: black">ĐĂNG NHẬP</h2>
                                                         <p
                                                             class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                            <label for="username">Email hoặc số điện thoại &nbsp;<span
+                                                            <label style="color: black" for="username">Email hoặc số điện thoại &nbsp;<span
                                                                     class="required">*</span></label>
                                                             <input type="text"
+                                                                   style="color: black"
                                                                 class="woocommerce-Input woocommerce-Input--text input-text"
                                                                 wire:model="email_or_phone"
                                                                 placeholder="Nhập email hoặc số điện thoại..." required />
                                                         </p>
                                                         <p
                                                             class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                            <label for="password">Mật khẩu &nbsp;<span
+                                                            <label style="color: black" for="password">Mật khẩu &nbsp;<span
                                                                     class="required">*</span></label>
-                                                            <input
+                                                            <input style="color: black"
                                                                 class="woocommerce-Input woocommerce-Input--text input-text"
                                                                 wire:model="password"
                                                                 placeholder="Nhập mật khẩu..." required />
@@ -1273,20 +1247,20 @@
                                                             <input type="checkbox"
                                                                 class="woocommerce-form__input woocommerce-form__input-checkbox"
                                                                 wire:model="remember" />
-                                                            <span>Ghi nhớ đăng nhập</span>
+                                                            <span style="color: black">Ghi nhớ đăng nhập</span>
                                                         </label>
                                                         <input type="hidden" id="woocommerce-login-nonce"
                                                             name="woocommerce-login-nonce" value="b8f5bb0097" /><input
                                                             type="hidden" name="_wp_http_referer"
                                                             value="/my-account/" />
                                                         <p class="woocommerce-LostPassword lost_password">
-                                                            <a href="/lost-password/">Quên mật khẩu?</a>
+                                                            <a style="color: black" href="/lost-password/">Quên mật khẩu?</a>
                                                         </p>
                                                         <button type="submit"
                                                             class="woocommerce-button button woocommerce-form-login__submit"
                                                             >Đăng nhập</button>
                                                             <br>
-                                                            <a href="/register"   class="register-link mt-3"> Chưa có tài khoản? Đăng ký</a>
+                                                        <span style="color: black;">Chưa có tài khoản? <a href="/register" style="color: black; font-weight: bold"  class="register-link mt-3">  Đăng ký</a></span>
                                                     </div>
 
 

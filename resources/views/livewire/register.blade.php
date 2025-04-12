@@ -70,6 +70,18 @@
             }(window, document, window._wpemojiSettings);
         </script>
         <style>
+            /* Chrome, Safari, Edge, Opera */
+            input[type=number]::-webkit-inner-spin-button,
+            input[type=number]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Firefox */
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
+
             img.wp-smiley,
             img.emoji {
                 display: inline !important;
@@ -1261,36 +1273,8 @@
         </svg>
         <div id="page" class="hfeed site">
             @livewire('inc.header')
-
-            <div class="breadcrumb-wrap">
-                <div data-elementor-type="wp-post" data-elementor-id="101" class="elementor elementor-101">
-                    <section
-                        class="elementor-section elementor-top-section elementor-element elementor-element-4fdca72 elementor-section-content-middle elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                        data-id="4fdca72" data-element_type="section"
-                        data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
-                        <div class="elementor-background-overlay"></div>
-                        <div class="elementor-container elementor-column-gap-no">
-                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-617dbdb"
-                                data-id="617dbdb" data-element_type="column">
-                                <div class="elementor-widget-wrap elementor-element-populated">
-                                    <div class="elementor-element elementor-element-901b06e hidden-delicioz-title-single-yes elementor-widget elementor-widget-woocommerce-breadcrumb"
-                                        data-id="901b06e" data-element_type="widget"
-                                        data-widget_type="woocommerce-breadcrumb.default">
-                                        <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">Đăng ký</div>
-                                            <nav class="woocommerce-breadcrumb"><a href="/">Home Page</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i>Đăng ký</nav>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <div id="content" class="site-content" tabindex="-1">
+            <div id="content" class="site-content" tabindex="-1" style="background: white; background: white; margin-bottom: 0; padding-bottom: 60px">
                 <div class="col-full">
-
                     <div class="woocommerce">
                         @if (session()->has('message'))
                             <ul class="woocommerce-error" style="background-color: green;" role="alert">
@@ -1299,7 +1283,6 @@
                                 </li>
                             </ul>
                         @endif
-
                         @if (session()->has('error'))
                             <ul class="woocommerce-error" role="alert">
                                 <li>
@@ -1307,103 +1290,51 @@
                                 </li>
                             </ul>
                         @endif
-
                     </div>
                     <div id="primary">
                         <main id="main" class="site-main">
-
                             <article id="post-12" class="post-12 page type-page status-publish hentry">
                                 <div class="entry-content">
                                     <div class="woocommerce">
                                         <div class="woocommerce-notices-wrapper"></div>
-
-                                        <div class="u-columns col2-set" id="customer_login"
-                                            style="
-                                        display: flex;
-                                        justify-content: center;
-                                    ">
-
-
-                                            <div class="u-column2 col-2">
-                                                <form wire:submit.prevent="register"
-                                                    style="
-                                                min-width: 400px;
-                                                max-width: 440px;
-                                            "
-                                                    class="woocommerce-form woocommerce-form-register register">
-
-                                                    <h2 class="register-from-title">Đăng ký</h2>
-
-
-                                                    <p
-                                                        class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                        <label for="reg_email">Tên &nbsp;<span
-                                                                class="">*</span></label>
-                                                        <input type="text"
-                                                            class="woocommerce-Input woocommerce-Input--text input-text"
-                                                            wire:model="name" placeholder="Nhập tên..." />
-                                                    </p>
-
-
-
-
-                                                    <p
-                                                        class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                        <label for="reg_email">Email &nbsp;<span
-                                                                class="">*</span></label>
-                                                        <input type="email"
-                                                            class="woocommerce-Input woocommerce-Input--text input-text"
-                                                            wire:model="email" placeholder="Nhập email..." />
-                                                    </p>
-                                                    <p
-                                                        class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                        <label for="reg_email">Số điện thoại &nbsp;<span
-                                                                class="">*</span></label>
-                                                        <input type="text"
-                                                            class="woocommerce-Input woocommerce-Input--text input-text"
-                                                            wire:model="phone" placeholder="Nhập số điện thoại..." />
-                                                    </p>
-                                                    <p
-                                                        class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                        <label for="reg_email">Mật khẩu &nbsp;<span
-                                                                class="">*</span></label>
-                                                        <input type="password"
-                                                            class="woocommerce-Input woocommerce-Input--text input-text"
-                                                            wire:model="password_register"
-                                                            placeholder="Nhập mật khẩu..." />
-                                                    </p>
-
-
-                                                    <p class="woocommerce-FormRow form-row">
-                                                        <button type="submit"
-                                                            class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit"
-                                                            type="submit">Đăng ký</button>
+                                        <div class="u-columns col2-set" id="customer_login" style="display: flex; justify-content: center;">
+                                            <div class="u-column2 col-2" style="width: unset; padding-right: unset; padding-top: 85px; min-width: 400px; max-width: 440px;">
+                                                <form wire:submit.prevent="register" class="woocommerce-form woocommerce-form-register register">
+                                                    <div class="woocommerce-form-register-wrap">
+                                                        <h2 class="register-form-title text-center" style="font-family: 'Manrope;'; color: black;">Đăng ký</h2>
+                                                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide" style="margin-bottom: 20px">
+                                                            <label style="color: black;" for="reg_name">Tên  <span class="required">*</span></label>
+                                                            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" wire:model="name" placeholder="Nhập tên..." style="color: black;" />
+                                                        </p>
+                                                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide" style="margin-bottom: 20px">
+                                                            <label style="color: black;" for="reg_email">Email  <span class="required">*</span></label>
+                                                            <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" wire:model="email" placeholder="Nhập email..." style="color: black;" />
+                                                        </p>
+                                                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide" style="margin-bottom: 20px">
+                                                            <label style="color: black;" for="reg_phone">Số điện thoại  <span class="required">*</span></label>
+                                                            <input type="number" class="woocommerce-Input woocommerce-Input--text input-text" wire:model="phone" placeholder="Nhập số điện thoại..." style="color: black;" />
+                                                        </p>
+                                                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide" style="margin-bottom: 20px">
+                                                            <label style="color: black;" for="reg_password">Mật khẩu  <span class="required">*</span></label>
+                                                            <input type="password" class="woocommerce-Input woocommerce-Input--text input-text" wire:model="password_register" placeholder="Nhập mật khẩu..." style="color: black;" />
+                                                        </p>
+                                                        <p class="woocommerce-FormRow form-row">
+                                                            <button type="submit" class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit">Đăng ký</button>
                                                             <br>
-                                                            <a href="/login"   class="register-link mt-3"> Đã có tài khoản? Đăng nhập</a>
-                                                    </p>
-
-
+                                                            <span style="color: black;">Đã có tài khoản? <a href="/login" style="color: black; font-weight: bold;" class="register-link mt-3">Đăng nhập</a></span>
+                                                        </p>
+                                                    </div>
                                                 </form>
                                             </div>
-
-
                                         </div>
-
                                     </div>
                                 </div><!-- .entry-content -->
                             </article><!-- #post-## -->
-
                         </main><!-- #main -->
                     </div><!-- #primary -->
-
-
                 </div><!-- .col-full -->
             </div><!-- #content -->
-
-
             @livewire('inc.footer')
-
-
         </div><!-- #page -->
 
         @livewire('inc.menu-mobile')

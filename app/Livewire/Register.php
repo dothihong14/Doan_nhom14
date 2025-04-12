@@ -35,6 +35,12 @@ class Register extends Component
             session()->flash('error', 'Vui lòng nhập số điện thoại.');
             return;
         }
+
+        if (!preg_match('/^\d{10}$/', $this->phone)) {
+            session()->flash('error', 'Số điện thoại không hợp lệ. Vui lòng nhập đúng 10 chữ số.');
+            return;
+        }
+
         if (!preg_match('/^[0-9]{10}$/', $this->phone)) {
             session()->flash('error', 'Số điện thoại không hợp lệ.');
             return;
