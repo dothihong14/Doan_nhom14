@@ -1232,7 +1232,7 @@
                                         data-id="901b06e" data-element_type="widget"
                                         data-widget_type="woocommerce-breadcrumb.default">
                                         <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">Tài khoản của tôi</div>
+                                            <div class="delicioz-woocommerce-title" style="font-family: 'Times New Roman'">Tài khoản của tôi</div>
                                             <nav class="woocommerce-breadcrumb"><a
                                                     href="/">Trang chủ</a><i
                                                     class="delicioz-icon-arrow-right-s-line"></i>Tài khoản của tôi</nav>
@@ -1260,9 +1260,8 @@
                                         <div class="woocommerce-MyAccount-content">
                                             <div class="woocommerce-notices-wrapper"></div>
                                             <p>
-                                                Hello <strong>{{ Auth::user()->name }}</strong> (not <strong>{{ Auth::user()->name }}</strong>? <a
-                                                    href="https://demo2.themelexus.com/delicioz/my-account/customer-logout/?_wpnonce=c690371e25">Log
-                                                    out</a>)</p>
+                                                Xin chào <strong>{{ Auth::user()->name }}</strong> (Không phải <strong>{{ Auth::user()->name }}</strong>? <a
+                                                    href="/my-account/logout/">Đăng xuất</a>)</p>
 
                                             <p>Điểm thưởng: {{ $customer->loyalty_points }}
                                                 </p>

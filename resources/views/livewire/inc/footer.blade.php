@@ -117,7 +117,7 @@
                                                     data-id="7bf769b" data-element_type="widget"
                                                     data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
-                                                        <h2 class="elementor-heading-title elementor-size-default">
+                                                        <h2 class="elementor-heading-title elementor-size-default" style="font-family: 'Times New Roman'">
                                                             Về chúng tôi</h2>
                                                     </div>
                                                 </div>
@@ -443,39 +443,25 @@
                                                         <div class="elementor-social-icons-wrapper elementor-grid">
                                                             <span class="elementor-grid-item">
                                                                 <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook-f elementor-repeater-item-8354e4c"
-                                                                    href="https://www.facebook.com/themelexus"
+                                                                    href="https://www.facebook.com/memebistro"
                                                                     target="_blank">
                                                                     <span
                                                                         class="elementor-screen-only">Facebook-f</span>
                                                                     <i class="fab fa-facebook-f"></i> </a>
                                                             </span>
                                                             <span class="elementor-grid-item">
-                                                                <a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-repeater-item-0bf8350"
-                                                                    href="https://twitter.com/themelexus"
-                                                                    target="_blank">
-                                                                    <span class="elementor-screen-only">Twitter</span>
-                                                                    <i class="fab fa-twitter"></i> </a>
-                                                            </span>
-                                                            <span class="elementor-grid-item">
                                                                 <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-bfea011"
-                                                                    href="https://www.instagram.com/themelexus/"
+                                                                    href="https://www.instagram.com/memebistro/"
                                                                     target="_blank">
                                                                     <span class="elementor-screen-only">Instagram</span>
                                                                     <i class="fab fa-instagram"></i> </a>
                                                             </span>
                                                             <span class="elementor-grid-item">
                                                                 <a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-repeater-item-0efd42d"
-                                                                    href="https://www.pinterest.com/themelexus/"
+                                                                    href="https://www.tiktok.com/@memebistrohello"
                                                                     target="_blank">
-                                                                    <span class="elementor-screen-only">Pinterest</span>
-                                                                    <i class="fab fa-pinterest"></i> </a>
-                                                            </span>
-                                                            <span class="elementor-grid-item">
-                                                                <a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-f83786e"
-                                                                    href="https://www.youtube.com/themelexus/"
-                                                                    target="_blank">
-                                                                    <span class="elementor-screen-only">Youtube</span>
-                                                                    <i class="fab fa-youtube"></i> </a>
+                                                                    <span class="elementor-screen-only">Tiktok</span>
+                                                                    <i class="fab fa-tiktok"></i> </a>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -489,7 +475,7 @@
                                                     data-id="1546c8f" data-element_type="widget"
                                                     data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
-                                                        <h2 class="elementor-heading-title elementor-size-default">
+                                                        <h2 class="elementor-heading-title elementor-size-default" style="font-family: 'Times New Roman'">
                                                             Nhận tin tức và ưu đãi</h2>
                                                     </div>
                                                 </div>
@@ -530,12 +516,12 @@
                                                                         <i aria-hidden="true"
                                                                             class="delicioz-icon-mail-check-line"></i><input
                                                                             type="email" name="EMAIL"
-                                                                            placeholder="Your email" autocomplete="off"
+                                                                            placeholder="Email của bạn" autocomplete="off"
                                                                             required />
                                                                     </p>
                                                                     <p class="form-button">
                                                                         <button type="submit"
-                                                                            value="Sign up"><span>subscribe</span></button>
+                                                                            value="Sign up"><span>liên hệ</span></button>
                                                                     </p>
                                                                 </div><label style="display: none !important;">Leave
                                                                     this
@@ -561,7 +547,7 @@
                                                     data-id="8bddd94" data-element_type="widget"
                                                     data-widget_type="heading.default">
                                                     <div class="elementor-widget-container">
-                                                        <h2 class="elementor-heading-title elementor-size-default">
+                                                        <h2 class="elementor-heading-title elementor-size-default" style="font-family: 'Times New Roman'">
                                                             Liên hệ chúng tôi</h2>
                                                     </div>
                                                 </div>
@@ -569,8 +555,8 @@
                                                     data-id="04df446" data-element_type="widget"
                                                     data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
-                                                        Nhà hàng Delicioz &amp; Đại sứ vị,
-                                                        71 Madison Ave, New York, USA
+                                                        51A Mai Hắc Đế, Hai Bà Trưng <br>
+                                                        34T Hoàng Đạo Thuý, Cầu Giấy
                                                     </div>
                                                 </div>
                                                 <div class="elementor-element elementor-element-8b0daca elementor-widget-mobile_extra__width-inherit elementor-widget elementor-widget-text-editor"
@@ -584,7 +570,7 @@
                                                     data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
                                                         <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                            data-cfemail="691b0c1a0c1b1f081d0006071a290c11080419050c470a0604">[email&#160;protected]</a>
+                                                            data-cfemail="691b0c1a0c1b1f081d0006071a290c11080419050c470a0604">memebistrorestaurants@gmail.com</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -601,34 +587,12 @@
                                                     data-id="109d095" data-element_type="widget"
                                                     data-widget_type="text-editor.default">
                                                     <div class="elementor-widget-container">
-                                                        Copyright © 2022 <a style="font-weight: bold;"
-                                                            href="/delicioz/">Delicioz</a>.
+                                                        Copyright © 2025 <a style="font-weight: bold;"
+                                                            href="/">Me Me Bistro</a>.
                                                         Tất cả quyền được bảo lưu. </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- <div
-                                            class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-000c4df"
-                                            data-id="000c4df" data-element_type="column">
-                                            <div class="elementor-widgets-wrap elementor-element-populated">
-                                                <div class="elementor-element elementor-element-3d67de8 elementor-icon-list--layout-inline elementor-align-right elementor-mobile-align-center elementor-list-item-link-full_width elementor-widgets elementor-widgets-icon-list"
-                                                    data-id="3d67de8" data-element_type="widgets"
-                                                    data-widget_type="icon-list.default">
-                                                    <div class="elementor-widgets-container">
-                                                        <ul class="elementor-icon-list-items elementor-inline-items">
-                                                            <li class="elementor-icon-list-item elementor-inline-item">
-                                                                <span class="elementor-icon-list-text">Chính sách bảo
-                                                                    mật và cookie</span>
-                                                            </li>
-                                                            <li class="elementor-icon-list-item elementor-inline-item">
-                                                                <span class="elementor-icon-list-text">Điều khoản dịch
-                                                                    vụ</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
