@@ -33,8 +33,9 @@
                                             class="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
                                     </div>
                                     <div class="product-caption" style="padding-bottom: 20px !important;">
-                                        <h3 class="woocommerce-loop-product__title" style="font-family: 'Times New Roman'"><a
-                                                href="/product/{{ $dish->slug }}" style="text-align: center; display: block;">{{ $dish->name }}</a></h3>
+                                        <h3 class="woocommerce-loop-product__title" style="font-family: 'Times New Roman'">
+                                            <a href="/product/{{ $dish->slug }}" style="text-align: center; display: block;">{{ Str::limit($dish->name, 26, '...') }}</a>
+                                        </h3>
                                         {{-- <div class="count-review">
                                             <div class="star-rating" role="img" aria-label="Rated 4.75 out of 5"><span
                                                     style="width:95%">Rated

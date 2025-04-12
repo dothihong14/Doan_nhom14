@@ -10,10 +10,10 @@ class EditReservation extends EditRecord
 {
     protected static string $resource = ReservationResource::class;
     protected static ?string $title = 'Cập nhật lịch đặt bàn';
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
-    }
+//    protected function getHeaderActions(): array
+//    {
+//        return [
+//            Actions\DeleteAction::make(),
+//        ];
+//    }
 }

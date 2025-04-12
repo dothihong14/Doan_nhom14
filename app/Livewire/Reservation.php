@@ -6,6 +6,7 @@ use App\Models\Customer;
 use App\Models\Reservation as ReservationModel;
 use App\Models\Restaurant;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Http\Request;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -38,8 +39,8 @@ class Reservation extends Component
 
         $this->reservation_time = null;
         $this->reservation_day = null;
-        $this->restaurant_id = Restaurant::first()->id;
-        $this->number_of_people = 1;
+//        $this->restaurant_id = "";
+//        $this->number_of_people = 1;
     }
 
     public function submit()
@@ -72,11 +73,16 @@ class Reservation extends Component
 
     public function createReservation()
     {
+        \Log::info($this->all());
         $reservation_code = strtoupper(uniqid('RESERVATION_'));
 
         if ($this->name == null || $this->phone == null || $this->reservation_day == null || $this->reservation_time == null || $this->restaurant_id == null) {
             // dd($this->name, $this->phone, $this->email, $this->reservation_day, $this->reservation_time, $this->restaurant_id);
             session()->flash('error', 'Vui lòng điền đầy đủ thông tin.');
+            return;
+        }
+        if (!preg_match('/^\d{10}$/', $this->phone)) {
+            session()->flash('error', 'Số điện thoại không hợp lệ. Vui lòng nhập đúng 10 chữ số.');
             return;
         }
 

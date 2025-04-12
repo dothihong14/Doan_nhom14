@@ -1424,9 +1424,7 @@
                                                                                         data-frame_999="o:0;st:w;sR:6010;"
                                                                                         data-frame_hover="c:#000;bgc:rgba(0,0,0,0);boc:#ffdea0;bor:0px,0px,0px,0px;bos:solid;bow:1px,1px,1px,1px;e:power1.inOut;"
                                                                                         style="z-index:7;background-color:rgba(0,0,0,0);font-family:'Manrope';display:inline-block;">
-                                                                                        Khám
-                                                                                        phá
-                                                                                        MENU
+                                                                                        KHÁM PHÁ MENU
                                                                                     </rs-layer><!--
          --></rs-column><!--
         --></rs-row><!--
@@ -1554,9 +1552,7 @@
                                                                                         onclick="window.location.href = '/shop'"
                                                                                         data-frame_hover="c:#000;bgc:rgba(0,0,0,0);boc:#ffdea0;bor:0px,0px,0px,0px;bos:solid;bow:1px,1px,1px,1px;e:power1.inOut;"
                                                                                         style="z-index:7;background-color:rgba(0,0,0,0);font-family:'Manrope';display:inline-block;">
-                                                                                        Khám
-                                                                                        phá
-                                                                                        MENU
+                                                                                        KHÁM PHÁ MENU
                                                                                     </rs-layer><!--
          --></rs-column><!--
         --></rs-row><!--
@@ -1897,7 +1893,7 @@
                                                                 data-id="90ea129" data-element_type="widget"
                                                                 data-widget_type="text-editor.default">
                                                                 <div class="elementor-widget-container"
-                                                                     style="color: black;">
+                                                                     style="color: black;text-align: justify">
                                                                     <style>
                                                                         /*! elementor - v3.7.3 - 29-08-2022 */
                                                                         .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap {
@@ -1939,7 +1935,7 @@
                                                                 data-id="cdaebb3" data-element_type="widget"
                                                                 data-widget_type="text-editor.default">
                                                                 <div class="elementor-widget-container"
-                                                                     style="color: black;">
+                                                                     style="color: black;text-align: justify">
                                                                     Được thành lập vào năm 2019 bởi chị Đỗ Quỳnh Anh, với thông điệp "Modern Thai food, Bangkok living, with cocktails around-the-clock". Me Me Bistro mang phong cách ẩm thực Thái hiện đại, kết hợp với không gian đậm chất Bangkok sôi động. Nhà hàng không chỉ cung cấp các món ăn tinh tế mà còn tạo ra một trải nghiệm ẩm thực toàn diện, nơi khách hàng có thể thưởng thức cocktail chất lượng bất kể thời gian.
                                                                 </div>
                                                             </div>
@@ -2274,7 +2270,7 @@
                                                              data-elementor-columns-tablet="4"
                                                              data-elementor-columns-mobile-extra="2"
                                                              data-elementor-columns-mobile="1">
-                                                            @foreach ($dishes as $dish)
+                                                            @foreach ($dishes->take(8) as $dish)
                                                                 <div class="column-item elementor-menu-list-item" style="margin-bottom: 50px">
 
                                                                     <div class="elementor-menu-list-image">
@@ -2291,7 +2287,7 @@
 {{--                                                                             style="color: black;">--}}
 {{--                                                                            {{ Str::limit($dish->description, 30) }}--}}
 {{--                                                                        </div>--}}
-                                                                        <div class="elementor-menu-list-price" style="font-family: 'Times New Roman'; margin-bottom: 14px">
+                                                                        <div class="elementor-menu-list-price" style="font-family: 'Times New Roman'; margin-bottom: 14px; color: black; font-weight: bold">
                                                                             {{ number_format($dish->price, 0, ',', '.') }}
                                                                             VNĐ
                                                                         </div>
@@ -3510,11 +3506,6 @@
                                                                                                          class="attachment-delicioz-post-grid size-delicioz-post-grid wp-post-image"
                                                                                                          alt=""/></div>
                                                                         <div class="entry-content">
-                                                                            <h3 class="entry-title"><a
-                                                                                    style="color: white;font-family: 'Times New Roman'"
-                                                                                    href="/promotion/{{ $promotion->slug }}"
-                                                                                    rel="bookmark">{{ $promotion->title }}</a>
-                                                                            </h3>
                                                                             <div class="excerpt-content"
                                                                                  style="color: black;">
                                                                                 {{ Str::limit($promotion->description, 100) }}
@@ -3527,6 +3518,11 @@
                                                                                 </a>
                                                                             </div>
                                                                         </div>
+                                                                        <h3 class="entry-title"><a
+                                                                                style="color: black;font-family: 'Times New Roman'"
+                                                                                href="/promotion/{{ $promotion->slug }}"
+                                                                                rel="bookmark">{{ $promotion->title }}</a>
+                                                                        </h3>
                                                                     </div>
                                                                 </div>
                                                             @endforeach
@@ -3541,15 +3537,15 @@
                                                 data-id="f886650" data-element_type="widget"
                                                 data-widget_type="text-editor.default">
                                                 <div class="elementor-widget-container" style="color: black;">
-                                                    Đọc tin tức của nhà hàng của chúng tôi, công thức cho đồ ăn
-                                                    ngon,
-                                                    mẹo cho nhà bếp gia đình của bạn!
+{{--                                                    Đọc tin tức của nhà hàng của chúng tôi, công thức cho đồ ăn--}}
+{{--                                                    ngon,--}}
+{{--                                                    mẹo cho nhà bếp gia đình của bạn!--}}
                                                 </div>
                                             </div>
                                             <div
                                                 class="elementor-element elementor-element-45e70b0 elementor-align-center elementor-button-outline elementor-widget elementor-widget-button"
                                                 data-id="45e70b0" data-element_type="widget"
-                                                data-widget_type="button.default">
+                                                data-widget_type="button.default" style="margin-top: 40px">
                                                 <div class="elementor-widget-container">
                                                     <div class="elementor-button-wrapper">
                                                         <a href="/promotion"

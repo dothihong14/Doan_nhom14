@@ -27,7 +27,8 @@ class TableDishRelationManagerRelationManager extends RelationManager
             Forms\Components\Select::make('dish_id')
                 ->options(Dish::all()->pluck('name', 'id'))
                 ->required()
-                ->label('Món ăn'),
+                ->label('Món ăn')
+                ->searchable(),
 
             Forms\Components\TextInput::make('quantity')
                 ->required()

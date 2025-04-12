@@ -1,3 +1,8 @@
+<style>
+    .delicioz-icon-mail-check-line input::placeholder {
+        color: #BBBBBB !important;
+    }
+</style>
 <div>
     <div class="footer-width-fixer">
         <div data-elementor-type="wp-post" data-elementor-id="98" class="elementor elementor-98">
@@ -87,11 +92,12 @@
             <div data-elementor-type="wp-post" data-elementor-id="92" class="elementor elementor-92">
                 <div class="elementor-section elementor-top-section elementor-element elementor-element-32b9d2d elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                     data-id="32b9d2d" data-element_type="section"
-                    data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+                    data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}"
+                    style="background-color: #002B40">
                     <div class="elementor-container elementor-column-gap-no">
                         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d9d4eb2"
                             data-id="d9d4eb2" data-element_type="column">
-                            <div class="elementor-widget-wrap elementor-element-populated">
+                            <div class="elementor-widget-wrap elementor-element-populated" style="padding-top: 15px !important;">
                                 <div class="elementor-element elementor-element-a714f29 elementor-widget__width-auto elementor-widget elementor-widget-site-logo"
                                     data-id="a714f29" data-element_type="widget" data-widget_type="site-logo.default">
                                     <div class="elementor-widget-container">
@@ -515,7 +521,7 @@
                                                                     <p class="form-input">
                                                                         <i aria-hidden="true"
                                                                             class="delicioz-icon-mail-check-line"></i><input
-                                                                            type="email" name="EMAIL"
+                                                                            type="email" class="email form-email" name="EMAIL"
                                                                             placeholder="Email của bạn" autocomplete="off"
                                                                             required />
                                                                     </p>

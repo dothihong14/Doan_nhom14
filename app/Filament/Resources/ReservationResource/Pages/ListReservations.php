@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class ListReservations extends ListRecords
 {
     protected static string $resource = ReservationResource::class;
-    protected static ?string $title = 'Lịch đặt bàn';
+    protected static ?string $title = 'Danh sách đặt bàn';
 
     protected function getHeaderActions(): array
     {

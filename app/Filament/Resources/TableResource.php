@@ -52,7 +52,7 @@ class TableResource extends Resource
                         })
                         ->unique(TableModel::class, 'table_code', ignoreRecord: true) // Ensure uniqueness, ignoring current record
                         ->label('Mã bàn'),
-                ]),
+                ])->columns(2),
 
             Forms\Components\Section::make('Trạng thái bàn')
                 ->description('Chọn trạng thái hiện tại của bàn.')
@@ -76,7 +76,7 @@ class TableResource extends Resource
                         ->numeric()
                         ->label('Số người')
                         ,
-                ]),
+                ])->columns(3),
         ]);
 }
 

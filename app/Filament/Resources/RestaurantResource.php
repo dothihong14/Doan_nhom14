@@ -55,7 +55,7 @@ class RestaurantResource extends Resource
                             ->label('Email')
                             ->email()
                             ->maxLength(255),
-                    ]),
+                    ])->columns(2),
 
                 // Hình ảnh
                 Forms\Components\Section::make('Hình ảnh')
@@ -117,14 +117,14 @@ class RestaurantResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
-                    Tables\Actions\Action::make('Xuất Báo Cáo')
-                    ->label('Xuất Báo Cáo')
-                    ->action(fn (Restaurant $record) => redirect()->route('restaurant.statistics', $record->id)) // Call the export method
-                    ->icon('heroicon-o-document-text'), // Optionally add an icon
-                    Tables\Actions\Action::make('Xuất Thống Kê')
-                    ->label('Xuất Thống Kê')
-                    ->action(fn (Restaurant $record) => self::thongke($record)) // Call the export method
-                    ->icon('heroicon-o-document-text'), // Optionally add an icon
+//                    Tables\Actions\Action::make('Xuất Báo Cáo')
+//                    ->label('Xuất Báo Cáo')
+//                    ->action(fn (Restaurant $record) => redirect()->route('restaurant.statistics', $record->id)) // Call the export method
+//                    ->icon('heroicon-o-document-text'), // Optionally add an icon
+//                    Tables\Actions\Action::make('Xuất Thống Kê')
+//                    ->label('Xuất Thống Kê')
+//                    ->action(fn (Restaurant $record) => self::thongke($record)) // Call the export method
+//                    ->icon('heroicon-o-document-text'), // Optionally add an icon
                     Tables\Actions\ViewAction::make()
 
                         ->label('Xem'), // Đổi nhãn sang tiếng Việt

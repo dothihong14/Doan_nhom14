@@ -22,6 +22,13 @@
             console.log('Toastr event received:', event);
             const data = Array.isArray(event) && event.length > 0 ? event[0] : event;
             const { type, message } = data;
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "toastClass": "custom-toastr"
+            };
+
             if (type === 'success') {
                 toastr.success(message);
             } else if (type === 'error') {
@@ -39,6 +46,20 @@
         img.hfe-site-logo-img.elementor-animation- {
             height: 50px !important;
         }
+    }
+    .toast-top-right {
+        top: 140px !important;
+        right: 12px;
+    }
+
+    .toast-success {
+        background-color: #28a745 !important;
+        opacity: 1 !important;
+    }
+
+    .toast-error {
+        background-color: #dc3545 !important;
+        opacity: 1 !important;
     }
 </style>
 </html>
