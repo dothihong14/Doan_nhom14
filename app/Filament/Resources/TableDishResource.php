@@ -40,7 +40,7 @@ class TableDishResource extends Resource
                         ->reactive()
                         ->required()
                         ->afterStateUpdated(function (callable $set, $state) {
-                            if ($state === 'online') {
+                            if ($state === 'delivery') {
                                 $set('table_id', null);
                             }
                         }),

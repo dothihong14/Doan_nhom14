@@ -74,9 +74,9 @@ class CustomerResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->label('Tên khách hàng')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('email')
-                    ->label('Email')
-                    ->searchable(),
+//                Tables\Columns\TextColumn::make('email')
+//                    ->label('Email')
+//                    ->searchable(),
                 Tables\Columns\TextColumn::make('phone')
                     ->label('Số điện thoại')
                     ->searchable(),
@@ -91,14 +91,13 @@ class CustomerResource extends Resource
                         '0' => 'Đang hoạt động',
                         '1' => 'Đã khoá',
                     ]),
-                    Tables\Columns\TextColumn::make('address')
-                    ->label('Địa chỉ')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->label('Ngày tạo')
-                   ,
+//                Tables\Columns\TextColumn::make('address')
+//                    ->label('Địa chỉ')
+//                    ->searchable(),
+//                Tables\Columns\TextColumn::make('created_at')
+//                    ->dateTime()
+//                    ->sortable()
+//                    ->label('Ngày tạo'),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()

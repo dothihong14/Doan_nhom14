@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class FoodCategoryResource extends Resource
 {
@@ -23,7 +24,7 @@ class FoodCategoryResource extends Resource
     protected static ?string $modelLabel = 'Danh mục món ăn';
     public static function getPluralModelLabel(): string
     {
-        return 'Danh sách loại món ăn';
+        return 'Danh mục món ăn';
     }
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 
@@ -32,9 +33,11 @@ class FoodCategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Tên danh mục')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
+                    ->label('Mô tả')
                     ->columnSpanFull(),
             ]);
     }
@@ -58,11 +61,20 @@ class FoodCategoryResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make()
+                        ->label('Xem'),
+                    Tables\Actions\EditAction::make()
+                        ->label('Chỉnh Sửa'),
+                    Tables\Actions\DeleteAction::make()
+                        ->label('Xóa'),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                        ->label('Xóa'),
+                    ExportBulkAction::make()
                 ]),
             ]);
     }

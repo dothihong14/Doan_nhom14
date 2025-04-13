@@ -17,9 +17,10 @@ class Shop extends Component
     public $search = '';
     public $price_min = 0;
     public $price_max = 10000000;
-    public $sort_by = 'created_at';
-    public $sort_direction = 'asc';
-    public $page = 1; // Thêm thuộc tính này
+    public $sort_by = 'default'; // Giá trị trạng thái, không phải tên cột
+    public $sort_direction = 'desc'; // Hướng mặc định cho created_at
+    public $page = 1;
+
     protected $queryString = [
         'category_id',
         'search',
@@ -27,7 +28,7 @@ class Shop extends Component
         'price_max',
         'sort_by',
         'sort_direction',
-        'page' => ['except' => 1], // Giữ trang hiện tại trong query
+        'page' => ['except' => 1],
     ];
 
     public function mount()
@@ -37,16 +38,35 @@ class Shop extends Component
         }
         $this->search = request()->get('search');
     }
+
     public function addToCart($id)
     {
         CartManagement::addItemToCart($id, 1);
         $this->dispatch('showToastr', ['type' => 'success', 'message' => 'Sản phẩm đã được thêm vào giỏ hàng!']);
     }
+
     public function buyNow($id)
     {
         CartManagement::addItemToCart($id, 1);
         return redirect('/checkout');
     }
+
+    public function sortBy($field)
+    {
+        if ($field == 'default') {
+            $this->sort_by = 'default';
+            $this->sort_direction = 'desc';
+        } elseif ($field == 'price-asc') {
+            $this->sort_by = 'price';
+            $this->sort_direction = 'asc';
+        } elseif ($field == 'price-desc') {
+            $this->sort_by = 'price';
+            $this->sort_direction = 'desc';
+        }
+
+        $this->resetPage();
+    }
+
     public function render()
     {
         $query = Dish::query();
@@ -55,23 +75,34 @@ class Shop extends Component
             $query->where('food_category_id', $this->category_id);
         }
 
-
         if ($this->search) {
             $query->where('name', 'like', '%' . $this->search . '%');
         }
 
+        if ($this->sort_by == 'price') {
+            $query->orderBy('price', $this->sort_direction);
+        } else {
+            $query->orderBy('created_at', 'desc');
+        }
+
         $dishes = $query->whereBetween('price', [$this->price_min, $this->price_max])
             ->where('status', 'available')
-            ->orderBy($this->sort_by, $this->sort_direction)
             ->paginate(9);
-        $topSellingDishes = Dish::orderBy('sold_quantity', 'desc')->where('status', 'available')->take(4)->get();
+
+        $topSellingDishes = Dish::orderBy('sold_quantity', 'desc')
+            ->where('status', 'available')
+            ->take(4)
+            ->get();
+
         $categories = FoodCategory::withCount('dishes')->get();
         $dishCount = Dish::count();
+
         return view('livewire.shop.shop', [
             'dishes' => $dishes,
             'categories' => $categories,
             'topSellingDishes' => $topSellingDishes,
             'dishCount' => $dishCount,
+            'sort_by' => $this->sort_by,
         ]);
     }
 
@@ -83,16 +114,5 @@ class Shop extends Component
     public function updatedPriceMax($value)
     {
         $this->price_max = $value;
-    }
-
-    public function sortBy($field)
-    {
-        // Toggle sort direction
-        if ($this->sort_by === $field) {
-            $this->sort_direction = $this->sort_direction === 'asc' ? 'desc' : 'asc';
-        } else {
-            $this->sort_by = $field;
-            $this->sort_direction = 'asc';
-        }
     }
 }
