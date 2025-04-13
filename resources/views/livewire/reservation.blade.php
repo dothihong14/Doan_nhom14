@@ -1524,6 +1524,7 @@
             </div><!-- #content -->
 
 
+
             @livewire('inc.footer')
 
 

@@ -63,6 +63,29 @@
             }(window, document, window._wpemojiSettings);
         </script>
         <style>
+            .row.menu-style-3 {
+                display: flex; /* Đảm bảo sử dụng Flexbox (Elementor thường đã có, nhưng để chắc chắn) */
+                flex-wrap: wrap; /* Cho phép xuống hàng nếu cần */
+                gap: 10px; /* Khoảng cách 10px giữa các phần tử */
+            }
+
+            .row.menu-style-3 .column-item {
+                flex: 1 1 calc(25% - 7.5px); /* 25% cho 4 cột, trừ đi khoảng cách từ gap (10px * 3 khoảng cách / 4 cột = 7.5px mỗi cột) */
+                box-sizing: border-box; /* Đảm bảo border và padding không làm tăng kích thước */
+                margin-bottom: 50px;
+            }
+
+            /* Đảm bảo hình ảnh và nội dung bên trong không vượt kích thước */
+            .elementor-menu-list-image img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            .elementor-menu-list-text,
+            .elementor-menu-list-button {
+                text-align: center;
+            }
             img.wp-smiley,
             img.emoji {
                 display: inline !important;
@@ -74,6 +97,10 @@
                 vertical-align: -0.1em !important;
                 background: none !important;
                 padding: 0 !important;
+            }
+            .column-item.elementor-menu-list-item {
+                border: 1px solid #FFD27E;
+                padding: 0 0 20px 0 !important;
             }
         </style>
         <link rel='stylesheet' id='wp-block-library-css'
@@ -250,6 +277,62 @@
                 margin-top: 0;
                 margin-bottom: 0
             }
+
+            .elementor.header-box-content .elementor-element.elementor-element-8482736 > .elementor-container {
+                max-width: 1803px;
+            }
+
+            .elementor-column.elementor-col-25, .elementor-column[data-col="25"] {
+                align-content: center;
+                align-items: center;
+            }
+
+            .elementor-widget-wrap.header > .elementor-element {
+                width: auto !important;
+            }
+
+            .elementor-84 .elementor-element.elementor-element-aa65abd.elementor-column > .elementor-widget-wrap {
+                justify-content: flex-end;
+                align-items: center;
+                gap: 40px;
+            }
+
+            .header.header-first {
+                justify-content: start !important;
+            }
+
+            .elementor-widget-wrap.elementor-element-populated.header {
+                justify-content: center;
+            }
+
+            .elementor-84 .elementor-element.elementor-element-aa65abd.elementor-column > .elementor-widget-wrap {
+                justify-content: flex-end;
+            }
+
+            @media (max-width: 767px) {
+                /*.elementor-column.header-content .elementor-section.elementor-section-boxed > .elementor-container {*/
+                /*    max-width: 767px;*/
+                /*    padding: 25px 15px 25px 15px;*/
+                /*}*/
+                .elementor-column.header-content {
+                    width: unset !important;
+                }
+
+                .elementor-column.header-content .elementor-widget-wrap > .elementor-element {
+                    width: unset !important;
+                }
+
+                .header-box-content .elementor-element.elementor-element-8482736 > .elementor-container {
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 25px 15px 25px 15px;
+                }
+
+                .elementor-98 .elementor-element.elementor-element-cb25823 > .elementor-container > .elementor-column > .elementor-widget-wrap {
+                    justify-content: center;
+                }
+            }
+
         </style>
         <link rel='stylesheet' id='wc-blocks-vendors-style-css'
               href='/delicioz/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=8.0.0'
@@ -1236,37 +1319,7 @@
         </defs>
     </svg>
     <div id="page" class="hfeed site" style="background-color: white;">
-        @livewire('inc.header-home')
-
-        <div class="breadcrumb-wrap">
-            <div data-elementor-type="wp-post" data-elementor-id="101" class="elementor elementor-101">
-                <section
-                    class="elementor-section elementor-top-section elementor-element elementor-element-4fdca72 elementor-section-content-middle elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                    data-id="4fdca72" data-element_type="section"
-                    data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
-                    <div class="elementor-background-overlay"></div>
-                    <div class="elementor-container elementor-column-gap-no">
-                        <div
-                            class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-617dbdb"
-                            data-id="617dbdb" data-element_type="column">
-                            <div class="elementor-widget-wrap elementor-element-populated">
-                                <div
-                                    class="elementor-element elementor-element-901b06e hidden-delicioz-title-single-yes elementor-widget elementor-widget-woocommerce-breadcrumb"
-                                    data-id="901b06e" data-element_type="widget"
-                                    data-widget_type="woocommerce-breadcrumb.default">
-                                    <div class="elementor-widget-container">
-                                        <div class="delicioz-woocommerce-title">Home 3</div>
-                                        <nav class="woocommerce-breadcrumb"><a href="/">Home Page</a><i
-                                                class="delicioz-icon-arrow-right-s-line"></i>Home 3
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
+        @livewire('inc.header')
         <div id="content" class="site-content" tabindex="-1">
             <div class="col-full">
 
@@ -1317,12 +1370,9 @@
                                                                             data-lazyload="//demo2.themelexus.com/delicioz/wp-content/uploads/2022/08/rev_h3.jpg"
                                                                             data-panzoom="d:10000;ss:100;se:110%;"
                                                                             data-no-retina>
-                                                                        <!--						-->
                                                                         <rs-zone id="rrzm_4"
                                                                                  class="rev_row_zone_middle"
-                                                                                 style="z-index: 13;"><!--
-
-        -->
+                                                                                 style="z-index: 13;">
                                                                             <rs-row id="slider-2-slide-4-layer-0"
                                                                                     data-type="row"
                                                                                     data-xy="xo:50px;yo:50px;"
@@ -1359,7 +1409,7 @@
                                                                                         của sự đam mê
                                                                                     </rs-layer>
 
-          -->
+                                                                                    -->
                                                                                     <rs-layer
                                                                                         id="slider-2-slide-4-layer-3"
                                                                                         data-type="shape"
@@ -1927,7 +1977,12 @@
                                                                             display: inline-block
                                                                         }
                                                                     </style>
-                                                                    Nhà hàng Me Me Bistro là một chuỗi nhà hàng chuyên phục vụ ẩm thực Thái Lan hiện đại, mang phong cách sống động của Bangkok đến ngay giữa lòng Hà Nội. Tên gọi "Me Me Bistro" được lấy cảm hứng từ quả me – một nguyên liệu đặc trưng tạo nên vị chua ngọt trong nhiều món ăn Thái Lan.
+                                                                    Nhà hàng Me Me Bistro là một chuỗi nhà hàng chuyên
+                                                                    phục vụ ẩm thực Thái Lan hiện đại, mang phong cách
+                                                                    sống động của Bangkok đến ngay giữa lòng Hà Nội. Tên
+                                                                    gọi "Me Me Bistro" được lấy cảm hứng từ quả me – một
+                                                                    nguyên liệu đặc trưng tạo nên vị chua ngọt trong
+                                                                    nhiều món ăn Thái Lan.
                                                                 </div>
                                                             </div>
                                                             <div
@@ -1936,7 +1991,14 @@
                                                                 data-widget_type="text-editor.default">
                                                                 <div class="elementor-widget-container"
                                                                      style="color: black;text-align: justify">
-                                                                    Được thành lập vào năm 2019 bởi chị Đỗ Quỳnh Anh, với thông điệp "Modern Thai food, Bangkok living, with cocktails around-the-clock". Me Me Bistro mang phong cách ẩm thực Thái hiện đại, kết hợp với không gian đậm chất Bangkok sôi động. Nhà hàng không chỉ cung cấp các món ăn tinh tế mà còn tạo ra một trải nghiệm ẩm thực toàn diện, nơi khách hàng có thể thưởng thức cocktail chất lượng bất kể thời gian.
+                                                                    Được thành lập vào năm 2019 bởi chị Đỗ Quỳnh Anh,
+                                                                    với thông điệp "Modern Thai food, Bangkok living,
+                                                                    with cocktails around-the-clock". Me Me Bistro mang
+                                                                    phong cách ẩm thực Thái hiện đại, kết hợp với không
+                                                                    gian đậm chất Bangkok sôi động. Nhà hàng không chỉ
+                                                                    cung cấp các món ăn tinh tế mà còn tạo ra một trải
+                                                                    nghiệm ẩm thực toàn diện, nơi khách hàng có thể
+                                                                    thưởng thức cocktail chất lượng bất kể thời gian.
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2076,7 +2138,8 @@
                                                                 <div
                                                                     class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item ">
                                                                     <a class="elementor-cta__button elementor-button"
-                                                                       href="#" onclick="window.location.href = '/restaurant'">
+                                                                       href="#"
+                                                                       onclick="window.location.href = '/restaurant'">
                                                                             <span
                                                                                 class="elementor-button-content-wrapper">
                                                                                 <span
@@ -2135,7 +2198,8 @@
                                                                 <div
                                                                     class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item ">
                                                                     <a class="elementor-cta__button elementor-button"
-                                                                       href="#" onclick="window.location.href = '/promotions'">
+                                                                       href="#"
+                                                                       onclick="window.location.href = '/promotions'">
                                                                             <span
                                                                                 class="elementor-button-content-wrapper">
                                                                                 <span
@@ -2194,7 +2258,8 @@
                                                                 <div
                                                                     class="elementor-cta__button-wrapper elementor-cta__content-item elementor-content-item ">
                                                                     <a class="elementor-cta__button elementor-button"
-                                                                       href="#" onclick="window.location.href = '/contact'">
+                                                                       href="#"
+                                                                       onclick="window.location.href = '/contact'">
                                                                             <span
                                                                                 class="elementor-button-content-wrapper">
                                                                                 <span
@@ -2232,7 +2297,8 @@
                                                             <div class="icon"><i aria-hidden="true" style="color: black"
                                                                                  class="delicioz-icon- delicioz-icon-fork-knife"></i>
                                                             </div>
-                                                            <h3 class="elementor-image-box-title" style="color: black;font-family: 'Times New Roman'">
+                                                            <h3 class="elementor-image-box-title"
+                                                                style="color: black;font-family: 'Times New Roman'">
                                                                 Món ăn
                                                             </h3>
                                                             <div class="elementor-image-box-sub-title"
@@ -2271,7 +2337,8 @@
                                                              data-elementor-columns-mobile-extra="2"
                                                              data-elementor-columns-mobile="1">
                                                             @foreach ($dishes->take(8) as $dish)
-                                                                <div class="column-item elementor-menu-list-item" style="margin-bottom: 50px">
+                                                                <div class="column-item elementor-menu-list-item"
+                                                                     style="margin-bottom: 50px">
 
                                                                     <div class="elementor-menu-list-image">
                                                                         <img
@@ -2283,11 +2350,8 @@
                                                                                 href="/product/{{ $dish->slug }}"
                                                                                 style="color: black; font-family: 'Times New Roman'; margin-bottom: 10px">{{ Str::limit($dish->name, 25) }}</a>
                                                                         </div>
-{{--                                                                        <div class="elementor-menu-list-description"--}}
-{{--                                                                             style="color: black;">--}}
-{{--                                                                            {{ Str::limit($dish->description, 30) }}--}}
-{{--                                                                        </div>--}}
-                                                                        <div class="elementor-menu-list-price" style="font-family: 'Times New Roman'; margin-bottom: 14px; color: black; font-weight: bold">
+                                                                        <div class="elementor-menu-list-price"
+                                                                             style="font-family: 'Times New Roman'; margin-bottom: 14px; color: black; font-weight: bold">
                                                                             {{ number_format($dish->price, 0, ',', '.') }}
                                                                             VNĐ
                                                                         </div>
@@ -3467,7 +3531,8 @@
                                                             <div class="icon"><i aria-hidden="true" style="color:black"
                                                                                  class="delicioz-icon- delicioz-icon-event-like"></i>
                                                             </div>
-                                                            <h3 class="elementor-image-box-title" style="color: black; font-family: 'Times New Roman'">
+                                                            <h3 class="elementor-image-box-title"
+                                                                style="color: black; font-family: 'Times New Roman'">
                                                                 Tin tức & Sự kiện
                                                             </h3>
                                                             <div class="elementor-image-box-sub-title"
@@ -3537,9 +3602,9 @@
                                                 data-id="f886650" data-element_type="widget"
                                                 data-widget_type="text-editor.default">
                                                 <div class="elementor-widget-container" style="color: black;">
-{{--                                                    Đọc tin tức của nhà hàng của chúng tôi, công thức cho đồ ăn--}}
-{{--                                                    ngon,--}}
-{{--                                                    mẹo cho nhà bếp gia đình của bạn!--}}
+                                                    {{--                                                    Đọc tin tức của nhà hàng của chúng tôi, công thức cho đồ ăn--}}
+                                                    {{--                                                    ngon,--}}
+                                                    {{--                                                    mẹo cho nhà bếp gia đình của bạn!--}}
                                                 </div>
                                             </div>
                                             <div

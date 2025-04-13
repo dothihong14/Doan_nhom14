@@ -48,15 +48,21 @@ class IngredientResource extends Resource
                             ->label('Số lượng trong kho')
                             ->required()
                             ->integer()
+                            ->default(0)
+                            ->disabled()
                             ->numeric(),
 
                         Forms\Components\TextInput::make('minimum_threshold')
                             ->label('Ngưỡng tối thiểu')
+                            ->required()
                             ->numeric(),
 
-                        Forms\Components\TextInput::make('unit')
+                        Forms\Components\Select::make('unit')
                             ->label('Đơn vị')
-                            ->maxLength(255),
+                            ->options([
+                                'gram' => 'gram',
+                                'kg'   => 'kg'
+                            ]) -> required(),
 
                         Forms\Components\Select::make('restaurant_id')
                             ->relationship('restaurant', 'name')
@@ -71,9 +77,9 @@ class IngredientResource extends Resource
                                 'out_of_stock' => 'hết hàng',
                             ])
                             ->required(),
-                        Forms\Components\DatePicker::make('expiration_date')
-                            ->label('Ngày hạn sử dụng')
-                            ->required(),
+//                        Forms\Components\DatePicker::make('expiration_date')
+//                            ->label('Ngày hạn sử dụng')
+//                            ->required(),
                     ])
                     ->columns(2) // Chia thành 2 cột trong section
                     ->label('Thông tin nguyên liệu'),
@@ -96,19 +102,18 @@ class IngredientResource extends Resource
                         'low_stock' => 'sắp hết',
                         'out_of_stock' => 'hết hàng',
                     ]),
-                    Tables\Columns\TextInputColumn::make('quantity_in_stock')
+                    Tables\Columns\TextInputColumn::make('quantity_auto')
                     ->label('Số lượng thực tế')
                     ->sortable()
                     ->afterStateUpdated(function ($state, $record) {
-                        // Cập nhật số lượng trong kho khi có thay đổi
-                        $record->quantity_in_stock = $state;
+                        $record->quantity_auto = $state;
                         $record->save();
                     }),
                 Tables\Columns\TextColumn::make('minimum_threshold')
                     ->label('Ngưỡng tối thiểu')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('quantity_auto_updated')
+                Tables\Columns\TextColumn::make('quantity_in_stock')
                     ->label('Số lượng tự động cập nhật')
                     ->numeric()
                     ->sortable(),

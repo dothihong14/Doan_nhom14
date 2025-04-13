@@ -25,13 +25,17 @@ class Reservation extends Component
     public $generatedOtp; // Store generated OTP
     public $otpSent = false; // Track if OTP has been sent
 
+    public $showSuccessModal = false; // Biến điều khiển modal
+    public $reservation_id; // Lưu ID của reservation để tải PDF
+
     public function mount()
     {
         if (Auth::check()) {
-            $this->name = Customer::where('email', Auth::user()->email)->first()->name;
-            $this->phone = Customer::where('email', Auth::user()->email)->first()->phone;
-            $this->email = Customer::where('email', Auth::user()->email)->first()->email;
-        }else{
+            $customer = Customer::where('email', Auth::user()->email)->first();
+            $this->name = $customer->name ?? null;
+            $this->phone = $customer->phone ?? null;
+            $this->email = $customer->email ?? null;
+        } else {
             $this->name = null;
             $this->phone = null;
             $this->email = null;
@@ -39,8 +43,6 @@ class Reservation extends Component
 
         $this->reservation_time = null;
         $this->reservation_day = null;
-//        $this->restaurant_id = "";
-//        $this->number_of_people = 1;
     }
 
     public function submit()
@@ -77,7 +79,6 @@ class Reservation extends Component
         $reservation_code = strtoupper(uniqid('RESERVATION_'));
 
         if ($this->name == null || $this->phone == null || $this->reservation_day == null || $this->reservation_time == null || $this->restaurant_id == null) {
-            // dd($this->name, $this->phone, $this->email, $this->reservation_day, $this->reservation_time, $this->restaurant_id);
             session()->flash('error', 'Vui lòng điền đầy đủ thông tin.');
             return;
         }
@@ -99,17 +100,33 @@ class Reservation extends Component
             'status' => 'pending',
         ]);
 
-        session()->flash('message', 'Nhà hàng sẽ gọi điện xác nhận trong ít phút tới, quý khách vui lòng để ý điện thoại. Cảm ơn quý khách!');
-        $this->downloadPDF($reservation->id);
-        $this->reset();
+        // Lưu reservation_id và hiển thị modal
+        $this->reservation_id = $reservation->id;
+        $this->showSuccessModal = true;
+
+        // Xóa dữ liệu form sau khi đặt thành công, nhưng không reset $showSuccessModal và $reservation_id
+        $this->reset(['name', 'phone', 'email', 'reservation_day', 'reservation_time', 'restaurant_id', 'number_of_people', 'notes', 'otp', 'generatedOtp', 'otpSent']);
     }
 
     public function downloadPDF($reservationId)
     {
         $reservation = ReservationModel::findOrFail($reservationId);
         $pdf = Pdf::loadView('pdf.reservation', ['reservation' => $reservation]);
-        $pdf->save('reservation_' . $reservation->reservation_code . '.pdf');
-        return redirect('/reservation_' . $reservation->reservation_code . '.pdf');
+
+        // Lưu file PDF vào storage
+        $filePath = storage_path('app/public/reservations/reservation_' . $reservation->reservation_code . '.pdf');
+        $pdf->save($filePath);
+
+        // Đóng modal
+        $this->showSuccessModal = false;
+
+        // Trả về file PDF để tải về
+        return response()->download($filePath, 'reservation_' . $reservation->reservation_code . '.pdf');
+    }
+
+    public function closeModal()
+    {
+        $this->showSuccessModal = false;
     }
 
     public function render()
