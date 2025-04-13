@@ -10,13 +10,25 @@
 
                 </header>
                 <div class="woocommerce-notices-wrapper"></div>
-                <div class="delicioz-sorting"> <a href="#" class="filter-toggle" aria-expanded="false">
-                        <i class="delicioz-icon-sliders-v"></i><span>Filter</span></a>
+                <div class="delicioz-sorting" style="justify-content: flex-end;">
+                    <a href="#" class="filter-toggle" aria-expanded="false">
+                        <i class="delicioz-icon-sliders-v"></i><span>Filter</span>
+                    </a>
 
-                    <p class="woocommerce-result-count" style="color: black;">
-                        Showing {{ $dishes->firstItem() }}&ndash;{{ $dishes->lastItem() }} of {{ $dishes->total() }}
-                        results
-                    </p>
+                    <div class="sorting-filter d-flex align-items-center">
+                        <span style="white-space: nowrap; color: black">Lọc món ăn:</span>
+                        <select wire:change="sortBy($event.target.value)" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc; color: black !important;">
+                            <option value="default" {{ $sort_by == 'default' || !$sort_by ? 'selected' : '' }}>
+                                Sắp xếp mặc định
+                            </option>
+                            <option value="price-asc" {{ $sort_by == 'price-asc' ? 'selected' : '' }}>
+                                Giá: Thấp → Cao
+                            </option>
+                            <option value="price-desc" {{ $sort_by == 'price-desc' ? 'selected' : '' }}>
+                                Giá: Cao → Thấp
+                            </option>
+                        </select>
+                    </div>
                 </div>
                 <div class="delicioz-products-spacing ">
                     <ul class="delicioz-products products columns-3">

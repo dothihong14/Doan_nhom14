@@ -31,7 +31,7 @@ class InvoiceResource extends Resource
 
     public static function getPluralModelLabel(): string
     {
-        return 'Danh sách đơn hàng trực tuyến';
+        return 'Danh sách đơn hàng trực tiếp';
     }
     protected static ?int $navigationSort = 2;
 

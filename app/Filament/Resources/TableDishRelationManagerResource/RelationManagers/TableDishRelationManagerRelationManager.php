@@ -76,7 +76,6 @@ class TableDishRelationManagerRelationManager extends RelationManager
                         };
                     }),
 
-//                Tables\Columns\TextColumn::make('created_at')->label('Thời gian phục vụ')->dateTime(),
                 Tables\Columns\SelectColumn::make('status')->label('Trạng thái')
                     ->options([
                         'pending' => 'Chưa làm',
@@ -91,12 +90,6 @@ class TableDishRelationManagerRelationManager extends RelationManager
             ->headerActions([
                 Tables\Actions\CreateAction::make()
                     ->label('Thêm món ăn')
-                    ->using(function (array $data, string $model): \Illuminate\Database\Eloquent\Model {
-                        $table = $this->getOwnerRecord();
-                        $data['table_id'] = $table->id;
-                        $data['type'] = 'face_to_face';
-                        return $model::create($data);
-                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
