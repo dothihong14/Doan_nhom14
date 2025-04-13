@@ -102,18 +102,18 @@ class IngredientResource extends Resource
                         'low_stock' => 'sắp hết',
                         'out_of_stock' => 'hết hàng',
                     ]),
-                    Tables\Columns\TextInputColumn::make('quantity_auto')
+                    Tables\Columns\TextInputColumn::make('quantity_in_stock')
                     ->label('Số lượng thực tế')
                     ->sortable()
                     ->afterStateUpdated(function ($state, $record) {
-                        $record->quantity_auto = $state;
+                        $record->quantity_in_stock = $state;
                         $record->save();
                     }),
                 Tables\Columns\TextColumn::make('minimum_threshold')
                     ->label('Ngưỡng tối thiểu')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('quantity_in_stock')
+                Tables\Columns\TextColumn::make('quantity_auto')
                     ->label('Số lượng tự động cập nhật')
                     ->numeric()
                     ->sortable(),
