@@ -13,7 +13,11 @@ class Invoice extends Model
     protected $fillable = [
         'invoice_code',
         'restaurant_id',
+        'user_id',
         'total_amount',
+        'final_amount',
+        'point_discount',
+        'restaurant_discount',
         'status',
     ];
 
@@ -31,6 +35,11 @@ class Invoice extends Model
     public function items()
     {
         return $this->hasMany(InvoiceItem::class);
+    }
+
+    public function dishes()
+    {
+        return $this->belongsToMany(Dish::class, 'invoice_items', 'invoice_id', 'dish_id');
     }
 
     public function user()
@@ -56,6 +65,19 @@ class Invoice extends Model
         static::addGlobalScope('restaurant', function (Builder $builder) {
             if (auth()->check() && auth()->user()->restaurant_id) {
                 $builder->where('restaurant_id', auth()->user()->restaurant_id);
+            }
+        });
+
+        static::updated(function ($invoice) {
+            if ($invoice->status == 'paid') {
+                foreach ($invoice->dishes as $dish) {
+//                    dd($dish->recipes);
+                    foreach ($dish->recipes as $recipe) {
+                        $ingredient = Ingredient::where('id', $recipe->ingredient_id)->first();
+                        $ingredient->quantity_auto -= $recipe->quantity;
+                        $ingredient->save();
+                    }
+                }
             }
         });
     }

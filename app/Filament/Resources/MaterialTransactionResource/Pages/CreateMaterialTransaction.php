@@ -34,6 +34,7 @@ class CreateMaterialTransaction extends CreateRecord
             if ($ingredient) {
                 \Log::info("Subtracting {$detail->actual_quantity} from Ingredient ID: {$detail->ingredient_id}");
                 $ingredient->quantity_in_stock -= $detail->actual_quantity;
+                $ingredient->quantity_auto -= $detail->actual_quantity;
                 $ingredient->save();
             }
         }

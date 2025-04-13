@@ -34,6 +34,7 @@ class CreateWarehouseReceipt extends CreateRecord
             if ($ingredient) {
                 \Log::info("Adding {$detail->actual_quantity} to Ingredient ID: {$detail->ingredient_id}");
                 $ingredient->quantity_in_stock += $detail->actual_quantity;
+                $ingredient->quantity_auto += $detail->actual_quantity;
                 $ingredient->save();
             }
         }

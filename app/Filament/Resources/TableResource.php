@@ -11,14 +11,15 @@ use App\Models\Reservation;
 use App\Models\Restaurant;
 use App\Models\Table as TableModel;
 use App\Models\TableDish;
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class TableResource extends Resource
 {
@@ -29,59 +30,124 @@ class TableResource extends Resource
     {
         return 'Danh sách bàn';
     }
-    protected static ?string $navigationIcon = 'heroicon-o-table-cells'; // Bàn làm việc
+    protected static ?string $navigationIcon = 'heroicon-o-table-cells';
     protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
-{
-    return $form
-        ->schema([
-            Forms\Components\Section::make('Thông tin bàn')
-                ->description('Chọn nhà hàng và nhập thông tin bàn.')
-                ->schema([
-                    Forms\Components\Select::make('restaurant_id')
-                        ->options(Restaurant::all()->pluck('name', 'id'))
-                        ->visible(fn () => !auth()->user()->restaurant_id)
-                        ->required()
-                        ->label('Cơ sở'),
+    {
+        return $form
+            ->schema([
+                Forms\Components\Section::make('Thông tin bàn')
+                    ->description('Chọn nhà hàng và nhập thông tin bàn.')
+                    ->schema([
+                        Forms\Components\Select::make('restaurant_id')
+                            ->options(Restaurant::all()->pluck('name', 'id'))
+                            ->visible(fn () => !auth()->user()->restaurant_id)
+                            ->required()
+                            ->label('Cơ sở')
+                            ->live()
+                            ->afterStateUpdated(function (callable $set, $state) {
+                                if (!$state) {
+                                    $set('table_code', null);
+                                    return;
+                                }
+
+                                $restaurant = Restaurant::find($state);
+                                if (!$restaurant) {
+                                    $set('table_code', null);
+                                    return;
+                                }
+
+                                $restaurantName = Str::slug($restaurant->name, '');
+
+                                $latestTable = \App\Models\Table::where('restaurant_id', $state)
+                                    ->where('table_code', 'like', $restaurantName . '%')
+                                    ->orderBy('table_code', 'desc')
+                                    ->first();
+
+                                if ($latestTable) {
+                                    preg_match('/\d+$/', $latestTable->table_code, $matches);
+                                    $lastNumber = isset($matches[0]) ? (int)$matches[0] : 0;
+                                    $newNumber = $lastNumber + 1;
+                                } else {
+                                    $newNumber = 1;
+                                }
+
+                                $formattedNumber = str_pad($newNumber, 2, '0', STR_PAD_LEFT);
+                                $tableCode = $restaurantName . '_' . $formattedNumber;
+
+                                $set('table_code', $tableCode);
+                            }),
 
                         Forms\Components\TextInput::make('table_code')
-                        ->required()
-                        ->default(function ($context) {
-                           return 'TABLE_' . rand(1000, 9999);
-                        })
-                        ->unique(TableModel::class, 'table_code', ignoreRecord: true) // Ensure uniqueness, ignoring current record
-                        ->label('Mã bàn'),
-                ])->columns(2),
+                            ->required()
+                            ->default(function (callable $get) {
+                                $restaurantId = auth()->user()->restaurant_id;
+                                if (!$restaurantId) {
+                                    return null;
+                                }
 
-            Forms\Components\Section::make('Trạng thái bàn')
-                ->description('Chọn trạng thái hiện tại của bàn.')
-                ->schema([
-                    Forms\Components\Select::make('status')
-                        ->options([
-                            'available' => 'Có sẵn',
-                            'occupied' => 'Đã sử dụng',
-                            'reserved' => 'Đã đặt',
-                        ])
-                        ->required()
-                        ->label('Trạng thái')
-                        ,
-                        Forms\Components\Select::make('reservation_id')
-                        ->options(Reservation::all()->pluck('reservation_code', 'id'))
-                        ->label('Mã đặt bàn')
-                        ->searchable()
-                        ,
+                                $restaurant = Restaurant::find($restaurantId);
+                                if (!$restaurant) {
+                                    return null;
+                                }
+
+                                $restaurantName = Str::slug($restaurant->name, '');
+
+                                $latestTable = \App\Models\Table::where('restaurant_id', $restaurantId)
+                                    ->where('table_code', 'like', $restaurantName . '%')
+                                    ->orderBy('table_code', 'desc')
+                                    ->first();
+
+                                if ($latestTable) {
+                                    preg_match('/\d+$/', $latestTable->table_code, $matches);
+                                    $lastNumber = isset($matches[0]) ? (int)$matches[0] : 0;
+                                    $newNumber = $lastNumber + 1;
+                                } else {
+                                    $newNumber = 1;
+                                }
+
+                                $formattedNumber = str_pad($newNumber, 2, '0', STR_PAD_LEFT);
+                                $tableCode = $restaurantName . '_' . $formattedNumber;
+
+                                Log::info('Default table code: ' . $tableCode);
+                                return $tableCode;
+                            })
+                            ->unique(\App\Models\Table::class, 'table_code', ignoreRecord: true)
+                            ->label('Mã bàn')
+                            ->readOnly()
+                    ])->columns(2),
+
+                Forms\Components\Section::make('Trạng thái bàn')
+                    ->description('Chọn trạng thái hiện tại của bàn.')
+                    ->schema([
+                        Forms\Components\Select::make('status')
+                            ->options([
+                                'available' => 'Có sẵn',
+                                'occupied' => 'Đã sử dụng',
+                                'reserved' => 'Đã đặt',
+                            ])
+                            ->required()
+                            ->label('Trạng thái'),
                         Forms\Components\TextInput::make('number_guest')
-                        ->required()
-                        ->numeric()
-                        ->label('Số người')
-                        ,
-                ])->columns(3),
-        ]);
-}
+                            ->required()
+                            ->numeric()
+                            ->label('Số người tối đa'),
+                    ])->columns(2),
+            ]);
+    }
 
     public static function table(Table $table): Table
     {
+        $now = Carbon::now();
+        $oneHourLater = $now->copy()->addHour();
+        $currentDay = $now->toDateString();
+
+        \App\Models\Table::whereHas('reservations', function ($query) use ($currentDay, $now, $oneHourLater) {
+            $query->where('reservation_day', $currentDay)
+                ->whereBetween('reservation_time', [$now, $oneHourLater]);
+        })->where('status', '!=', 'reserved')
+            ->update(['status' => 'reserved']);
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
@@ -109,11 +175,6 @@ class TableResource extends Resource
                         'reserved' => 'Đã đặt',
                     ])
                     ,
-                    Tables\Columns\TextColumn::make('reservation.reservation_code')
-                    ->label('Mã đặt bàn')
-                    ->searchable()
-
-                   ,
 
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -143,11 +204,11 @@ class TableResource extends Resource
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make()
-                        ->label('Xem'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xem'),
                     Tables\Actions\EditAction::make()
-                        ->label('Chỉnh Sửa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Chỉnh Sửa'),
                     Tables\Actions\DeleteAction::make()
-                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xóa'),
                         Tables\Actions\Action::make('createInvoice')
                         ->label('Tạo Hóa Đơn')
                         ->icon('heroicon-o-document-text')
@@ -159,7 +220,7 @@ class TableResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
-                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xóa'),
                 ]),
             ]);
     }

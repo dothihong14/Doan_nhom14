@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Hồ sơ của tôi',
+    'title' => 'Tài khoản cá nhân',
     'profile_information' => 'Thông tin hồ sơ',
     'profile_information_description' => 'Cập nhật thông tin hồ sơ và địa chỉ email của bạn.',
     'name' => 'Tên',

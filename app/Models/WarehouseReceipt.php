@@ -28,5 +28,15 @@ class WarehouseReceipt extends Model
                 $builder->where('restaurant_id', auth()->user()->restaurant_id);
             }
         });
+
+        static::updated(function ($warehouseReceipt) {
+            if ($warehouseReceipt->status == 'approved') {
+                foreach($warehouseReceipt->details as $detail) {
+                    $ingredient = Ingredient::where('id', $detail->ingredient_id)->first();
+                    $ingredient->quantity_auto += $detail->requested_quantity;
+                    $ingredient->save();
+                };
+            }
+        });
     }
 }

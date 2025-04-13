@@ -140,7 +140,8 @@ public $emailVerified = false;
                 'order_id' => $order->id,
                 'dish_id' => $item['product_id'],
                 'quantity' => $item['quantity'],
-                'price' => $item['unit_amount'],
+                'unit_price' => $item['unit_amount'],
+                'total_price' => $item['unit_amount'] * $item['quantity'],
             ]);
             TableDish::create([
                 'dish_id' => $item['product_id'],
