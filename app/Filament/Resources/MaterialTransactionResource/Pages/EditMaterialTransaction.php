@@ -42,6 +42,7 @@ class EditMaterialTransaction extends EditRecord
             if ($ingredient) {
                 \Log::info("Restoring {$originalDetail['actual_quantity']} to Ingredient ID: {$originalDetail['ingredient_id']}");
                 $ingredient->quantity_in_stock += $originalDetail['actual_quantity'];
+                $ingredient->quantity_auto += $originalDetail['actual_quantity'];
                 $ingredient->save();
             }
         }
@@ -54,7 +55,7 @@ class EditMaterialTransaction extends EditRecord
 
             if ($ingredient) {
                 \Log::info("Subtracting {$newDetail->actual_quantity} from Ingredient ID: {$newDetail->ingredient_id}");
-                $ingredient->quantity_in_stock -= $newDetail->actual_quantity;
+                $ingredient->quantity_auto -= $newDetail->actual_quantity;
                 $ingredient->save();
             }
         }

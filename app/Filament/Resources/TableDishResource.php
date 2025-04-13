@@ -102,8 +102,9 @@ class TableDishResource extends Resource
                     ->label('Loại')
                     ->formatStateUsing(function ($state) {
                         return [
-                            'online' => 'Trực tuyến',
-                            'face_to_face' => 'Trực tiếp',
+                            'delivery' => 'Trực tuyến',
+                            'dine_in' => 'Trực tiếp',
+                            'take_away' => 'Mang đi',
                         ][$state] ?? ucfirst($state);
                     }),
                 Tables\Columns\TextColumn::make('created_at')

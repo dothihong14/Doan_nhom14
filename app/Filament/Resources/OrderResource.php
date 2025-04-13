@@ -4,10 +4,12 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Resources\OrderResource\RelationManagers;
+use App\Models\Dish;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\TableDish;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -38,10 +40,6 @@ class OrderResource extends Resource
                 Forms\Components\Section::make('Thông tin đơn hàng')
                     ->description('Nhập thông tin chi tiết cho đơn hàng.')
                     ->schema([
-                        // Forms\Components\Select::make('user_id')
-                        //     ->relationship('user', 'name') // Kết nối với model User
-                        //     ->required()
-                        //     ->label('Người đặt'),
                         Forms\Components\TextInput::make('name')
                             ->required()
                             ->label('Tên người đặt'),
@@ -76,7 +74,17 @@ class OrderResource extends Resource
                         Forms\Components\TextInput::make('total_amount')
                             ->required()
                             ->numeric()
-                            ->label('Tổng tiền'),
+                            ->readOnly()
+                            ->label('Tổng đơn hàng'),
+
+                        Forms\Components\Checkbox::make('point_discount')
+                            ->label('Đổi điểm'),
+
+                        Forms\Components\TextInput::make('final_amount')
+                            ->required()
+                            ->numeric()
+                            ->readOnly()
+                            ->label('Tổng thanh toán'),
 
                         Forms\Components\Select::make('payment_method')
                             ->options([
@@ -92,9 +100,9 @@ class OrderResource extends Resource
                             ])
                             ->required()
                             ->label('Trạng thái thanh toán'),
-//                        Forms\Components\TextInput::make('address')
-//                            ->label('Địa chỉ giao hàng')
-//                            ->required(),
+                        Forms\Components\TextInput::make('address')
+                            ->label('Địa chỉ giao hàng')
+                            ->required(),
 
                         Forms\Components\DateTimePicker::make('created_at')
                             ->label('Ngày đặt hàng')
@@ -109,6 +117,59 @@ class OrderResource extends Resource
                             ->label('Ghi chú')
                             ->rows(3),
                     ])->columns(4),
+                Section::make('Chi tiết hóa đơn')
+                    ->schema([
+                        Forms\Components\Repeater::make('items')
+                            ->label('Món ăn')
+                            ->relationship('items')
+                            ->schema([
+                                Forms\Components\Select::make('dish_id')
+                                    ->label('Món ăn')
+                                    ->options(Dish::pluck('name', 'id'))
+                                    ->required()
+                                    ->reactive()
+                                    ->afterStateUpdated(function ($state, callable $set, $get) {
+                                        $dish = Dish::find($state);
+                                        if ($dish) {
+                                            $set('unit_price', $dish->price);
+                                            $set('total_price', $dish->price * $get('quantity'));
+                                        } else {
+                                            $set('unit_price', 0);
+                                            $set('total_price', 0);
+                                        }
+                                    }),
+
+                                Forms\Components\TextInput::make('quantity')
+                                    ->label('Số lượng')
+                                    ->required()
+                                    ->numeric()
+                                    ->default(1)
+                                    ->reactive()
+                                    ->afterStateUpdated(function ($state, callable $set, $get) {
+                                        $set('total_price', $state * $get('unit_price'));
+                                    }),
+
+                                Forms\Components\TextInput::make('unit_price')
+                                    ->label('Đơn giá')
+                                    ->numeric()
+                                    ->suffix('VNĐ')
+                                    ->required()
+                                    ->readOnly(),
+
+                                Forms\Components\TextInput::make('total_price')
+                                    ->label('Thành tiền')
+                                    ->numeric()
+                                    ->suffix('VNĐ')
+                                    ->required()
+                                    ->dehydrated(true)
+                                    ->reactive()
+                                    ->afterStateUpdated(function ($state, callable $set, $get) {
+                                        $set('total_price', $get('quantity') * $get('unit_price'));
+                                    })
+                                    ->readOnly(),
+                            ])
+                            ->columns(4),
+                    ]),
             ]);
     }
 

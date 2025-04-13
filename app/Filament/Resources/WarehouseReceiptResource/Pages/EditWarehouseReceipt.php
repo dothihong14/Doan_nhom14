@@ -30,16 +30,12 @@ class EditWarehouseReceipt extends EditRecord
     {
         $record = $this->record;
 
-        \Log::info('After Save - MaterialImport ID: ' . $record->id);
-        \Log::info('Original Details: ' . json_encode($this->originalDetails));
-        \Log::info('New Details: ' . $record->details->toJson());
-
         foreach ($this->originalDetails as $originalDetail) {
             $ingredient = \App\Models\Ingredient::where('id', $originalDetail['ingredient_id'])->first();
 
             if ($ingredient) {
-                \Log::info("Subtracting {$originalDetail['actual_quantity']} from Ingredient ID: {$originalDetail['ingredient_id']}");
                 $ingredient->quantity_in_stock -= $originalDetail['actual_quantity'];
+                $ingredient->quantity_auto -= $originalDetail['actual_quantity'];
                 $ingredient->save();
             }
         }
@@ -49,8 +45,8 @@ class EditWarehouseReceipt extends EditRecord
             $ingredient = \App\Models\Ingredient::where('id', $newDetail->ingredient_id)->first();
 
             if ($ingredient) {
-                \Log::info("Adding {$newDetail->actual_quantity} to Ingredient ID: {$newDetail->ingredient_id}");
                 $ingredient->quantity_in_stock += $newDetail->actual_quantity;
+                $ingredient->quantity_auto += $newDetail->actual_quantity;
                 $ingredient->save();
             }
         }

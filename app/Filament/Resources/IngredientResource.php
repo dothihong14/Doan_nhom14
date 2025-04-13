@@ -38,18 +38,18 @@ class IngredientResource extends Resource
                             ->label('Tên nguyên liệu')
                             ->required()
                             ->maxLength(255),
-                        Forms\Components\FileUpload::make('image')
-                            ->label('Ảnh')
-                            ->image()
-                            ->required()
-                            ->imageEditor(),
+//                        Forms\Components\FileUpload::make('image')
+//                            ->label('Ảnh')
+//                            ->image()
+//                            ->required()
+//                            ->imageEditor(),
 
                         Forms\Components\TextInput::make('quantity_in_stock')
                             ->label('Số lượng trong kho')
                             ->required()
                             ->integer()
                             ->default(0)
-                            ->disabled()
+                            ->readOnly()
                             ->numeric(),
 
                         Forms\Components\TextInput::make('minimum_threshold')
@@ -89,9 +89,9 @@ class IngredientResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image')
-                    ->label('Ảnh')
-                    ,
+//                Tables\Columns\ImageColumn::make('image')
+//                    ->label('Ảnh')
+//                    ,
                 Tables\Columns\TextColumn::make('name')
                     ->label('Tên nguyên liệu')
                     ->searchable(),

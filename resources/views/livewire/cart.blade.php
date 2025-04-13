@@ -37,6 +37,19 @@
                 font-size: 13px;
                 text-align: center
             }
+            input,
+            select,
+            textarea {
+                color: #000000 !important; /* Màu đen cho nội dung */
+            }
+
+            input::placeholder,
+            section:optional,
+            textarea::placeholder {
+                color: #6b7280 !important; /* Màu xám cho placeholder, #6b7280 là xám trung tính */
+                opacity: 1; /* Đảm bảo placeholder hiển thị rõ */
+            }
+
             .cart_totals h2,
             table tr td div,
             table tr td a,

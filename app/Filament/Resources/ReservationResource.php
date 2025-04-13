@@ -7,6 +7,7 @@ use App\Filament\Resources\ReservationResource\RelationManagers;
 use App\Models\Reservation;
 use App\Models\Restaurant;
 use App\Models\User;
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -14,6 +15,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\DB;
 
 class ReservationResource extends Resource
 {
@@ -55,26 +57,100 @@ class ReservationResource extends Resource
                     ->schema([
                         Forms\Components\Select::make('user_id')
                             ->options(User::all()->pluck('name', 'id'))
-
                             ->label('Tài khoản người dùng'),
                         Forms\Components\Select::make('restaurant_id')
                             ->options(Restaurant::all()->pluck('name', 'id'))
                             ->label('Cơ sở')
                             ->required()
-                            ->visible(fn () => !auth()->user()->restaurant_id),
+                            ->visible(fn () => !auth()->user()->restaurant_id)
+                            ->reactive(),
                         Forms\Components\TextInput::make('number_of_people')
                             ->required()
                             ->numeric()
+                            ->reactive()
                             ->label('Số lượng người'),
                         Forms\Components\DatePicker::make('reservation_day')
                             ->required()
-                            ->label('Ngày đặt'),
+                            ->label('Ngày đặt')
+                            ->default(Carbon::today())
+                            ->reactive(),
                         Forms\Components\TimePicker::make('reservation_time')
                             ->required()
-                            ->label('Thời gian đặt'),
-                        Forms\Components\TextInput::make('reservation_code')
-                            ->maxLength(255)
-                            ->label('Mã đặt chỗ'),
+                            ->label('Thời gian đặt')
+                            ->default(Carbon::now())
+                            ->reactive(),
+//                        Forms\Components\Select::make('table_id')
+//                            ->label('Chọn bàn')
+//                            ->options(function (callable $get) {
+//                                $restaurantId = auth()->user()->restaurant_id ?? $get('restaurant_id');
+//                                if (!$restaurantId) {
+//                                    return [];
+//                                }
+//
+//                                $reservationDay = $get('reservation_day') ?? Carbon::today()->toDateString();
+//                                $reservationTime = $get('reservation_time') ? Carbon::parse($get('reservation_time')) : Carbon::now();
+//                                $numberOfPeople = $get('number_of_people') ?? 9999;
+//
+//                                return \App\Models\Table::query()
+//                                    ->where('restaurant_id', $restaurantId)
+//                                    ->where('status', 'available')
+//                                    ->where('number_guest', '>=', $numberOfPeople)
+//                                    ->whereDoesntHave('reservations', function ($query) use ($reservationDay, $reservationTime) {
+//                                        $query->where('reservation_day', $reservationDay)
+//                                            ->whereRaw(
+//                                                '? BETWEEN DATE_SUB(CAST(reservation_time AS TIME), INTERVAL 1 HOUR) AND CAST(reservation_time AS TIME)',
+//                                                [$reservationTime->format('H:i:s')]
+//                                            );
+//                                    })
+//                                    ->pluck('table_code', 'id')
+//                                    ->toArray();
+//                            })
+//                            ->searchable()
+//                            ->required(),
+
+                        Forms\Components\Select::make('table_id')
+                            ->label('Chọn bàn')
+                            ->options(function (callable $get, $record) {
+                                $restaurantId = auth()->user()->restaurant_id ?? $get('restaurant_id');
+                                if (!$restaurantId) {
+                                    return [];
+                                }
+
+                                $reservationDay = $get('reservation_day') ?? Carbon::today()->toDateString();
+                                $reservationTime = $get('reservation_time') ? Carbon::parse($get('reservation_time')) : Carbon::now();
+                                $numberOfPeople = $get('number_of_people') ?? 9999;
+
+                                $query = \App\Models\Table::query()
+                                    ->where('restaurant_id', $restaurantId)
+                                    ->where('status', 'available')
+                                    ->where('number_guest', '>=', $numberOfPeople)
+                                    ->whereDoesntHave('reservations', function ($query) use ($reservationDay, $reservationTime) {
+                                        $query->where('reservation_day', $reservationDay)
+                                            ->whereRaw(
+                                                '? BETWEEN DATE_SUB(CAST(reservation_time AS TIME), INTERVAL 1 HOUR) AND CAST(reservation_time AS TIME)',
+                                                [$reservationTime->format('H:i:s')]
+                                            );
+                                    });
+
+                                if ($record && $record->table_id) {
+                                    $query->orWhere('id', $record->table_id);
+                                }
+
+                                $tables = $query->pluck('table_code', 'id')->toArray();
+                                \Illuminate\Support\Facades\Log::info('Table options for select', ['tables' => $tables]);
+
+                                return $tables;
+                            })
+                            ->getOptionLabelFromRecordUsing(function ($record) {
+                                \Illuminate\Support\Facades\Log::info('Table record for label', [
+                                    'id' => $record->id,
+                                    'table_code' => $record->table_code ?? 'Not found',
+                                ]);
+                                return $record->table_code ?? 'Unknown';
+                            })
+                            ->searchable()
+                            ->required(),
+
                         Forms\Components\Textarea::make('notes')
                             ->required()
                             ->maxLength(255)
@@ -101,9 +177,6 @@ class ReservationResource extends Resource
     {
         return $table
             ->columns([
-//                Tables\Columns\TextColumn::make('reservation_code')
-//                    ->searchable()
-//                    ->label('Mã đặt bàn'),
                 Tables\Columns\TextColumn::make('name')
                     ->numeric()
                     ->searchable()
@@ -114,6 +187,34 @@ class ReservationResource extends Resource
                     ->visible(fn () => !auth()->user()->restaurant_id)
                     ->searchable()
                     ->label('Tên nhà hàng')
+                    ->sortable(),
+                Tables\Columns\SelectColumn::make('table_id')
+                    ->options(function ($record) {
+                        $restaurantId = $record->restaurant_id;
+                        $reservationDay = $record->reservation_day;
+                        $reservationTime = Carbon::parse($record->reservation_time);
+
+                        $tables = \App\Models\Table::query()
+                            ->where('restaurant_id', $restaurantId)
+                            ->where('status', 'available')
+                            ->where('number_guest', '>=', $record->number_of_people)
+                            ->whereDoesntHave('reservations', function ($query) use ($reservationDay, $reservationTime, $record) {
+                                $query->where('reservation_day', $reservationDay)
+                                    ->where('id', '!=', $record->id)
+                                    ->where(function ($subQuery) use ($reservationTime) {
+                                        $subQuery->whereRaw(
+                                            '? BETWEEN DATE_SUB(CAST(reservation_time AS TIME), INTERVAL 1 HOUR) AND CAST(reservation_time AS TIME)',
+                                            [$reservationTime->format('H:i:s')]
+                                        );
+                                    });
+                            })
+                            ->pluck('table_code', 'id')
+                            ->toArray();
+
+                        return $tables;
+                    })
+                    ->searchable()
+                    ->label('Chọn bàn')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('number_of_people')
                     ->numeric()
@@ -156,8 +257,6 @@ class ReservationResource extends Resource
                     ->label('Ngày cập nhật')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-
-
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('restaurant_id')
@@ -180,17 +279,17 @@ class ReservationResource extends Resource
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make()
-                        ->label('Xem'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xem'),
                     Tables\Actions\EditAction::make()
-                        ->label('Chỉnh Sửa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Chỉnh Sửa'),
                     Tables\Actions\DeleteAction::make()
-                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xóa'),
                 ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
-                        ->label('Xóa'), // Đổi nhãn sang tiếng Việt
+                        ->label('Xóa'),
                 ]),
             ]);
     }
@@ -201,9 +300,7 @@ class ReservationResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array

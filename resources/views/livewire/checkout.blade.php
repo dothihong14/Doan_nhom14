@@ -81,6 +81,19 @@
                 font-family: "Times New Roman";
             }
 
+            input,
+            select,
+            textarea {
+                color: #000000 !important; /* Màu đen cho nội dung */
+            }
+
+            input::placeholder,
+            section:optional,
+            textarea::placeholder {
+                color: #6b7280 !important; /* Màu xám cho placeholder, #6b7280 là xám trung tính */
+                opacity: 1; /* Đảm bảo placeholder hiển thị rõ */
+            }
+
             form label,
             form h3,
             .woocommerce-form__label.woocommerce-form__label-for-checkbox.checkbox
