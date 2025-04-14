@@ -47,6 +47,11 @@ class Invoice extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'phone', 'phone');
+    }
+
     protected static function boot()
     {
         parent::boot();
@@ -68,18 +73,23 @@ class Invoice extends Model
             }
         });
 
-//        static::updated(function ($invoice) {
-//            if ($invoice->status == 'paid') {
-//                foreach ($invoice->dishes as $dish) {
-////                    dd($dish->recipes);
-//                    foreach ($dish->recipes as $recipe) {
-//                        $ingredient = Ingredient::where('id', $recipe->ingredient_id)->first();
-//                        $ingredient->quantity_auto -= $recipe->quantity;
-//                        $ingredient->save();
-//                    }
-//                }
-//            }
-//        });
+        static::created(function ($invoice) {
+            if ($invoice->status === 'paid' && $invoice->getOriginal('status') !== 'paid' && isset($invoice->user_id)) {
+                $customer = User::findOrFail($invoice->user_id);
+                if ($customer) {
+                    $customer->update(['loyalty_points' => $customer->loyalty_points + $invoice->final_amount * 0.05]);
+                }
+            }
+        });
+
+        static::updated(function ($invoice) {
+            if ($invoice->wasChanged('status') && $invoice->status === 'paid' && $invoice->getOriginal('status') !== 'paid' && isset($invoice->user_id)) {
+                $customer = User::findOrFail($invoice->user_id);
+                if ($customer) {
+                    $customer->update(['loyalty_points' => $customer->loyalty_points + $invoice->final_amount * 0.05]);
+                }
+            }
+        });
     }
 
 }

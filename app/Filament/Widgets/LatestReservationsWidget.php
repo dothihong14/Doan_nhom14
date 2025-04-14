@@ -34,7 +34,7 @@ class LatestReservationsWidget extends BaseWidget
                     )
                     ->groupBy('dishes.id', 'dishes.name', 'dishes.price', 'dishes.image', 'dishes.status')
                     ->orderBy('total_sold', 'desc')
-                    ->take(10) // Limit to top 10 best-selling dishes
+                    ->take(10)
             )
             ->columns([
                 Tables\Columns\TextColumn::make('name')
@@ -98,6 +98,29 @@ class LatestReservationsWidget extends BaseWidget
                         }
                         if ($data['to_date']) {
                             $indicators[] = 'Đến ngày: ' . \Carbon\Carbon::parse($data['to_date'])->format('d/m/Y');
+                        }
+                        return $indicators;
+                    }),
+                Filter::make('restaurant_id')
+                    ->form([
+                        \Filament\Forms\Components\Select::make('restaurant_id')
+                            ->label('Nhà hàng')
+                            ->options(
+                                \App\Models\Restaurant::pluck('name', 'id')->toArray()
+                            )
+                            ->placeholder('Chọn nhà hàng'),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query->when(
+                            $data['restaurant_id'],
+                            fn (Builder $query) => $query->where('dishes.restaurant_id', $data['restaurant_id'])
+                        );
+                    })
+                    ->indicateUsing(function (array $data): array {
+                        $indicators = [];
+                        if ($data['restaurant_id']) {
+                            $restaurant = \App\Models\Restaurant::find($data['restaurant_id']);
+                            $indicators[] = 'Nhà hàng: ' . ($restaurant->name ?? 'Không xác định');
                         }
                         return $indicators;
                     }),

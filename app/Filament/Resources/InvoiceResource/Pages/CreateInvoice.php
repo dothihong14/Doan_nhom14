@@ -4,18 +4,19 @@ namespace App\Filament\Resources\InvoiceResource\Pages;
 
 use App\Filament\Resources\InvoiceResource;
 use App\Models\TableDish;
+use App\Models\User;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateInvoice extends CreateRecord
 {
     protected static string $resource = InvoiceResource::class;
-    protected static ?string $title = 'Tạo hóa đơn';
+    protected static ?string $title = 'Tạo đơn hàng trực tiếp';
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+//            Actions\CreateAction::make(),
         ];
     }
 
@@ -23,6 +24,11 @@ class CreateInvoice extends CreateRecord
     {
         if (auth()->user()->restaurant_id) {
             $data['restaurant_id'] = auth()->user()->restaurant_id;
+        }
+        if ($data['point_discount'] > 0) {
+            $user = User::findOrFail($data['user_id']);
+            $user->loyalty_points = 0;
+            $user->save();
         }
         return $data;
     }

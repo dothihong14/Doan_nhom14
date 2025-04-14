@@ -7,7 +7,6 @@ use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Filament\Forms\Components\Section;
 use Illuminate\Support\Facades\Storage;
-use Filament\Tables\Actions\Action;
 use App\Filament\Resources\InvoiceResource\Pages;
 use App\Filament\Resources\InvoiceResource\RelationManagers;
 use App\Models\Invoice;
@@ -17,10 +16,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
-
 class InvoiceResource extends Resource
 {
     protected static ?string $model = Invoice::class;
@@ -34,7 +30,6 @@ class InvoiceResource extends Resource
         return 'Danh sách đơn hàng trực tiếp';
     }
     protected static ?int $navigationSort = 2;
-
     protected static ?string $navigationIcon = 'heroicon-o-credit-card';
 
     public static function form(Form $form): Form
@@ -53,7 +48,6 @@ class InvoiceResource extends Resource
                                 do {
                                     $code = 'INV-' . strtoupper(uniqid());
                                 } while (Invoice::where('invoice_code', $code)->exists());
-
                                 return $code;
                             }),
 
@@ -61,13 +55,54 @@ class InvoiceResource extends Resource
                             ->label('Nhà hàng')
                             ->options(Restaurant::all()->pluck('name', 'id'))
                             ->required()
-                            ->visible(fn () => !auth()->user()->restaurant_id),
+                            ->visible(fn() => !auth()->user()->restaurant_id),
 
-                        Forms\Components\Select::make('user_id')
-                            ->label('Khách hàng')
-                            ->options(User::all()->pluck('name', 'id'))
-                            ->nullable() // Cho phép user_id là null
-                            ->reactive(),
+                        Forms\Components\TextInput::make('phone')
+                            ->label('Số điện thoại khách hàng')
+                            ->numeric()
+                            ->reactive()
+                            ->afterStateUpdated(function ($state, callable $set) {
+                                $user = User::where('phone', $state)->first();
+                                if ($user) {
+                                    $set('name', $user->name);
+                                    $set('user_id', $user->id);
+                                    $set('has_user', true);
+                                    $set('loyalty_points', $user->loyalty_points ?? 0);
+                                } else {
+                                    $set('name', null);
+                                    $set('user_id', null);
+                                    $set('has_user', false);
+                                    $set('loyalty_points', 0);
+                                }
+                            })
+                            ->afterStateHydrated(function ($set, $record) {
+                                // Khi chỉnh sửa, nếu invoice có user_id, điền phone từ user
+                                if ($record && $record->user_id && $record->user) {
+                                    $set('phone', $record->user->phone);
+                                }
+                            }),
+
+                        Forms\Components\Hidden::make('user_id'),
+                        Forms\Components\Hidden::make('has_user')
+                            ->default(false)
+                            ->afterStateHydrated(function ($set, $record) {
+                                // Khi chỉnh sửa, nếu invoice có user_id, đặt has_user là true
+                                if ($record && $record->user_id && $record->user) {
+                                    $set('has_user', true);
+                                }
+                            }),
+
+                        Forms\Components\TextInput::make('name')
+                            ->label('Tên khách hàng')
+                            ->reactive()
+                            ->readOnly(fn($get) => $get('has_user'))
+                            ->visible(fn($get) => $get('has_user'))
+                            ->afterStateHydrated(function ($set, $record) {
+                                // Khi chỉnh sửa, nếu invoice có user_id, điền name từ user
+                                if ($record && $record->user_id && $record->user) {
+                                    $set('name', $record->user->name);
+                                }
+                            }),
 
                         Forms\Components\Select::make('status')
                             ->label('Trạng thái')
@@ -90,36 +125,70 @@ class InvoiceResource extends Resource
                                 $set('total_amount', $total);
                             }),
 
-                        Forms\Components\Checkbox::make('point_discount')
-                            ->label('Đổi điểm')
-                            ->reactive()
-                            ->afterStateUpdated(function ($state, callable $set, $get) {
-                                static::updateFinalAmount($set, $get);
-                            }),
+                        Forms\Components\Fieldset::make('loyalty_points_section')
+                            ->label('Quản lý điểm tích lũy')
+                            ->schema([
+                                Forms\Components\Group::make()
+                                    ->schema([
+                                        Forms\Components\Placeholder::make('user_points')
+                                            ->label('Số điểm hiện tại')
+                                            ->content(function ($get) {
+                                                $points = $get('loyalty_points') ?? 0;
+                                                return $points > 0 ? $points . ' điểm' : 'Không có điểm';
+                                            }),
+                                        Forms\Components\Checkbox::make('point_discount_amount')
+                                            ->label('Đổi điểm')
+                                            ->reactive()
+                                            ->default(false)
+                                            ->afterStateUpdated(function ($state, callable $set, $get) {
+                                                static::updateFinalAmount($set, $get);
+                                            })
+                                            ->dehydrated(true)
+                                            ->dehydrateStateUsing(function ($state) {
+                                                return (bool) $state;
+                                            }),
+                                    ])
+                                    ->columns(2),
 
-                        Forms\Components\Placeholder::make('user_points')
-                            ->label('Số điểm hiện tại')
-                            ->content(function ($get) {
-                                $userId = $get('user_id');
-                                if ($userId) {
-                                    $user = User::find($userId);
-                                    return $user ? $user->loyalty_points . ' điểm' : 'Không có điểm';
-                                }
-                                return 'Không có khách hàng được chọn';
-                            })
-                            ->visible(fn ($get) => !empty($get('user_id'))),
+                                Forms\Components\Hidden::make('point_discount')
+                                    ->default(0)
+                                    ->dehydrated(true)
+                                    ->dehydrateStateUsing(function ($state, $get) {
+                                        $points = 0;
+                                        if ($get('point_discount_amount') && $get('has_user')) {
+                                            $points = $get('loyalty_points') ?? 0;
+                                        }
+                                        return $points;
+                                    }),
 
-                        Forms\Components\Placeholder::make('point_discount')
-                            ->label('Số điểm quy đổi')
-                            ->content(function ($get, $record) {
-                                return $record && $get('point_discount') ? number_format($record->point_discount) . ' điểm' : 'Không áp dụng điểm';
-                            })
-                            ->visible(fn ($get) => $get('point_discount')),
+                                Forms\Components\Placeholder::make('point_discount_amount')
+                                    ->label('Số điểm quy đổi')
+                                    ->content(function ($get) {
+                                        if ($get('point_discount_amount')) {
+                                            $points = $get('loyalty_points') ?? 0;
+                                            return number_format($points) . ' điểm';
+                                        }
+                                        return 'Không áp dụng điểm';
+                                    })
+                                    ->visible(fn($get) => $get('point_discount_amount')),
+
+                                Forms\Components\Hidden::make('loyalty_points')
+                                    ->default(0)
+                                    ->dehydrated(true)
+                                    ->afterStateHydrated(function ($set, $record) {
+                                        // Khi chỉnh sửa, nếu invoice có user_id, điền loyalty_points từ user
+                                        if ($record && $record->user_id && $record->user) {
+                                            $set('loyalty_points', $record->user->loyalty_points ?? 0);
+                                        }
+                                    }),
+                            ])
+                            ->visible(fn($get) => $get('has_user')),
 
                         Forms\Components\TextInput::make('restaurant_discount')
                             ->label('Giảm giá của nhà hàng')
                             ->numeric()
                             ->default(0)
+                            ->minValue(0)
                             ->reactive()
                             ->afterStateUpdated(function ($state, callable $set, $get) {
                                 static::updateFinalAmount($set, $get);
@@ -205,17 +274,17 @@ class InvoiceResource extends Resource
     protected static function updateFinalAmount(callable $set, $get)
     {
         $total_amount = $get('total_amount') ?? 0;
-        $restaurant_discount = $get('restaurant_discount') ?? 0;
+        $restaurant_discount_percentage = !empty($get('restaurant_discount')) ? $get('restaurant_discount') : 0;
         $point_discount = 0;
 
-        // Chỉ tính điểm nếu point_discount được check và user_id tồn tại
-        if ($get('point_discount') && $get('user_id')) {
-            $user = User::find($get('user_id'));
-            $point_discount = $user ? $user->loyalty_points : 0;
+        $restaurant_discount = ($total_amount * $restaurant_discount_percentage) / 100;
+
+        if ($get('point_discount_amount') && $get('has_user')) {
+            $points = $get('loyalty_points') ?? 0;
+            $point_discount = $points;
         }
 
         $final_amount = $total_amount - $restaurant_discount - $point_discount;
-
         $set('final_amount', max(0, $final_amount));
     }
 
@@ -226,10 +295,7 @@ class InvoiceResource extends Resource
                 Tables\Columns\TextColumn::make('invoice_code')->label('Mã hóa đơn')->searchable(),
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('Khách hàng')
-                    ->searchable()
-                    ->formatStateUsing(function ($state, $record) {
-                        return $record->user ? $state : 'Vãng lai';
-                    }),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('restaurant.name')->label('Cơ sở')->searchable()->sortable()->visible(fn () => !auth()->user()->restaurant_id),
                 Tables\Columns\TextColumn::make('final_amount')->label('Tổng tiền')->numeric()->money('VND'),
                 Tables\Columns\TextColumn::make('status')->label('Trạng thái')->badge()->formatStateUsing(function ($state) {
@@ -244,12 +310,9 @@ class InvoiceResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
-                    Tables\Actions\ViewAction::make()
-                        ->label('Xem'),
-                    Tables\Actions\EditAction::make()
-                        ->label('Chỉnh sửa'),
-                    Tables\Actions\DeleteAction::make()
-                        ->label('Xóa'),
+                    Tables\Actions\ViewAction::make()->label('Xem'),
+                    Tables\Actions\EditAction::make()->label('Chỉnh sửa'),
+                    Tables\Actions\DeleteAction::make()->label('Xóa'),
                     Tables\Actions\Action::make('print')
                         ->label('In hóa đơn')
                         ->icon('heroicon-o-printer')
@@ -272,17 +335,14 @@ class InvoiceResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-        ];
+        return [];
     }
 
-    public static function printInvoice(Invoice $invoice)
+    public static function printInvoice(Invoice $record)
     {
-        $pdf = Pdf::loadView('pdf.invoice', ['invoice' => $invoice]);
-
-        $filePath = 'invoices/invoice_' . $invoice->invoice_code . '.pdf';
+        $pdf = Pdf::loadView('pdf.invoice', ['invoice' => $record]);
+        $filePath = 'invoices/invoice_' . $record->invoice_code . '.pdf';
         Storage::put('public/' . $filePath, $pdf->output());
-
         return Storage::url($filePath);
     }
 

@@ -114,6 +114,12 @@
             }
 
             input::placeholder,
+            section:optional,
+            textarea::placeholder {
+                color: #6b7280 !important; /* Màu xám cho placeholder, #6b7280 là xám trung tính */
+                opacity: 1; /* Đảm bảo placeholder hiển thị rõ */
+            }
+
 
 
             .wp-block-quote.has-text-align-right {

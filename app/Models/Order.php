@@ -30,7 +30,6 @@ class Order extends Model
     }
     public function save(array $options = [])
     {
-        // Kiểm tra trạng thái trước khi lưu
         if ($this->isDirty('status') && $this->status === 'delivered') {
             $user = Customer::where('email', $this->email)->first();
             if ($user) {
@@ -53,6 +52,23 @@ class Order extends Model
         static::addGlobalScope('restaurant', function (Builder $builder) {
             if (auth()->check() && auth()->user()->restaurant_id) {
                 $builder->where('restaurant_id', auth()->user()->restaurant_id);
+            }
+        });
+        static::created(function ($invoice) {
+            if ($invoice->payment_status === 'paid' && $invoice->getOriginal('payment_status') !== 'paid' && isset($invoice->user_id)) {
+                $customer = User::findOrFail($invoice->user_id);
+                if ($customer) {
+                    $customer->update(['loyalty_points' => $customer->loyalty_points + $invoice->final_amount * 0.05]);
+                }
+            }
+        });
+
+        static::updated(function ($invoice) {
+            if ($invoice->wasChanged('payment_status') && $invoice->payment_status === 'paid' && $invoice->getOriginal('payment_status') !== 'paid' && isset($invoice->user_id)) {
+                $customer = User::findOrFail($invoice->user_id);
+                if ($customer) {
+                    $customer->update(['loyalty_points' => $customer->loyalty_points + $invoice->final_amount * 0.05]);
+                }
             }
         });
     }
