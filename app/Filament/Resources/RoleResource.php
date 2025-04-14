@@ -105,17 +105,17 @@ class RoleResource extends Resource implements HasShieldPermissions
                     ->label(__('filament-shield::filament-shield.column.team'))
                     ->searchable()
                     ->visible(fn (): bool => static::shield()->isCentralApp() && Utils::isTenancyEnabled()),
-                    Tables\Columns\TextColumn::make('guard_name')
-                    ->badge()
-                    ->color('warning')
-                    ->label(__('Mã chức vụ')),
+//                    Tables\Columns\TextColumn::make('guard_name')
+//                    ->badge()
+//                    ->color('warning')
+//                    ->label(__('Mã chức vụ')),
 //                Tables\Columns\TextColumn::make('permissions_count')
 //                    ->badge()
 //                    ->label(__('filament-shield::filament-shield.column.permissions'))
 //                    ->counts('permissions')
 //                    ->colors(['success']),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label(__('filament-shield::filament-shield.column.created_at'))
+                    ->label('Tạo mới lúc')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label(__('filament-shield::filament-shield.column.updated_at'))

@@ -41,5 +41,16 @@ class TableDish extends Model
                 $builder->where('restaurant_id', auth()->user()->restaurant_id);
             }
         });
+
+        static::updated(function ($tableDish) {
+//            dd($tableDish->dish->recipes);
+            if ($tableDish->status == 'done') {
+                foreach ($tableDish->dish->recipes as $recipe) {
+                    $ingredient = Ingredient::findOrFail($recipe->ingredient_id);
+                    $ingredient->quantity_auto -= $recipe->quantity;
+                    $ingredient->save();
+                }
+            }
+        });
     }
 }

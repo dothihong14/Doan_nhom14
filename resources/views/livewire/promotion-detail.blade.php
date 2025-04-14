@@ -1369,7 +1369,7 @@
 
 
                         <div id="recent-posts-2" class="widget widget_recent_entries"> <span
-                                class="gamma widget-title" style="color: black; font-family: 'Times New Roman'">Bài viết mới nhất</span>
+                                class="gamma widget-title" style="color: black; font-family: 'Times New Roman'">Khuyễn mãi mới nhất</span>
                             <div class="widget-content">
                                 <ul>
                                     @foreach ($promotions as $promotion)

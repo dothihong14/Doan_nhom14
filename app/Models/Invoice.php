@@ -68,18 +68,18 @@ class Invoice extends Model
             }
         });
 
-        static::updated(function ($invoice) {
-            if ($invoice->status == 'paid') {
-                foreach ($invoice->dishes as $dish) {
-//                    dd($dish->recipes);
-                    foreach ($dish->recipes as $recipe) {
-                        $ingredient = Ingredient::where('id', $recipe->ingredient_id)->first();
-                        $ingredient->quantity_auto -= $recipe->quantity;
-                        $ingredient->save();
-                    }
-                }
-            }
-        });
+//        static::updated(function ($invoice) {
+//            if ($invoice->status == 'paid') {
+//                foreach ($invoice->dishes as $dish) {
+////                    dd($dish->recipes);
+//                    foreach ($dish->recipes as $recipe) {
+//                        $ingredient = Ingredient::where('id', $recipe->ingredient_id)->first();
+//                        $ingredient->quantity_auto -= $recipe->quantity;
+//                        $ingredient->save();
+//                    }
+//                }
+//            }
+//        });
     }
 
 }

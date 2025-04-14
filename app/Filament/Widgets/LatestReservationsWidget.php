@@ -2,61 +2,57 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Dish;
 use App\Models\Reservation;
 use Filament\Tables;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 
 class LatestReservationsWidget extends BaseWidget
 {
-    protected static ?string $heading = 'Lịch đặt bàn đang chờ';
+    protected static ?string $heading = 'Món ăn bán chạy';
     protected static ?int $sort = 1;
 
     public function table(Table $table): Table
     {
         return $table
-            ->query(Reservation::query()->latest()->where('status', 'pending')->take(10)) // Giới hạn số lượng đơn đặt chỗ
+            ->query(
+                Dish::query()
+                    ->leftJoin('order_items', 'dishes.id', '=', 'order_items.dish_id')
+                    ->leftJoin('invoice_items', 'dishes.id', '=', 'invoice_items.dish_id')
+                    ->select(
+                        'dishes.id',
+                        'dishes.name',
+                        'dishes.price',
+                        'dishes.image',
+                        'dishes.status',
+                        DB::raw('COALESCE(SUM(order_items.quantity), 0) + COALESCE(SUM(invoice_items.quantity), 0) as total_sold'),
+                        DB::raw('COALESCE(SUM(order_items.total_price), 0) + COALESCE(SUM(invoice_items.total_price), 0) as total_price_sold')
+                    )
+                    ->groupBy('dishes.id', 'dishes.name', 'dishes.price', 'dishes.image', 'dishes.status')
+                    ->orderBy('total_sold', 'desc')
+                    ->take(10) // Limit to top 10 best-selling dishes
+            )
             ->columns([
-                Tables\Columns\TextColumn::make('reservation_code')
-                    ->searchable()
-                    ->label('Mã đặt bàn'),
-                Tables\Columns\TextColumn::make('user.name')
-                    ->numeric()
-                    ->searchable()
-                    ->label('Tên người đặt')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('restaurant.name')
-                    ->visible(fn () => !auth()->user()->restaurant_id)
-                    ->numeric()
-                    ->searchable()
-                    ->label('Tên nhà hàng')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('number_of_people')
-                    ->numeric()
-                    ->label('Số lượng người')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('reservation_time')
-                    ->sortable()
-                    ->searchable()
-                    ->label('Giờ đặt')
-                   ,
-                Tables\Columns\TextColumn::make('notes')
-                    ->searchable()
-                    ->label('Ghi chú')
-                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
-                    ->label('Tên người đặt'),
-                Tables\Columns\TextColumn::make('phone')
-                    ->searchable()
-                    ->label('Số điện thoại'),
-                Tables\Columns\TextColumn::make('reservation_day')
-                    ->searchable()
+                    ->label('Tên món ăn')
                     ->sortable()
-                    ->label('Ngày đặt'),
-                Tables\Columns\TextColumn::make('status')
-                    ->badge()
-                    ->label('Trạng thái'),
+                    ->wrap(),
+                Tables\Columns\TextColumn::make('price')
+                    ->money('VND')
+                    ->label('Giá')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('total_sold')
+                    ->label('Số lượng')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('total_price_sold')
+                    ->money('VND')
+                    ->label('Tổng tiền')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->label('Ngày tạo')
@@ -67,12 +63,47 @@ class LatestReservationsWidget extends BaseWidget
                     ->label('Ngày cập nhật')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-
-
             ])
-            ->defaultSort('created_at', 'desc') // Sắp xếp theo thời gian tạo
+            ->filters([
+                Filter::make('date_range')
+                    ->form([
+                        \Filament\Forms\Components\DatePicker::make('from_date')
+                            ->label('Từ ngày'),
+                        \Filament\Forms\Components\DatePicker::make('to_date')
+                            ->label('Đến ngày'),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['from_date'],
+                                fn (Builder $query) => $query->where(
+                                    fn ($query) => $query
+                                        ->where('order_items.created_at', '>=', $data['from_date'])
+                                        ->orWhere('invoice_items.created_at', '>=', $data['from_date'])
+                                )
+                            )
+                            ->when(
+                                $data['to_date'],
+                                fn (Builder $query) => $query->where(
+                                    fn ($query) => $query
+                                        ->where('order_items.created_at', '<=', $data['to_date'])
+                                        ->orWhere('invoice_items.created_at', '<=', $data['to_date'])
+                                )
+                            );
+                    })
+                    ->indicateUsing(function (array $data): array {
+                        $indicators = [];
+                        if ($data['from_date']) {
+                            $indicators[] = 'Từ ngày: ' . \Carbon\Carbon::parse($data['from_date'])->format('d/m/Y');
+                        }
+                        if ($data['to_date']) {
+                            $indicators[] = 'Đến ngày: ' . \Carbon\Carbon::parse($data['to_date'])->format('d/m/Y');
+                        }
+                        return $indicators;
+                    }),
+            ])
+            ->defaultSort('total_sold', 'desc')
             ->actions([
-                Tables\Actions\ViewAction::make(), // Hành động xem
             ]);
     }
 }
