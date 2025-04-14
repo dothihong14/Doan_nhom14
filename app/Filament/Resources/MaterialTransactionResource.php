@@ -17,11 +17,11 @@ class MaterialTransactionResource extends Resource
     protected static ?string $model = MaterialTransaction::class;
 
     protected static ?string $navigationGroup = 'Quản lý Nguyên Liệu';
-    protected static ?string $navigationLabel = 'Phiếu xuất kho';
-    protected static ?string $title = 'Phiếu xuất kho';
-    protected static ?string $pluralTitle = 'Phiếu xuất kho';
-    protected static ?string $pluralModelLabel = 'Phiếu xuất kho';
-    protected static ?string $modelLabel = 'Phiếu xuất kho';
+    protected static ?string $navigationLabel = 'Phiếu Xuất Kho';
+    protected static ?string $title = 'Phiếu Xuất Kho';
+    protected static ?string $pluralTitle = 'Phiếu Xuất Kho';
+    protected static ?string $pluralModelLabel = 'Phiếu Xuất Kho';
+    protected static ?string $modelLabel = 'Phiếu Xuất Kho';
     protected static ?string $navigationIcon = 'heroicon-o-arrow-path';
 
     public static function getPluralModelLabel(): string
@@ -120,8 +120,25 @@ class MaterialTransactionResource extends Resource
                                         }
                                         return ['max:' . $ingredient->quantity_in_stock];
                                     }),
-                                Forms\Components\TextInput::make('reason')
-                                    ->label('Lý do'),
+                                Forms\Components\Select::make('reason')
+                                    ->label('Lý do')
+                                    ->options([
+                                        'Nguyên liệu hỏng' => 'Nguyên liệu hỏng',
+                                        'Xuất cơ sở khác' => 'Xuất cơ sở khác',
+                                        'Khác' => 'Khác'
+                                    ])
+                                    ->reactive()
+                                    ->afterStateUpdated(function (callable $set, $state) {
+                                        if ($state !== 'Khác') {
+                                            $set('custom_reason', null);
+                                        }
+                                    }),
+
+                                Forms\Components\TextInput::make('custom_reason')
+                                    ->label('Lý do khác')
+                                    ->required(fn (callable $get) => $get('reason') === 'Khác')
+                                    ->visible(fn (callable $get) => $get('reason') === 'Khác')
+                                    ->maxLength(255),
                             ])
                             ->columns(3),
                     ])

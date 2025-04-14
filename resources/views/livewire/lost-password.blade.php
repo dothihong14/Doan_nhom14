@@ -107,6 +107,15 @@
                 font-style: normal
             }
 
+            input,
+            select,
+            textarea {
+                color: #000000 !important; /* Màu đen cho nội dung */
+            }
+
+            input::placeholder,
+
+
             .wp-block-quote.has-text-align-right {
                 border-left: none;
                 border-right: .25em solid;

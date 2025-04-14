@@ -55,17 +55,5 @@ class Order extends Model
                 $builder->where('restaurant_id', auth()->user()->restaurant_id);
             }
         });
-
-        static::updated(function ($order) {
-            if ($order->status == 'on_the_way' && $order->payment_status == 'paid') {
-                foreach ($order->dishes as $dish) {
-                    foreach ($dish->recipes as $recipe) {
-                        $ingredient = Ingredient::where('id', $recipe->ingredient_id)->first();
-                        $ingredient->quantity_auto -= $recipe->quantity;
-                        $ingredient->save();
-                    }
-                }
-            }
-        });
     }
 }
