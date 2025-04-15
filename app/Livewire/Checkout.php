@@ -4,8 +4,12 @@ namespace App\Livewire;
 
 use App\Models\Customer;
 use App\Models\Dish;
+use App\Models\Reservation as ReservationModel;
 use App\Models\TableDish;
+use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use App\Helpers\CartManagement;
 use App\Models\Order;
@@ -13,21 +17,26 @@ use App\Models\OrderItem;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+
 class Checkout extends Component
 {
     public $cartItems = [];
     public $totalAmount = 0;
+    public $subtotal = 0;
+    public $loyaltyDiscount = 0;
     public $address;
     public $name;
     public $phone;
     public $email;
     public $notes;
-    public $paymentMethod; // New property for payment method
+    public $paymentMethod;
     public $restaurant_id;
     public $restaurants;
     public $verificationCode;
-public $enteredCode;
-public $emailVerified = false;
+    public $enteredCode;
+    public $emailVerified = false;
+    public $useLoyaltyPoints = false;
+
     public function mount()
     {
         $this->name = auth()->user()->name ?? '';
@@ -41,14 +50,12 @@ public $emailVerified = false;
         $pd_id = request()->query('pd_id');
 
         if ($pd_id) {
-            // Truy vấn sản phẩm từ CSDL
             $product = Dish::find($pd_id);
             if (!$product) {
                 session()->flash('error', 'Sản phẩm không tồn tại.');
                 return redirect('/cart');
             }
 
-            // Chỉ mua sản phẩm này với số lượng 1
             $this->cartItems = [
                 [
                     'product_id' => $product->id,
@@ -57,21 +64,69 @@ public $emailVerified = false;
                     'unit_amount' => $product->price,
                 ]
             ];
-            $this->totalAmount = intval(number_format($product->price, 0, '', ''));
-            // dd($this->totalAmount);
-
+            $this->subtotal = $product->price; // Sử dụng giá trực tiếp thay vì format
         } else {
-            // Nếu không phải mua nhanh, lấy giỏ hàng từ cookie
             $this->cartItems = CartManagement::getCartItemsFromCookie();
-        $this->totalAmount = CartManagement::calculateGrandTotal($this->cartItems);
-
+            $this->calculateSubtotal();
         }
 
         if (empty($this->cartItems)) {
             return redirect('/cart');
         }
 
+        $this->updateTotal();
     }
+
+    // Hàm tính toán subtotal dựa trên cartItems
+    private function calculateSubtotal()
+    {
+        $this->subtotal = 0;
+        foreach ($this->cartItems as $item) {
+            $this->subtotal += $item['unit_amount'] * $item['quantity'];
+        }
+    }
+
+    // Hàm tăng số lượng
+    public function increaseQuantity($index)
+    {
+        if (isset($this->cartItems[$index])) {
+            $this->cartItems[$index]['quantity']++;
+            $this->updateCart();
+        }
+    }
+
+    // Hàm giảm số lượng
+    public function decreaseQuantity($index)
+    {
+        if (isset($this->cartItems[$index]) && $this->cartItems[$index]['quantity'] > 1) {
+            $this->cartItems[$index]['quantity']--;
+            $this->updateCart();
+        }
+    }
+
+    // Hàm cập nhật giỏ hàng và tính lại tiền
+    public function updateCart()
+    {
+        if (!request()->query('pd_id')) {
+            CartManagement::updateCartItemsInCookie($this->cartItems);
+        }
+        $this->calculateSubtotal();
+        $this->updateTotal();
+    }
+
+    // Hàm tính lại tổng tiền (bao gồm giảm giá từ điểm thưởng)
+    public function updateTotal()
+    {
+        $this->calculateSubtotal();
+        $this->loyaltyDiscount = 0;
+
+        if ($this->useLoyaltyPoints && auth()->check() && auth()->user()->loyalty_points > 0) {
+            $this->loyaltyDiscount = auth()->user()->loyalty_points;
+        }
+
+        $this->totalAmount = max(0, $this->subtotal - $this->loyaltyDiscount);
+    }
+
     public function sendVerificationCode()
     {
         if (empty($this->email)) {
@@ -79,15 +134,11 @@ public $emailVerified = false;
             return;
         }
 
-        // Tạo mã xác thực ngẫu nhiên
         $this->verificationCode = rand(100000, 999999);
-
-        // Lưu mã vào session để kiểm tra
         Session::put('verification_code', $this->verificationCode);
         Session::put('verification_email', $this->email);
-        Session::put('email_verified', false); // Đặt lại trạng thái
+        Session::put('email_verified', false);
 
-        // Gửi mã qua email
         Mail::raw("Mã xác thực của bạn là: " . $this->verificationCode, function ($message) {
             $message->to($this->email)
                 ->subject('Mã xác thực đặt hàng');
@@ -96,32 +147,39 @@ public $emailVerified = false;
         $this->dispatch('showToastr', ['type' => 'success', 'message' => 'Mã xác thực đã được gửi tới gmail của bạn!']);
     }
 
-
     public function placeOrder()
     {
         if (!auth()->check()) {
             if (!$this->emailVerified) {
-                session()->flash('error', 'Bạn cần xác thực email trước khi đặt hàng.');
+                $this->dispatch('showToastr', ['type' => 'error', 'message' => 'Bạn cần xác thực email trước khi đặt hàng !']);
                 return;
             }
         }
         if (empty($this->address) || empty($this->name) || empty($this->phone) || empty($this->email)) {
-            session()->flash('error', 'Vui lòng điền đầy đủ các trường bắt buộc.');
+            $this->dispatch('showToastr', ['type' => 'error', 'message' => 'Vui lòng điền đầy đủ các trường bắt buộc !']);
             return redirect('/checkout');
         }
         if (!preg_match('/^\d{10}$/', $this->phone)) {
-            session()->flash('error', 'Số điện thoại không hợp lệ. Vui lòng nhập đúng 10 chữ số.');
+            $this->dispatch('showToastr', ['type' => 'error', 'message' => 'Số điện thoại không hợp lệ. Vui lòng nhập đúng 10 chữ số !']);
             return;
         }
         if (empty($this->paymentMethod)) {
-            session()->flash('error', 'Vui lòng chọn phương thức thanh toán.');
+            $this->dispatch('showToastr', ['type' => 'error', 'message' => 'Vui lòng chọn phương thức thanh toán !']);
             return redirect('/checkout');
         }
 
-        // Tạo đơn hàng
+        $pointDiscount = 0;
+        if ($this->useLoyaltyPoints && auth()->check()) {
+            $pointDiscount = auth()->user()->loyalty_points;
+            $user = User::find(auth()->id());
+            $user->loyalty_points = 0;
+            $user->save();
+        }
+
         $order = Order::create([
             'user_id' => auth()->id() ?? null,
-            'total_amount' => $this->totalAmount,
+            'total_amount' => $this->subtotal,
+            'final_amount' => $this->totalAmount,
             'address' => $this->address,
             'name' => $this->name,
             'phone' => $this->phone,
@@ -132,9 +190,9 @@ public $emailVerified = false;
             'order_code' => strtoupper(uniqid('ORDER_')),
             'notes' => $this->notes,
             'restaurant_id' => $this->restaurant_id,
+            'point_discount' => $pointDiscount,
         ]);
 
-        // Thêm sản phẩm vào đơn hàng
         foreach ($this->cartItems as $item) {
             OrderItem::create([
                 'order_id' => $order->id,
@@ -145,14 +203,12 @@ public $emailVerified = false;
             ]);
             TableDish::create([
                 'dish_id' => $item['product_id'],
-                'table_id' => null, // Assuming you have this value available
+                'table_id' => null,
                 'quantity' => $item['quantity'],
-                'status' => 'pending', // Initial status, adjust as necessary
+                'status' => 'pending',
                 'order_code' => $order->order_code,
             ]);
         }
-
-        // Xóa giỏ hàng nếu không phải mua nhanh
         if (!request()->query('pd_id')) {
             CartManagement::clearCartItems();
         }
@@ -167,33 +223,42 @@ public $emailVerified = false;
                 ]);
             }
         }
-        // Xử lý thanh toán
+        $this->order_id = $order->id;
         if ($this->paymentMethod == 'bank') {
             return $this->paymentVNPAY($order->id, $this->totalAmount, $order->order_code);
         } else {
-            return redirect('/order-received?vnp_TxnRef='.$order->order_code);
+            return redirect('/order-received?vnp_TxnRef=' . $order->order_code);
         }
-
-        session()->flash('message', 'Đặt hàng thành công!');
     }
+    public function downloadPDF($order_code)
+    {
+        $order = Order::where('order_code', $order_code)->first();
+        $pdf = Pdf::loadView('pdf.order', ['order' => $order]);
+
+        $filePath = storage_path('app/public/orders/order_' . $order->order_code . '.pdf');
+        $pdf->save($filePath);
+
+        return response()->download($filePath, 'order_' . $order->order_code . '.pdf');
+    }
+
     public function verifyCode()
     {
         if ($this->enteredCode == Session::get('verification_code') && $this->email == Session::get('verification_email')) {
             Session::put('email_verified', true);
             $this->emailVerified = true;
-            session()->flash('message', 'Xác thực email thành công.');
+            $this->dispatch('showToastr', ['type' => 'success', 'message' => 'Xác thực email thành công !']);
         } else {
-            session()->flash('error', 'Mã xác thực không đúng.');
+            $this->dispatch('showToastr', ['type' => 'error', 'message' => 'Mã xác thực không đúng !']);
         }
     }
 
-    public function paymentVNPAY($order_id,$total_amount,$order_code)
+    public function paymentVNPAY($order_id, $total_amount, $order_code)
     {
-        $vnp_TmnCode = "AHWX5MX0"; //Mã website tại VNPAY
-        $vnp_HashSecret = "LMPIBTDLXYGA1K0RTK06SAEPKGW0V1LX"; //Chuỗi bí mật
+        $vnp_TmnCode = "AHWX5MX0";
+        $vnp_HashSecret = "LMPIBTDLXYGA1K0RTK06SAEPKGW0V1LX";
         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
         $vnp_Returnurl = env('APP_URL') . "/order-received";
-        $vnp_TxnRef = $order_code; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+        $vnp_TxnRef = $order_code;
         $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
         $vnp_OrderType = 'billpayment';
         $vnp_Amount = $total_amount * 100;
@@ -215,9 +280,6 @@ public $emailVerified = false;
             "vnp_TxnRef" => $vnp_TxnRef,
         );
 
-        if (isset($vnp_BankCode) && $vnp_BankCode != "") {
-            $inputData['vnp_BankCode'] = $vnp_BankCode;
-        }
         ksort($inputData);
         $query = "";
         $i = 0;
@@ -239,11 +301,14 @@ public $emailVerified = false;
         }
         return redirect($vnp_Url);
     }
+
     public function render()
     {
         return view('livewire.checkout', [
             'cartItems' => $this->cartItems,
             'totalAmount' => $this->totalAmount,
+            'subtotal' => $this->subtotal,
+            'loyaltyDiscount' => $this->loyaltyDiscount,
         ]);
     }
 }

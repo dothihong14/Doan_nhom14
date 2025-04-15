@@ -2126,13 +2126,7 @@
 
                                                                 <div
                                                                     class="elementor-cta__description elementor-cta__content-item elementor-content-item">
-                                                                    Perfect for all kinds of meetings including
-                                                                    business sessions,
-                                                                    strategy days and team bonding activities for up
-                                                                    to 14. Available
-                                                                    in combination with dining packages or on it's
-                                                                    own with pastries,
-                                                                    coffees and cold drinks to keep the team fueled.
+                                                                    MeMe Bistro hiện có 2 cơ sở tại Hà Nội, mỗi địa điểm đều mang phong cách ấm cúng, hiện đại và phù hợp cho mọi dịp - từ bữa tối lãng mạn, họp nhóm nhỏ đến các buổi gặp mặt gia đình hay sự kiện công ty. Cả hai cơ sở đều có dịch vụ đặt bàn trước, thực đơn đa dạng và đội ngũ phục vụ chuyên nghiệp, sẵn sàng mang đến trải nghiệm ẩm thực tuyệt vời cho bạn.
                                                                 </div>
 
                                                                 <div
@@ -2183,16 +2177,8 @@
 
                                                                 <div
                                                                     class="elementor-cta__description elementor-cta__content-item elementor-content-item">
-                                                                    The smallest of our private rooms is a perfect
-                                                                    get together
-                                                                    space for groups of up to 8. Our service is
-                                                                    discreet to allow for
-                                                                    uninterrupted business discussions or dining
-                                                                    experiences.
-                                                                    Available in combination with dining packages or
-                                                                    on it's own
-                                                                    with pastries, coffees and cold drinks to keep
-                                                                    the team fueled.
+                                                                    MeMe Bistro thường xuyên cập nhật các chương trình khuyến mãi hấp dẫn như giảm giá theo khung giờ, quà tặng sinh nhật, combo tiết kiệm và ưu đãi khi đặt bàn online, tích điểm đổi quà.
+                                                                    Trải nghiệm ẩm thực chất lượng với mức giá vô cùng dễ chịu – chỉ có tại MeMe Bistro
                                                                 </div>
 
                                                                 <div
@@ -2243,16 +2229,8 @@
 
                                                                 <div
                                                                     class="elementor-cta__description elementor-cta__content-item elementor-content-item">
-                                                                    With a capacity for 24 seated guests this option
-                                                                    will suit larger
-                                                                    gatherings. Smaller parties will benefit from
-                                                                    the additional
-                                                                    space if drinks reception area is required.
-                                                                    Available in
-                                                                    combination with dining packages or on its own
-                                                                    with
-                                                                    pastries, coffees and cold drinks to keep the
-                                                                    team fueled.
+                                                                    Nếu bạn cần hỗ trợ về thực đơn, đặt chỗ hoặc có bất kỳ yêu cầu đặc biệt nào, đừng ngần ngại liên hệ với chúng tôi. Đội ngũ Meme Bistro luôn sẵn sàng để mang đến cho bạn một trải nghiệm ẩm thực đáng nhớ.
+                                                                    Hãy để chúng tôi giúp bạn có trải nghiệm tốt nhất!
                                                                 </div>
 
                                                                 <div
@@ -2362,7 +2340,7 @@
                                                                             <i class="fas fa-cart-plus"></i>
                                                                         </button>
                                                                         <button class="icon-button"
-                                                                                wire:click="buyNow({{ $dish->id }})">
+                                                                                onclick="window.location.href='/checkout?pd_id={{ $dish->id }}'">
                                                                             <i class="fas fa-bolt"></i>
                                                                         </button>
                                                                     </div>

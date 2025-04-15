@@ -1229,12 +1229,12 @@
                                         data-id="901b06e" data-element_type="widget"
                                         data-widget_type="woocommerce-breadcrumb.default">
                                         <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">Order received</div>
-                                            <nav class="woocommerce-breadcrumb"><a
-                                                    href="https://demo2.themelexus.com/delicioz">Home Page</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i><a
-                                                    href="https://demo2.themelexus.com/delicioz/checkout/">Checkout</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i>Order received</nav>
+                                            <div class="delicioz-woocommerce-title" style="font-family: 'Times New Roman'">Đơn hàng</div>
+                                            <nav style="font-family: 'Times New Roman'" class="woocommerce-breadcrumb"><a style="font-family: 'Times New Roman'"
+                                                    href="https://demo2.themelexus.com/delicioz">Trang chủ</a><i
+                                                    class="delicioz-icon-arrow-right-s-line"></i><a style="font-family: 'Times New Roman'"
+                                                    href="https://demo2.themelexus.com/delicioz/checkout/">Thanh toán</a><i
+                                                    class="delicioz-icon-arrow-right-s-line"></i>Đơn hàng</nav>
                                         </div>
                                     </div>
                                 </div>
@@ -1260,7 +1260,9 @@
                                                 class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
                                                 {{ session('message') }}</p>
 
-
+                                            <button style="color: black" class="wpcf7-form-control wpcf7-submit reload_btn" wire:click="downloadPDF('{{ $order->order_code }}')" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-right: 10px; cursor: pointer;">
+                                                Tải xuống thông tin
+                                            </button>
                                         </div>
                                     </div>
                                 </div><!-- .entry-content -->

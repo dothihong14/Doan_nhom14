@@ -21,12 +21,12 @@ class Reservation extends Component
     public $reservation_time;
     public $restaurant_id;
     public $notes;
-    public $otp; // New property for OTP
-    public $generatedOtp; // Store generated OTP
-    public $otpSent = false; // Track if OTP has been sent
+    public $otp;
+    public $generatedOtp;
+    public $otpSent = false;
 
-    public $showSuccessModal = false; // Biến điều khiển modal
-    public $reservation_id; // Lưu ID của reservation để tải PDF
+    public $showSuccessModal = false;
+    public $reservation_id;
 
     public function mount()
     {
@@ -47,19 +47,13 @@ class Reservation extends Component
 
     public function submit()
     {
-        // if ($this->otpSent) {
-        //     $this->verifyOtp();
-        // } else {
-        //     $this->sendOtp();
-        // }
         $this->createReservation();
     }
 
     public function sendOtp()
     {
-        $this->generatedOtp = rand(100000, 999999); // Generate a 6-digit OTP
-        Mail::to($this->email)->send(new \App\Mail\OtpMail($this->generatedOtp)); // Replace with actual email logic
-
+        $this->generatedOtp = rand(100000, 999999);
+        Mail::to($this->email)->send(new \App\Mail\OtpMail($this->generatedOtp));
         $this->otpSent = true;
         session()->flash('message', 'OTP has been sent to your email.');
     }
@@ -67,7 +61,7 @@ class Reservation extends Component
     public function verifyOtp()
     {
         if ($this->otp == $this->generatedOtp) {
-            $this->createReservation(); // Proceed to create the reservation
+            $this->createReservation();
         } else {
             session()->flash('error', 'Invalid OTP. Please try again.');
         }
@@ -87,6 +81,12 @@ class Reservation extends Component
             return;
         }
 
+        $today = now()->format('Y-m-d');
+        if ($this->reservation_day < $today) {
+            session()->flash('error', 'Ngày đặt bàn phải lớn hơn ngày hiện tại.');
+            return;
+        }
+
         $reservation = ReservationModel::create([
             'user_id' => Auth::check() ? Auth::id() : null,
             'restaurant_id' => $this->restaurant_id,
@@ -100,11 +100,9 @@ class Reservation extends Component
             'status' => 'pending',
         ]);
 
-        // Lưu reservation_id và hiển thị modal
         $this->reservation_id = $reservation->id;
         $this->showSuccessModal = true;
 
-        // Xóa dữ liệu form sau khi đặt thành công, nhưng không reset $showSuccessModal và $reservation_id
         $this->reset(['name', 'phone', 'email', 'reservation_day', 'reservation_time', 'restaurant_id', 'number_of_people', 'notes', 'otp', 'generatedOtp', 'otpSent']);
     }
 
@@ -113,15 +111,25 @@ class Reservation extends Component
         $reservation = ReservationModel::findOrFail($reservationId);
         $pdf = Pdf::loadView('pdf.reservation', ['reservation' => $reservation]);
 
-        // Lưu file PDF vào storage
         $filePath = storage_path('app/public/reservations/reservation_' . $reservation->reservation_code . '.pdf');
         $pdf->save($filePath);
 
-        // Đóng modal
         $this->showSuccessModal = false;
 
-        // Trả về file PDF để tải về
         return response()->download($filePath, 'reservation_' . $reservation->reservation_code . '.pdf');
+    }
+
+    // Hàm để hiển thị lại form đặt bàn
+    public function continueBooking()
+    {
+        $this->showSuccessModal = false;
+        $this->reset(['name', 'phone', 'email', 'reservation_day', 'reservation_time', 'restaurant_id', 'number_of_people', 'notes', 'otp', 'generatedOtp', 'otpSent']);
+        if (Auth::check()) {
+            $customer = Customer::where('email', Auth::user()->email)->first();
+            $this->name = $customer->name ?? null;
+            $this->phone = $customer->phone ?? null;
+            $this->email = $customer->email ?? null;
+        }
     }
 
     public function closeModal()

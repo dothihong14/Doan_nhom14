@@ -20,6 +20,19 @@
                 background: none !important;
                 padding: 0 !important;
             }
+            input,
+            select,
+            textarea {
+                color: #000000 !important; /* Màu đen cho nội dung */
+            }
+
+            input::placeholder,
+            section:optional,
+            textarea::placeholder {
+                color: #6b7280 !important; /* Màu xám cho placeholder, #6b7280 là xám trung tính */
+                opacity: 1; /* Đảm bảo placeholder hiển thị rõ */
+            }
+
         </style>
         <link rel='stylesheet' id='wp-block-library-css'
             href='/delicioz/wp-includes/css/dist/block-library/style.min.css?ver=6.0.2' media='all' />
