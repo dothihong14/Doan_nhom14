@@ -133,6 +133,11 @@ class CartManagement
         return $cart_items;
     }
 
+    public static function updateCartItemsInCookie($cartItems)
+    {
+        setcookie('cart_items', json_encode($cartItems), time() + (30 * 24 * 60 * 60), '/');
+    }
+
     // Calculate grand total
     static public function calculateGrandTotal($items)
     {

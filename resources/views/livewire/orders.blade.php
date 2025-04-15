@@ -1269,7 +1269,7 @@
                                                         <th class="woocommerce-table__product-name product-name">Tổng tiền</th>
                                                         <th class="woocommerce-table__product-name product-name">Trạng thái</th>
                                                         <th class="woocommerce-table__product-name product-name">Thời gian đặt</th>
-                                                        <th class="woocommerce-table__product-name product-name">action</th>
+                                                        <th class="woocommerce-table__product-name product-name">Hành động</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -1304,8 +1304,9 @@
                                                             <td class="woocommerce-table__product-name product-name">{{ $order->created_at }}</td>
                                                             <td>
                                                                 @if ($order->status == 'pending')
-                                                                    <button type="button" class="btn btn-danger" onclick="confirmCancel({{ $order->id }})">Hủy</button>
+                                                                    <button type="button" onclick="confirmCancel({{ $order->id }})">Hủy</button>
                                                                 @endif
+                                                                <button type="button" wire:click="orderDetail('{{ $order->order_code }}')">Xem</button>
                                                             </td>
 
                                                         </tr>

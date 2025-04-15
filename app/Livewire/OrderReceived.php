@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Order;
 use App\Models\TableDish;
 use App\Models\User; // Make sure to import the User model
+use Barryvdh\DomPDF\Facade\Pdf;
 use Livewire\Component;
 
 class OrderReceived extends Component
@@ -69,6 +70,17 @@ class OrderReceived extends Component
             session()->flash('message', 'Thanh toán thất bại!');
 
         }
+    }
+
+    public function downloadPDF($order_code)
+    {
+        $order = Order::where('order_code', $order_code)->first();
+        $pdf = Pdf::loadView('pdf.order', ['order' => $order]);
+
+        $filePath = storage_path('app/public/orders/order_' . $order->order_code . '.pdf');
+        $pdf->save($filePath);
+
+        return response()->download($filePath, 'order_' . $order->order_code . '.pdf');
     }
 
     public function render()

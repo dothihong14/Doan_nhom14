@@ -1297,7 +1297,7 @@
                 </section>
             </div>
         </div>
-        <div id="content" class="site-content" tabindex="-1" style="padding-top: 120px; margin-bottom: 0px;margin-top: 0px;background: white;padding-bottom: 60px;">
+        <div id="content" class="site-content" tabindex="-1" style="padding-top: 120px; margin-bottom: 0px; margin-top: 0px; background: white; padding-bottom: 60px;">
             <div class="col-full">
                 <div id="primary">
                     <main id="main" class="site-main">
@@ -1305,7 +1305,6 @@
                             <div class="entry-content">
                                 <div class="woocommerce">
                                     <div class="woocommerce-notices-wrapper">
-
                                         @if (session()->has('message'))
                                             <ul class="woocommerce-error" style="background-color: green;" role="alert">
                                                 <li>
@@ -1322,142 +1321,79 @@
                                         @endif
                                     </div>
 
-                                    <form name="checkout" wire:submit.prevent="placeOrder"
-                                          class="checkout woocommerce-checkout">
-
-
+                                    <form name="checkout" wire:submit.prevent="placeOrder" class="checkout woocommerce-checkout">
                                         <div class="col2-set" id="customer_details">
                                             <div class="col-1">
                                                 <div class="woocommerce-billing-fields">
-
                                                     <h3 style="font-family: 'Times New Roman'">Thông tin người nhận</h3>
-
-
                                                     <div class="woocommerce-billing-fields__field-wrapper">
-
                                                         <div style="display: flex; gap: 10px">
-                                                            <p class="form-row form-row-wide" id="billing_company_field"
-                                                               data-priority="30"><label for="billing_company"
-                                                                                         class="">Tên người
-                                                                    nhận&nbsp;<abbr class="required"
-                                                                                    title="required">*</abbr></label><span
-                                                                    class="woocommerce-input-wrapper"><input type="text"
-                                                                                                             class="input-text "
-                                                                                                             wire:model="name"
-                                                                                                             id="billing_company"
-                                                                                                             placeholder=""
-                                                                                                             value=""
-                                                                                                             autocomplete="name"/></span>
+                                                            <p class="form-row form-row-wide" id="billing_company_field" data-priority="30">
+                                                                <label for="billing_company" class="">Tên người nhận <abbr class="required" title="required">*</abbr></label>
+                                                                <span class="woocommerce-input-wrapper">
+                                                            <input type="text" class="input-text" wire:model="name" id="billing_company" placeholder="" value="" autocomplete="name"/>
+                                                        </span>
                                                             </p>
-                                                            <p class="form-row form-row-wide" id="billing_company_field"
-                                                               data-priority="30"><label for="billing_company"
-                                                                                         class="">Số điện
-                                                                    thoại&nbsp;<abbr class="required"
-                                                                                     title="required">*</abbr></label><span
-                                                                    ` class="woocommerce-input-wrapper"><input
-                                                                        type="number"
-                                                                        class="input-text " wire:model="phone"
-                                                                        id="billing_company" placeholder="" value=""
-                                                                        autocomplete="phone"/></span></p>
+                                                            <p class="form-row form-row-wide" id="billing_company_field" data-priority="30">
+                                                                <label for="billing_company" class="">Số điện thoại <abbr class="required" title="required">*</abbr></label>
+                                                                <span class="woocommerce-input-wrapper">
+                                                            <input type="number" class="input-text" wire:model="phone" id="billing_company" placeholder="" value="" autocomplete="phone"/>
+                                                        </span>
+                                                            </p>
                                                         </div>
-                                                        <p class="form-row form-row-wide" id="billing_company_field"
-                                                           data-priority="30"><label for="billing_company"
-                                                                                     class="">Email&nbsp;<abbr
-                                                                    class="required"
-                                                                    title="required">*</abbr></label>
-                                                            <span
-                                                                class="woocommerce-input-wrapper" style="
-                                                                    display: flex;
-                                                                    gap: 10px
-                                                                ">
-                                                                <input type="text"
-                                                                         class="input-text " wire:model="email"
-                                                                         id="billing_company" placeholder="" value=""
-                                                                         autocomplete="email"/>
-                                                                        @if (!auth()->check())
-                                                                    <button type="button"
-                                                                            style="white-space: nowrap; width: 300px !important;"
-                                                                            wire:click="sendVerificationCode">Gửi mã xác thực</button></span>
-                                                            @endif
+                                                        <p class="form-row form-row-wide" id="billing_company_field" data-priority="30">
+                                                            <label for="billing_company" class="">Email <abbr class="required" title="required">*</abbr></label>
+                                                            <span class="woocommerce-input-wrapper" style="display: flex; gap: 10px">
+                                                        <input type="text" class="input-text" wire:model="email" id="billing_company" placeholder="" value="" autocomplete="email"/>
+                                                        @if (!auth()->check())
+                                                                    <button type="button" style="white-space: nowrap; width: 300px !important;" wire:click="sendVerificationCode">Gửi mã xác thực</button>
+                                                                @endif
+                                                    </span>
                                                         </p>
                                                         @if (!auth()->check())
                                                             <p class="form-row">
-                                                                <label for="verification_code">Nhập mã xác thực:<abbr
-                                                                        class="required"
-                                                                        title="required">*</abbr></label>
-
-                                                            <span style="display: flex;
-                                                                    gap: 10px;">
-                                                                <input style="width: 100%;" type="text"
-                                                                       wire:model="enteredCode">
-                                                                <button
-                                                                    style="white-space: nowrap; width: 300px !important;"
-                                                                    type="button" wire:click="verifyCode">Xác thực
-                                                                </button>
-                                                            </span>
+                                                                <label for="verification_code">Nhập mã xác thực: <abbr class="required" title="required">*</abbr></label>
+                                                                <span style="display: flex; gap: 10px;">
+                                                            <input style="width: 100%;" type="text" wire:model="enteredCode">
+                                                            <button style="white-space: nowrap; width: 300px !important;" type="button" wire:click="verifyCode">Xác thực</button>
+                                                        </span>
                                                             </p>
                                                         @endif
-                                                        <p class="form-row form-row-wide address-field validate-required"
-                                                           id="billing_address_1_field" data-priority="50"><label
-                                                                for="billing_address_1" class="">Địa chỉ&nbsp;<abbr
-                                                                    class="required"
-                                                                    title="required">*</abbr></label><span
-                                                                class="woocommerce-input-wrapper"><input type="text"
-                                                                                                         class="input-text "
-                                                                                                         wire:model="address"
-                                                                                                         id="billing_address_1"
-                                                                                                         placeholder="Số nhà và tên đường"
-                                                                                                         value=""
-                                                                                                         autocomplete="address-line1"/></span>
+                                                        <p class="form-row form-row-wide address-field validate-required" id="billing_address_1_field" data-priority="50">
+                                                            <label for="billing_address_1" class="">Địa chỉ <abbr class="required" title="required">*</abbr></label>
+                                                            <span class="woocommerce-input-wrapper">
+                                                        <input type="text" class="input-text" wire:model="address" id="billing_address_1" placeholder="Số nhà và tên đường" value="" autocomplete="address-line1"/>
+                                                    </span>
                                                         </p>
-                                                        <p class="form-row form-row-wide address-field validate-required"
-                                                           id="billing_address_1_field" data-priority="50"><label
-                                                                for="billing_address_1" class="">Cơ sở&nbsp;<abbr
-                                                                    class="required"
-                                                                    title="required">*</abbr></label><span
-                                                                class="woocommerce-input-wrapper"><select
-                                                                    class="input-text " wire:model.live="restaurant_id"
-                                                                    id="billing_address_1"
-                                                                    placeholder="Số nhà và tên đường">
-                                                                    @foreach($restaurants as $restaurant)
-                                                                        <option value="{{ $restaurant->id }}">
-                                                                            {{ $restaurant->name }}</option>
-                                                                    @endforeach
-                                                                </select></span>
-
+                                                        <p class="form-row form-row-wide address-field validate-required" id="billing_address_1_field" data-priority="50">
+                                                            <label for="billing_address_1" class="">Cơ sở <abbr class="required" title="required">*</abbr></label>
+                                                            <span class="woocommerce-input-wrapper">
+                                                        <select class="input-text" wire:model.live="restaurant_id" id="billing_address_1" placeholder="Số nhà và tên đường">
+                                                            @foreach($restaurants as $restaurant)
+                                                                <option value="{{ $restaurant->id }}">{{ $restaurant->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </span>
                                                         </p>
                                                     </div>
-
                                                 </div>
-
                                             </div>
 
                                             <div class="col-2">
-                                                <div class="woocommerce-shipping-fields">
-                                                </div>
+                                                <div class="woocommerce-shipping-fields"></div>
                                                 <div class="woocommerce-additional-fields">
-
-
                                                     <h3 style="font-family: 'Times New Roman'">Thông tin thêm</h3>
-
-
                                                     <div class="woocommerce-additional-fields__field-wrapper">
-                                                        <p class="form-row notes" id="order_comments_field"
-                                                           data-priority=""><label for="order_comments"
-                                                                                   class="">Ghi chú đơn hàng&nbsp;<span
-                                                                    class="optional">(tùy chọn)</span></label><span
-                                                                class="woocommerce-input-wrapper"><textarea
-                                                                    name="order_comments" class="input-text "
-                                                                    id="order_comments"
-                                                                    placeholder="Ghi chú đơn hàng, ví dụ: ghi chú giao hàng."
-                                                                    rows="2" cols="5"></textarea></span></p>
+                                                        <p class="form-row notes" id="order_comments_field" data-priority="">
+                                                            <label for="order_comments" class="">Ghi chú đơn hàng <span class="optional">(tùy chọn)</span></label>
+                                                            <span class="woocommerce-input-wrapper">
+                                                        <textarea name="order_comments" class="input-text" id="order_comments" placeholder="Ghi chú đơn hàng, ví dụ: ghi chú giao hàng." rows="2" cols="5" wire:model="notes"></textarea>
+                                                    </span>
+                                                        </p>
                                                     </div>
-
-
                                                 </div>
                                             </div>
                                         </div>
-
 
                                         <div id="order_review" class="woocommerce-checkout-review-order">
                                             <h3 id="order_review_heading">Đơn hàng của bạn</h3>
@@ -1473,50 +1409,73 @@
                                                     @foreach($cartItems as $item)
                                                         <tr class="cart_item">
                                                             <td class="product-name">
-                                                                        <span
-                                                                            style="word-break: break-word; overflow-wrap: break-word; white-space: normal;">
-                                                                            {{ $item['name'] }} <strong
-                                                                                class="product-quantity" style="color: black">× {{ $item['quantity'] }}</strong>
-                                                                        </span>
+                                                            <span style="word-break: break-word; overflow-wrap: break-word; white-space: normal;">
+                                                                {{ $item['name'] }}
+                                                                <div style="display: inline-flex; align-items: center; margin-left: 10px;">
+                                                                    <button type="button" wire:click="decreaseQuantity({{ $loop->index }})" style="padding: 2px 8px; background-color: #ddd; border: none; cursor: pointer;">-</button>
+                                                                    <span style="margin: 0 10px; color: black;">{{ $item['quantity'] }}</span>
+                                                                    <button type="button" wire:click="increaseQuantity({{ $loop->index }})" style="padding: 2px 8px; background-color: #ddd; border: none; cursor: pointer;">+</button>
+                                                                </div>
+                                                            </span>
                                                             </td>
                                                             <td class="product-total">
-                                                                        <span class="woocommerce-Price-amount amount"><bdi><span
-                                                                                    class="woocommerce-Price-currencySymbol"></span>{{ number_format($item['unit_amount'], 2) }} VNĐ</bdi></span>
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <bdi>
+                                                                    <span class="woocommerce-Price-currencySymbol"></span>
+                                                                    {{ number_format($item['unit_amount'] * $item['quantity'], 2) }} VNĐ
+                                                                </bdi>
+                                                            </span>
                                                             </td>
                                                         </tr>
                                                     @endforeach
-
-
                                                     </tbody>
                                                     <tfoot>
-
                                                     <tr class="cart-subtotal">
                                                         <th>Thành tiền</th>
-                                                        <td><span class="woocommerce-Price-amount amount"><bdi><span
-                                                                        class="woocommerce-Price-currencySymbol"></span>{{ number_format($totalAmount, 2) }} VNĐ</bdi></span>
+                                                        <td>
+                                                        <span class="woocommerce-Price-amount amount">
+                                                            <bdi>
+                                                                <span class="woocommerce-Price-currencySymbol"></span>
+                                                                {{ number_format($subtotal, 2) }} VNĐ
+                                                            </bdi>
+                                                        </span>
                                                         </td>
                                                     </tr>
-
+                                                    @if(auth()->user() && auth()->user()->loyalty_points > 0)
+                                                        <tr class="loyalty-discount">
+                                                            <th>Giảm giá (Điểm thưởng)</th>
+                                                            <td>
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <bdi>
+                                                                    <span class="woocommerce-Price-currencySymbol"></span>
+                                                                    -{{ number_format($loyaltyDiscount, 2) }} VNĐ
+                                                                </bdi>
+                                                            </span>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
                                                     <tr class="order-total">
                                                         <th>Tổng tiền</th>
-                                                        <td><strong><span
-                                                                    class="woocommerce-Price-amount amount"><bdi><span
-                                                                            class="woocommerce-Price-currencySymbol"></span>{{ number_format($totalAmount, 2) }} VNĐ</bdi></span></strong>
+                                                        <td>
+                                                            <strong>
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <bdi>
+                                                                    <span class="woocommerce-Price-currencySymbol"></span>
+                                                                    {{ number_format($totalAmount, 2) }} VNĐ
+                                                                </bdi>
+                                                            </span>
+                                                            </strong>
                                                         </td>
                                                     </tr>
-
-
                                                     </tfoot>
                                                 </table>
-
                                             </div>
                                             @if(auth()->user())
                                                 <div id="loyalty" class="woocommerce-checkout-payment" style="margin-top: 20px">
                                                     <div>
                                                         <label>Điểm thưởng: {{ auth()->user()->loyalty_points }}</label><br>
-                                                        <label
-                                                            class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-                                                            <input type="checkbox" value="loyalty_points">
+                                                        <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
+                                                            <input type="checkbox" wire:model="useLoyaltyPoints" wire:change="updateTotal">
                                                             Đổi điểm
                                                         </label>
                                                     </div>
@@ -1525,61 +1484,35 @@
                                             <div id="payment" class="woocommerce-checkout-payment" style="margin-top: 20px">
                                                 <div>
                                                     <label>Phương thức thanh toán:</label><br>
-                                                    <label
-                                                        class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-                                                        <input type="radio" wire:model="paymentMethod" value="cod"
-                                                               required="">
+                                                    <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
+                                                        <input type="radio" wire:model="paymentMethod" value="cod" required="">
                                                         Thanh toán khi nhận hàng
                                                     </label>
-                                                    <label
-                                                        class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-                                                        <input type="radio" wire:model="paymentMethod" value="bank"
-                                                               required="">
+                                                    <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
+                                                        <input type="radio" wire:model="paymentMethod" value="bank" required="">
                                                         Chuyển khoản ngân hàng
                                                     </label>
                                                 </div>
                                                 <div class="form-row place-order">
                                                     <noscript>
-                                                        Do không hỗ trợ JavaScript, vui lòng bấm nút <em>Cập nhật tổng
-                                                            tiền</em>
-                                                        trước khi đặt hàng. Bạn có thể bị tính thêm phí nếu không làm
-                                                        điều đó.
-                                                        <br/>
-                                                        <button type="submit" class="button alt"
-                                                                name="woocommerce_checkout_update_totals"
-                                                                value="Cập nhật tổng tiền">Cập nhật tổng tiền
-                                                        </button>
+                                                        Do không hỗ trợ JavaScript, vui lòng bấm nút <em>Cập nhật tổng tiền</em> trước khi đặt hàng. Bạn có thể bị tính thêm phí nếu không làm điều đó.<br/>
+                                                        <button type="submit" class="button alt" name="woocommerce_checkout_update_totals" value="Cập nhật tổng tiền">Cập nhật tổng tiền</button>
                                                     </noscript>
-
                                                     <div class="woocommerce-terms-and-conditions-wrapper">
                                                         <div class="woocommerce-privacy-policy-text">
-                                                            <p>Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng
-                                                                của bạn, hỗ trợ trải nghiệm của bạn trên trang web này,
-                                                                và cho các mục đích khác được mô tả trong chính sách.</p>
+                                                            <p>Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng của bạn, hỗ trợ trải nghiệm của bạn trên trang web này, và cho các mục đích khác được mô tả trong chính sách.</p>
                                                         </div>
                                                     </div>
-
-
-                                                    <button type="submit" class="button alt"
-                                                            name="woocommerce_checkout_place_order" id="place_order"
-                                                            value="Thanh toán" data-value="Thanh toán">Thanh toán
-                                                    </button>
+                                                    <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Thanh toán" data-value="Thanh toán">Thanh toán</button>
                                                 </div>
                                             </div>
-
                                         </div>
-
-
                                     </form>
-
                                 </div>
                             </div><!-- .entry-content -->
                         </article><!-- #post-## -->
-
                     </main><!-- #main -->
                 </div><!-- #primary -->
-
-
             </div><!-- .col-full -->
         </div><!-- #content -->
 

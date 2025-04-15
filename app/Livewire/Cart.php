@@ -25,21 +25,20 @@ class Cart extends Component
 
     public function increment($productId)
     {
-        CartManagement::incrementQuantityToCartItem($productId);
-        $this->refreshCart();
+        $this->cartItems = CartManagement::incrementQuantityToCartItem($productId);
+        $this->grandTotal = CartManagement::calculateGrandTotal($this->cartItems);
     }
 
     public function decrement($productId)
     {
-        CartManagement::decrementQuantityToCartItem($productId);
-        $this->refreshCart();
+        $this->cartItems = CartManagement::decrementQuantityToCartItem($productId);
+        $this->grandTotal = CartManagement::calculateGrandTotal($this->cartItems);
     }
 
     public function remove($productId)
     {
-        CartManagement::removeCartItem($productId);
-//        $this->refreshCart();
-        $this->redirect('/cart');
+        $this->cartItems = CartManagement::removeCartItem($productId);
+        $this->grandTotal = CartManagement::calculateGrandTotal($this->cartItems);
     }
 
     public function render()

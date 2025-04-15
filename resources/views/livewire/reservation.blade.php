@@ -1213,84 +1213,61 @@
             </div>
             <div id="content" class="site-content" tabindex="-1">
                 <div class="col-full">
-
                     <div class="woocommerce"></div>
                     <div id="primary">
                         <main id="main" class="site-main">
-
                             <article id="post-38" class="post-38 page type-page status-publish hentry">
                                 <div class="entry-content">
-
-                                    <div data-elementor-type="wp-page" data-elementor-id="38"
-                                        class="elementor elementor-38">
-                                        <div class="elementor-section elementor-top-section elementor-element elementor-element-943648b elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-                                            data-id="943648b" data-element_type="section"
-                                            data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+                                    <div data-elementor-type="wp-page" data-elementor-id="38" class="elementor elementor-38">
+                                        <div class="elementor-section elementor-top-section elementor-element elementor-element-943648b elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="943648b" data-element_type="section" data-settings='{"stretch_section":"section-stretched"}'>
                                             <div class="elementor-container elementor-column-gap-no">
-                                                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6d4d84f"
-                                                    data-id="6d4d84f" data-element_type="column">
+                                                <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6d4d84f" data-id="6d4d84f" data-element_type="column">
                                                     <div class="elementor-widget-wrap elementor-element-populated">
-
-                                                        <div class="elementor-element elementor-element-48dd7a5 elementor-widget elementor-widget-heading"
-                                                            data-id="48dd7a5" data-element_type="widget"
-                                                            data-widget_type="heading.default">
+                                                        <div class="elementor-element elementor-element-48dd7a5 elementor-widget elementor-widget-heading" data-id="48dd7a5" data-element_type="widget" data-widget_type="heading.default">
                                                             <div class="elementor-widget-container">
                                                                 <style>
-                                                                    /*! elementor - v3.7.3 - 29-08-2022 */
                                                                     .elementor-heading-title {
                                                                         padding: 0;
                                                                         margin: 0;
-                                                                        line-height: 1
+                                                                        line-height: 1;
                                                                     }
-
                                                                     .elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a {
                                                                         color: inherit;
                                                                         font-size: inherit;
-                                                                        line-height: inherit
+                                                                        line-height: inherit;
                                                                     }
-
                                                                     .elementor-widget-heading .elementor-heading-title.elementor-size-small {
-                                                                        font-size: 15px
+                                                                        font-size: 15px;
                                                                     }
-
                                                                     .elementor-widget-heading .elementor-heading-title.elementor-size-medium {
-                                                                        font-size: 19px
+                                                                        font-size: 19px;
                                                                     }
-
                                                                     .elementor-widget-heading .elementor-heading-title.elementor-size-large {
-                                                                        font-size: 29px
+                                                                        font-size: 29px;
                                                                     }
-
                                                                     .elementor-widget-heading .elementor-heading-title.elementor-size-xl {
-                                                                        font-size: 39px
+                                                                        font-size: 39px;
                                                                     }
-
                                                                     .elementor-widget-heading .elementor-heading-title.elementor-size-xxl {
-                                                                        font-size: 59px
+                                                                        font-size: 59px;
                                                                     }
                                                                 </style>
-                                                                <h2 class="elementor-heading-title elementor-size-default"
-                                                                    style="color: black;font-family: 'Times New Roman'; font-size: 50px">
-                                                                    Đặt bàn</h2>
+                                                                <h2 class="elementor-heading-title elementor-size-default" style="color: black; font-family: 'Times New Roman'; font-size: 50px">
+                                                                    Đặt bàn
+                                                                </h2>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-50c9855 elementor-widget elementor-widget-text-editor"
-                                                            data-id="50c9855" data-element_type="widget"
-                                                            data-widget_type="text-editor.default">
+                                                        <div class="elementor-element elementor-element-50c9855 elementor-widget elementor-widget-text-editor" data-id="50c9855" data-element_type="widget" data-widget_type="text-editor.default">
                                                             <div class="woocommerce-notices-wrapper">
-
                                                                 @if (session()->has('message'))
-                                                                    <ul class="woocommerce-error"
-                                                                        style="background-color: green;" role="alert">
+                                                                    <ul class="woocommerce-error" style="background-color: green;" role="alert">
                                                                         <li>
-                                                                            <strong>Thông báo:</strong>
-                                                                            {{ session('message') }}
+                                                                            <strong>Thông báo:</strong> {{ session('message') }}
                                                                         </li>
                                                                     </ul>
                                                                 @endif
                                                                 @if (session()->has('error'))
-                                                                    <ul class="woocommerce-error"
-                                                                        style="background-color: red;" role="alert">
+                                                                    <ul class="woocommerce-error" style="background-color: red;" role="alert">
                                                                         <li>
                                                                             <strong>Lỗi:</strong> {{ session('error') }}
                                                                         </li>
@@ -1299,211 +1276,139 @@
                                                             </div>
                                                             <div class="elementor-widget-container">
                                                                 <style>
-                                                                    /*! elementor - v3.7.3 - 29-08-2022 */
                                                                     .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap {
                                                                         background-color: #818a91;
-                                                                        color: #fff
+                                                                        color: #fff;
                                                                     }
-
                                                                     .elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap {
                                                                         color: #818a91;
                                                                         border: 3px solid;
-                                                                        background-color: transparent
+                                                                        background-color: transparent;
                                                                     }
-
                                                                     .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap {
-                                                                        margin-top: 8px
+                                                                        margin-top: 8px;
                                                                     }
-
                                                                     .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter {
                                                                         width: 1em;
-                                                                        height: 1em
+                                                                        height: 1em;
                                                                     }
-
                                                                     .elementor-widget-text-editor .elementor-drop-cap {
                                                                         float: left;
                                                                         text-align: center;
                                                                         line-height: 1;
-                                                                        font-size: 50px
+                                                                        font-size: 50px;
                                                                     }
-
                                                                     .elementor-widget-text-editor .elementor-drop-cap-letter {
-                                                                        display: inline-block
+                                                                        display: inline-block;
                                                                     }
                                                                 </style>
                                                             </div>
                                                         </div>
-                                                        <div class="elementor-element elementor-element-e27bec2 contact-form-align-center contact-form-special-yes elementor-widget elementor-widget-delicioz-contactform"
-                                                            data-id="e27bec2" data-element_type="widget"
-                                                            data-widget_type="delicioz-contactform.default">
+                                                        <div class="elementor-element elementor-element-e27bec2 contact-form-align-center contact-form-special-yes elementor-widget elementor-widget-delicioz-contactform" data-id="e27bec2" data-element_type="widget" data-widget_type="delicioz-contactform.default">
                                                             <div class="elementor-widget-container">
-                                                                <div role="form" class="wpcf7" id="wpcf7-f550-p38-o1"
-                                                                    lang="en-US" dir="ltr">
+                                                                <div role="form" class="wpcf7" id="wpcf7-f550-p38-o1" lang="en-US" dir="ltr">
                                                                     <div class="screen-reader-response">
-                                                                        <p role="status" aria-live="polite"
-                                                                            aria-atomic="true"></p>
+                                                                        <p role="status" aria-live="polite" aria-atomic="true"></p>
                                                                         <ul></ul>
                                                                     </div>
 
-                                                                    <form wire:submit.prevent="submit"
-                                                                        wire:key="reservation-form">
-                                                                        @if ($otpSent)
+                                                                    @if ($showSuccessModal)
+                                                                        <!-- Thông báo thành công -->
+                                                                        <div class="success-message" style="text-align: center; padding: 20px; background-color: #e6f4e6; border: 1px solid #28a745; border-radius: 5px;">
+                                                                            <h3 style="color: #28a745; font-family: 'Times New Roman'">Đặt bàn thành công!</h3>
+                                                                            <p style="color: black">Cảm ơn bạn đã đặt bàn. Bạn có thể tải thông tin đặt bàn hoặc tiếp tục đặt bàn khác.</p>
+                                                                            <div style="margin-top: 20px;">
+                                                                                <button style="color: black" class="wpcf7-form-control wpcf7-submit reload_btn" wire:click="downloadPDF({{ $reservation_id }})" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-right: 10px; cursor: pointer;">
+                                                                                    Tải xuống thông tin
+                                                                                </button>
+                                                                                <button style="color: black"  wire:click="continueBooking" class="wpcf7-form-control wpcf7-submit" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+                                                                                    Tiếp tục đặt bàn
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    @else
+                                                                        <!-- Form đặt bàn -->
+                                                                        <form wire:submit.prevent="submit" wire:key="reservation-form">
+                                                                            @if ($otpSent)
+                                                                                <div class="row row-form">
+                                                                                    <div class="column-12">
+                                                                                        <p>
+                                                                                <span class="wpcf7-form-control-wrap">
+                                                                                    <input type="text" wire:model="otp" class="wpcf7-form-control" placeholder="Enter OTP" />
+                                                                                </span>
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            @endif
+                                                                            <style>
+                                                                                ::placeholder {
+                                                                                    color: rgb(3, 3, 3) !important;
+                                                                                }
+                                                                            </style>
                                                                             <div class="row row-form">
-                                                                                <div class="column-12">
+                                                                                <div class="column-tablet-6 column-12">
                                                                                     <p>
-                                                                                        <span
-                                                                                            class="wpcf7-form-control-wrap">
-                                                                                            <input type="text"
-                                                                                                wire:model="otp"
-                                                                                                class="wpcf7-form-control"
-                                                                                                placeholder="Enter OTP" />
-                                                                                        </span>
+                                                                            <span class="wpcf7-form-control-wrap">
+                                                                                <input type="text" size="40" wire:model="name" style="width: 100%; color: black;" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" placeholder="Tên bạn" />
+                                                                            </span>
+                                                                                    </p>
+                                                                                </div>
+                                                                                <div class="column-tablet-6 column-12">
+                                                                                    <p>
+                                                                            <span class="wpcf7-form-control-wrap">
+                                                                                <input type="number" size="10" wire:model="phone" style="width: 100%;" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" placeholder="Số điện thoại" />
+                                                                            </span>
                                                                                     </p>
                                                                                 </div>
                                                                             </div>
-                                                                        @endif
-                                                                        <style>
-                                                                            ::placeholder {
-                                                                                /* Most modern browsers support this now. */
-                                                                                color: rgb(3, 3, 3) !important;
-                                                                            }
-                                                                        </style>
-                                                                        <div class="row row-form">
-                                                                            <div class="column-tablet-6 column-12">
-                                                                                <p><span
-                                                                                        class="wpcf7-form-control-wrap">
 
-                                                                                        <input type="text" size="40"
-                                                                                            wire:model="name"
-                                                                                            style="width: 100%; color: black; ::placeholder { color: black !important; }, background-color: black;"
-                                                                                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                                                            placeholder="Tên bạn" />
-                                                                                    </span>
-                                                                                </p>
+                                                                            <div class="row row-form">
+                                                                                <div class="column-tablet-4 column-12">
+                                                                                    <p>
+                                                                            <span class="wpcf7-form-control-wrap" data-name="menu-498">
+                                                                                <input wire:model="number_of_people" type="number" name="menu-498" min="1" max="100" required class="wpcf7-form-control wpcf7-date wpcf7-validates-as-required wpcf7-validates-as-date" aria-required="true" aria-invalid="false" placeholder="Số người" style="width: 100%;">
+                                                                            </span>
+                                                                                    </p>
+                                                                                </div>
+                                                                                <div class="column-tablet-4 column-12">
+                                                                                    <p>
+                                                                            <span class="wpcf7-form-control-wrap" data-name="date-35">
+                                                                                <input type="date" name="date-35" wire:model="reservation_day" class="wpcf7-form-control wpcf7-date wpcf7-validates-as-required wpcf7-validates-as-date" aria-required="true" aria-invalid="false" style="width: 100%;" />
+                                                                            </span>
+                                                                                    </p>
+                                                                                </div>
+                                                                                <div class="column-tablet-4 column-12">
+                                                                                    <p>
+                                                                            <span class="wpcf7-form-control-wrap" data-name="menu-498">
+                                                                                <input wire:model="reservation_time" type="time" name="menu-498" required class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" style="color: #ffffff; background-color: transparent; width: 100%; border: initial; padding: 13px 30px; border-width: 1px; border-style: dashed; border-image: initial; border-color: var(--e-global-color-border);">
+                                                                            </span>
+                                                                                    </p>
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="column-tablet-6 column-12">
-                                                                                <p><span
-                                                                                        class="wpcf7-form-control-wrap"><input
-                                                                                            type="number" size="10"
-                                                                                            wire:model="phone" style="
-                                                                                            width: 100%;
-                                                                                        " class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                                                            placeholder="Số điện thoại" /></span>
-                                                                                </p>
+                                                                            <div class="row row-form">
+                                                                                <div class="column-12">
+                                                                                    <p>
+                                                                            <span class="wpcf7-form-control-wrap" data-name="your-message">
+                                                                                <select name="" id="" wire:model="restaurant_id">
+                                                                                    <option value="">Lựa chọn cơ sở</option>
+                                                                                    @foreach ($restaurants as $restaurant)
+                                                                                        <option value="{{ $restaurant->id }}">{{ $restaurant->name }}</option>
+                                                                                    @endforeach
+                                                                                </select>
+                                                                            </span>
+                                                                                    </p>
+                                                                                    <p>
+                                                                            <span class="wpcf7-form-control-wrap" data-name="your-message">
+                                                                                <textarea wire:model="notes" cols="40" rows="5" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Yêu cầu đặt bàn"></textarea>
+                                                                            </span>
+                                                                                    </p>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-
-                                                                        <div class="row row-form">
-                                                                            <div class="column-tablet-4 column-12">
-                                                                                <p>
-                                                                                    <span
-                                                                                        class="wpcf7-form-control-wrap"
-                                                                                        data-name="menu-498">
-                                                                                        <input
-                                                                                            wire:model="number_of_people"
-                                                                                            type="number"
-                                                                                            name="menu-498" min="1"
-                                                                                            max="100" required
-                                                                                            class="wpcf7-form-control wpcf7-date wpcf7-validates-as-required wpcf7-validates-as-date"
-                                                                                            aria-required="true"
-                                                                                            aria-invalid="false"
-                                                                                            placeholder="Số người"
-                                                                                            style="
-                                                                                               width: 100%;
-                                                                                           ">
-                                                                                    </span>
-                                                                                </p>
-
+                                                                            <div class="wpcf7-button wpcf7-button-2">
+                                                                                <input type="submit" value="Đặt bàn" class="wpcf7-form-control has-spinner wpcf7-submit" />
                                                                             </div>
-                                                                            <div class="column-tablet-4 column-12">
-                                                                                <p><span class="wpcf7-form-control-wrap"
-                                                                                        data-name="date-35"><input
-                                                                                            type="date" name="date-35"
-                                                                                            wire:model="reservation_day"
-                                                                                            class="wpcf7-form-control wpcf7-date wpcf7-validates-as-required wpcf7-validates-as-date"
-                                                                                            aria-required="true"
-                                                                                            aria-invalid="false" style="
-                                                                                            width: 100%;
-                                                                                        " /></span>
-                                                                                </p>
-                                                                            </div>
-                                                                            <div class="column-tablet-4 column-12">
-                                                                                <p>
-                                                                                    <span
-                                                                                        class="wpcf7-form-control-wrap"
-                                                                                        data-name="menu-498">
-                                                                                        <input
-                                                                                            wire:model="reservation_time"
-                                                                                            type="time" name="menu-498"
-                                                                                            required
-                                                                                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                                                            aria-required="true"
-                                                                                            aria-invalid="false" style="
-                                                                                               color: #ffffff;
-                                                                                               background-color: transparent;
-                                                                                               width: 100%;
-                                                                                               border: initial;
-                                                                                               padding: 13px 30px;
-                                                                                               border-width: 1px;
-                                                                                               border-style: dashed;
-                                                                                               border-image: initial;
-                                                                                               border-color: var(--e-global-color-border);
-                                                                                           ">
-                                                                                    </span>
-                                                                                </p>
-
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="row row-form">
-                                                                            <div class="column-12">
-
-                                                                                <p><span class="wpcf7-form-control-wrap"
-                                                                                        data-name="your-message">
-                                                                                        <select name="" id="" wire:model="restaurant_id">
-                                                                                        <option value="">Lựa chọn cơ sở</option>>
-                                                                                            @foreach ($restaurants as $restaurant)
-                                                                                                <option
-                                                                                                    value="{{ $restaurant->id }}">
-                                                                                                    {{ $restaurant->name }}
-                                                                                                </option>
-                                                                                            @endforeach
-                                                                                        </select>
-                                                                                    </span>
-                                                                                </p>
-
-                                                                                <p>
-                                                                                    <span
-                                                                                        class="wpcf7-form-control-wrap"
-                                                                                        data-name="your-message">
-                                                                                        <textarea wire:model="notes"
-                                                                                            cols="40" rows="5"
-                                                                                            class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"
-                                                                                            aria-required="true"
-                                                                                            aria-invalid="false"
-                                                                                            placeholder="Yêu cầu đặt bàn"></textarea>
-
-
-                                                                                    </span>
-
-                                                                                </p>
-                                                                                {{-- <p><span
-                                                                                        class="wpcf7-form-control-wrap"
-                                                                                        data-name="your-message">
-                                                                                        <input type="text" size="40"
-                                                                                            wire:model="email"
-                                                                                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                                                            style="
-                                                                                width: 100%;
-                                                                            " required placeholder="Email xác thực" />
-                                                                                    </span>
-                                                                                </p> --}}
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="wpcf7-button wpcf7-button-2"><input
-                                                                                type="submit" value="Đặt bàn"
-                                                                                class="wpcf7-form-control has-spinner wpcf7-submit" />
-                                                                        </div>
-                                                                    </form>
+                                                                        </form>
+                                                                    @endif
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1511,17 +1416,26 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div><!-- .entry-content -->
                             </article><!-- #post-## -->
-
                         </main><!-- #main -->
                     </div><!-- #primary -->
-
-
                 </div><!-- .col-full -->
             </div><!-- #content -->
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const reloadBtn = document.querySelector('.reload_btn');
+                    if (reloadBtn) {
+                        reloadBtn.addEventListener('click', function () {
+                            setTimeout(() => {
+                                window.location.href = '/reservation';
+                            }, 500);
+                        });
+                    }
+                });
+            </script>
 
 
 

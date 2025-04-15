@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đơn hàng {{ $order->order_code }}</title>
+    <title>Đơn hàng {{ $order->order_code ?? '' }}</title>
     <style>
         body { font-family: DejaVu Sans, sans-serif; }
         .invoice-box {
@@ -25,14 +25,16 @@
     </style>
 </head>
 <body>
-    <div class="invoice-box">
-        <h2>Đơn hàng: {{ $order->order_code }}</h2>
-        <p>Nhà hàng: {{ $order->restaurant->name }}</p>
-        <p>Người đặt: {{ $order->name }}</p>
-        <p>Số điện thoại: {{ $order->phone }}</p>
-        <p>Email: {{ $order->email }}</p>
-        <p>Địa chỉ: {{ $order->address }}</p>
-        <p>Ngày tạo: {{ $order->created_at->format('d/m/Y H:i') }}</p>
+<div class="invoice-box">
+    <h2>Đơn hàng: {{ $order->order_code ?? '' }}</h2>
+    <p>Nhà hàng: {{ $order->restaurant->name ?? '' }}</p>
+    <p>Người đặt: {{ $order->name ?? '' }}</p>
+    <p>Số điện thoại: {{ $order->phone ?? '' }}</p>
+    <p>Email: {{ $order->email ?? '' }}</p>
+    <p>Địa chỉ: {{ $order->address ?? '' }}</p>
+    <p>Ngày tạo: {{ $order->created_at ? $order->created_at->format('d/m/Y H:i') : '' }}</p>
+
+    @if($order->items && $order->items->count() > 0)
         <table>
             <tr>
                 <th>Món ăn</th>
@@ -42,14 +44,18 @@
             </tr>
             @foreach ($order->items as $item)
                 <tr>
-                    <td>{{ $item->dish->name }}</td>
-                    <td>{{ $item->quantity }}</td>
-                    <td>{{ number_format($item->dish->price, 0, ',', '.') }} VNĐ</td>
-                    <td>{{ number_format($item->dish->price * $item->quantity, 0, ',', '.') }} VNĐ</td>
+                    <td>{{ $item->dish->name ?? '' }}</td>
+                    <td>{{ $item->quantity ?? '' }}</td>
+                    <td>{{ $item->dish && $item->dish->price ? number_format($item->dish->price, 0, ',', '.') : '' }} VNĐ</td>
+                    <td>{{ $item->dish && $item->dish->price && $item->quantity ? number_format($item->dish->price * $item->quantity, 0, ',', '.') : '' }} VNĐ</td>
                 </tr>
             @endforeach
         </table>
-        <h3>Tổng cộng: {{ number_format($order->total_amount, 0, ',', '.') }} VNĐ</h3>
-    </div>
+    @else
+        <p>Không có món ăn nào trong đơn hàng.</p>
+    @endif
+
+    <h3>Tổng cộng: {{ $order->total_amount ? number_format($order->total_amount, 0, ',', '.') : '' }} VNĐ</h3>
+</div>
 </body>
 </html>

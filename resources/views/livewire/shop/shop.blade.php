@@ -61,7 +61,7 @@
                                             <button class="icon-button"  wire:click="addToCart({{ $dish->id }})">
                                                 <i class="fas fa-cart-plus"></i>
                                             </button>
-                                            <button class="icon-button"  onclick="window.location.href='/checkout?pd_id={{ $dish->id }}'">
+                                            <button class="icon-button" onclick="window.location.href='/checkout?pd_id={{ $dish->id }}'">
                                                 <i class="fas fa-bolt"></i>
                                             </button>
                                         </div>

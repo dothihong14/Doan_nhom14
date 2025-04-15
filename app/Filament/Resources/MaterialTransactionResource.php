@@ -30,6 +30,10 @@ class MaterialTransactionResource extends Resource
     }
     protected static ?int $navigationSort = 98;
 
+    /**
+     * @param Form $form
+     * @return Form
+     */
     public static function form(Form $form): Form
     {
         return $form
@@ -66,6 +70,7 @@ class MaterialTransactionResource extends Resource
                                         $set("details.{$index}.ingredient_id", null);
                                         $set("details.{$index}.actual_quantity", null);
                                         $set("details.{$index}.reason", null);
+                                        $set("details.{$index}.image_url", null);
                                     }
                                 }
                             }),
@@ -128,18 +133,42 @@ class MaterialTransactionResource extends Resource
                                         'Khác' => 'Khác'
                                     ])
                                     ->reactive()
+                                    ->required()
                                     ->afterStateUpdated(function (callable $set, $state) {
-                                        if ($state !== 'Khác') {
-                                            $set('custom_reason', null);
+                                        if ($state !== 'Nguyên liệu hỏng') {
+                                            $set('image_url', null);
                                         }
                                     }),
-
                                 Forms\Components\TextInput::make('custom_reason')
                                     ->label('Lý do khác')
                                     ->required(fn (callable $get) => $get('reason') === 'Khác')
                                     ->visible(fn (callable $get) => $get('reason') === 'Khác')
-                                    ->maxLength(255),
+                                    ->maxLength(255)
+                                    ->reactive(),
+                                Forms\Components\FileUpload::make('image_url')
+                                    ->label('Hình ảnh')
+                                    ->image()
+                                    ->disk('public')
+                                    ->directory('exports')
+                                    ->required(fn (callable $get) => $get('reason') === 'Nguyên liệu hỏng')
+                                    ->visible(fn (callable $get) => $get('reason') === 'Nguyên liệu hỏng')
+                                    ->acceptedFileTypes(['image/*']),
                             ])
+                            ->mutateRelationshipDataBeforeFillUsing(function (array $data): array {
+                                $fixedReasons = ['Nguyên liệu hỏng', 'Xuất cơ sở khác', 'Khác'];
+                                if (!in_array($data['reason'], $fixedReasons)) {
+                                    $data['custom_reason'] = $data['reason'];
+                                    $data['reason'] = 'Khác';
+                                }
+                                return $data;
+                            })
+                            ->mutateRelationshipDataBeforeSaveUsing(function (array $data): array {
+                                if ($data['reason'] === 'Khác' && !empty($data['custom_reason'])) {
+                                    $data['reason'] = $data['custom_reason'];
+                                }
+                                unset($data['custom_reason']);
+                                return $data;
+                            })
                             ->columns(3),
                     ])
                     ->columnSpan('full'),

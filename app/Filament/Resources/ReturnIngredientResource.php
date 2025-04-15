@@ -114,8 +114,15 @@ class ReturnIngredientResource extends Resource
                                     return ['max:' . $ingredient->quantity_in_stock];
                                 }),
                             Forms\Components\TextInput::make('reason')
-                                ->label('Lý do'),
-                        ])->columns(3),
+                                ->label('Lý do')
+                                ->required(),
+                            Forms\Components\FileUpload::make('image_url')
+                                ->label('Hình ảnh')
+                                ->image()
+                                ->disk('public')
+                                ->required()
+                                ->acceptedFileTypes(['image/*']),
+                        ])->columns(4),
                 ]),
         ]);
     }

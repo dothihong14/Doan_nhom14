@@ -1207,10 +1207,10 @@
                                         data-id="901b06e" data-element_type="widget"
                                         data-widget_type="woocommerce-breadcrumb.default">
                                         <div class="elementor-widget-container">
-                                            <div class="delicioz-woocommerce-title">My account</div>
-                                            <nav class="woocommerce-breadcrumb"><a
-                                                    href="https://demo2.themelexus.com/delicioz">Home Page</a><i
-                                                    class="delicioz-icon-arrow-right-s-line"></i>My account</nav>
+                                            <div class="delicioz-woocommerce-title" style="font-family: 'Times New Roman'">Chi tiết đơn hàng</div>
+                                            <nav class="woocommerce-breadcrumb" style="font-family: 'Times New Roman'"><a
+                                                    href="https://demo2.themelexus.com/delicioz" style="font-family: 'Times New Roman'">Trang chủ</a><i
+                                                    class="delicioz-icon-arrow-right-s-line"></i>Chi tiết đơn hàng</nav>
                                         </div>
                                     </div>
                                 </div>
@@ -1242,7 +1242,7 @@
                                             </p>
                                             <div class="order-details">
                                                 <div class="customer-info">
-                                                    <h3>Thông tin khách hàng</h3>
+                                                    <h3 style="font-family: 'Times New Roman'">Thông tin khách hàng</h3>
                                                     <div class="info-item"><strong>Mã đơn hàng:</strong> {{ $order->order_code }}</div>
                                                     <div class="info-item"><strong>Tên khách hàng:</strong> {{ $order->name }}</div>
                                                     <div class="info-item"><strong>Số điện thoại:</strong> {{ $order->phone }}</div>
@@ -1251,7 +1251,7 @@
                                                 </div>
 
                                                 <div class="order-summary">
-                                                    <h3>Danh sách món ăn</h3>
+                                                    <h3 style="font-family: 'Times New Roman'">Danh sách món ăn</h3>
                                                     <div class="table-responsive">
                                                         <table>
                                                             <thead>
@@ -1259,7 +1259,6 @@
                                                                     <th>Tên món ăn</th>
                                                                     <th>Số lượng</th>
                                                                     <th>Giá</th>
-                                                                    <th>Tên nhà hàng</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -1267,8 +1266,7 @@
                                                                     <tr>
                                                                         <td>{{ $item->dish->name }}</td>
                                                                         <td>{{ $item->quantity }}</td>
-                                                                        <td>{{ number_format($item->price, 0, ',', '.') }} VNĐ</td>
-                                                                        <td>{{ $item->dish->restaurant->name }}</td>
+                                                                        <td>{{ number_format($item->total_price, 0, ',', '.') }} VNĐ</td>
                                                                     </tr>
                                                                 @endforeach
                                                             </tbody>
@@ -1276,9 +1274,29 @@
                                                     </div>
                                                     <div class="total-info">
                                                         <div><strong>Tổng tiền:</strong> {{ number_format($order->total_amount, 0, ',', '.') }} VNĐ</div>
-                                                        <div><strong>Phương thức thanh toán:</strong> {{ $order->payment_method }}</div>
-                                                        <div><strong>Trạng thái thanh toán:</strong> {{ $order->payment_status }}</div>
-                                                        <div><strong>Trạng thái đơn hàng:</strong> {{ $order->status }}</div>
+                                                        <div><strong>Phương thức thanh toán:</strong> {{ $order->payment_method == 'cod' ? 'Thanh toán khi nhân hàng' : "Thanh toán trực tuyến" }}</div>
+                                                        <div><strong>Trạng thái thanh toán:</strong> {{ $order->payment_status == 'paid' ? 'Đã thanh toán' : 'Chưa thanh toán' }}</div>
+                                                        <div><strong>Trạng thái đơn hàng:</strong>
+                                                            @php
+                                                                switch ($order->status) {
+                                                                    case 'pending':
+                                                                        echo 'Đang chờ';
+                                                                        break;
+                                                                    case 'confirmed':
+                                                                        echo 'Đã xác nhận';
+                                                                        break;
+                                                                    case 'on_the_way':
+                                                                        echo 'Đang giao hàng';
+                                                                        break;
+
+                                                                    case 'delivered':
+                                                                        echo 'Đã giao hàng';
+                                                                        break;
+                                                                    default:
+                                                                        echo 'Đã hủy';
+                                                                }
+                                                            @endphp
+                                                        </div>
                                                         <div><strong>Ghi chú:</strong> {{ $order->notes }}</div>
                                                     </div>
                                                 </div>
