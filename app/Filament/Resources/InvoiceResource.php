@@ -104,6 +104,14 @@ class InvoiceResource extends Resource
                                 }
                             }),
 
+                        Forms\Components\Select::make('payment_method')
+                            ->label('Phương thức thanh toán')
+                            ->options([
+                                'cod' => 'Tiền mặt',
+                                'bank' => 'Chuyển khoản',
+                            ])
+                            ->required(),
+
                         Forms\Components\Select::make('status')
                             ->label('Trạng thái')
                             ->options([
