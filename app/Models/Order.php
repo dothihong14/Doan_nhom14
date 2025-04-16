@@ -31,7 +31,7 @@ class Order extends Model
     public function save(array $options = [])
     {
         if ($this->isDirty('status') && $this->status === 'delivered') {
-            $user = Customer::where('email', $this->email)->first();
+            $user = User::where('email', $this->email)->first();
             if ($user) {
                 $loyaltyPoints = round($this->total_amount * 0.05);
 
