@@ -43,7 +43,7 @@ class Table extends Model
 
             $hasUpcomingReservation = \App\Models\Reservation::where('table_id', $table->id)
                 ->where('reservation_day', $currentDay)
-                ->whereBetween('reservation_date', [$now, $oneHourLater])
+                ->whereBetween('reservation_day', [$now, $oneHourLater])
                 ->exists();
 
             if ($hasUpcomingReservation && $table->status !== 'reserved') {

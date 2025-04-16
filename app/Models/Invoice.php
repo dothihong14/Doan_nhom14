@@ -19,6 +19,7 @@ class Invoice extends Model
         'point_discount',
         'restaurant_discount',
         'status',
+        'payment_method'
     ];
 
     /**

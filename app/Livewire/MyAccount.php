@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Customer;
+use App\Models\User;
 use Livewire\Component;
 
 class MyAccount extends Component
@@ -15,7 +16,7 @@ class MyAccount extends Component
         if(!$this->user){
             return redirect()->route('login');
         }
-        $this->customer = Customer::where('email', $this->user->email)->first();
+        $this->customer = User::where('email', $this->user->email)->first();
     }
     public function render()
     {

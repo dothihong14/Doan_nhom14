@@ -25,7 +25,7 @@ class CreateInvoice extends CreateRecord
         if (auth()->user()->restaurant_id) {
             $data['restaurant_id'] = auth()->user()->restaurant_id;
         }
-        if ($data['point_discount'] > 0) {
+        if (isset($data['point_discount']) && $data['point_discount'] > 0) {
             $user = User::findOrFail($data['user_id']);
             $user->loyalty_points = 0;
             $user->save();

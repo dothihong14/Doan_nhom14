@@ -94,7 +94,6 @@ class OrderResource extends Resource
                         Forms\Components\TextInput::make('email')
                             ->label('Email')
                             ->email()
-                            ->required()
                             ->afterStateHydrated(function ($set, $record) {
                                 if ($record && $record->user_id && $record->user) {
                                     $set('email', $record->user->email);
