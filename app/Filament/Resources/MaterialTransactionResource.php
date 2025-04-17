@@ -17,16 +17,16 @@ class MaterialTransactionResource extends Resource
     protected static ?string $model = MaterialTransaction::class;
 
     protected static ?string $navigationGroup = 'Quản lý Nguyên Liệu';
-    protected static ?string $navigationLabel = 'Phiếu Xuất Kho';
-    protected static ?string $title = 'Phiếu Xuất Kho';
-    protected static ?string $pluralTitle = 'Phiếu Xuất Kho';
-    protected static ?string $pluralModelLabel = 'Phiếu Xuất Kho';
-    protected static ?string $modelLabel = 'Phiếu Xuất Kho';
+    protected static ?string $navigationLabel = 'Phiếu xuất/Hủy nguyên liệu';
+    protected static ?string $title = 'Phiếu xuất/Hủy nguyên liệu';
+    protected static ?string $pluralTitle = 'Phiếu xuất/Hủy nguyên liệu';
+    protected static ?string $pluralModelLabel = 'Phiếu xuất/Hủy nguyên liệu';
+    protected static ?string $modelLabel = 'Phiếu xuất/Hủy nguyên liệu';
     protected static ?string $navigationIcon = 'heroicon-o-arrow-path';
 
     public static function getPluralModelLabel(): string
     {
-        return 'Phiếu xuất kho';
+        return 'Danh sách phiếu xuất/Hủy nguyên liệu';
     }
     protected static ?int $navigationSort = 98;
 

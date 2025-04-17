@@ -28,19 +28,6 @@ class Order extends Model
     {
         return $this->belongsToMany(Dish::class, 'order_items', 'order_id', 'dish_id');
     }
-    public function save(array $options = [])
-    {
-        if ($this->isDirty('status') && $this->status === 'delivered') {
-            $user = User::where('email', $this->email)->first();
-            if ($user) {
-                $loyaltyPoints = round($this->total_amount * 0.05);
-
-                $user->increment('loyalty_points', $loyaltyPoints);
-            }
-        }
-
-        return parent::save($options);
-    }
 
     public function restaurant()
     {
@@ -54,22 +41,36 @@ class Order extends Model
                 $builder->where('restaurant_id', auth()->user()->restaurant_id);
             }
         });
-        static::created(function ($invoice) {
-            if ($invoice->payment_status === 'paid' && $invoice->getOriginal('payment_status') !== 'paid' && isset($invoice->user_id)) {
-                $customer = User::findOrFail($invoice->user_id);
+
+        static::created(function ($order) {
+            if ($order->status === 'delivered' && $order->payment_status === 'paid' && $order->getOriginal('payment_status') !== 'paid' && isset($order->user_id)) {
+                $customer = User::findOrFail($order->user_id);
                 if ($customer) {
-                    $customer->update(['loyalty_points' => $customer->loyalty_points + $invoice->final_amount * 0.05]);
+                    $customer->update(['loyalty_points' => $customer->loyalty_points + $order->final_amount * 0.05]);
                 }
             }
         });
 
-        static::updated(function ($invoice) {
-            if ($invoice->wasChanged('payment_status') && $invoice->payment_status === 'paid' && $invoice->getOriginal('payment_status') !== 'paid' && isset($invoice->user_id)) {
-                $customer = User::findOrFail($invoice->user_id);
-                if ($customer) {
-                    $customer->update(['loyalty_points' => $customer->loyalty_points + $invoice->final_amount * 0.05]);
+        static::updated(function ($order) {
+            $originalPaymentStatus = $order->getOriginal('payment_status');
+            $originalStatus = $order->getOriginal('status');
+
+            if (
+                $order->payment_status === 'paid' &&
+                $order->status === 'delivered' &&
+                ($originalPaymentStatus !== 'paid' || $originalStatus !== 'delivered') &&
+                $order->wasChanged(['payment_status', 'status'])
+            ) {
+                if (isset($order->user_id)) {
+                    $customer = User::find($order->user_id);
+                    if ($customer) {
+                        $customer->update([
+                            'loyalty_points' => $customer->loyalty_points + $order->final_amount * 0.05
+                        ]);
+                    }
                 }
             }
         });
+
     }
 }

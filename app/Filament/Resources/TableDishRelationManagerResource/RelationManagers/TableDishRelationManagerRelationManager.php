@@ -90,6 +90,11 @@ class TableDishRelationManagerRelationManager extends RelationManager
             ->headerActions([
                 Tables\Actions\CreateAction::make()
                     ->label('Thêm món ăn')
+                    ->mutateFormDataUsing(function (array $data, RelationManager $livewire): array {
+                        $table = $livewire->getOwnerRecord();
+                        $data['restaurant_id'] = $table->restaurant_id;
+                        return $data;
+                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

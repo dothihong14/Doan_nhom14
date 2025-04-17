@@ -12,7 +12,7 @@ class Customer extends Model
     // Khai báo tên bảng nếu khác với quy ước
     protected $table = 'customers';
 
-    // Khai báo các trường có thể được gán hàng loạt
+// Khai báo các trường có thể được gán hàng loạt
     protected $fillable = [
         'email',
         'address',

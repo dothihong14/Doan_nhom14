@@ -76,7 +76,6 @@ class InvoiceResource extends Resource
                                 }
                             })
                             ->afterStateHydrated(function ($set, $record) {
-                                // Khi chỉnh sửa, nếu invoice có user_id, điền phone từ user
                                 if ($record && $record->user_id && $record->user) {
                                     $set('phone', $record->user->phone);
                                 }
@@ -86,7 +85,6 @@ class InvoiceResource extends Resource
                         Forms\Components\Hidden::make('has_user')
                             ->default(false)
                             ->afterStateHydrated(function ($set, $record) {
-                                // Khi chỉnh sửa, nếu invoice có user_id, đặt has_user là true
                                 if ($record && $record->user_id && $record->user) {
                                     $set('has_user', true);
                                 }
@@ -98,7 +96,6 @@ class InvoiceResource extends Resource
                             ->readOnly(fn($get) => $get('has_user'))
                             ->visible(fn($get) => $get('has_user'))
                             ->afterStateHydrated(function ($set, $record) {
-                                // Khi chỉnh sửa, nếu invoice có user_id, điền name từ user
                                 if ($record && $record->user_id && $record->user) {
                                     $set('name', $record->user->name);
                                 }
@@ -148,12 +145,22 @@ class InvoiceResource extends Resource
                                             ->label('Đổi điểm')
                                             ->reactive()
                                             ->default(false)
-                                            ->afterStateUpdated(function ($state, callable $set, $get) {
-                                                static::updateFinalAmount($set, $get);
+                                            ->afterStateHydrated(function ($set, $record) {
+                                                // Nếu invoice đã sử dụng điểm (point_discount > 0), tự động checked
+                                                if ($record && $record->point_discount > 0) {
+                                                    $set('point_discount_amount', true);
+                                                }
+                                            })
+                                            ->disabled(function ($get, $record) {
+                                                // Chỉ khóa checkbox nếu bản ghi đã có point_discount > 0
+                                                return $record && $record->point_discount > 0;
                                             })
                                             ->dehydrated(true)
                                             ->dehydrateStateUsing(function ($state) {
                                                 return (bool) $state;
+                                            })
+                                            ->afterStateUpdated(function ($state, callable $set, $get) {
+                                                static::updateFinalAmount($set, $get);
                                             }),
                                     ])
                                     ->columns(2),
@@ -161,19 +168,26 @@ class InvoiceResource extends Resource
                                 Forms\Components\Hidden::make('point_discount')
                                     ->default(0)
                                     ->dehydrated(true)
-                                    ->dehydrateStateUsing(function ($state, $get) {
-                                        $points = 0;
-                                        if ($get('point_discount_amount') && $get('has_user')) {
-                                            $points = $get('loyalty_points') ?? 0;
+                                    ->afterStateHydrated(function ($set, $record) {
+                                        // Lấy giá trị point_discount từ database khi form được khởi tạo
+                                        if ($record && $record->point_discount) {
+                                            $set('point_discount', $record->point_discount);
                                         }
-                                        return $points;
+                                    })
+                                    ->dehydrateStateUsing(function ($state, $get) {
+                                        // Chỉ lưu point_discount nếu checkbox point_discount_amount được bật và có user
+                                        if ($get('point_discount_amount') && $get('has_user')) {
+                                            return $get('loyalty_points') ?? 0;
+                                        }
+                                        return 0;
                                     }),
 
                                 Forms\Components\Placeholder::make('point_discount_amount')
                                     ->label('Số điểm quy đổi')
                                     ->content(function ($get) {
                                         if ($get('point_discount_amount')) {
-                                            $points = $get('loyalty_points') ?? 0;
+                                            // Hiển thị giá trị point_discount thay vì loyalty_points
+                                            $points = $get('point_discount') ?? 0;
                                             return number_format($points) . ' điểm';
                                         }
                                         return 'Không áp dụng điểm';
@@ -184,7 +198,6 @@ class InvoiceResource extends Resource
                                     ->default(0)
                                     ->dehydrated(true)
                                     ->afterStateHydrated(function ($set, $record) {
-                                        // Khi chỉnh sửa, nếu invoice có user_id, điền loyalty_points từ user
                                         if ($record && $record->user_id && $record->user) {
                                             $set('loyalty_points', $record->user->loyalty_points ?? 0);
                                         }
