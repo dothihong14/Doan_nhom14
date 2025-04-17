@@ -63,15 +63,17 @@ class UserResource extends Resource
                     //     ->maxLength(255),
                 ]),
                 // Quyền
-                Forms\Components\Section::make('Quyền')->schema([
+                Forms\Components\Section::make('Chức vụ')->schema([
                     Forms\Components\CheckboxList::make('roles')
                         ->label('Vai trò')
                         ->relationship('roles', 'name')
                         ->searchable(),
-                        Forms\Components\Select::make('restaurant_id')
+                    Forms\Components\Hidden::make('role')
+                        ->default('admin'),
+                    Forms\Components\Select::make('restaurant_id')
                         ->label('Cơ sở')
                         ->relationship('restaurant', 'name')
-                       ,
+                        ->visible(fn () => !auth()->user()->restaurant_id),
                 ]),
 
                 // Mật khẩu
@@ -79,8 +81,8 @@ class UserResource extends Resource
                     Forms\Components\TextInput::make('password')
                     ->password()
                     ->minLength(8)
-                    ->dehydrateStateUsing(fn($state) => bcrypt($state))
-                    ->dehydrated(fn($state) => filled($state))
+//                    ->dehydrateStateUsing(fn($state) => bcrypt($state))
+//                    ->dehydrated(fn($state) => filled($state))
                     ->label('Password'),
                 ]),
             ]);
@@ -140,9 +142,15 @@ class UserResource extends Resource
                 ]),
             ]);
     }
-     public static function getNavigationBadge(): ?string
+
+    public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder
     {
-        return static::getModel()::count();
+        return parent::getEloquentQuery()->where('role', 'admin');
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::where('role', 'admin')->count();
     }
     public static function getRelations(): array
     {

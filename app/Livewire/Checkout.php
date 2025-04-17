@@ -212,15 +212,11 @@ class Checkout extends Component
         if (!request()->query('pd_id')) {
             CartManagement::clearCartItems();
         }
-        if (!auth()->user()) {
-            $customer = Customer::where('email', $this->email)->first();
-            if (!$customer) {
-                $customer = Customer::create([
-                    'email' => $this->email,
-                    'name' => $this->name,
-                    'phone' => $this->phone,
-                    'address' => $this->address,
-                ]);
+        if (auth()->user()) {
+            $user = User::find(auth()->id());
+            if ($user->address == '' || $user->address == null) {
+                $user->address = $this->address;
+                $user->save();
             }
         }
         $this->order_id = $order->id;

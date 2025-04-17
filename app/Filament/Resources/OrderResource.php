@@ -150,12 +150,22 @@ class OrderResource extends Resource
                                             ->label('Đổi điểm')
                                             ->reactive()
                                             ->default(false)
-                                            ->afterStateUpdated(function ($state, callable $set, $get) {
-                                                static::updateFinalAmount($set, $get);
+                                            ->afterStateHydrated(function ($set, $record) {
+                                                // Nếu đơn hàng đã sử dụng điểm (point_discount > 0), tự động checked
+                                                if ($record && $record->point_discount > 0) {
+                                                    $set('point_discount_amount', true);
+                                                }
+                                            })
+                                            ->disabled(function ($get, $record) {
+                                                // Chỉ khóa checkbox nếu bản ghi đã có point_discount > 0
+                                                return $record && $record->point_discount > 0;
                                             })
                                             ->dehydrated(true)
                                             ->dehydrateStateUsing(function ($state) {
                                                 return (bool) $state;
+                                            })
+                                            ->afterStateUpdated(function ($state, callable $set, $get) {
+                                                static::updateFinalAmount($set, $get);
                                             }),
                                     ])
                                     ->columns(2),
@@ -163,19 +173,26 @@ class OrderResource extends Resource
                                 Forms\Components\Hidden::make('point_discount')
                                     ->default(0)
                                     ->dehydrated(true)
-                                    ->dehydrateStateUsing(function ($state, $get) {
-                                        $points = 0;
-                                        if ($get('point_discount_amount') && $get('has_user')) {
-                                            $points = $get('loyalty_points') ?? 0;
+                                    ->afterStateHydrated(function ($set, $record) {
+                                        // Lấy giá trị point_discount từ database khi form được khởi tạo
+                                        if ($record && $record->point_discount) {
+                                            $set('point_discount', $record->point_discount);
                                         }
-                                        return $points;
+                                    })
+                                    ->dehydrateStateUsing(function ($state, $get) {
+                                        // Chỉ lưu point_discount nếu checkbox point_discount_amount được bật và có user
+                                        if ($get('point_discount_amount') && $get('has_user')) {
+                                            return $get('loyalty_points') ?? 0;
+                                        }
+                                        return 0;
                                     }),
 
                                 Forms\Components\Placeholder::make('point_discount_amount')
                                     ->label('Số điểm quy đổi')
                                     ->content(function ($get) {
                                         if ($get('point_discount_amount')) {
-                                            $points = $get('loyalty_points') ?? 0;
+                                            // Hiển thị giá trị point_discount thay vì loyalty_points
+                                            $points = $get('point_discount') ?? 0;
                                             return number_format($points) . ' điểm';
                                         }
                                         return 'Không áp dụng điểm';
@@ -398,7 +415,8 @@ class OrderResource extends Resource
                     Tables\Actions\EditAction::make()
                         ->label('Chỉnh Sửa'),
                     Tables\Actions\DeleteAction::make()
-                        ->label('Xóa'),
+                        ->label('Xóa')
+                        ->visible(fn ($record) => $record->status !== 'delivered' && $record->payment_status !== 'paid'),
                     Tables\Actions\Action::make('print')
                         ->label('In đơn hàng')
                         ->icon('heroicon-o-printer')

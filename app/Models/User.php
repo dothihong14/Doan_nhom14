@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Filament\AvatarProviders\UiAvatarsProvider;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -30,6 +31,7 @@ class User extends Authenticatable implements HasAvatar
         'is_locked',
         'loyalty_points',
         'avatar_url',
+        'role'
     ];
 
     /**
@@ -65,5 +67,19 @@ class User extends Authenticatable implements HasAvatar
     public function restaurant()
     {
         return $this->belongsTo(Restaurant::class);
+    }
+    protected static function booted()
+    {
+        static::creating(function ($user) {
+            if (auth()->check() && auth()->user()->restaurant_id) {
+                $user->restaurant_id = auth()->user()->restaurant_id;
+            }
+        });
+
+        static::updating(function ($user) {
+            if (auth()->check() && auth()->user()->restaurant_id) {
+                $user->restaurant_id = auth()->user()->restaurant_id;
+            }
+        });
     }
 }
